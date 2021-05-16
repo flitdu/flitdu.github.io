@@ -1,5 +1,203 @@
-<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️《计算机视觉零基础入门》三：图像分类 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️《计算机视觉零基础入门》三：图像分类 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️《计算机视觉零基础入门》三：图像分类</h1><div class="post-info">2019-10-27</div><div class="post-content"><p>[TOC]</p>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>⭐️《计算机视觉零基础入门》三：图像分类 | Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC]">
+<meta name="keywords" content="视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="⭐️《计算机视觉零基础入门》三：图像分类">
+<meta property="og:url" content="http://yoursite.com/2019/10/27/视频《计算机视觉零基础入门》笔记三/index.html">
+<meta property="og:site_name" content="Note">
+<meta property="og:description" content="[TOC]">
+<meta property="og:locale" content="zh-CN//语言">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8681ddxx6j316q0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8698opeogj30og01kaaz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eb0p4x8ij31860u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebmdhgycj31720u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebopo5euj31610u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebqtggxzj317h0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebs9q5bbj318p0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebv1539jj318d0u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebvl4l19j319e0u0kjl.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec1595n1j317s0u01ky.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec395m65j318t0u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec74sgfnj317w0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec8wq01lj31bu0u0e81.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecbns0kij31js0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecdqaeljj31dr0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecfpx7klj318u0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8echl0t8vj319n0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecj2iyt2j319p0u07wi.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eckxn9rdj318p0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecl68th7j317b0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecnjrym2j315x0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eco3axkvj313r0u01iq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecox6wodj31bt0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecpvy14cj317n0u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecqy3chlj31840u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ectv8uzsj31730u07v8.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecv6492ij31810u0e81.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecwz5rfdj319l0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edxn2l8mj318x0u0hat.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edxshrsdj312i0u0qub.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed31c20aj316v0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edycf31qj317g0u0kj3.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed58zepaj317g0u0kj3.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed5ze678j31aw0u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed7hpnl2j31al0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edyqlr3kj31870u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edc0oth2j319u0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edd4if30j317l0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eddy5obhj316p0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edfksvhjj31f10u0h6q.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edhqogjrj31970u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edijfoskj318n0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edjc7kqpj314s0u0qtt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edkgd8mzj316a0u0x33.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go2168sqq1j318s0ii0xz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216dhm8tj31u00u0wqb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216e642xj31qc0qs0zl.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go2168gu74j30k005rmxv.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216bez5sj31lx0u0qbt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216ahfgtj31sb0u047b.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go21699zy3j31jj0u0n3t.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216c89j9j31n00u0tgx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go2169ovodj313c0bkwfz.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1go216cn8pxj31c60u0afi.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g8693uwjz8j317s0tkb29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g868ypmkqvj30rm0hmdm4.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etpdnvuwj31db0u0h2d.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etq8om6yj315r0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etr8a5lnj31770u0x6p.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ett236ztj319e0u01b0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ettztdv1j314w0u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etuw5cljj317k0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etzt1it1j317v0u07wi.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eu0d27xnj31710u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euh1fl9sj316d0u0qv5.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eutpm807j318a0u0e81.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euuggaluj318o0u0npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euw6gy07j318h0u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evjetknzj316d0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evl0ssf1j319c0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evq48qwfj317e0u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evqxnb3bj316a0u0e81.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evuq8omzj316e0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evvn9qaaj31cu0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evweu3xqj315d0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evwrzuuyj318a0u0kjl.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evx6qxkhj31520u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evz1uqj6j315t0u0kjl.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evznpg7kj31900u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew155kigj31hn0u0tur.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew618hwij31co0sokaq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew6ux7ryj31520u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew734uj8j317b0u0u0x.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew8jmvhmj315t0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew9os2s1j31850u0tvn.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewb251lyj31au0u0hdt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewbe1dl3j317a0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewcku5u7j318a0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewfqqwfsj31510u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewh2fh3rj315x0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewhn6nnlj315l0u0awb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewi0vqcnj313x0u01kx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewikrzo3j318b0u0b29.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewj2jm7qj317d0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewnbx6xyj31740u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewoadxtdj317z0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewplucxoj31880u07wh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewsv2r2uj31hi0oend2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88h7tz6wvj30u40meaoo.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88h86830nj30qg0hy439.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hbv30sej317t0u0e5z.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hcit6ooj30re0iegrc.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88he773n9j30sk0k8qqq.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hfnezr6j30rs0ikq8v.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hh0d54wj31bt0u0qv5.jpg">
+<meta property="og:updated_time" content="2021-02-27T06:28:35.369Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="⭐️《计算机视觉零基础入门》三：图像分类">
+<meta name="twitter:description" content="[TOC]">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g8681ddxx6j316q0u01kx.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-视频《计算机视觉零基础入门》笔记三" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/27/视频《计算机视觉零基础入门》笔记三/" class="article-date">
+  <time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished">2019-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CV/">CV</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ⭐️《计算机视觉零基础入门》三：图像分类
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8681ddxx6j316q0u01kx.jpg" alt="image-20191021230628451"></p>
 <a id="more"></a>
 
@@ -144,4 +342,148 @@
 <li><a href="[https://github.com/scutan90/DeepLearning-500-questions/tree/master/ch08_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B](https://github.com/scutan90/DeepLearning-500-questions/tree/master/ch08_目标检测)">第八章 目标检测</a></li>
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/11/02/pyhanlp笔记/" title="⭐️pyhanlp笔记" class="prev">PREV</a><a href="/2019/10/26/视频《计算机视觉零基础入门》笔记二/" title="⭐️《计算机视觉零基础入门》二：深度学习基础" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/27/视频《计算机视觉零基础入门》笔记三/" data-id="ckor8mdxd003lwnonetcedou6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/视觉/">视觉</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/02/pyhanlp笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ⭐️pyhanlp笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/26/视频《计算机视觉零基础入门》笔记二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">⭐️《计算机视觉零基础入门》二：深度学习基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页/">网页</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bert/">bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyhanlp/">pyhanlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力扣/">力扣</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/底层/">底层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索-推荐/">搜索/推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编辑/">编辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站/">网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网课/">网课</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视觉/">视觉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阅读/">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/bert/" style="font-size: 10px;">bert</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nlp/" style="font-size: 18px;">nlp</a> <a href="/tags/pyhanlp/" style="font-size: 10px;">pyhanlp</a> <a href="/tags/力扣/" style="font-size: 12px;">力扣</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/底层/" style="font-size: 18px;">底层</a> <a href="/tags/搜索-推荐/" style="font-size: 10px;">搜索/推荐</a> <a href="/tags/机器学习/" style="font-size: 16px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 16px;">深度学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/编辑/" style="font-size: 10px;">编辑</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网课/" style="font-size: 14px;">网课</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/视觉/" style="font-size: 14px;">视觉</a> <a href="/tags/阅读/" style="font-size: 14px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2119/10/">October 2119</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2100/01/">January 2100</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/01/">January 2000</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2119/10/28/待研究问题/">⭐️待研究问题</a>
+          </li>
+        
+          <li>
+            <a href="/2100/01/29/网站推荐/">⭐️网站推荐</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/08/copy/">⭐️copy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/04/数据结构与算法之美（加餐）/">⭐️数据结构与算法之美（加餐）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/02/数据结构与算法之美（基础篇）/">⭐️数据结构与算法之美（基础篇）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Dufy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

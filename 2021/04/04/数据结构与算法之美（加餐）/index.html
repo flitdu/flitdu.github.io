@@ -1,5 +1,228 @@
-<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️数据结构与算法之美（加餐） · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️数据结构与算法之美（加餐） - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️数据结构与算法之美（加餐）</h1><div class="post-info">2021-04-04</div><div class="post-content"><a id="more"></a>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>⭐️数据结构与算法之美（加餐） | Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="不定期福利第一期 | 数据结构与算法学习书单王争 2018-09-30   你好，我是王争。欢迎来到不定期更新的周末福利时间。 专栏已经上线两周了，看到这么多人在留言区写下自己的疑惑或者观点，我特别开心。在留言里，很多同学让我推荐一些学习数据结构与算法的书籍。因此我特意跟编辑商量了，给你一个周末福利。所以这一期呢，我们就来聊一聊数据结构和算法学习过程中有哪些必读书籍。 有的同学还在读大学，代码">
+<meta name="keywords" content="算法,底层,网课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="⭐️数据结构与算法之美（加餐）">
+<meta property="og:url" content="http://yoursite.com/2021/04/04/数据结构与算法之美（加餐）/index.html">
+<meta property="og:site_name" content="Note">
+<meta property="og:description" content="不定期福利第一期 | 数据结构与算法学习书单王争 2018-09-30   你好，我是王争。欢迎来到不定期更新的周末福利时间。 专栏已经上线两周了，看到这么多人在留言区写下自己的疑惑或者观点，我特别开心。在留言里，很多同学让我推荐一些学习数据结构与算法的书籍。因此我特意跟编辑商量了，给你一个周末福利。所以这一期呢，我们就来聊一聊数据结构和算法学习过程中有哪些必读书籍。 有的同学还在读大学，代码">
+<meta property="og:locale" content="zh-CN//语言">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d2959kj30vq0hsacb.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84cy0f32j30vq0na0x1.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/1f/85/1fca022ef82d07dcb93cd173026d7385.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7wq9togjj30vq0k5adv.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/8c/ca/8c1963cc2a871f4c2de8631d4f8684ca.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84deegnlj30vq0kln00.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84cwvac1j30vq0jywhr.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/c3/67/c3db74036668f2d279e9a4a7b8468167.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/56/c2/56db1ff64199a020ef376187f75304c2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7wu2xk8qj30vq0hs41j.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d3pag8j30vq0hs788.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d4go78j30vq0hsq5b.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d7c0o1j30vq0mn0x1.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7wxcgewaj30vq0hs7a5.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d6ioopj31400u0gri.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84cx7hn5j30vq0jywhr.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7wjor9n4j30vq0hsn0z.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d35skyj30vq0hsq51.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7whpp32aj30vq0hsgpf.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84ddviq9j30vq0hs0uu.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84dbzsjgj30vq0hs40m.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp7waufhjqj30vq0hsgpe.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d54x8uj30vq0hs0vk.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/0c/72/0c441ee9376e974f5112eab4dd7b2672.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d9qp68j315e0u0e81.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d61adij30vq0hstcy.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d1lnl5j30vq0frq5i.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d5f8lfj30vq0kognm.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/5d/f8/5d42370f6823b1ed97d5d86d773ac0f8.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84dcjj0ej30vq0fywg7.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84dfe15cj30vq0hstcw.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d2sa48j30vq0m9q8x.jpg">
+<meta property="og:image" content="https://static001.geekbang.org/resource/image/26/89/26846808b35a081f985418258200b489.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d8z52rj30ku5aae82.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84dbphijj310s0u04qp.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d807caj30ku696npd.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84cyfiwvj30ku04mq3n.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84daf8smj30u05st1kz.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84dd3xh3j30u04nchdt.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d0pubvj30u02aykjn.jpg">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAABCAYAAACVOl3IAAAAJUlEQVQYV2N89+7df0FBQQYQeP/+PZgGAUJilMpjs4dSM5H1AwBwSSrLZGasMwAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAAHUlEQVQYV2N89+7dfwYoEBQUBLPev3/PgItNSC0ADtASy+rFJtUAAAAASUVORK5CYII=">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAABCAYAAACPBr1GAAAAJ0lEQVQYV2N89+7dfwYoEBQUBLPev3/PQAkbm3mE7KBUHpd7YeYCAE50MMsBeqQ5AAAAAElFTkSuQmCC">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAABCAYAAAAB3PQ6AAAAHUlEQVQYV2N89+7df0FBQQYQeP/+PQMxbLBiIAAAQE0Py6Kq0rkAAAAASUVORK5CYII=">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84cz41t3j30u01qou0y.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp9afl3z98j30tc0gugxh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp9aqmkt94j30w40luavt.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp9arg087wj30u60jak52.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp9atgzqszj30q80hm48d.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp9au42g2qj30s00h2dqa.jpg">
+<meta property="og:updated_time" content="2021-04-06T14:51:13.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="⭐️数据结构与算法之美（加餐）">
+<meta name="twitter:description" content="不定期福利第一期 | 数据结构与算法学习书单王争 2018-09-30   你好，我是王争。欢迎来到不定期更新的周末福利时间。 专栏已经上线两周了，看到这么多人在留言区写下自己的疑惑或者观点，我特别开心。在留言里，很多同学让我推荐一些学习数据结构与算法的书籍。因此我特意跟编辑商量了，给你一个周末福利。所以这一期呢，我们就来聊一聊数据结构和算法学习过程中有哪些必读书籍。 有的同学还在读大学，代码">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d2959kj30vq0hsacb.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数据结构与算法之美（加餐）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/04/数据结构与算法之美（加餐）/" class="article-date">
+  <time datetime="2021-04-03T16:00:00.000Z" itemprop="datePublished">2021-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ⭐️数据结构与算法之美（加餐）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
 
 <h2 id="不定期福利第一期-数据结构与算法学习书单"><a href="#不定期福利第一期-数据结构与算法学习书单" class="headerlink" title="不定期福利第一期 | 数据结构与算法学习书单"></a>不定期福利第一期 | 数据结构与算法学习书单</h2><p>王争 2018-09-30</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84d2959kj30vq0hsacb.jpg" alt="img"></p>
@@ -741,4 +964,148 @@
 <li><a href>参考1</a><a href="#toc1">🔼</a></li>
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/11/08/copy/" title="⭐️copy" class="prev">PREV</a><a href="/2021/04/02/数据结构与算法之美（基础篇）/" title="⭐️数据结构与算法之美（基础篇）" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/04/数据结构与算法之美（加餐）/" data-id="ckor8mdxy004jwnoncvdxd0mu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/底层/">底层</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网课/">网课</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/11/08/copy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ⭐️copy
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/02/数据结构与算法之美（基础篇）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">⭐️数据结构与算法之美（基础篇）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NLP/">NLP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网页/">网页</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bert/">bert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyhanlp/">pyhanlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/力扣/">力扣</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/底层/">底层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索-推荐/">搜索/推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度学习/">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/电影/">电影</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编辑/">编辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网站/">网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网课/">网课</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视觉/">视觉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阅读/">阅读</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/bert/" style="font-size: 10px;">bert</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nlp/" style="font-size: 18px;">nlp</a> <a href="/tags/pyhanlp/" style="font-size: 10px;">pyhanlp</a> <a href="/tags/力扣/" style="font-size: 12px;">力扣</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/底层/" style="font-size: 18px;">底层</a> <a href="/tags/搜索-推荐/" style="font-size: 10px;">搜索/推荐</a> <a href="/tags/机器学习/" style="font-size: 16px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 16px;">深度学习</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a> <a href="/tags/电影/" style="font-size: 10px;">电影</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/编辑/" style="font-size: 10px;">编辑</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/网课/" style="font-size: 14px;">网课</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/视觉/" style="font-size: 14px;">视觉</a> <a href="/tags/阅读/" style="font-size: 14px;">阅读</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2119/10/">October 2119</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2100/01/">January 2100</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2000/01/">January 2000</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2119/10/28/待研究问题/">⭐️待研究问题</a>
+          </li>
+        
+          <li>
+            <a href="/2100/01/29/网站推荐/">⭐️网站推荐</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/08/copy/">⭐️copy</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/04/数据结构与算法之美（加餐）/">⭐️数据结构与算法之美（加餐）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/02/数据结构与算法之美（基础篇）/">⭐️数据结构与算法之美（基础篇）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Dufy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
