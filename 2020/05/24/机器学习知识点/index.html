@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️机器学习知识点 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️机器学习知识点 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️机器学习知识点</h1><div class="post-info">2020-05-24</div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3eov4z2ij310s0m2kjj.jpg" alt="image-20200524120234759"> </p>
+<a id="more"></a>
+
+<h2 id="AI-发展史"><a href="#AI-发展史" class="headerlink" title="AI 发展史"></a>AI 发展史</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3g9gspvzj30zs09egup.jpg" alt="image-20200524125656523"></p>
+<h2 id="机器学习解决问题的思路"><a href="#机器学习解决问题的思路" class="headerlink" title="机器学习解决问题的思路"></a>机器学习解决问题的思路</h2><ul>
+<li>机器学习问题，是要从有限的样例中通过算法总结出一般性的规律，并<strong>可以应用到新的未知数据上</strong>。</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3vbgocggj30vo0c6wnp.jpg" alt="image-20200524213750964"></p>
+<h2 id="机器学习类型比较"><a href="#机器学习类型比较" class="headerlink" title="机器学习类型比较"></a>机器学习类型比较</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3zqktvsxj30qk0n416j.jpg" alt="image-20200525001048405"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3zraxvfgj30zg0heqk8.jpg" alt="image-20200525001130184"></p>
+<h2 id="处理流程对比"><a href="#处理流程对比" class="headerlink" title="处理流程对比"></a>处理流程对比</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3hz7w5zhj3102076jxx.jpg" alt="image-20200524135619621"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3i00zl3zj310q08aq9w.jpg" alt="image-20200524135706064"></p>
+<p>花书💐：【注意可“学习”的部分越来越多】</p>
+<ul>
+<li>基于规则的系统</li>
+<li>经典机器学习</li>
+<li>表示学习</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfk3b2bbgzj30py0xykf0.jpg" alt="image-20200607222317406"></p>
+<h2 id="静态计算图-vs-动态计算图"><a href="#静态计算图-vs-动态计算图" class="headerlink" title="静态计算图 vs 动态计算图"></a>静态计算图 vs 动态计算图</h2><p><a href="https://blog.csdn.net/PaddlePaddle/article/details/100059492?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase" target="_blank" rel="noopener">都9102年了还不懂动态图吗？一文带你了解飞桨动态图</a></p>
+<blockquote>
+<p>目前深度学习框架主要有声明式编程和命令式编程两种编程方式。声明式编程，代码先描述要做的事情但不立即执行，对深度学习任务建模，需要事先定义神经网络的结构，然后再执行整个图结构，这一般称为静态图模式。而命令式编程对应的动态图模式，代码直接返回运算的结果，神经网络结构的定义和执行同步。通常来说，静态图模式能够对整体性做编译优化，更有利于性能的提升，而动态图则非常便于用户对程序进行调试。</p>
+</blockquote>
+<p><a href="https://www.zhihu.com/question/323859732" target="_blank" rel="noopener">PyTorch的动态计算图体现在什么地方？</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3ury7o3kj31ji0u0hdw.jpg" alt="image-20200524182931292"></p>
+<h2 id="训练需要的样本量"><a href="#训练需要的样本量" class="headerlink" title="训练需要的样本量"></a>训练需要的样本量</h2><blockquote>
+<p>As of 2016, a rough rule of thumb is that a supervised deep learning algorithm will generally achieve acceptable performance with around 5,000 labeled examples per category, and will match or exceed human performance when trained with a dataset containing at least 10 million labeled examples. Working successfully with datasets smaller than this is an important research area, focusing in particular on how we can take advantage of large quantities of unlabeled examples, with unsupervised or semi-supervised learning.</p>
+</blockquote>
+<p>对于监督深度学习算法，每类的样本标注量 <strong>5000</strong>，总共需至少 <strong>1000万</strong>的标注样本</p>
+<h2 id="提前终止"><a href="#提前终止" class="headerlink" title="提前终止"></a>提前终止</h2><p>依靠<strong>验证集</strong>判断，防止过拟合</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3x96sesaj30ji0i410b.jpg" alt="image-20200524224453672"></p>
+<p>此外，关于验证集作用，还可以用来模型选择和调参</p>
+<p>当通过训练集训练出多个模型后，为了能找出效果最佳的模型，使用各个模型对验证集数据进行预测，并记录模型准确率。选出效果最佳的模型所对应的参数，即用来调整模型参数。如svm中的参数c和核函数等。</p>
+<p><a href="https://cloud.tencent.com/developer/article/1558428" target="_blank" rel="noopener">训练集、验证集、测试集（附：分割方法+交叉验证）</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf8l0nvjpej315w0m4auk.jpg" alt="image-20200528232919495"></p>
+<h2 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h2><p>注意是不同训练集</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3yzqnydsj311q0eygzz.jpg" alt="image-20200524234459632"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z0flclvj311c060k0k.jpg" alt="image-20200524234539823"></p>
+<ul>
+<li>组合情况</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z7fqwn9j311204gtez.jpg" alt="image-20200524235223564"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z5llkhej30ro0oitub.jpg" alt="image-20200524235036234"></p>
+<p>图2.7给出了机器学习模型的期 望错误、偏差和方差随复杂度的变化情况，其中红色虚线表示最优模型.最优模 型并不一定是偏差曲线和方差曲线的交点.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z9ubh5tj30ti0foqeh.jpg" alt="image-20200524235442518"></p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>对于分类问题，评价标准有：</p>
+<ul>
+<li>准确率</li>
+<li>精确率P</li>
+<li>召回率R</li>
+<li>F值</li>
+</ul>
+<p>其中，P/R是针对<strong>每个类</strong>进行的性能估计</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf54kq30j9j30os0byjy8.jpg" alt="image-20200525234342429"></p>
+<p>为了计算所有类别的总体P,R，有两种方法：</p>
+<ul>
+<li>宏平均：每一类的算数平均值 </li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf54n3vsj2j30ls0biq8n.jpg" alt="image-20200525234601664"></p>
+<ul>
+<li>微平均</li>
+</ul>
+<p>一般 Micro 方法更容易受到样本不均衡的影响, 容易使得表现较好的大数样本掩盖表现不好的小数据量类别.</p>
+<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>可以看成是只有一层的神经网络，【参见】<a href="#toc3">⏬</a><a name="toc4"></a></p>
+<p><a href="https://mp.weixin.qq.com/s/mYZdgTwMIOVcbpKdNUSqYg" target="_blank" rel="noopener">万字干货|逻辑回归最详尽解释</a></p>
+<ul>
+<li>损失函数由来</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggetaqsw68j316i0tc4qp.jpg" alt="image-20200704120929534"></p>
+<h2 id="决策🌲"><a href="#决策🌲" class="headerlink" title="决策🌲"></a>决策🌲</h2><p>决策树的判断过程类似于if-else</p>
+<p>有不同的决策准则</p>
+<blockquote>
+<ol>
+<li>信息增益准则：对取值数目较多的属性偏好</li>
+<li>增益率准则：对取值数目较少的属性偏好</li>
+<li>基尼指数</li>
+</ol>
+</blockquote>
+<ul>
+<li>ID3</li>
+</ul>
+<p>树的构建原则：信息增益变大</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh10q8159j30ug0eawtw.jpg" alt="image-20201107232910616"></p>
+<blockquote>
+<p>信息熵的公式，其实也很简单：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh11c1zz0g305f01k3y9.gif" alt></p>
+<p>Pk表示的是：当前样本集合D中第k类样本所占的比例为Pk。</p>
+</blockquote>
+<ul>
+<li>C4.5</li>
+</ul>
+<p>定义增益率</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh26ybc3tg306u018a9t.gif" alt></p>
+<p>其中：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh26ynvdng306401ha9t.gif" alt>，为属性a的’固有值‘</p>
+<p>在使用时候，<strong>先从候选划分属性中找出信息增益高于平均水平的属性，再从中选择增益率最高的。</strong></p>
+<ul>
+<li>CART</li>
+</ul>
+<p>属性a 的基尼指数为：【选择其值最小的属性】</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh2hzyoznj30eg03kgn3.jpg" alt="image-20201108002022469"></p>
+<p>其中，Gini(D)为基尼值，衡量数据集D的纯度<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh2jxpauej30ie06aju1.jpg" alt="image-20201108002214116"></p>
+<ul>
+<li>剪枝</li>
+</ul>
+<p>目的是用来对付’过拟合‘</p>
+<p>分为两种</p>
+<blockquote>
+<p>预剪枝：基于’贪心‘</p>
+</blockquote>
+<p>在确定好属性后，根据<strong>验证集</strong>来判断进一步的划分是否提高了验证集的准确率，来据此最终确定划分的进行与否。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkhkws53fej31hk0dqb29.jpg" alt="image-20201108105721357"></p>
+<blockquote>
+<p>后剪枝，一般比预剪枝有更多的分支。性能上优于预剪枝，时间复杂度高</p>
+</blockquote>
+<p>是在树构建好后，<strong>自底向上</strong>对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来泛化性能提升，则将该子树替换为叶结点。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkhl8drcv6j30ta0bm4ai.jpg" alt="image-20201108110829534"></p>
+<h2 id="随机🌲🌲🌲"><a href="#随机🌲🌲🌲" class="headerlink" title="随机🌲🌲🌲"></a>随机🌲🌲🌲</h2><p>RF 是Bagging 的一个扩展变体</p>
+<p>RF在以决策树为基学习器构建Bagging 集成的基础上，进一步在决策树的训练过程中引入随机属性选择</p>
+<blockquote>
+<p>拓展–【基分类器的特点】：</p>
+<p>最好是不稳定的分类器，即对样本分布较为敏感为好</p>
+<p>除了决策树，神经网络也适合作为基分类器</p>
+</blockquote>
+<h2 id="神经网络分类"><a href="#神经网络分类" class="headerlink" title="神经网络分类"></a>神经网络分类</h2><p>图4.6给出了前馈网络、记忆网络和图网络的网络结构示例，其中圆形节点 表示一个神经元，方形节点表示一组神经元.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf8jjlevz7j310u0e2q5a.jpg" alt="image-20200528223756765"></p>
+<h2 id="前馈神经网络的理解"><a href="#前馈神经网络的理解" class="headerlink" title="前馈神经网络的理解"></a>前馈神经网络的理解</h2><p>对于分类的前馈神经网络 = 特征抽取 + 分类器（Logistic 、Softmax等）</p>
+<p>可以看出，神经网络的一个重要作用就是 特征的抽取变换，即将样本的 原始特征向量 𝒙 转换到更有效的特征向量 𝜙(𝒙)，这个过程叫作特征抽取.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s1kuc18j30ro0c8h8h.jpg" alt="image-20200530001758319"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s2fmaxaj30rw096k7i.jpg" alt="image-20200530001848263"></p>
+<p>也就是说，Logistic回归或 Softmax 回 归 也可以看作只有一层的神经网络.<a href="#toc4">返回</a><a name="toc3"></a><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s3r18cpj312w0im4qp.jpg" alt="image-20200530002003455"></p>
+<h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfaqsp977fj30i407otbc.jpg" alt="image-20200530202023883"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfarirkl72j30ux0u0qv6.jpg" alt="image-20200530204517689"></p>
+<p>常用的卷积网络整体结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfartst120j30yu08qq9f.jpg" alt="image-20200530205604156"></p>
+<h3 id="感受野"><a href="#感受野" class="headerlink" title="感受野"></a>感受野</h3><p>用来表示网络内部的不同位置的神经元对原图像的感受范围的大小【2】<a name="toc2"></a>：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbiw3qht9j31400oih94.jpg" alt="image-20200531123227076"></p>
+<blockquote>
+<p>典型神经网络</p>
+</blockquote>
+<p>提出时间线：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk7r3klj313c0howgq.jpg" alt="image-20200214144809822"></p>
+<h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk4gdluj30k0067aae.jpg" alt="img"></p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p>2012年，AlexNet横空出世。这个模型的名字来源于论文第一作者的姓名Alex Krizhevsky [1]。AlexNet使用了8层卷积神经网络，并以很大的优势赢得了ImageNet 2012图像识别挑战赛。<strong>它首次证明了学习到的特征可以超越手工设计的特征，从而一举打破计算机视觉研究的前状</strong>。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk9hjd1j31x60lw78p.jpg" alt="image-20200214154508934"></p>
+<p>!<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk8ivkkj31960kcdjv.jpg" alt="image-20200214154030499"></p>
+<blockquote>
+<p>对于全连接处，需要一个flatten()的操作：</p>
+<p>import numpy as np<br>a = np.array([[1,2],[3,4]])<br>a.flatten()——&gt;array([1, 2, 3, 4])</p>
+</blockquote>
+<h3 id="VGG16"><a href="#VGG16" class="headerlink" title="VGG16"></a>VGG16</h3><p>VGG提出了可以通过重复使用简单的基础块来构建深度模型的思路。</p>
+<blockquote>
+<p>不得不说VGG是个很可爱的神经网络结构，它的成功说明了网络结构还是深的好。它使用的卷积全部为3x3，Pad=1，步长为1，也就是说，卷积不会改变输出大小，而改变输出大小这件事就交给了2x2，步长为2 的max pool，也就是说每通过一个 max pool，卷积的尺寸都会折半。</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk6oaecj30nm0f0dh5.jpg" alt="Fig-A1-The-standard-VGG-16-network-architecture-as-proposed-in-32-Note-that-only"></p>
+<h3 id="GoogLeNet–含并行连结的网络"><a href="#GoogLeNet–含并行连结的网络" class="headerlink" title="GoogLeNet–含并行连结的网络"></a>GoogLeNet–含并行连结的网络</h3><blockquote>
+<p>2014年对于计算机视觉领域是一个丰收的一年，在这一年的ImageNet图像识别挑战赛(ILSVRC,ImageNet Large Scale Visual Recognition Challenge)中出现了两个经典、影响至深的卷积神经网络模型，其中第一名是GoogLeNet、第二名是VGG。</p>
+</blockquote>
+<p>GoogLeNet中的基础卷积块叫作Inception块，得名于同名电影《盗梦空间》（Inception）。与上一节介绍的NiN块相比，这个基础块在结构上更加复杂，如图5.8所示。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk5pkvuj31bc05e0vb.jpg" alt="image-20200215222051857"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk6cs2rj30pg0ce0tv.jpg" alt="image-20200215205221364"></p>
+<p>关于1*1卷积的使用，原因如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk8zia0j31ie05w40z.jpg" alt="image-20200215221611332"></p>
+<p>ＧoogLeNet共有22层，原始输入数据的大小为224<em>*224</em> *3。整体结构如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk73z5gj31ho0ieadp.jpg" alt="image-20200215212610137"></p>
+<p>详细展开如下【1】<a name="toc"></a>：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhka04ltj30j01x2wo3.jpg" alt="img"></p>
+<p>GoogLeNet网络模型参数变化如下图所示：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk818amj31800newlk.jpg" alt="image-20200215222310360"></p>
+<h3 id="残差网络（ResNet）"><a href="#残差网络（ResNet）" class="headerlink" title="残差网络（ResNet）"></a>残差网络（ResNet）</h3><p>残差网络是为了解决深度神经网络（DNN）隐藏层过多时的<strong>网络退化问题</strong>而提出。退化（degradation）问题是指：当网络隐藏层变多时，网络的准确度达到饱和然后急剧退化，而且这个退化不是由于过拟合引起的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjood5x0j30nk0fi3z8.jpg" alt="image-20200531125106396"></p>
+<p>下图中的Weight在卷积网络中是指卷积操作，addition是指单位加操作。<a href="https://zhuanlan.zhihu.com/p/42706477" target="_blank" rel="noopener">详解残差网络</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjnte9a7j30ly0igjsa.jpg" alt="image-20200216001145750"></p>
+<h3 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjnsgl1rj310009e3z8.jpg" alt="image-20200216002107204"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjntwu5nj31ao04040c.jpg" alt="image-20200216002221064"></p>
+<h2 id="RNN–循环神经网路"><a href="#RNN–循环神经网路" class="headerlink" title="RNN–循环神经网路"></a>RNN–循环神经网路</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbl41xx1xj31aw0c87it.jpg" alt="image-20200531134917803"></p>
+<h3 id="应用模式"><a href="#应用模式" class="headerlink" title="应用模式"></a>应用模式</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm3hegfpj30s007yjvp.jpg" alt="image-20200531142320330"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfblzx2sxnj30xa0aagta.jpg" alt="image-20200531141955208"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm44bjaej30nw0960xl.jpg" alt="image-20200531142357179"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm4wtrt3j30xm09oq9x.jpg" alt="image-20200531142443202"></p>
+<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbna2f6a4j31gs0gke81.jpg" alt="image-20200531150413922"></p>
+<blockquote>
+<p>三个门的作用</p>
+</blockquote>
+<ul>
+<li>遗忘门 𝒇𝑡 控制上一个时刻的内部状态 C𝑡−1 需要遗忘多少信息.</li>
+<li>输入门𝒊𝑡 控制当前时刻的候选状态𝒄̃ 有多少信息需要保存.</li>
+<li>输出门 𝒐𝑡 控制当前时刻的内部状态 𝒄𝑡 有多少信息需要输出给外部状态𝒉𝑡.</li>
+</ul>
+<p>公式计算：<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbnb0vejyj30rk0hak24.jpg" alt="image-20200531150510653"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbnhhtqv9j31mu0iihdt.jpg" alt="image-20200531151124615"></p>
+<h3 id="GRU-网络"><a href="#GRU-网络" class="headerlink" title="GRU 网络"></a>GRU 网络</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbpugthi3j313e0lgnff.jpg" alt="image-20200531163304219"></p>
+<h3 id="深层RNN"><a href="#深层RNN" class="headerlink" title="深层RNN"></a>深层RNN</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq1bzzr4j30ig04w40h.jpg" alt="image-20200531163940715"></p>
+<ul>
+<li><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq1xhzvoj310u0hsh1k.jpg" alt="image-20200531164014520"></p>
+</li>
+<li><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq2an9doj30zi0i0qjk.jpg" alt="image-20200531164035799"></p>
+</li>
+</ul>
+<h3 id="递归神经网络"><a href="#递归神经网络" class="headerlink" title="递归神经网络"></a>递归神经网络</h3><p>递归神经网络(Recursive Neural Network，RecNN)是循环神经网络在有向无循环图上的扩展 [Pollack, 1990].递归神经网络的一般结构为树状的层次结构。</p>
+<p>当递归神经网络的结构退化为线性序列结构(见图6.11b)时，递归神经网络就等价于简单循环网络.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbqklx0g7j318u0h4to9.jpg" alt="image-20200531165812112"></p>
+<h2 id="神经网络优化方法"><a href="#神经网络优化方法" class="headerlink" title="神经网络优化方法"></a>神经网络优化方法</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbrd5iwfvj316w0m0kha.jpg" alt="image-20200531172535809"></p>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1rrc39zyj30hj09cq48.jpg" alt="概率图模型体系：HMM、MEMM、CRF"></p>
+<p><a href="https://zhuanlan.zhihu.com/p/33397147" target="_blank" rel="noopener">概率图模型体系：HMM、MEMM、CRF</a></p>
+<hr>
+<h3 id="生成模型-vs-判别模型"><a href="#生成模型-vs-判别模型" class="headerlink" title="生成模型 vs 判别模型"></a>生成模型 vs 判别模型</h3><p><a href="https://seanlee97.github.io/2018/08/20/%E8%B0%88%E8%B0%88%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%E4%B8%89%E5%A4%A7%E6%A8%A1%E5%9E%8BHMM%E3%80%81MEMM%E3%80%81CRF/" target="_blank" rel="noopener">谈谈序列标注三大模型HMM、MEMM、CRF</a></p>
+<table>
+<thead>
+<tr>
+<th>生成模型</th>
+<th>判别模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>学习联合概率p(x,y)，–&gt;p(y|x)</td>
+<td>直接学习p(y|x)，得到分类边界</td>
+</tr>
+<tr>
+<td>朴素贝叶斯（NB）、HMM</td>
+<td>神经网络、SVM、CRF</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmlb71bokaj310k0fy75p.jpg" alt="img"></p>
+<h3 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h3><p>隐马尔可夫模型是关于时序的概率模型，描述由一个隐藏的马尔可夫链随机生成不可观测的状态随机序列，再由各个状态生成一个观测而产生观测随机序列的过程。</p>
+<p>隐马尔可夫模型由初始状态概率向量π、状态转移概率矩阵A和观测概率矩阵B决定。因此，隐马尔可夫模型可以写成λ=(A,B,π)</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfj17wih5cj30mk04mgpj.jpg" alt="image.png"></p>
+<blockquote>
+<p>HMM的3个基本问题：</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjmifuvghj30re084q3i.jpg" alt="image-20200607124137285"></p>
+<ul>
+<li>学习算法</li>
+</ul>
+<p>分两种情况：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1srfevfdj316o07tahs.jpg" alt="IMG_41DB26C962F2-1"></p>
+<ul>
+<li>预测</li>
+</ul>
+<p>求隐藏状态序列的过程</p>
+<p>采用维特比算法，根据动态规划求概率最大的路径.</p>
+<p>采用了DP思想，可以减少计算量，即每一次直接引用前一个时刻的计算结果以避免重复计算。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1tqj90rjj30bm046jrs.jpg" alt="img"></p>
+<h3 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjocxiwxvj30qw0aqn51.jpg" alt="image-20200607134607047"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://nndl.github.io/v/cnn-googlenet" target="_blank" rel="noopener">ＧoogLeNet清晰图</a><a href="#toc">🔼</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/28492837" target="_blank" rel="noopener">深度神经网络中的感受野(Receptive Field)</a><a href="#toc2">🔼</a></li>
+<li>《神经网络与深度学习》 邱锡鹏著  <a href="https://github.com/nndl/nndl.github.io" target="_blank" rel="noopener">https://github.com/nndl/nndl.github.io</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/14/NER专题/" title="⭐️NER专题" class="prev">上一篇</a><a href="/2020/05/07/计算机理解/" title="⭐️计算机理解" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

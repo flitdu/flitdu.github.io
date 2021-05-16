@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️NER专题 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️NER专题 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️NER专题</h1><div class="post-info">2020-06-14</div><div class="post-content"><p>[TOC]</p>
+<p>这是摘要……</p>
+<a id="more"></a>
+
+
+
+<h2 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg0bhrz5s4j30u00bzjuw.jpg" alt="img"></p>
+<ul>
+<li><p>基于规则</p>
+</li>
+<li><p>基于特征的机器学习方法</p>
+</li>
+</ul>
+<p>参考【2】</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfr30lqil8j30kb0faakx.jpg" alt="img"></p>
+<ul>
+<li>基于深度学习【6】<a name="toc6"></a>、【7】<a name="toc7"></a></li>
+</ul>
+<p>结构示例如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg0blf031oj30ka0g2tc3.jpg" alt="img"></p>
+<blockquote>
+<p>Distributed representations for input consider word- and character-level embeddings as well as incorporation of additional features like POS tag and gazetteer that have been effective in feature-based based approaches. </p>
+<p>Context encoder is to capture the context dependencies using CNN, RNN, or other networks.</p>
+<p> Tag decoder predict tags for tokens in the input sequence. For instance, in Figure 2 each token is predicted with a tag indicated by B-(begin), I-(inside), E-(end), S-(singleton) of a named entity with its type, or O-(outside) of named entities. Note that there are other tag schemes or tag notations, e.g., BIO. Tag decoder may also be trained to detect entity boundaries and then the detected text spans are classified to the entity types.</p>
+</blockquote>
+<p><a href="https://www.jiqizhixin.com/articles/2018-08-31-2" target="_blank" rel="noopener">一文详解深度学习在命名实体识别(NER)中的应用</a></p>
+<p><img src="../../../Library/Application%20Support/typora-user-images/image-20200917224448027.png" alt="image-20200917224448027"></p>
+<h2 id="输入的分布表示"><a href="#输入的分布表示" class="headerlink" title="输入的分布表示"></a>输入的分布表示</h2><h3 id="One-Hot编码"><a href="#One-Hot编码" class="headerlink" title="One-Hot编码"></a>One-Hot编码</h3><p>独热编码即 One-Hot 编码，又称一位有效编码，其方法是使用N位状态寄存器来对N个状态进行编码，每个状态都有它独立的寄存器位，并且在任意时候，其中只有一位有效。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1g9qur750vvj30za0bkabm.jpg" alt="image-20191209224420810"></p>
+<h3 id="Word-level-表示"><a href="#Word-level-表示" class="headerlink" title="Word-level 表示"></a>Word-level 表示</h3><p>代表工具：<a href="http://pelhans.com/2019/04/29/deepdive_tensorflow-note11/" target="_blank" rel="noopener">Word2Vec</a>、fastText等</p>
+<blockquote>
+<p>Word2Vec</p>
+</blockquote>
+<p>Word2Vec 是谷歌的分布式词向量工具。使用它可以很方便的得到词向量。Word2Vec 分别使用两个模型来学习词向量，一个是 CBOW(Continuous bag-of-word)，另一个是 Skip-gram模型。</p>
+<p>CBOW 模型是指根据上下文来预测当前单词。而Skip-gram 是根据给定的词去预测上下文。所以这两个模型的本质是让模型去学习词和上下文的 co-occurrence。有意思的是，我们需要的词向量只是两个模型的“副产物”。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg0catlk4zj31000gokbv.jpg" alt="image-20200621234331332"></p>
+<p>Word2Vec 得到的词向量相比于传统的 one-hot 词向量相比，主要有以下两个优势：</p>
+<ul>
+<li>低维稠密：Word2Vec 得到的词向量一般设置为50-500之间，而 one-hot 类型的词向量维度等于词表大小。</li>
+<li>蕴含语义信息：one-hot 表示法中，每一个词与其他词都是正交的，也就是说词与词之间没有任何关系，这不符合实际情况。而 Word2Vec 的假设“具有相同上下文的词语包含相似的语义信息”，使得语义相近的词保留了一定的几何关系。</li>
+</ul>
+<p>关于CBOW 和 Skip-gram 详细的解读参见<a href="http://pelhans.com/2019/04/29/deepdive_tensorflow-note11/" target="_blank" rel="noopener">Word2Vec</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg0cp0gtaaj31f60sehdt.jpg" alt="image-20200621235709670"></p>
+<h3 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h3><p><a href="https://www.cnblogs.com/skyme/p/4651331.html" target="_blank" rel="noopener">一文搞懂HMM（隐马尔可夫模型）</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu0jrcp66j31dn0u0hdt.jpg" alt="image-20200917222427294"></p>
+<h2 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h2><blockquote>
+<p>特征函数【3】<a name="toc3"></a></p>
+</blockquote>
+<p>输入：</p>
+<ul>
+<li>a sentence s</li>
+<li>the position i of a word in the sentence</li>
+<li>the label l_i of the current word</li>
+<li>the label l_i−1 of the previous word</li>
+</ul>
+<p>输出：</p>
+<p>and outputs a real-valued number (though the numbers are often just either 0 or 1).</p>
+<blockquote>
+<p>概率计算</p>
+</blockquote>
+<p>给定输入s，计算标注 l 的概率：(注意其有2个求和：外层为所有特征函数，内层为句子s所有位置)</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfrs0y6iz0j318w0ae4ar.jpg" alt="image-20200614135729389"></p>
+<blockquote>
+<p>特征模板解读【4】<a name="toc4"></a></p>
+</blockquote>
+<p>特征模板如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfs5bo8zlrj307e09it8v.jpg" alt="img"></p>
+<p>特征模板格式：%x[row,col]</p>
+<p>其中，x可取U或B，对应两种类型。</p>
+<p><strong>U 反映了观测值对当前标签的影响，B反映不同位置标签的影响。</strong><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfs681dxf2j311q0a2k71.jpg" alt="image-20200614220843339"></p>
+<blockquote>
+<p>Unigram类型</p>
+</blockquote>
+<p>e.g.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">人 B</span><br><span class="line">民 M</span><br><span class="line">网 E  &lt;----当前行</span><br></pre></td></tr></table></figure>
+
+<p>U00:%x[-2,0]</p>
+<p>-2代表当前行偏移2个位置</p>
+<p>将产生以下的特征函数：(注：下列伪码的x代表观测，y代表状态，也就是贴的标签)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If(y==&apos;E&apos;&amp;&amp;x==&apos;人&apos;) return 1 else return 0;</span><br></pre></td></tr></table></figure>
+
+<p><strong>每个特征函数会有一个权重参数W，需要训练得到这个参数。</strong></p>
+<blockquote>
+<p>关于生成的model文件【5】<a name="toc5"></a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="number">100</span></span><br><span class="line">cost-factor: <span class="number">1</span></span><br><span class="line">maxid: <span class="number">2159868</span></span><br><span class="line">xsize: <span class="number">1</span></span><br><span class="line"> </span><br><span class="line">B</span><br><span class="line">E</span><br><span class="line">M</span><br><span class="line">S</span><br><span class="line"> </span><br><span class="line">U00:%x[<span class="number">-2</span>,<span class="number">0</span>]</span><br><span class="line">U01:%x[<span class="number">-1</span>,<span class="number">0</span>]</span><br><span class="line">U02:%x[<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">U03:%x[<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">U04:%x[<span class="number">2</span>,<span class="number">0</span>]</span><br><span class="line">U05:%x[<span class="number">-2</span>,<span class="number">0</span>]/%x[<span class="number">-1</span>,<span class="number">0</span>]/%x[<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">U06:%x[<span class="number">-1</span>,<span class="number">0</span>]/%x[<span class="number">0</span>,<span class="number">0</span>]/%x[<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">U07:%x[<span class="number">0</span>,<span class="number">0</span>]/%x[<span class="number">1</span>,<span class="number">0</span>]/%x[<span class="number">2</span>,<span class="number">0</span>]</span><br><span class="line">U08:%x[<span class="number">-1</span>,<span class="number">0</span>]/%x[<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">U09:%x[<span class="number">0</span>,<span class="number">0</span>]/%x[<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line">B</span><br><span class="line"> </span><br><span class="line"><span class="number">0</span> B</span><br><span class="line"><span class="number">16</span> U00:-</span><br><span class="line"><span class="number">20</span> U00:<span class="number">0</span></span><br><span class="line"><span class="number">24</span> U00:<span class="number">1</span></span><br><span class="line"><span class="number">28</span> U00:<span class="number">2</span></span><br><span class="line"><span class="number">32</span> U00:<span class="number">3</span></span><br><span class="line"><span class="number">36</span> U00:<span class="number">4</span></span><br><span class="line"><span class="number">40</span> U00:<span class="number">5</span></span><br><span class="line"><span class="number">44</span> U00:<span class="number">6</span></span><br><span class="line"><span class="number">48</span> U00:<span class="number">7</span></span><br><span class="line"><span class="number">52</span> U00:<span class="number">8</span></span><br><span class="line"><span class="number">56</span> U00:<span class="number">9</span></span><br><span class="line"><span class="number">60</span> U00:_B<span class="number">-1</span></span><br><span class="line"><span class="number">64</span> U00:_B<span class="number">-2</span></span><br><span class="line">……</span><br><span class="line"><span class="number">17404</span> U01:厨</span><br><span class="line"><span class="number">17408</span> U01:去</span><br><span class="line"><span class="number">17412</span> U01:县</span><br><span class="line"><span class="number">17416</span> U01:参</span><br><span class="line"><span class="number">17420</span> U01:又</span><br><span class="line"><span class="number">17424</span> U01:叉</span><br><span class="line"><span class="number">17428</span> U01:及</span><br><span class="line"><span class="number">17432</span> U01:友</span><br><span class="line"><span class="number">17436</span> U01:双</span><br><span class="line"><span class="number">17440</span> U01:反</span><br><span class="line"><span class="number">17444</span> U01:发</span><br><span class="line"><span class="number">17448</span> U01:叔</span><br><span class="line"><span class="number">17452</span> U01:取</span><br><span class="line"><span class="number">17456</span> U01:受</span><br><span class="line">……</span><br><span class="line"><span class="number">77800</span> U05:_B<span class="number">-1</span>/一/个</span><br><span class="line"><span class="number">107540</span> U05:一/方/面</span><br><span class="line"><span class="number">107544</span> U05:一/无/所</span><br><span class="line"><span class="number">107548</span> U05:一/日/三</span><br><span class="line"><span class="number">107552</span> U05:一/日/为</span><br><span class="line"><span class="number">107556</span> U05:一/日/之</span><br><span class="line">……</span><br><span class="line"><span class="number">566536</span> U06:万/吨/_B+<span class="number">1</span></span><br><span class="line">……</span><br><span class="line"><span class="number">2159864</span> U09:ｖ/ｅ</span><br><span class="line"> </span><br><span class="line"><span class="number">-8.5354017525999719</span></span><br><span class="line"><span class="number">9.0491453814148901</span></span><br><span class="line"><span class="number">7.0388286231971700</span></span><br><span class="line"><span class="number">-7.2545558164093009</span></span><br><span class="line"><span class="number">5.2799470769112835</span></span><br><span class="line"><span class="number">-8.5333633546653758</span></span><br><span class="line"><span class="number">-5.3549190735606933</span></span><br><span class="line"><span class="number">5.2575182675282477</span></span><br><span class="line"><span class="number">-5.4259109736696054</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><ul>
+<li>[笔记] 综述 A Survey on Deep Learning for Named Entity Recognition</li>
+</ul>
+<p><a href="http://pelhans.com/2019/09/23/kg_paper-note4/" target="_blank" rel="noopener">http://pelhans.com/2019/09/23/kg_paper-note4/</a></p>
+<p>配合论文一起研究</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1amun5wj31h40u0npf.jpg" alt="image-20200917225019306"></p>
+<ul>
+<li>流水的NLP铁打的NER：命名实体识别实践与探索</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/166496466" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/166496466</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkmt1wq1vvj30ru0f7gn3.jpg" alt="img"></p>
+<h2 id="工具：Kashgari"><a href="#工具：Kashgari" class="headerlink" title="工具：Kashgari"></a>工具：Kashgari</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1av2en8j31ur0u0u0x.jpg" alt="image-20200917224807873"></p>
+<blockquote>
+<p>github地址</p>
+</blockquote>
+<p><a href="https://github.com/BrikerMan/Kashgari" target="_blank" rel="noopener">https://github.com/BrikerMan/Kashgari</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1cxmowej31sn0u0hdu.jpg" alt="image-20200917225233570"></p>
+<h2 id="语料"><a href="#语料" class="headerlink" title="语料"></a>语料</h2><p>15个免费数据集和命名实体识别NER语料库  <a href="https://inforscan.com/" target="_blank" rel="noopener">https://inforscan.com/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1onlchaj31c00u0u0y.jpg" alt="image-20200917230349039"></p>
+<p><a href="[https://www.lookfor404.com/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%E7%9A%84%E8%AF%AD%E6%96%99%E5%92%8C%E4%BB%A3%E7%A0%81/](https://www.lookfor404.com/命名实体识别的语料和代码/)">命名实体识别的语料和代码</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1szcnw8j31bb0u0hdt.jpg" alt="image-20200917230758840"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.cnblogs.com/Darrenblog/p/10180361.html" target="_blank" rel="noopener">word2vec 独热编码One-Hot</a></li>
+<li><a href="https://blog.csdn.net/zkq_1986/article/details/81284299" target="_blank" rel="noopener">【NLP】基于CRF条件随机场的命名实体识别原理详解</a></li>
+<li><a href="https://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/" target="_blank" rel="noopener">Introduction to Conditional Random Fields</a><a href="#toc3">🔼</a></li>
+<li><a href="https://blog.csdn.net/qq_37667364/article/details/82919560?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-8.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-8.nonecase" target="_blank" rel="noopener">CRF++/CRF/条件随机场的特征函数模板</a><a href="#toc4">🔼</a></li>
+<li><a href="https://www.hankcs.com/nlp/the-crf-model-format-description.html" target="_blank" rel="noopener">CRF++模型格式说明</a><a href="#toc5">🔼</a></li>
+<li><a href="http://pelhans.com/2019/09/23/kg_paper-note4/" target="_blank" rel="noopener">命名实体识别（一）[笔记] 综述 A Survey on Deep Learning for Named Entity Recognition</a><a href="#toc6">🔼</a></li>
+<li><a href="https://www.cnblogs.com/nxf-rabbit75/p/10727769.html" target="_blank" rel="noopener">命名实体识别总结</a><a href="#toc7">🔼</a></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/15/bert专题/" title="⭐️bert专题" class="prev">上一篇</a><a href="/2020/05/24/机器学习知识点/" title="⭐️机器学习知识点" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️编程规范 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️编程规范 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️编程规范</h1><div class="post-info">2020-02-23</div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdpyeq3458j31aw0sqnpd.jpg" alt="image-20200411172631006">任何一个傻瓜都能写出计算机可以理解的代码，惟有写出人类容易理解的代码，才是优秀的程序员。—–Bob叔</p>
+<p>在代码整洁的道路上要不断修行！</p>
+<a id="more"></a>
+
+<blockquote>
+<p>编程大师<em>Martin Fowler</em>先生曾经说过：“<strong>代码有很多种坏味道，重复是最坏的一种！</strong>”，要写出高质量的代码首先要解决的就是重复代码的问题。</p>
+</blockquote>
+<h2 id="如何编写高质量代码"><a href="#如何编写高质量代码" class="headerlink" title="如何编写高质量代码"></a><a href="https://segmentfault.com/a/1190000017831484" target="_blank" rel="noopener">如何编写高质量代码</a></h2><p>高质量代码具有以下几个特点：</p>
+<blockquote>
+<ul>
+<li>可读性高</li>
+<li>结构清晰</li>
+<li>可扩展（方便维护）</li>
+<li>代码风格统一</li>
+<li>低复杂性</li>
+<li>简练</li>
+</ul>
+</blockquote>
+<h2 id="代码的马斯洛金字塔"><a href="#代码的马斯洛金字塔" class="headerlink" title="代码的马斯洛金字塔"></a><a href="http://www.dein.fr/2015-02-18-maslows-pyramid-of-code-review.html" target="_blank" rel="noopener">代码的马斯洛金字塔</a></h2><p>马斯洛金字塔是美国心理学家马斯洛提出的一个心理学模型，认为人类的心理需求从下往上分为5个层次，一旦实现了下层的需求，就会追求上一层的需求。</p>
+<p><a href="https://camo.githubusercontent.com/bdb845acdc6e08db357507df14142039824d4753090bb4157fa901a44bc64aad/68747470733a2f2f63646e2e6265656b6b612e636f6d2f626c6f67696d672f61737365742f3230323130342f6267323032313034323830372e6a7067" target="_blank" rel="noopener"><img src="https://tva1.sinaimg.cn/large/008i3skNly1gq5o7z1el6j30dw0acwen.jpg" alt="img"></a></p>
+<p>这五个层次依次是：生理需求、安全需求、社交需求、尊严需求、自我实现。</p>
+<p>代码质量也可以用金字塔模型表示，从下往上有五个层次。</p>
+<p><a href="https://camo.githubusercontent.com/62873cdfc16ce79d920cab07e3ad81973ee7ca3f9859054ea124c2f057c47d4d/68747470733a2f2f63646e2e6265656b6b612e636f6d2f626c6f67696d672f61737365742f3230323130342f6267323032313034303730352e6a7067" target="_blank" rel="noopener"><img src="https://tva1.sinaimg.cn/large/008i3skNly1gq5o7zvk7pj309007vdfq.jpg" alt="img"></a></p>
+<p><strong>（1）第一层：正确</strong>（Correct）</p>
+<p>代码是否执行预期的工作？是否考虑了边缘情况？是否经过充分测试？是否有可维护性？是否有可接受的性能？</p>
+<p><strong>（2）第二层：安全</strong>（Secure）</p>
+<p>代码是否存在漏洞？数据是否安全存储？个人识别信息（PII）是否得到正确处理？是否对用户的输入进行了全面的验证？</p>
+<p><strong>（3）第三层：可读</strong>（Readable）</p>
+<p>代码是否易于阅读和理解？测试足够简洁吗？变量、函数、类的名称是否适当？使用领域模型是否可以清晰地映射现实世界，以减少认知负担？是否使用一致的编码风格约定？</p>
+<p><strong>（4）第四层：优雅</strong>（Elegant）</p>
+<p>代码是否利用了众所周知的编程模式？能否更简单简洁地实现所需的功能？你会为编写这些代码感到兴奋吗？你为这些代码感到骄傲吗？</p>
+<p><strong>（5）第五层：利他主义</strong>（Altruist）</p>
+<p>别人能否从这些代码学到东西？这些代码是否会激励其他工程师进行改进？它是否会让世界变成一个更好的地方？</p>
+<h2 id="编程规范"><a href="#编程规范" class="headerlink" title="编程规范"></a>编程规范</h2><ul>
+<li><a href="https://geosoft.no/" target="_blank" rel="noopener">https://geosoft.no/</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd49033n2ij31dm0u07qg.jpg" alt="image-20200323225037442"></p>
+<ul>
+<li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/" target="_blank" rel="noopener">Google 开源项目风格指南 (中文版)</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh4pgtwg8pj31id0u0te2.jpg" alt="image-20200726214055472"></p>
+<ul>
+<li><a href="https://python-web-guide.readthedocs.io/zh/latest/index.html" target="_blank" rel="noopener">https://python-web-guide.readthedocs.io/zh/latest/index.html</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd2ihj22aaj31d10u0x6p.jpg" alt="image-20200322104735564"></p>
+<ul>
+<li><a href="https://www.zhihu.com/question/269154135" target="_blank" rel="noopener">https://www.zhihu.com/question/269154135</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd2ii8ioy6j313u0emduk.jpg" alt="image-20200322104821754"></p>
+<p><a href="https://github.com/alibaba/p3c" target="_blank" rel="noopener">https://github.com/alibaba/p3c</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd2ijwjml1j310606g45o.jpg" alt="image-20200322104958142"></p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/QytibJl3XZcC48gcGTZMhQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/QytibJl3XZcC48gcGTZMhQ</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gdpktv1dazj313u072wky.jpg" alt="image-20200411093643492"></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gdpkv04n5ej30qu0zygoj.jpg" alt="image-20200411093734567"></p>
+<blockquote>
+<p>编写 clean 代码</p>
+</blockquote>
+<p>但是，我们如何从简单的编写代码过渡到编写整洁的代码？Martin认为，我们有两大途径持续重构和测试驱动开发（TDD），它们就像硬币的两面，具有相互作用。以下是一些定义：</p>
+<ul>
+<li>重构(refactor)就是在不改变外部行为的情况下重构现有计算机代码的过程</li>
+<li>测试驱动的开发是一个过程，在这个过程中，需求被转换成特定的测试用例，然后只编写使测试通过的功能代码。</li>
+</ul>
+<h2 id="python规范"><a href="#python规范" class="headerlink" title="python规范"></a>python规范</h2><p><a href="https://cuiqingcai.com/6607.html" target="_blank" rel="noopener">代码整洁之道-编写 Pythonic 代码</a>  </p>
+<p><a href="https://blog.csdn.net/u011240877/article/details/87967637" target="_blank" rel="noopener">5分钟了解《代码整洁之道》精华</a></p>
+<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>给变量（事实上应该是所有的标识符）命名时做到<strong>见名知意</strong>也是非常重要的。</p>
+<ul>
+<li>变量名，使用下划线_ 连接，小写</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names = <span class="string">"Python"</span> <span class="comment">#变量名 </span></span><br><span class="line">namejob_title = <span class="string">"Software Engineer"</span> <span class="comment">#带有下划线的变量名</span></span><br><span class="line">populated_countries_list = []  <span class="comment">#带有下划线的变量名</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数命名，<del>小写+大写</del>【参考】</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getData</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>要依据最后返回的数据类型来确定函数起始命名</p>
+<p>e.g.</p>
+<p>返回bool，以 isFinish…..()</p>
+<p>有数据返回：get….()开头</p>
+<p>执行操作：以set…()【设置】, perform….()【执行】开头等</p>
+<ul>
+<li>类，首字母全大写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class AndGate(BinaryGate):</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常量，使用大写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TOTAL = 56</span><br><span class="line">TIMOUT = 6</span><br><span class="line">MAX_OVERFLOW = 7</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码表达式"><a href="#代码表达式" class="headerlink" title="代码表达式"></a>代码表达式</h3><p>e.g.（注意异常情况的判断）</p>
+<p>注意，下面的代码不推荐</p>
+<p><del>users = [</del><br>    <del>{“first_name”:”Helen”, “age”:39},</del><br>    <del>{“first_name”:”Buck”, “age”:10},</del><br>    <del>{“first_name”:”anni”, “age”:9}</del><br><del>]</del><br><del>users = sorted(users, key=lambda user: user[“first_name”].lower())</del><br><del>print(users)</del></p>
+<p>原因：</p>
+<ul>
+<li>不容易理解</li>
+<li>异常情况的处理不完善</li>
+</ul>
+<p>推荐：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">users = [</span><br><span class="line">    &#123;<span class="string">"first_name"</span>:<span class="string">"Helen"</span>, <span class="string">"age"</span>:<span class="number">39</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"first_name"</span>:<span class="string">"Buck"</span>, <span class="string">"age"</span>:<span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"first_name"</span>:<span class="string">"anni"</span>, <span class="string">"age"</span>:<span class="number">9</span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUserName</span><span class="params">(users_element)</span>:</span></span><br><span class="line">    <span class="string">"""Get name of the user in lower case"""</span></span><br><span class="line">    <span class="keyword">return</span> users_element[<span class="string">"first_name"</span>].lower()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSortedDictionary</span><span class="params">(users)</span>:</span></span><br><span class="line">    <span class="string">"""Sort the nested dictionary"""</span></span><br><span class="line">    <span class="keyword">for</span> users_element <span class="keyword">in</span> users:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> isinstance(users_element, dict):</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">"Not a correct dictionary"</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> len(users):</span><br><span class="line">       <span class="keyword">raise</span> ValueError(<span class="string">"Empty dictionary"</span>)</span><br><span class="line">    users_by_name = sorted(users, key=getUserName)</span><br><span class="line">    <span class="keyword">return</span> users_by_name</span><br><span class="line"></span><br><span class="line">print(getSortedDictionary(users))</span><br></pre></td></tr></table></figure>
+
+<p>[{‘first_name’: ‘anni’, ‘age’: 9}, {‘first_name’: ‘Buck’, ‘age’: 10}, {‘first_name’: ‘Helen’, ‘age’: 39}]</p>
+<p>如您所见，此代码检查了所有可能的意外值，并且比起以前的单行代码更具可读性。 单行代码虽然看起来很酷节省了行，但是会给代码添加很多复杂性。 但是这并不意味着单行代码就不好 这里提出的一点是，如果你的单行代码使代码变得更难阅读，那么就请避免使用它，<strong>记住写代码不是为了炫酷的，尤其在项目组中</strong>。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
+<li>. 结尾</li>
+<li>间隔一空行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_weather_api</span><span class="params">(url, location)</span>:</span></span><br><span class="line">    <span class="string">"""Get the weather of specific location.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Calling weather api to check for weather by using weather api and </span></span><br><span class="line"><span class="string">    location. Make sure you provide city name only, country and county </span></span><br><span class="line"><span class="string">    names won't be accepted and will throw exception if not found the </span></span><br><span class="line"><span class="string">    city name.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param url:URL of the api to get weather.</span></span><br><span class="line"><span class="string">    :type url: str</span></span><br><span class="line"><span class="string">    :param location:Location of the city to get the weather.</span></span><br><span class="line"><span class="string">    :type location: str</span></span><br><span class="line"><span class="string">    :return: Give the weather information of given location.</span></span><br><span class="line"><span class="string">    :rtype: str</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdpwxsabsoj318k0d2ap8.jpg" alt="image-20200411163539275"></p>
+<ul>
+<li>类型注解，进一步提高对函数的理解</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdpxcwaaxsj30ze0je4d6.jpg" alt="image-20200411165013098"></p>
+<h2 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h2><p><a href="http://www.ruanyifeng.com/blog/2019/03/agile-development.html" target="_blank" rel="noopener">敏捷开发入门教程</a></p>
+<blockquote>
+<p>含义：迭代开发+增量开发</p>
+</blockquote>
+<p><strong>迭代开发将一个大任务，分解成多次连续的开发，本质就是逐步改进。</strong>开发者先快速发布一个有效但不完美的最简版本，然后不断迭代。每一次迭代都包含规划、设计、编码、测试、评估五个步骤，不断改进产品，添加新功能。通过频繁的发布，以及跟踪对前一次迭代的反馈，最终接近较完善的产品形态。<img src="https://tva1.sinaimg.cn/large/00831rSTgy1gdp3uloshlj318w0tyx6p.jpg" alt="image-20200410234912882"></p>
+<p>具体来说，每次迭代都必须依次完成以下五个步骤。</p>
+<ol>
+<li>需求分析（requirements analysis）</li>
+<li>设计（design）</li>
+<li>编码（coding）</li>
+<li>测试（testing）</li>
+<li>部署和评估（deployment / evaluation）</li>
+</ol>
+<p><strong>所谓”增量开发”，指的是软件的每个版本，都会新增一个用户可以感知的完整功能。也就是说，按照新增功能来划分迭代。</strong></p>
+<blockquote>
+<p>敏捷开发的价值观</p>
+</blockquote>
+<p>宣言链接：<a href="https://agilemanifesto.org/iso/zhchs/manifesto.html" target="_blank" rel="noopener">https://agilemanifesto.org/iso/zhchs/manifesto.html</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gdp46yrs33j31cc0tkkjn.jpg" alt="image-20200411000108178"></p>
+<p>《敏捷软件开发宣言》里面提到四个价值观。</p>
+<blockquote>
+<ul>
+<li>程序员的主观能动性，以及程序员之间的互动，优于既定流程和工具。</li>
+<li>软件能够运行，优于详尽的文档。</li>
+<li>跟客户的密切协作，优于合同和谈判。</li>
+<li>能够响应变化，优于遵循计划。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>十二条原则</p>
+</blockquote>
+<p>该宣言还提出十二条敏捷开发的原则。</p>
+<ol>
+<li>通过早期和持续交付有价值的软件，实现客户满意度。</li>
+<li>欢迎不断变化的需求，即使是在项目开发的后期。要善于利用需求变更，帮助客户获得竞争优势。</li>
+<li>不断交付可用的软件，周期通常是几周，越短越好。</li>
+<li>项目过程中，业务人员与开发人员必须在一起工作。</li>
+<li>项目必须围绕那些有内在动力的个人而建立，他们应该受到信任。</li>
+<li>面对面交谈是最好的沟通方式。</li>
+<li>可用性是衡量进度的主要指标。</li>
+<li>提倡可持续的开发，保持稳定的进展速度。</li>
+<li>不断关注技术是否优秀，设计是否良好。</li>
+<li>简单性至关重要，尽最大可能减少不必要的工作。</li>
+<li>最好的架构、要求和设计，来自团队内部自发的认识。</li>
+<li>团队要定期反思如何更有效，并相应地进行调整。</li>
+</ol>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h3 id="常见异常"><a href="#常见异常" class="headerlink" title="常见异常"></a>常见异常</h3><p>详细参见：<a href="https://www.runoob.com/python/python-exceptions.html" target="_blank" rel="noopener">python标准异常</a></p>
+<table>
+<thead>
+<tr>
+<th>异常名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ValueError</td>
+<td>传入无效的参数</td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>除(或取模)零 (所有数据类型)</td>
+</tr>
+<tr>
+<td>IOError</td>
+<td>输入/输出操作失败</td>
+</tr>
+</tbody></table>
+<h3 id="try–except"><a href="#try–except" class="headerlink" title="try–except"></a>try–except</h3><ul>
+<li>不会因为异常而中断，如下，‘done’依旧执行了【<a href="https://www.cnblogs.com/Lival/p/6203111.html" target="_blank" rel="noopener">（Python）异常处理try…except、raise</a>】</li>
+</ul>
+<p>注意，<strong>except的三种表示</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">0</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    c=a/b</span><br><span class="line">    print(c)</span><br><span class="line"><span class="comment"># except ZeroDivisionError as e:</span></span><br><span class="line"><span class="comment"># except Exception as e:</span></span><br><span class="line"><span class="keyword">except</span> (IOError, ZeroDivisionError) <span class="keyword">as</span> err:<span class="comment"># except句子可以同时处理多个异常，这些异常将被放在一个括号里成为一个元组，</span></span><br><span class="line">    print(<span class="string">'除法异常：'</span>,err)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'no error'</span>)</span><br><span class="line">print(<span class="string">"done"</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">除法异常： division by zero</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd32va6h04j31he03qjww.jpg" alt="image-20200322223252596"></p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd3355d4mtj30xe0nw7mr.jpg" alt="image-20200322224222165"></p>
+<h3 id="raise-语句"><a href="#raise-语句" class="headerlink" title="raise 语句"></a><a href="https://docs.python.org/zh-cn/3/reference/simple_stmts.html#raise" target="_blank" rel="noopener"><code>raise</code></a> 语句</h3><p>允许程序员强制发生指定的异常， 后面的将不会执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">19</span></span><br><span class="line"><span class="keyword">if</span> a&gt;<span class="number">5</span>:</span><br><span class="line"><span class="comment">#     raise Exception('x 不能大于 5。x 的值为: &#123;&#125;'.format(x)) </span></span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">'x 不能大于 5。x 的值为: &#123;&#125;'</span>.format(x)) </span><br><span class="line">    </span><br><span class="line">print(<span class="string">'--'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd33qpo6pyj31a20csgzx.jpg" alt="image-20200322230302563"></p>
+<h3 id="自定义异常类"><a href="#自定义异常类" class="headerlink" title="自定义异常类"></a>自定义异常类</h3><p>如上，raise语句，如何不影响后续的执行呢？</p>
+<p>可以考虑自定义异常类</p>
+<p>如果这样写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">if</span> a &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">'x 不能小于 10。x 的值为: &#123;&#125;'</span>.format(x)) </span><br><span class="line"><span class="comment">#         raise ValueError('x 不能大于 5。x 的值为: &#123;&#125;'.format(x)) </span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'--'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>并不能达到效果，异常未抛出</strong>：</p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd34jf6c7nj31b20dy48y.jpg" alt="image-20200322233040272"></p>
+<p>正确是这样;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyException</span><span class="params">(Exception)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,message)</span>:</span></span><br><span class="line">        Exception.__init__(self)</span><br><span class="line">        self.message=message   </span><br><span class="line">a =<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> a&lt;<span class="number">10</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">raise</span> MyException(<span class="string">'x 不能小于 10。x 的值为: &#123;&#125;'</span>.format(x))</span><br><span class="line">    <span class="keyword">except</span> MyException <span class="keyword">as</span> e:</span><br><span class="line">        print(e.message)</span><br><span class="line"></span><br><span class="line">print(a<span class="number">-1</span>, <span class="string">'--'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd34k7a8lcj31880igtnf.jpg" alt="image-20200322233125666"></p>
+<h2 id="日志记录"><a href="#日志记录" class="headerlink" title="日志记录"></a>日志记录</h2><blockquote>
+<p>相比 print， logging 的优势何在？</p>
+</blockquote>
+<p>我在上面说过，用 print 的话会产生大量的信息，从而很难从中找到真正有用的信息。而 logging 中将日志分成不同的级别以后，我们在大多数时间只保存级别比较高的日志信息，从而提高了日志的性能和分析速度，<strong>这样我们就可以很快速的从一个很大的日志文件里找到错误的信息</strong>。</p>
+<p>「日志」是一个系统的重要组成部分，用来记录用户操作、系统运行状态和错误信息，它的好坏直接影响到系统出现问题时定位的速度，有日志记录，我们可以在服务崩溃的时候很快的通过查看日志来发现问题出现的地方，同样也可以通过对日志的观察和分析，提前发现系统可能存在的风险。</p>
+<p>简单的说就是，排错，这对于大型系统来说很关键</p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd32740kunj31co05uajb.jpg" alt="image-20200322220934555"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/03/13/宗成庆《统计自然语言处理》/" title="⭐️宗成庆《统计自然语言处理》" class="prev">上一篇</a><a href="/2020/02/20/肺炎预测/" title="⭐️肺炎预测" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

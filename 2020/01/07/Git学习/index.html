@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️Git学习 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️Git学习 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️Git学习</h1><div class="post-info">2020-01-07</div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkjb5ivobfj30p008wmxk.jpg" alt="img"></p>
+<p>这是摘要……</p>
+<a id="more"></a>
+
+<h2 id="状态转移图："><a href="#状态转移图：" class="headerlink" title="状态转移图："></a>状态转移图：</h2><p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkjb63bcymj30zk0k00w1.jpg" alt="img"></p>
+<p>参考 <a href>四个命令玩转 Git</a> </p>
+<h2 id="猴子都能懂的GIT入门"><a href="#猴子都能懂的GIT入门" class="headerlink" title="猴子都能懂的GIT入门"></a>猴子都能懂的GIT入门</h2><p><strong>传送门→</strong><a href="https://backlog.com/git-tutorial/cn/" target="_blank" rel="noopener">https://backlog.com/git-tutorial/cn/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc6i6uoktxj31cv0u0wpw.jpg" alt="image-20200223181920397"></p>
+<h2 id="书籍《Pro-Git》"><a href="#书籍《Pro-Git》" class="headerlink" title="书籍《Pro Git》"></a>书籍《Pro Git》</h2><p><strong>传送门→</strong><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc6hxuuza7j31h40r6186.jpg" alt="image-20200223181039982"></p>
+<h2 id="branch分支管理"><a href="#branch分支管理" class="headerlink" title="branch分支管理"></a>branch分支管理</h2><ul>
+<li>远程建仓</li>
+<li>clone 到本地</li>
+<li>初始代码版本放入本地</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoe2ubiqyj30lk03e74o.jpg" alt="image-20200107225635746"></p>
+<ul>
+<li>push 到远程</li>
+<li>远程建立 dev 分支</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoe5ohqwsj30rm0augme.jpg" alt="image-20200107225919188"></p>
+<ul>
+<li>本地建立 dev 分支</li>
+</ul>
+<p>查看当前分支对应 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -vv</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoduc3v3gj30ss03gdjr.jpg" alt="image-20200107224822678"></p>
+<ul>
+<li>与远程分支建立对应</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoemct31hj30n005kafc.jpg" alt="image-20200107231520446"></p>
+<p>会发现，远程的dev 未看到</p>
+<p>首先，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br><span class="line">获取分支</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoepkcxhpj30nk09in68.jpg" alt="image-20200107231825932"></p>
+<p>再次查看，可以看到有远程的dev了</p>
+<p>关联：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev  </span><br><span class="line">#切换到分支 &apos;dev&apos;</span><br><span class="line">git branch --set-upstream origin/dev  </span><br><span class="line">#设置当前本地分支的默认远程分支。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaoevsg5ktj30s803eq6v.jpg" alt="image-20200107232423933"></p>
+<ul>
+<li>下拉</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>本地切换到dev开发</strong></li>
+</ul>
+<p>修改2次，每次均git add . git commit</p>
+<p>git push 远端，结果如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaof9dfcezj31j60qe0zv.jpg" alt="image-20200107233728088"></p>
+<ul>
+<li>合并分支到master上【1】</li>
+</ul>
+<p>假设已经开发好一个版本，可以考虑合并上传</p>
+<p>切换到master—&gt;git pull origin master–&gt;git merge dev</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaofpb1qswj30ya0no1kx.jpg" alt="image-20200107235246827"></p>
+<p>再 git push 远端同步</p>
+<h2 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h2><p><a href="https://blog.csdn.net/fly910905/article/details/88711075" target="_blank" rel="noopener">Git：什么时候应使用 “git stash”</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ git stash save</span><br><span class="line">$ git add -u</span><br><span class="line">$ git commit -m &apos;...&apos;</span><br><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.csdn.net/boysky0015/article/details/78185879" target="_blank" rel="noopener">合并分支到master上</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/02/13/爬虫demo/" title="⭐️爬虫demo" class="prev">上一篇</a><a href="/2020/01/05/书单/" title="⭐️书单" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

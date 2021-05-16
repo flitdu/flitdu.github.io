@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️Hadoop · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️Hadoop - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️Hadoop</h1><div class="post-info">2020-11-08</div><div class="post-content"><p>[TOC]</p>
+<p>这是摘要……</p>
+<a id="more"></a>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><a href="https://mp.weixin.qq.com/s/jVnDpgXqRqVBWv0UG_1OBA" target="_blank" rel="noopener">深入浅出大数据：到底什么是Hadoop？</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl7kh9tgraj31060fcb1z.jpg" alt="image-20201130222705904"></p>
+<p>出自【1】<a name="toc1"></a></p>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=aReuLtY0YMI&ab_channel=Simplilearn" target="_blank" rel="noopener">Hadoop In 5 Minutes | What Is Hadoop? | Introduction To Hadoop | Hadoop Explained |Simplilearn</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpjoktmhsuj31be0tyb29.jpg" alt="image-20210414231630155"></p>
+</li>
+</ul>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
+<li>zookeeper</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master zookeeper-3.4.9]# bin/zkServer.sh start</span><br></pre></td></tr></table></figure>
+
+<p>对应进程：</p>
+<p>15936 <strong>QuorumPeerMain</strong></p>
+<ul>
+<li>hadoop</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master hadoop-2.7.5]# sbin/start-dfs.sh</span><br><span class="line">sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+
+<p>15746 SecondaryNameNode<br>15466 NameNode<br>15936 QuorumPeerMain<br>15565 DataNode<br>15974 Jps</p>
+<ul>
+<li><p>三个端口查看界面</p>
+<p><a href="http://node01:50070/explorer.html#/" target="_blank" rel="noopener">http://node01:50070/explorer.html#/</a> 查看hdfs </p>
+</li>
+</ul>
+<p><a href="http://node01:8088/cluster" target="_blank" rel="noopener">http://node01:8088/cluster</a> 查看yarn集群</p>
+<p> <a href="http://node01:19888/jobhistory" target="_blank" rel="noopener">http://node01:19888/jobhistory</a> 查看历史完成的任务</p>
+<h2 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h2><ul>
+<li>namenode 和datanode【视频p48】</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glunq3vfs8j31xi0p8qv5.jpg" alt="image-20201220214658628"></p>
+<ul>
+<li>HDFS 文件写入过程：【视频p57】</li>
+</ul>
+<p>写入需要串行，一个个blk顺序写</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glze0dwoiqj31pk0rcx6p.jpg" alt="image-20201224235852428"></p>
+<ul>
+<li>hdfs读取过程</li>
+</ul>
+<p>可以并行读</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glzeffq23kj31rg0tu4qq.jpg" alt="image-20201225001319996"></p>
+<ul>
+<li>MapReduce计算框架【p75】</li>
+</ul>
+<p>MapReduce运行在yarn集群</p>
+<ol>
+<li><p>ResourceManager </p>
+</li>
+<li><p>NodeManager</p>
+</li>
+</ol>
+<p>Mapreduce 计算过程如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gm52uo9rx5j30qg0gox01.jpg" alt="image-20201229220626722">  </p>
+<p>以统计词频为例：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gm5313nqk1j31ia0fq1kx.jpg" alt="image-20201229221237228"></p>
+<p>一个完整的mapreduce程序在分布式运行时有三类实例进程:</p>
+<ol>
+<li><p>MRAppMaster 负责整个程序的过程调度及状态协调 </p>
+</li>
+<li><p>MapTask 负责map阶段的整个数据处理流程</p>
+</li>
+<li><p>ReduceTask 负责reduce阶段的整个数据处理流程</p>
+</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gm52n01alwj317q0owe81.jpg" alt="image-20201229215902289"></p>
+<h2 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h2><p>执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar hadoop_hdfs_operate-1.0-SNAPSHOT.jar cn.itcast.hdfs.demo1.JobMain</span><br></pre></td></tr></table></figure>
+
+<h2 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h2><p><a href="https://github.com/HelloGitHub-Team/HelloZooKeeper" target="_blank" rel="noopener">HelloZooKeeper</a></p>
+<p><a href="https://camo.githubusercontent.com/2089271c15940432788af153be7ac6ac101c761c8f3fa8cad3d24cdf9f961c9e/68747470733a2f2f63646e2e6265656b6b612e636f6d2f626c6f67696d672f61737365742f3230323130342f6267323032313034323531302e6a7067" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/2089271c15940432788af153be7ac6ac101c761c8f3fa8cad3d24cdf9f961c9e/68747470733a2f2f63646e2e6265656b6b612e636f6d2f626c6f67696d672f61737365742f3230323130342f6267323032313034323531302e6a7067" alt="img"></a></p>
+<p>ZooKeeper 的中文教程，从最基础的安装使用到背后原理和源码，使用有趣诙谐的文字讲解。ZooKeeper 是大型分布式计算的配置服务工具。</p>
+<h2 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h2><ul>
+<li><a href="http://c.biancheng.net/view/3500.html" target="_blank" rel="noopener">http://c.biancheng.net/view/3500.html</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqcmextws3j31ie0u0hdu.jpg" alt="image-20210510000331635"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>B站<a href="https://www.bilibili.com/video/BV1ek4y117Yq?p=59" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1ek4y117Yq?p=59</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/11/13/labuladong文章标题及链接/" title="⭐️labuladong文章标题及链接" class="prev">上一篇</a><a href="/2020/07/25/简历思考/" title="⭐️简历思考" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

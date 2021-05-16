@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️简历思考 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️简历思考 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️简历思考</h1><div class="post-info">2020-07-25</div><div class="post-content"><p>[TOC]</p>
+<p>参考：<a href="https://mp.weixin.qq.com/s?__biz=MzUxNjY5NTYxNA==&mid=2247485960&idx=1&sn=37cbdb8fc7d5ce102d20f75982a9e404&scene=21#wechat_redirect" target="_blank" rel="noopener">程序员的简历应该这么写！！（附简历模板）</a></p>
+<a id="more"></a>
+
+<h2 id="CRF-与-HMM-区别"><a href="#CRF-与-HMM-区别" class="headerlink" title="CRF 与 HMM 区别"></a>CRF 与 HMM 区别</h2><p><a href="https://zhuanlan.zhihu.com/p/33397147" target="_blank" rel="noopener">概率图模型体系：HMM、MEMM、CRF</a></p>
+<p><a href="https://www.zhihu.com/question/20136144/answer/763021768" target="_blank" rel="noopener">如何通俗地讲解 viterbi 算法？</a>【强烈推荐！】</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkslvxdjufj311u0u0kjl.jpg" alt="image-20201117235217786"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq9j5py75j30xa0gmwxb.jpg" alt="image-20201115231345317"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkqcbz1j23j314v0u01kx.jpg" alt="IMG_9ED571548DD2-1"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gksmec7vslj30np0gowzw.jpg" alt="image-20201118001002355"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gksmelo9uyj30dl0lch1n.jpg" alt="image-20201118001018362"></p>
+<h2 id="ner-项目"><a href="#ner-项目" class="headerlink" title="ner 项目"></a>ner 项目</h2><blockquote>
+<p>BiLSTM+CRF</p>
+</blockquote>
+<ul>
+<li>输入、输出是什么？</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq4qn2swsj30bx0an75b.jpg" alt="img"></p>
+<ul>
+<li><strong>为何采用 BiLSTM+CRF 技术？</strong></li>
+</ul>
+<p><strong>具体网络架构如何？</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq4qxghrhj30pc0k4jtj.jpg" alt="image-20201115202734425"></p>
+<p>ner 属于序列标注问题。</p>
+<p>序列标注问题的重点在于学习序列位置之间的关系，然后解码出最大概率标签路径。</p>
+<p>CRF 可以学到句子的约束条件</p>
+<blockquote>
+<p>注意，这里的CRF不是完整版，是把CRF的一部分嫁接过来的—–参见【<a href="https://www.bilibili.com/video/BV1si4y1b7Yx/?p=5】" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1si4y1b7Yx/?p=5】</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkqc9250lhj31l50u0qv6.jpg" alt="image-20201116004750598"></p>
+</blockquote>
+<ul>
+<li>损失函数是什么？</li>
+</ul>
+<p>优化目标是：真实序列的概率最大化</p>
+<p><strong>损失函数</strong>如下：【论文：Neural Architectures for Named Entity Recognition】</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq48u1d4rj30ts0csdp6.jpg" alt="image-20201115201048955"></p>
+<p>对于每一个序列输出，定义得分S为：<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq4av5xm1j30ks04egnk.jpg" alt="image-20201115201246455"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkq4roya7uj31fq0mq1ky.jpg" alt="image-20201115202405300"></p>
+<blockquote>
+<p>从路径分数S可以看出，其包含两部分：转移分数和输出分数。输出分数高，整体分数不一定高，比如BB挨着这种，在CRF层就会对其有一个低的转移分数。最终模型也不会选择这种不合理的序列。<strong>这个得分函数S就很好地弥补了传统BiLSTM的不足</strong></p>
+<p>——<a href="https://zhuanlan.zhihu.com/p/44042528" target="_blank" rel="noopener">最通俗易懂的BiLSTM-CRF模型中的CRF层介绍</a></p>
+</blockquote>
+<p>pytorch官方代码实现可以移步<a href="https://link.zhihu.com/?target=http%3A//pytorch.org/tutorials/beginner/nlp/advanced_tutorial.html" target="_blank" rel="noopener">Bi-LSTM-CRF</a>。</p>
+<h2 id="Simhash-为啥快？"><a href="#Simhash-为啥快？" class="headerlink" title="Simhash 为啥快？"></a>Simhash 为啥快？</h2><p>抽屉原理是怎么具体使用的？</p>
+<p><a href="https://zhuanlan.zhihu.com/p/92155250" target="_blank" rel="noopener">对simhash的简单理解</a></p>
+<h2 id="多传感器数据融合介绍"><a href="#多传感器数据融合介绍" class="headerlink" title="多传感器数据融合介绍"></a>多传感器数据融合介绍</h2><p>输入、输出具体是？？</p>
+<p><a href="https://zhuanlan.zhihu.com/p/341440139" target="_blank" rel="noopener">卡尔曼滤波最完整公式推导</a></p>
+<h2 id="GoogleNet和Resnet差别"><a href="#GoogleNet和Resnet差别" class="headerlink" title="GoogleNet和Resnet差别"></a>GoogleNet和Resnet差别</h2><ul>
+<li><p><strong>为什么Dropout有效？</strong></p>
+<p>Dropout背后理念和集成模型很相似。在Drpout层，不同的神经元组合被关闭，这代表了一种不同的结构，所有这些不同的结构使用一个的子数据集并行地带权重训练，而权重总和为1。如果Dropout层有 <img src="https://www.zhihu.com/equation?tex=n" alt="[公式]"> 个神经元，那么会形成 <img src="https://www.zhihu.com/equation?tex=2%5E%7Bn%7D" alt="[公式]"> 个不同的子结构。在预测时，相当于集成这些模型并取均值。这种结构化的模型正则化技术有利于避免过拟合。Dropout有效的另外一个视点是：由于神经元是随机选择的，所以可以减少神经元之间的相互依赖，从而确保提取出相互独立的重要特征。</p>
+</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/32116277" target="_blank" rel="noopener">ResNet, AlexNet, VGG, Inception: 理解各种各样的CNN架构</a></p>
+<ul>
+<li>池化操作的使用场景，什么时候不用？一定要用吗？</li>
+</ul>
+<h2 id="超参数怎么调优"><a href="#超参数怎么调优" class="headerlink" title="超参数怎么调优"></a>超参数怎么调优</h2><p>参见《白面机器学习》p43</p>
+<h2 id="特征选取，关键特征如何挑选？"><a href="#特征选取，关键特征如何挑选？" class="headerlink" title="特征选取，关键特征如何挑选？"></a>特征选取，关键特征如何挑选？</h2><ul>
+<li>主成分分析的原理</li>
+</ul>
+<h2 id="数据库的优化"><a href="#数据库的优化" class="headerlink" title="数据库的优化"></a>数据库的优化</h2><p>建索引，数据库故障排查</p>
+<p>出自【1】<a name="toc1"></a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href>参考1</a><a href="#toc1">🔼</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/11/08/Hadoop/" title="⭐️Hadoop" class="prev">上一篇</a><a href="/2020/06/22/nlp笔记/" title="⭐️nlp笔记" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

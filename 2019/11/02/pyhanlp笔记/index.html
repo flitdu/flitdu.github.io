@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️pyhanlp笔记 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️pyhanlp笔记 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️pyhanlp笔记</h1><div class="post-info">2019-11-02</div><div class="post-content"><p>[TOC]</p>
+<p>这是摘要……</p>
+<a id="more"></a>
+
+<p>HanLP是由一系列模型与算法组成的工具包，目标是普及自然语言处理在生产环境中的应用。HanLP具备功能完善、性能高效、架构清晰、语料时新、可自定义的特点；提供词法分析（中文分词、词性标注、命名实体识别）、句法分析、文本分类和情感分析等功能。</p>
+<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><ul>
+<li>训练测试过程有待进一步搞清楚？具体怎么样的？</li>
+</ul>
+<p>训练与不训练区别如何？</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://blog.csdn.net/weixin_30393907/article/details/96228952" target="_blank" rel="noopener">在mac上安装python版的hanlp/JPype1</a></p>
+<ul>
+<li>配置JAVA环境</li>
+</ul>
+<p><a href="https://blog.csdn.net/qq_21358401/article/details/79266337" target="_blank" rel="noopener">Mac 下brew安装JDK</a></p>
+<ul>
+<li>下载jar、data、hanlp.properties</li>
+</ul>
+<p>参考：<a href="https://github.com/hankcs/HanLP" target="_blank" rel="noopener">https://github.com/hankcs/HanLP</a></p>
+<p>HanLP将数据与程序分离，给予用户自定义的自由。</p>
+<p>1、下载：<a href="http://nlp.hankcs.com/download.php?file=data" target="_blank" rel="noopener">data.zip</a></p>
+<p>下载后解压到任意目录，接下来通过配置文件告诉HanLP数据包的位置。</p>
+<p>HanLP中的数据分为<em>词典</em>和<em>模型</em>，其中<em>词典</em>是词法分析必需的，<em>模型</em>是句法分析必需的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data</span><br><span class="line">│</span><br><span class="line">├─dictionary</span><br><span class="line">└─model</span><br></pre></td></tr></table></figure>
+
+<p>用户可以自行增删替换，如果不需要句法分析等功能的话，随时可以删除model文件夹。</p>
+<ul>
+<li>模型跟词典没有绝对的区别，隐马模型被做成人人都可以编辑的词典形式，不代表它不是模型。</li>
+<li>GitHub代码库中已经包含了data.zip中的词典，直接编译运行自动缓存即可；模型则需要额外下载。</li>
+</ul>
+<p>2、下载jar和配置文件：<a href="http://nlp.hankcs.com/download.php?file=jar" target="_blank" rel="noopener">hanlp-release.zip</a></p>
+<p>配置文件的作用是告诉HanLP数据包的位置，只需修改第一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root=D:/JavaProjects/HanLP/</span><br></pre></td></tr></table></figure>
+
+<p>为data的<strong>父目录</strong>即可，比如data目录是<code>/Users/hankcs/Documents/data</code>，那么<code>root=/Users/hankcs/Documents/</code> 。</p>
+<p>最后将<code>hanlp.properties</code>放入classpath即可，对于多数项目，都可以放到src或resources目录下，编译时IDE会自动将其复制到classpath中。除了配置文件外，还可以使用环境变量<code>HANLP_ROOT</code>来设置<code>root</code>。安卓项目请参考<a href="https://github.com/hankcs/HanLPAndroidDemo" target="_blank" rel="noopener">demo</a>。</p>
+<p>如果放置不当，HanLP会提示当前环境下的合适路径，并且尝试从项目根目录读取数据集。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8k48yal3mj30z20acwge.jpg" alt="image-20191102233333389"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8k49k5v6uj31m80ek43g.jpg" alt="image-20191102233408481"></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="语料格式"><a href="#语料格式" class="headerlink" title="语料格式"></a>语料格式</h3><ol>
+<li>单词与词性之间使用<code>/</code>分割，如<code>华尔街/nsf</code>，且任何单词都必须有词性，包括标点等。</li>
+<li>单词与单词之间使用空格分割，如<code>美国/nsf 华尔街/nsf 股市/n</code>。</li>
+<li>支持用<code>[]</code>将多个单词合并为一个复合词，如<code>[纽约/nsf 时报/n]/nz</code>，复合词也必须遵守1和2两点规范。</li>
+</ol>
+<p>训练时将满足上述格式的语料以纯文本txt导出到一个目录下即可。<a href="http://file.hankcs.com/corpus/pku98.zip" target="_blank" rel="noopener">OpenCorpus/pku98/199801.txt</a>即为一个单文档的例子，可供参考。具体如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l00r8v5lj31t40u0hdt.jpg" alt="image-20191103175245596"></p>
+<h3 id="中文分词"><a href="#中文分词" class="headerlink" title="中文分词"></a>中文分词</h3><p>正常情况下对<code>商品和服务</code>的分词结果为<code>[商品, 和, 服务]</code>。</p>
+<p><a href="https://blog.csdn.net/FontThrone/article/details/82792377" target="_blank" rel="noopener">pyhanlp 分词与词性标注</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8vmemjkwpj310o054mxz.jpg" alt="image-20191112222256997"></p>
+<ul>
+<li>jieba分词</li>
+</ul>
+<p><a href="https://www.cnblogs.com/Darrenblog/p/10180453.html" target="_blank" rel="noopener">自然语言处理课程（二）：Jieba分词的原理及实例操作</a></p>
+<h3 id="词性标注"><a href="#词性标注" class="headerlink" title="词性标注"></a>词性标注</h3><p>词性标注（Part-of-Speech tagging 或POS tagging)，又称词类标注或者简称标注，是指为分词结果中的每个单词标注一个正确的词性的程序，也<strong>即确定每个词是名词、动词、形容词或其他词性的过程</strong>。在汉语中，词性标注比较简单，因为汉语词汇词性多变的情况比较少见，大多词语只有一个词性，或者出现频次最高的词性远远高于第二位的词性。据说，只需选取最高频词性，即可实现80%准确率的中文词性标注程序。</p>
+<p>利用HMM即可实现更高准确率的词性标注</p>
+<blockquote>
+<p>标注:</p>
+<p>利用上述转移矩阵和核心词典词频可以计算出HMM中的初始概率、转移概率、发射概率，进而完成求解。关于维特比算法和实现请参考《<a href="http://www.hankcs.com/nlp/general-java-implementation-of-the-viterbi-algorithm.html" target="_blank" rel="noopener">通用维特比算法的Java实现</a>》。</p>
+</blockquote>
+<p><a href="http://www.hankcs.com/nlp/part-of-speech-tagging.html" target="_blank" rel="noopener"><strong>HanLP词性标注集</strong></a>、<a href="https://demeiyan.github.io/2017/10/16/HanLP词性标注集/" target="_blank" rel="noopener">HanLP词性标注集</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l7n0mmyxj310c0u0qht.jpg" alt="image-20191103221622225"></p>
+<h3 id="命名实体识别"><a href="#命名实体识别" class="headerlink" title="命名实体识别"></a>命名实体识别</h3><blockquote>
+<p><strong>命名实体识别</strong>（英语：Named Entity Recognition，简称<strong>NER</strong>），又称作<strong>专名识别</strong>、<strong>命名实体</strong>，是指识别<a href="https://zh.wikipedia.org/wiki/文本" target="_blank" rel="noopener">文本</a>中具有特定意义的实体，主要包括人名、地名、机构名、专有名词等，以及时间、数量、货币、比例数值等文字。指的是可以用专有名词（名称）标识的事物，一个命名实体一般代表唯一一个具体事物个体，包括人名、地名等。</p>
+<p>NER属于从非结构化文本中分类和定位命名实体感情的子任务，其过程是从是非结构化文本表达式中产生专有名词标注信息的命名实体表达式，目前NER有两个显著的问题，即识别和分类。例如，“奥巴马是美国总统”的“奥巴马”和“美国”都代表一个具体事物，因此都是命名实体。而“总统”不代表一个具体事物，因此不是命名实体。</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l8m3jc9vj314u0fwn04.jpg" alt="image-20191103225008045"></p>
+<h3 id="词典"><a href="#词典" class="headerlink" title="词典"></a>词典</h3><p><a href="https://blog.csdn.net/FontThrone/article/details/82793887" target="_blank" rel="noopener">pyhanlp 停用词与用户自定义词典</a></p>
+<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><h3 id="基于感知机的中文分词、词性标注与命名实体识别框架"><a href="#基于感知机的中文分词、词性标注与命名实体识别框架" class="headerlink" title="基于感知机的中文分词、词性标注与命名实体识别框架"></a><a href="https://github.com/hankcs/HanLP/wiki/结构化感知机标注框架" target="_blank" rel="noopener">基于感知机的中文分词、词性标注与命名实体识别框架</a></h3><p>这是一套利用感知机做序列标注任务，并且应用到<strong><em>中文分词、词性标注与命名实体识别</em></strong>这<code>3</code>个问题的完整在线学习框架。该框架利用<code>1</code>个算法解决<code>3</code>个问题，是自治统一的系统。同时三个任务顺序渐进，构成流水线式的系统。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l6yjxlebj312k0awae8.jpg" alt="image-20191103215254598"></p>
+<h3 id="中文分词-1"><a href="#中文分词-1" class="headerlink" title="中文分词"></a>中文分词</h3><ul>
+<li>训练</li>
+</ul>
+<p>只需指定输入语料的路径（单文档时为文件路径，多文档时为文件夹路径，灵活处理），以及模型保存位置即可：</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l6seduajj317o0aatap.jpg" alt="image-20191103214659010"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp hanlp.jar com.hankcs.hanlp.model.perceptron.Main -task CWS -train -reference data/test/pku98/199801.txt -model data/test/perceptron/cws.bin</span><br></pre></td></tr></table></figure>
+
+<p>事实上，视语料与任务的不同，迭代数、压缩比和线程数都可以自由调整，以保证最佳结果:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 训练</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> trainingFile  训练集</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> developFile   开发集</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> modelFile     模型保存路径</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> compressRatio 压缩比</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> maxIteration  最大迭代次数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> threadNum     线程数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 一个包含模型和精度的结构</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">train</span><span class="params">(String trainingFile, String developFile,</span></span></span><br><span class="line"><span class="function"><span class="params">                        String modelFile, <span class="keyword">final</span> <span class="keyword">double</span> compressRatio,</span></span></span><br><span class="line"><span class="function"><span class="params">                        <span class="keyword">final</span> <span class="keyword">int</span> maxIteration, <span class="keyword">final</span> <span class="keyword">int</span> threadNum)</span> <span class="keyword">throws</span> IOException</span></span><br></pre></td></tr></table></figure>
+
+<p>单线程时使用<code>AveragedPerceptron</code>算法，收敛较好；多线程时使用<code>StructuredPerceptron</code>，波动较大。关于两种算法的精度比较，请参考下一小节。目前默认多线程，线程数为系统CPU核心数。请根据自己的需求平衡精度和速度。</p>
+<p>对任意<code>PerceptronTagger</code>，用户都可以调用准确率评估接口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 性能测试</span><br><span class="line"> *</span><br><span class="line"> * @param corpora 数据集</span><br><span class="line"> * @return 默认返回accuracy，有些子类可能返回P,R,F1</span><br><span class="line"> * @throws IOException</span><br><span class="line"> */</span><br><span class="line">public double[] evaluate(String corpora) throws IOException</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试</li>
+</ul>
+<p>测试时只需提供分词模型的路径即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCWS</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    PerceptronSegmenter segmenter = <span class="keyword">new</span> PerceptronSegmenter(Config.CWS_MODEL_FILE);</span><br><span class="line">    System.out.println(segmenter.segment(<span class="string">"商品和服务"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>正常情况下对<code>商品和服务</code>的分词结果为<code>[商品, 和, 服务]</code>。建议在任何语料上训练时都试一试这个简单的句子，当作HelloWorld来测试。若这个例子都错了，则说明语料格式、规模或API调用上存在问题，须仔细排查，而不要急着部署上线。</strong></p>
+</blockquote>
+<p>在本系统中，分词器<code>PerceptronSegmenter</code>的职能更加单一<strong><em>，仅仅负责分词</em></strong>，不再负责词性标注或命名实体识别。这是一次接口设计上的新尝试，未来可能在<code>v2.0</code>中大规模采用这种思路去重构。</p>
+<h3 id="在线学习"><a href="#在线学习" class="headerlink" title="在线学习"></a>在线学习</h3><p>本框架另一个特色功能是“在线学习”，或称“增量训练”。其适用场景如下： 线上系统的统计模型依然会犯错误，但重新训练的代价过大（比如耗时长，没有语料等等）。本系统支持在线学习新知识，实时修正统计模型的错误。这里举一个分词的例子，人民日报1998年1月份训练出来的模型无法分对“下雨天地面积水”这个句子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PerceptronSegmenter segmenter = new PerceptronSegmenter(Config.CWS_MODEL_FILE);</span><br><span class="line">System.out.println(segmenter.segment(&quot;下雨天地面积水&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[下雨, 天地, 面积, 水]</span><br></pre></td></tr></table></figure>
+
+<p>但本系统支持在线学习这个句子的正确分词方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">segmenter.learn(&quot;下雨天 地面 积水&quot;);</span><br><span class="line">System.out.println(segmenter.segment(&quot;下雨天地面积水&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>通过learn接口，感知机模型学习到了这个句子的正确分词方式，并输出了正确结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[下雨天, 地面, 积水]</span><br></pre></td></tr></table></figure>
+
+<p>词性标注器和命名实体识别器也有类似的<code>learn</code>接口，用户可举一反三类似地调用，不再赘述。</p>
+<h3 id="模型压缩与持久化"><a href="#模型压缩与持久化" class="headerlink" title="模型压缩与持久化"></a>模型压缩与持久化</h3><p>在线学习或训练后的模型可以序列化到某个路径，其接口是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> ratio 压缩比c（压缩掉的体积，压缩后体积变为1-c）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> LinearModel <span class="title">compress</span><span class="params">(<span class="keyword">final</span> <span class="keyword">double</span> ratio)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">/**</span></span></span><br><span class="line"><span class="function"><span class="comment"> * 保存到路径</span></span></span><br><span class="line"><span class="function"><span class="comment"> *</span></span></span><br><span class="line"><span class="function"><span class="comment"> * @param modelFile</span></span></span><br><span class="line"><span class="function"><span class="comment"> * @throws IOException</span></span></span><br><span class="line"><span class="function"><span class="comment"> */</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(String modelFile, <span class="keyword">final</span> <span class="keyword">double</span> ratio)</span> <span class="keyword">throws</span> IOException</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h2><ul>
+<li><a href="http://blog.itpub.net/31524777/viewspace-2636268/" target="_blank" rel="noopener">Hanlp分词之CRF中文词法分析详解</a></li>
+</ul>
+<p>CRF的效果比感知机稍好一些，然而训练速度较慢，也不支持在线学习。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8l8feezm8j311m0ga456.jpg" alt="image-20191103224342221"></p>
+<h2 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://codeday.me/bug/20170707/35309.html" target="_blank" rel="noopener">如何在我的Mac上使用Java编译和运行程序？</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/11/12/Java学习/" title="⭐️Java学习" class="prev">上一篇</a><a href="/2019/10/27/视频《计算机视觉零基础入门》笔记三/" title="⭐️《计算机视觉零基础入门》三：图像分类" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
