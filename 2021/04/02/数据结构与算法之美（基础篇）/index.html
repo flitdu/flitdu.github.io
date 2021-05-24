@@ -507,10 +507,6 @@
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gprsbh1igpj30ye0hc1ee.jpg" alt="image-20210421233018284"></p>
 <ul>
-<li>完全二叉树与满二叉树</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gprshh32txj31bc0iw7r0.jpg" alt="image-20210421233605585"></p>
-<ul>
 <li>二叉树存储</li>
 </ul>
 <blockquote>
@@ -534,14 +530,32 @@
 <p><strong>二叉查找树要求，在树中的任意一个节点，其左子树中的每个节 点的值，都要小于这个节点的值，而右子树节点的值都大于这个节点的值。</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqh6wj75snj31a80em4fd.jpg" alt="image-20210422233911033"></p>
 <p><strong>中序遍历二叉查找树，可以输出有 序的数据序列，时间复杂度是</strong> O(n)<strong>，非常高效</strong>。因此，二叉查找树也叫作二叉排序树。</p>
+<ul>
+<li>红黑树</li>
+</ul>
+<p>为了避免复杂度的退化，引入<strong>平衡</strong>二叉查找树，红黑树就是其中的一种</p>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>需要满足下面两个条件：</p>
 <p>1.堆是一个完全二叉树;</p>
 <p>2.堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpsyjbszopj31440u07wh.jpg" alt="image-20210422235059966"></p>
+<p>由于堆是完全二叉树，所以用数组来存储会非常省空间，且单纯通过数组下标就可定位左右子节点和父节点</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqtxf1al5pj31020b6wti.jpg" alt="image-20210524231849943"></p>
+<ul>
+<li>建堆</li>
+</ul>
+<p>从最后一个非叶子节点开始，依次往前堆化（从上往下堆化）</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqtymdfe7wj30u00u4hdu.jpg" alt="image-20210525000031284"></p>
+<p>复杂度：O(n)</p>
+<p>推导过程：(用到树的高度)</p>
+<blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqtzb3t7czj312g0u0hdu.jpg" alt="image-20210525002417491"></p>
+</blockquote>
 <ul>
 <li>堆排序</li>
 </ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqtzg9eqz9j317z0u0kjl.jpg" alt="image-20210525002914364"></p>
 <p>堆排序包括建堆和排 序两个操作，建堆过程的时间复杂度是 O(n)，排序过程的时间复杂度是 O(nlogn)，所以，堆排序整体的 时间复杂度是 O(nlogn)。</p>
+<p>堆排序不稳定</p>
 <ul>
 <li>堆 的应用</li>
 </ul>
