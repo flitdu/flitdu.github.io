@@ -95,6 +95,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    # def is_triangle(self, a, b, c):</span><br><span class="line">    #     if a == 0 or b == 0 or c == 0: return False</span><br><span class="line">    #     if a + b &gt; c and a + c &gt; b and b + c &gt; a: return True</span><br><span class="line">    #     return False</span><br><span class="line"></span><br><span class="line">    def triangleNumber(self, nums: List[int]) -&gt; int:</span><br><span class="line">        ans= 0</span><br><span class="line">        nums.sort()  # 先排序</span><br><span class="line">        n = len(nums)</span><br><span class="line">        for i in range(n-2):</span><br><span class="line">            if nums[i]==0: continue</span><br><span class="line">            k = i+2</span><br><span class="line">            for j in range(i+1, n-1):</span><br><span class="line">                # k = j + 1</span><br><span class="line">                while k&lt;n and nums[i]+nums[j]&gt;nums[k]:</span><br><span class="line">                    k += 1</span><br><span class="line">                ans += k-j-1</span><br><span class="line">        return ans</span><br></pre></td></tr></table></figure>
 
 <p>遇到了大佬！</p>
+<blockquote>
+<ul>
+<li>对循环的优化</li>
+</ul>
+<p>对循环的优化所遵循的原则是尽量减少循环过程中的计算量，有多重循环的尽量将内层的计算提到上一层。</p>
+</blockquote>
 <p>优化过程参考：<a href="https://leetcode-cn.com/problems/valid-triangle-number/solution/chao-xiang-xi-pai-xu-shuang-zhi-zhen-611-you-xiao-/" target="_blank" rel="noopener">【超详细】排序 + 双指针（611. 有效三角形的个数）</a></p>
 <p><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqxfnjxexmj31wo0rekjl.jpg" alt="image-20210528000629830"></p>
