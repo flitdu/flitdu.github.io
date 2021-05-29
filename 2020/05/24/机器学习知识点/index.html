@@ -176,21 +176,28 @@
 <h3 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjnsgl1rj310009e3z8.jpg" alt="image-20200216002107204"></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjntwu5nj31ao04040c.jpg" alt="image-20200216002221064"></p>
 <h2 id="RNN–循环神经网路"><a href="#RNN–循环神经网路" class="headerlink" title="RNN–循环神经网路"></a>RNN–循环神经网路</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbl41xx1xj31aw0c87it.jpg" alt="image-20200531134917803"></p>
-<h3 id="应用模式"><a href="#应用模式" class="headerlink" title="应用模式"></a>应用模式</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm3hegfpj30s007yjvp.jpg" alt="image-20200531142320330"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfblzx2sxnj30xa0aagta.jpg" alt="image-20200531141955208"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm44bjaej30nw0960xl.jpg" alt="image-20200531142357179"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbm4wtrt3j30xm09oq9x.jpg" alt="image-20200531142443202"></p>
-<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbna2f6a4j31gs0gke81.jpg" alt="image-20200531150413922"></p>
-<blockquote>
-<p>三个门的作用</p>
-</blockquote>
 <ul>
-<li>遗忘门 𝒇𝑡 控制上一个时刻的内部状态 C𝑡−1 需要遗忘多少信息.</li>
-<li>输入门𝒊𝑡 控制当前时刻的候选状态𝒄̃ 有多少信息需要保存.</li>
-<li>输出门 𝒐𝑡 控制当前时刻的内部状态 𝒄𝑡 有多少信息需要输出给外部状态𝒉𝑡.</li>
+<li>应用模式</li>
 </ul>
+<p>分为3种：</p>
+<p>1）序列到类别—-&gt;[分类]<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg5y26jfj31em0cgjtf.jpg" alt="image-20210529175518470"></p>
+<p>2）同步的seq2seq—-&gt;[词性标注]</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg8bb42jj315i0d478m.jpg" alt="image-20210529175737896"></p>
+<p>3）异步的seq2seq—-&gt;[机器翻译]</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg8o00dnj31fg0bgwlg.jpg" alt="image-20210529175758146"></p>
+<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbna2f6a4j31gs0gke81.jpg" alt="image-20200531150413922"></p>
+<p>LSTM 相比普通RNN增加了一个元胞状态单元 𝒄𝑡,以解决普通RNN中的梯度消失和爆炸问题 </p>
+<p>𝒉𝑡 是短期状态单元，𝒄𝑡 是长期状态单元，二者配合形成长短期记忆</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzgmw8zg0j31mu0iiq9d.jpg" alt="image-20200531151124615"></p>
+<ul>
+<li>三个门的作用</li>
+</ul>
+<blockquote>
+<p>遗忘门 𝒇𝑡 控制上一个时刻的𝒄𝑡-1 需要遗忘多少信息.</p>
+<p>输入门𝒊𝑡 控制当前时刻的候选状态𝒄̃ 有多少信息需要保存.</p>
+<p>输出门 𝒐𝑡 控制当前时刻的内部状态 𝒄𝑡 有多少信息需要输出给外部状态𝒉𝑡.</p>
+</blockquote>
 <p>公式计算：<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbnb0vejyj30rk0hak24.jpg" alt="image-20200531150510653"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbnhhtqv9j31mu0iihdt.jpg" alt="image-20200531151124615"></p>
 <h3 id="GRU-网络"><a href="#GRU-网络" class="headerlink" title="GRU 网络"></a>GRU 网络</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbpugthi3j313e0lgnff.jpg" alt="image-20200531163304219"></p>
 <h3 id="深层RNN"><a href="#深层RNN" class="headerlink" title="深层RNN"></a>深层RNN</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq1bzzr4j30ig04w40h.jpg" alt="image-20200531163940715"></p>
 <ul>
