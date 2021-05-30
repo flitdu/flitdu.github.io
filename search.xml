@@ -61,11 +61,11 @@
     
     
     <entry>
-      <title>⭐️jieba分词原理</title>
-      <link href="/2021/05/30/Jieba%E5%88%86%E8%AF%8D%E5%8E%9F%E7%90%86/"/>
-      <url>/2021/05/30/Jieba%E5%88%86%E8%AF%8D%E5%8E%9F%E7%90%86/</url>
+      <title>⭐️jieba分词原理解读</title>
+      <link href="/2021/05/30/Jieba%E5%88%86%E8%AF%8D%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB/"/>
+      <url>/2021/05/30/Jieba%E5%88%86%E8%AF%8D%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB/</url>
       
-        <content type="html"><![CDATA[<a id="more"></a><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li></li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.jianshu.com/p/d232d344e23f" target="_blank" rel="noopener">jieba分词原理</a></li><li></li></ol>]]></content>
       
       
       <categories>
@@ -962,11 +962,11 @@
       
         <tags>
             
+            <tag> 算法 </tag>
+            
             <tag> 深度学习 </tag>
             
             <tag> 机器学习 </tag>
-            
-            <tag> 算法 </tag>
             
         </tags>
       
