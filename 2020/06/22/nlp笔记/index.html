@@ -37,7 +37,7 @@
 <p>直接这样计算会导致参数空间过大。</p>
 <p>如，一个二元模型的参数计算结果如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr0hs5tbpmj30kh07a759.jpg" alt="640?wx_fmt=png"></p>
-<p>一个语言模型的参数就是所有的这些条件概率，试想按上面方式计算P(w 5 |w 1 ,w 2 ,w 3 ,w 4 )，这里$w_ i$都有一个词典大小取值的可能，记作|V|，则该模型的参数个数是$|V|^5$，而且这还不包含P(w4 | w1, w2, w3)的个数，可以看到这样去计算条件概率会使语言模型参数个数过多而无法实用。</p>
+<p>一个语言模型的参数就是所有的这些条件概率，试想按上面方式计算P(w 5 |w 1 ,w 2 ,w 3 ,w 4 )，这里<code>w_i</code>都有一个词典大小取值的可能，记作|V|，则该模型的参数个数是$|V|^5$，而且这还不包含P(w4 | w1, w2, w3)的个数，可以看到这样去计算条件概率会使语言模型参数个数过多而无法实用。</p>
 <p><a href="https://blog.csdn.net/qq_27825451/article/details/102457058" target="_blank" rel="noopener">详解语言模型NGram及困惑度Perplexity</a></p>
 <h3 id="biLSTM模型"><a href="#biLSTM模型" class="headerlink" title="biLSTM模型"></a>biLSTM模型</h3><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210427165239648.png" alt="image-20210427165239648"></p>
 <p><a href="https://paperswithcode.com/method/bilstm" target="_blank" rel="noopener">https://paperswithcode.com/method/bilstm</a></p>
