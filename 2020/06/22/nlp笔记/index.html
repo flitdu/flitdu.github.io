@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN//语言"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️nlp笔记 · Note</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️nlp笔记 - Dufy"><meta name="keywords"><meta name="author" content="Dufy"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Note"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️nlp笔记</h1><div class="post-info">2020-06-22</div><div class="post-content"><p>[TOC]</p>
+<p>![image-20210531000558647](../../../Library/Application Support/typora-user-images/image-20210531000558647.png)</p>
 <p>这是摘要……</p>
 <a id="more"></a>
 
@@ -37,106 +38,27 @@
 <p>直接这样计算会导致参数空间过大。</p>
 <p>如，一个二元模型的参数计算结果如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr0hs5tbpmj30kh07a759.jpg" alt="640?wx_fmt=png"></p>
-<p>一个语言模型的参数就是所有的这些条件概率，试想按上面方式计算P(w 5 |w 1 ,w 2 ,w 3 ,w 4 )，这里<code>w_i</code>都有一个词典大小取值的可能，记作|V|，则该模型的参数个数是$|V|^5$，而且这还不包含P(w4 | w1, w2, w3)的个数，可以看到这样去计算条件概率会使语言模型参数个数过多而无法实用。</p>
-<p><a href="https://blog.csdn.net/qq_27825451/article/details/102457058" target="_blank" rel="noopener">详解语言模型NGram及困惑度Perplexity</a></p>
-<h3 id="biLSTM模型"><a href="#biLSTM模型" class="headerlink" title="biLSTM模型"></a>biLSTM模型</h3><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210427165239648.png" alt="image-20210427165239648"></p>
-<p><a href="https://paperswithcode.com/method/bilstm" target="_blank" rel="noopener">https://paperswithcode.com/method/bilstm</a></p>
-<h3 id="GPT-系列"><a href="#GPT-系列" class="headerlink" title="GPT 系列"></a>GPT 系列</h3><p> 2017年是NLP领域的大年，这一年Transformer横空出世，强大的模型拟合能力迅速席卷了sequence-to-sequence的各项任务，Transformer Encoder主攻特征表示，Transformer Decoder擅长文本生成，二者合则天下无敌，分则各自为王。 </p>
-<p>可以发现，词向量技术已经作为一种标配技术展现在语言模型中</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>我们要描述文章内容，首先要将文章内容表示出来。</p>
-<p>一个比较直观的想法是采用 <strong>序号编码</strong>。</p>
-<p>这对于具有大小关系的数据是有意义的，如表示‘低、中、高’三档次，可以用‘1、2、3’表示。转换后依然保留原先的大小关系。</p>
-<table>
-<thead>
-<tr>
-<th>低</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>中</td>
-<td>2</td>
-</tr>
-<tr>
-<td>高</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<p>但是，更多情况下，对于不具有大小关系的数据，该如何表示呢？</p>
-<p>可以考虑向量方法，如<strong>‘one-hot encoding’</strong></p>
-<p>比如，词表有{‘水果’, ‘橘子’,’葡萄’,’汽车’, ‘大象’, ‘动物’}，共6个词</p>
-<p>那么，这些词就可以采用如下方式表示：</p>
-<table>
-<thead>
-<tr>
-<th>水果</th>
-<th>（1，0，0，0，0，0）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>中</td>
-<td>（0，1，0，0，0，0）</td>
-</tr>
-<tr>
-<td>高</td>
-<td>（0，0，0，0，1，0）</td>
-</tr>
-</tbody></table>
-<p>这样的问题是：</p>
-<ol>
-<li>词表中词很多时候，向量维度会过大</li>
-<li>词与词之间 的关系表示不出来，对于任意两个向量a,b，计算cos(a,b)==0</li>
-</ol>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gm9ja8ejmnj30fq056abx.jpg" alt="image-20210102183711769"></p>
-<p>又引入了接下里的‘<strong>word2vec</strong>’模型</p>
-<p><strong>word2vec</strong>由谷歌于2013年提出，是一种浅层的神经网络模型，分为两种方法：</p>
-<ul>
-<li>CBOW—完形填空</li>
-<li>Skip-gram—造句，跳字模型</li>
-</ul>
-<h2 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h2><p>衡量词在当前文档中的重要程度计算如下：</p>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkdjxj2c14j30wg03k0x3.jpg" alt="image-20201104232113679"></p>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkdjvybfm1j30se06cgsu.jpg" alt="image-20201104231940549"></p>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkdjx3x503j30uw06in78.jpg" alt="image-20201104232047326"></p>
-<p>比如，</p>
 <blockquote>
-<p>还是以《中国的蜜蜂养殖》为例，假定该文长度为1000个词，”中国”、”蜜蜂”、”养殖”各出现20次，则这三个词的”词频”（TF）都为0.02。然后，搜索Google发现，包含”的”字的网页共有250亿张，假定这就是中文网页总数。包含”中国”的网页共有62.3亿张，包含”蜜蜂”的网页为0.484亿张，包含”养殖”的网页为0.973亿张。则它们的逆文档频率（IDF）和TF-IDF如下：<img src="http://www.ruanyifeng.com/blogimg/asset/201303/bg2013031508.png" alt="img"></p>
+<p>一个语言模型的参数就是所有的这些条件概率，试想按上面方式计算P(w 5 |w 1 ,w 2 ,w 3 ,w 4 )，这里<code>w_i</code>都有一个词典大小取值的可能，记作|V|，则该模型的参数个数是$|V|^5$，而且这还不包含P(w4 | w1, w2, w3)的个数，可以看到这样去计算条件概率会使语言模型参数个数过多而无法实用   —–<a href="https://blog.csdn.net/qq_27825451/article/details/102457058" target="_blank" rel="noopener">详解语言模型NGram及困惑度Perplexity</a></p>
+</blockquote>
+<h3 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h3><p>衡量词在当前文档中的重要程度，计算如下：</p>
+<p><img src="https://latex.vimsky.com/test.image.latex.php?fmt=svg&val=%5Cdpi%7B150%7D%20%5Clarge%20TF-IDF%28t%2Cd%29%20%3D%20TF%28t%2Cd%29%5Ctimes%20IDF%28t%29&dl=0" alt="Latex公式渲染之后的图片"></p>
+<p>TF为词t 在文档d 中的词频，IDF为逆文档频率</p>
+<p><img src="https://www.zhihu.com/equation?tex=IDF+%3D+log(%5Cfrac%7B%E8%AF%AD%E6%96%99%E5%BA%93%E4%B8%AD%E6%96%87%E6%9C%AC%E7%9A%84%E6%80%BB%E4%B8%AA%E6%95%B0%7D%7B%E5%8C%85%E5%90%AB%E8%AF%A5%E8%AF%8D%E6%B1%87%E7%9A%84%E6%96%87%E6%9C%AC%E4%B8%AA%E6%95%B0%2B1%7D)" alt="[公式]"></p>
+<ul>
+<li>应用场景【1】<a name="toc1"></a></li>
+</ul>
+<p>自动提取关键词、信息检索、相似文章、自动摘要等</p>
+<p>1) 自动提取关键词</p>
+<p>还是以《中国的蜜蜂养殖》为例，假定该文长度为1000个词，”中国”、”蜜蜂”、”养殖”各出现20次，则这三个词的”词频”（TF）都为0.02。然后，搜索Google发现，包含”的”字的网页共有250亿张，假定这就是中文网页总数。包含”中国”的网页共有62.3亿张，包含”蜜蜂”的网页为0.484亿张，包含”养殖”的网页为0.973亿张。则它们的逆文档频率（IDF）和TF-IDF如下：<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr0tq7m1bhj30ia07xq2u.jpg" alt="img"></p>
 <p>tf-idf(‘蜜蜂’)=0.02*lg_10(250/0.484)=0.02 x 2.713=0.0543</p>
 <p>从上表可见，”蜜蜂”的TF-IDF值最高，”养殖”其次，”中国”最低。（如果还计算”的”字的TF-IDF，那将是一个极其接近0的值。）所以，如果只选择一个词，”蜜蜂”就是这篇文章的关键词。</p>
-</blockquote>
-<ul>
-<li><p>应用场景【1】<a name="toc1"></a></p>
-<p>自动提取关键词、信息检索、相似文章、自动摘要等</p>
-</li>
-</ul>
-<p>1) 自动提取关键词</p>
 <p>2）信息检索</p>
-<blockquote>
-<p>除了自动提取关键词，TF-IDF算法还可以用于许多别的地方。比如，信息检索时，对于每个文档，都可以分别计算一组搜索词（”中国”、”蜜蜂”、”养殖”）的TF-IDF，将它们相加，就可以得到整个文档的TF-IDF。这个值最高的文档就是与搜索词最相关的文档。</p>
-</blockquote>
-<p>3) 找出相似文章(结合余弦相似度)</p>
-<blockquote>
-<ol>
-<li><p>使用TF-IDF算法，找出两篇文章的关键词；</p>
-</li>
-<li><p>每篇文章各取出若干个关键词（比如20个），合并成一个集合，计算每篇文章对于这个集合中的词的词频（为了避免文章长度的差异，可以使用相对词频）；</p>
-</li>
-<li><p>生成两篇文章各自的词频向量；</p>
-</li>
-<li><p>计算两个向量的余弦相似度，值越大就表示越相似。</p>
-</li>
-</ol>
-</blockquote>
-<p>词频向量（类似于词袋模型）</p>
-<p>e.g.    计算下面两个句子的相似性：</p>
-<p>句子A：我喜欢看电视，不喜欢看电影。</p>
-<p>句子B：我不喜欢看电视，也不喜欢看电影。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmqltlm2tuj30za0u0noh.jpg" alt="image-20210117125938972"></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmqluzit33j30iv05p3yb.jpg" alt="img"></p>
-<p>4）自动摘要</p>
-<p>只考虑关键词首先出现的句子:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Summarizer(originalText, maxSummarySize):</span><br><span class="line"></span><br><span class="line">　　　　// 计算原始文本的词频，生成一个数组，比如[(10,'the'), (3,'language'), (8,'code')...]</span><br><span class="line">　　　　wordFrequences = getWordCounts(originalText)</span><br><span class="line"></span><br><span class="line">　　　　// 过滤掉停用词，数组变成[(3, 'language'), (8, 'code')...]</span><br><span class="line">　　　　contentWordFrequences = filtStopWords(wordFrequences)</span><br><span class="line"></span><br><span class="line">　　　　// 按照词频进行排序，数组变成['code', 'language'...]</span><br><span class="line">　　　　contentWordsSortbyFreq = sortByFreqThenDropFreq(contentWordFrequences)</span><br><span class="line"></span><br><span class="line">　　　　// 将文章分成句子</span><br><span class="line">　　　　sentences = getSentences(originalText)</span><br><span class="line"></span><br><span class="line">　　　　// 选择关键词首先出现的句子</span><br><span class="line">　　　　setSummarySentences = &#123;&#125;</span><br><span class="line">　　　　foreach word in contentWordsSortbyFreq:</span><br><span class="line">　　　　　　firstMatchingSentence = search(sentences, word)</span><br><span class="line">　　　　　　setSummarySentences.add(firstMatchingSentence)</span><br><span class="line">　　　　　　if setSummarySentences.size() = maxSummarySize:</span><br><span class="line">　　　　　　　　break</span><br><span class="line"></span><br><span class="line">　　　　// 将选中的句子按照出现顺序，组成摘要</span><br><span class="line">　　　　summary = ""</span><br><span class="line">　　　　foreach sentence in sentences:</span><br><span class="line">　　　　　　if sentence in setSummarySentences:</span><br><span class="line">　　　　　　　　summary = summary + " " + sentence</span><br><span class="line"></span><br><span class="line">　　　　return summary</span><br></pre></td></tr></table></figure>
-
+<p>信息检索要解决的问题是:给定一组关键字, 在所有的文档集合中, 返回与关键字相关的所有文档, 并对所有文档根据相关性进行排序.</p>
+<p>信息检索时，对于每个文档，都可以分别计算一组搜索词（”中国”、”蜜蜂”、”养殖”）的TF-IDF，将它们相加，就可以得到整个文档的TF-IDF。这个值最高的文档就是与搜索词最相关的文档。</p>
+<p>代码参考：<a href="https://github.com/flitdu/consult/blob/main/tf_idf.py" target="_blank" rel="noopener">https://github.com/flitdu/consult/blob/main/tf_idf.py</a></p>
+<p>====</p>
+<p><strong>word2vec 与 fasttext 可以单独开一篇</strong></p>
 <h2 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h2><blockquote>
 <p>Effectively, Word2Vec is based on distributional hypothesis where the context for each word is in its nearby words. Hence, by looking at its neighbouring words, we can attempt to predict the target word.</p>
 <p>——–<a href="https://towardsdatascience.com/an-implementation-guide-to-word2vec-using-numpy-and-google-sheets-13445eebd281" target="_blank" rel="noopener">An implementation guide to Word2Vec using NumPy and Google Sheets: Learn the inner workings of Word2Vec</a></p>
@@ -195,6 +117,9 @@
 <li><a href="http://www.ruanyifeng.com/blog/2013/03/tf-idf.html" target="_blank" rel="noopener">TF-IDF与余弦相似性的应用（一）：自动提取关键词</a><a href="#toc1">🔼</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/34219483" target="_blank" rel="noopener">了解N-Gram模型</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/53425736" target="_blank" rel="noopener">word2vec详解（CBOW，skip-gram，负采样，分层Softmax）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/109954774" target="_blank" rel="noopener">02. 语言模型（language Model）发展历史</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/52061158" target="_blank" rel="noopener">深入理解语言模型 Language Model</a></li>
+<li><a href="https://kexue.fm/archives/6933" target="_blank" rel="noopener">从语言模型到Seq2Seq：Transformer如戏，全靠Mask</a></li>
 <li></li>
 </ol>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/07/25/简历思考/" title="⭐️简历思考" class="prev">PREV</a><a href="/2020/06/15/bert专题/" title="⭐️bert专题" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
