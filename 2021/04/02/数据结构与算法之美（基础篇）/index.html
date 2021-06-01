@@ -575,7 +575,14 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr20z3neoij61140t27aq02.jpg" alt="image-20210531232612740"></p>
 <p>2） 求Top K</p>
 <p>需一直维护一个大小为K的小顶堆，复杂度 nlog(K)</p>
-<p>3) 如何</p>
+<p>3) 有一个10亿搜索关键词的日志文件，如何获取Top10最热门的搜索关键词？</p>
+<p>方法1： MapReduce</p>
+<p>方法2： 单机，可使用内存 1G</p>
+<p>初始方案：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr34pbvpvwj31580fq0yh.jpg" alt="image-20210601222103242"></p>
+<p>但是，字典占据空间太大，内存不够</p>
+<p>改进：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr35ejvcjpj31je0lawr8.jpg" alt="image-20210601224517136"></p>
 <h2 id="Trie-树"><a href="#Trie-树" class="headerlink" title="Trie 树"></a>Trie 树</h2><p>Trie <strong>树的本质，就是利用字符串之间的公共前缀，将重复的前缀合并在一起</strong>。</p>
 <p>Trie 树只是不适合精确匹配查找，这种问题更适合用散列表或者红黑树来解决。Trie 树比较适 合的是查找前缀匹配的字符串，也就是类似开篇问题的那种场景。</p>
 <p>关于 Trie 的应用场景，希望你能记住 8 个字：<strong>一次建树，多次查询</strong>。</p>
@@ -585,16 +592,17 @@
 <p>是BF算法的升级版</p>
 <p>RK 算法的思路是这样的：我们通过哈希算法对主串中的 n-m+1 个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了(这 里先不考虑哈希冲突的问题，后面我们会讲到)。因为哈希值是一个数字，数字之间比较是否相等是非 常快速的，所以模式串和子串比较的效率就提高了。</p>
 <p>整体复杂度：O(n)</p>
-<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>度：每个用户有多少个好友， 对应到图中，就叫做顶点的<strong>度</strong>(degree)，就是跟顶点相连接的边的条数。</p>
-<ul>
-<li>有向、无向图</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpzvkxzh4oj31340ms1kx.jpg" alt="image-20210428232731364"></p>
+<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>顶点：图中的元素</p>
+<p>边：顶点与顶点之间建立的关系</p>
+<p>度：每个用户有多少个好友， 对应到图中，就叫做顶点的<strong>度</strong>(degree)，就是跟顶点相连接的边的条数。</p>
+<p>权重：边表示关系的重要程度</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr35zdekfmj30mm0awdhq.jpg" alt="image-20210601230517752"></p>
 <ul>
 <li>存储</li>
 </ul>
-<p>邻接矩阵和邻接表</p>
-<p>邻接表：</p>
+<p>1）邻接矩阵</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr360ayorxj31340ms76f.jpg" alt="image-20210428232731364"></p>
+<p>2）邻接表：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqh6wzd1jdj315c0t0b29.jpg" alt="image-20210428232950016"></p>
 <h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><blockquote>
 <p>关于BFS和DFS，一个用到了队列，一个用到了递归</p>
@@ -672,4 +680,4 @@
 <ol start="2">
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/04/04/数据结构与算法之美（加餐）/" title="⭐️数据结构与算法之美（加餐）" class="prev">上一篇</a><a href="/2021/04/02/数据结构与算法之美（高级篇）/" title="⭐️数据结构与算法之美（高级篇 &amp; 实战篇）" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/04/04/数据结构与算法之美（加餐）/" title="⭐️数据结构与算法之美（加餐）" class="prev">PREV</a><a href="/2021/04/02/数据结构与算法之美（高级篇）/" title="⭐️数据结构与算法之美（高级篇 &amp; 实战篇）" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
