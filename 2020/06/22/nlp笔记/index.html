@@ -57,7 +57,10 @@
 <p>信息检索要解决的问题是:给定一组关键字, 在所有的文档集合中, 返回与关键字相关的所有文档, 并对所有文档根据相关性进行排序.</p>
 <p>信息检索时，对于每个文档，都可以分别计算一组搜索词（”中国”、”蜜蜂”、”养殖”）的TF-IDF，将它们相加，就可以得到整个文档的TF-IDF。这个值最高的文档就是与搜索词最相关的文档。</p>
 <p>代码参考：<a href="https://github.com/flitdu/consult/blob/main/tf_idf.py" target="_blank" rel="noopener">https://github.com/flitdu/consult/blob/main/tf_idf.py</a></p>
-<p>====</p>
+<h3 id="FNN"><a href="#FNN" class="headerlink" title="FNN"></a>FNN</h3><p>Bengio 在03年的这篇经典 <a href="https://link.zhihu.com/?target=http%3A//www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" target="_blank" rel="noopener">paper</a> 中，提出了如下图所示的前馈神经网络结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr89swlnx2j30xc0syjtu.jpg" alt="img"></p>
+<p>先给每个词在连续空间中赋予一个向量(词向量)，再通过神经网络去学习这种分布式表征。利用神经网络去建模当前词出现的概率与其前 n-1 个词之间的约束关系。很显然这种方式相比 n-gram 具有更好的<strong>泛化能力</strong>，<strong>只要词表征足够好。</strong>从而很大程度地降低了数据稀疏带来的问题。但是这个结构的明显缺点是仅包含了<strong>有限的前文信息</strong>。</p>
+<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>====</p>
 <p><strong>word2vec 与 fasttext 可以单独开一篇</strong></p>
 <h2 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h2><blockquote>
 <p>Effectively, Word2Vec is based on distributional hypothesis where the context for each word is in its nearby words. Hence, by looking at its neighbouring words, we can attempt to predict the target word.</p>
