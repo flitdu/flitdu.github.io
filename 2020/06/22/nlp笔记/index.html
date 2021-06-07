@@ -60,15 +60,21 @@
 <h3 id="FNN"><a href="#FNN" class="headerlink" title="FNN"></a>FNN</h3><p>Bengio 在03年的这篇经典 <a href="https://link.zhihu.com/?target=http%3A//www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" target="_blank" rel="noopener">paper</a> 中，提出了如下图所示的前馈神经网络结构：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr89swlnx2j30xc0syjtu.jpg" alt="img"></p>
 <p>先给每个词在连续空间中赋予一个向量(词向量)，再通过神经网络去学习这种分布式表征。利用神经网络去建模当前词出现的概率与其前 n-1 个词之间的约束关系。很显然这种方式相比 n-gram 具有更好的<strong>泛化能力</strong>，<strong>只要词表征足够好。</strong>从而很大程度地降低了数据稀疏带来的问题。但是这个结构的明显缺点是仅包含了<strong>有限的前文信息</strong>。</p>
-<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>====</p>
-<p><strong>word2vec 与 fasttext 可以单独开一篇</strong></p>
-<h2 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h2><blockquote>
+<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p><del><strong>word2vec 与 fasttext 可以单独开一篇</strong></del></p>
+<h2 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h2><h3 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h3><p>Word2Vec 是谷歌的分布式词向量工具。使用它可以很方便的得到词向量。Word2Vec 分别使用两个模型来学习词向量，一个是 CBOW(Continuous bag-of-word)，另一个是 Skip-gram模型。</p>
+<p>CBOW 模型是指根据上下文来预测当前单词。而Skip-gram 是根据给定的词去预测上下文。所以这两个模型的本质是让模型去学习词和上下文的 co-occurrence。有意思的是，我们需要的词向量只是两个模型的“副产物”。</p>
+<p>关于CBOW 和 Skip-gram 详细的解读参见<a href="http://pelhans.com/2019/04/29/deepdive_tensorflow-note11/" target="_blank" rel="noopener">Word2Vec</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gra5imb0szj31f60sejuo.jpg" alt="image-20200621235709670"></p>
+<ul>
+<li>代码实现</li>
+</ul>
+<blockquote>
 <p>Effectively, Word2Vec is based on distributional hypothesis where the context for each word is in its nearby words. Hence, by looking at its neighbouring words, we can attempt to predict the target word.</p>
 <p>——–<a href="https://towardsdatascience.com/an-implementation-guide-to-word2vec-using-numpy-and-google-sheets-13445eebd281" target="_blank" rel="noopener">An implementation guide to Word2Vec using NumPy and Google Sheets: Learn the inner workings of Word2Vec</a></p>
 <p>中译：<a href="https://www.leiphone.com/news/201812/2o1E1Xh53PAfoXgD.html" target="_blank" rel="noopener">手把手教你NumPy来实现Word2vec</a></p>
 </blockquote>
 <ul>
-<li>Cbow 与skip-gram区别</li>
+<li>CBOW 与skip-gram区别</li>
 </ul>
 <p>Skip-gram: works well with small amount of the training data, represents well even rare words or phrases<br>CBOW: several times faster to train than the skip-gram, slightly better accuracy for the frequent words</p>
 <h3 id="skip-gram"><a href="#skip-gram" class="headerlink" title="skip-gram"></a>skip-gram</h3><blockquote>
@@ -127,4 +133,4 @@
 <li><a href="https://www.infoq.cn/article/qbloqm0rf*sv6v0jmulf" target="_blank" rel="noopener">一文理解 Transformer 的工作原理</a></li>
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/07/25/简历思考/" title="⭐️简历思考" class="prev">上一篇</a><a href="/2020/06/15/bert专题/" title="⭐️bert专题" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/07/25/简历思考/" title="⭐️简历思考" class="prev">PREV</a><a href="/2020/06/15/bert专题/" title="⭐️bert专题" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
