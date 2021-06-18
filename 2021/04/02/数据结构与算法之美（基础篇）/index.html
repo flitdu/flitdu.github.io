@@ -586,6 +586,11 @@
 <h2 id="Trie-树"><a href="#Trie-树" class="headerlink" title="Trie 树"></a>Trie 树</h2><p>Trie <strong>树的本质，就是利用字符串之间的公共前缀，将重复的前缀合并在一起</strong>。</p>
 <p>Trie 树只是不适合精确匹配查找，这种问题更适合用散列表或者红黑树来解决。Trie 树比较适 合的是查找前缀匹配的字符串，也就是类似开篇问题的那种场景。</p>
 <p>关于 Trie 的应用场景，希望你能记住 8 个字：<strong>一次建树，多次查询</strong>。</p>
+<ul>
+<li>应用</li>
+</ul>
+<p>􏹅􏹍􏰮􏱟􏶔􏱍􏷌􏰯􏲼􏲝􏵃􏳋􏳱􏱢􏱜􏸔􏽘􏹅􏹍􏰮􏱟􏶔􏱍􏷌􏰯􏲼􏲝􏵃􏳋􏳱􏱢􏱜􏸔􏽘搜索引擎关键词提示􏹬􏰸􏱻􏶩􏰮􏵐􏴂􏲘􏲈􏱏􏱐􏱛􏷼􏰮􏱕􏱈􏰁􏰂􏰃􏰄􏳁，底层最基本的原理就是 Trie 树</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grmtz93bvej31560t8wqs.jpg" alt="image-20210618232114437"></p>
 <h2 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h2><h3 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h3><p>Brute Force, 也即暴力匹配算法，复杂度为O（mn），其中m为模式串长度，n 为主串长度，n&gt;m</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpwd1fyt1sj30vk0eqwzb.jpg" alt="image-20210425222923858"></p>
 <h3 id="RK-算法"><a href="#RK-算法" class="headerlink" title="RK 算法"></a>RK 算法</h3><p>RK 算法的全称叫 Rabin-Karp 算法，是由它的两位发明者 Rabin 和 Karp 的名字来命名的。</p>
