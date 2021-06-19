@@ -96,10 +96,14 @@
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</strong></p>
 <p>这里需要注意以下几点：</p>
 <ul>
-<li>第一是<strong>线性表</strong>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。<strong>每个线性表上的数据最多只有前和后两个方向</strong>。其实除了数组，链表、队列、栈等也是线性表结构。【注意这里的‘前后’】</li>
+<li>第一是<strong>线性表</strong>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。<strong>每个线性表上的数据最多只有前和后两个方向（前驱和后继）</strong>。其实除了数组，链表、队列、栈等也是线性表结构。【注意这里的‘前后’】</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp99afqpnvj30vq0n5acy.jpg" alt="img"></p>
 <p>与之对应，有’非线性表‘，数据之间并不是简单的前后关系，如树，图等</p>
+<blockquote>
+<p>那么有了线性结构，我们为什么还需要非线性结构呢？ </p>
+<p>答案是为了高效地兼顾静态操作和动态操作，<strong>我们一般使用树去管理需要大量动态操作的数据</strong>。</p>
+</blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp99cat1ijj30vq0k7q4w.jpg" alt="img"></p>
 <ul>
 <li>第二个是连续的内存空间和相同类型的数据—–&gt;<strong>’随机访问‘</strong></li>
@@ -184,17 +188,6 @@
 <p>链表本身没有大小 的限制，天然地支持动态扩容。</p>
 <p>除此之外，如果你的代码对内存的使用非常苛刻，那数组就更适合你。因为链表中的每个结点都需要消 耗额外的存储空间去存储一份指向下一个结点的指针，所以内存消耗会翻倍。而且，对链表进行频繁的 插入、删除操作，还会导致频繁的内存申请和释放，容易造成内存碎片，如果是 Java 语言，就有可能会 导致频繁的 GC(Garbage Collection，垃圾回收)。</p>
 <p>所以，在我们实际的开发中，针对不同类型的项目，要根据具体情况，权衡究竟是选择数组还是链表。</p>
-<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>从栈的操作特性上来看，<strong>栈是一种</strong>“<strong>操作受限</strong>”<strong>的线性表</strong>，只允许在一端插入和删除数据。</p>
-<p>事实上，从功能上来说，数组或链表确实可以替代栈，但你要知道，特定的数据结构是对特定场景的抽象，而且，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
-<p><strong>当某个数据集合只涉及在一端插入和删除数据，并且满足后进先出、先进后出的特性，这时我们就应该 首选</strong>“<strong>栈</strong>”<strong>这种数据结构</strong>。</p>
-<ul>
-<li>应用</li>
-</ul>
-<p>1）函数调用</p>
-<p>图中 显示的是，在执行到 add() 函数时，函数调用栈的情况。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbkmdba7yj31as0n2qv5.jpg" alt="image-20210407225513243"></p>
-<p>2）表达式求值</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbkoah3ybj316r0u0kjl.jpg" alt="image-20210407225706163"></p>
 <h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列跟栈一样，也是一种操作受限的线性表数据结构。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpblh8eafij30xm08uaj3.jpg" alt="image-20210407232456393"></p>
 <p>实现参考：<a href="https://zhuanlan.zhihu.com/p/100887684" target="_blank" rel="noopener">队列（Queue）-Python实现</a></p>
@@ -226,12 +219,24 @@
 <p>在多线程情况下，会有多个线程同时操作队列，这个时候就会存在线程安全问题，那如何实现一个线程安全的队列呢?</p>
 <p>线程安全的队列我们叫作<strong>并发队列</strong>。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加 锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队 列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原 因。</p>
 <p>总之，阻塞队列就是入队、出队操作可以阻塞，并发队列就是队列的操作多线程安全</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>从栈的操作特性上来看，<strong>栈是一种</strong>“<strong>操作受限</strong>”<strong>的线性表</strong>，只允许在一端插入和删除数据。</p>
+<p>事实上，从功能上来说，数组或链表确实可以替代栈，但你要知道，特定的数据结构是对特定场景的抽象，而且，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
+<p><strong>当某个数据集合只涉及在一端插入和删除数据，并且满足后进先出、先进后出的特性，这时我们就应该 首选</strong>“<strong>栈</strong>”<strong>这种数据结构</strong>。</p>
+<ul>
+<li>应用</li>
+</ul>
+<p>1）函数调用</p>
+<p>图中 显示的是，在执行到 add() 函数时，函数调用栈的情况。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbkmdba7yj31as0n2qv5.jpg" alt="image-20210407225513243"></p>
+<p>2）表达式求值</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbkoah3ybj316r0u0kjl.jpg" alt="image-20210407225706163"></p>
 <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>掌握程度:轻松写出二叉树遍历、八皇后、背包问题、DFS 的递归代码</p>
 <ul>
 <li>递归的理解</li>
 </ul>
 <p>递归包括两个过程 ，去的过程叫’递‘，回来的过程叫’归‘，自顶向下。</p>
 <p>递归是一种编程技巧</p>
+<p> 所谓递归，就是有去有回。</p>
 <ul>
 <li>需要满足的三个条件</li>
 </ul>
@@ -254,7 +259,54 @@
 <p>写递归代码的关键，就是看能不能写出递推公式，而写递推公式的关键就是，如果要解决问题 A，就假 设子问题 B、C 已经解决，然后再来看如何利用 B、C 来解决 A。</p>
 <p><strong>编写递归代码的关键是，只要遇到递归，我们就把它抽象成一个递推公式，不用想一层层的调用 关系，不要试图用人脑去分解递归的每个步骤</strong>。</p>
 <p>写递归代码的技巧就是，分析得出递推公式，然后找到终止条件，最后将递推公式翻译成递归代码</p>
-<p>递归要警惕堆栈溢出和重复计算</p>
+<p>递归要警惕堆栈溢出和重复计算(👇)</p>
+<ul>
+<li>递归函数的非递归化</li>
+</ul>
+<p><a href="https://blog.csdn.net/bobbypollo/article/details/79891556" target="_blank" rel="noopener">理解递归的本质：递归与栈</a></p>
+<p>采用数据栈</p>
+<blockquote>
+<p>我们知道递归函数存在的最大问题是，当递归次数足够大时，会导致函数栈溢出而死机，函数栈的大小一般是一个固定值，对于linux来说一般默认是8M。</p>
+<p> 因此，编程老司机会教导我们，不得用递归函数！但递归函数的代码实现实在是简洁啊，不让用？臣妾做不到啊！</p>
+<p> 那么问题来了，所有递归函数都能非递归化吗？答案是肯定的。</p>
+<p> 本质上讲，对于同一个问题，如果必然要用广义递归的方案来处理，那么狭义递归函数只不过是其中的一种实现方式，如果放弃狭义递归函数的话，我们不得不借助一个额外的数据结构：栈。</p>
+<p> 如此看来，无论如何都要用到栈，只不过要么让编译器来维护一个栈（函数栈），要么让程序狗来维护一个栈（数据栈）。</p>
+</blockquote>
+<p> 这两个栈的区别如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>函数栈</th>
+<th>数据栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置</td>
+<td>进程的stack区</td>
+<td>进程的heap区</td>
+</tr>
+<tr>
+<td>大小限制</td>
+<td>小（8M？）</td>
+<td>能分配到很大</td>
+</tr>
+<tr>
+<td>每个栈“元素”所需空间</td>
+<td>比较大，因为要存储函数上下文</td>
+<td>可以设计到很小，比如只存储一个指针</td>
+</tr>
+<tr>
+<td>栈开销</td>
+<td>大</td>
+<td>可以做的很小</td>
+</tr>
+<tr>
+<td>代码简易程度/可维护性</td>
+<td>简洁易读</td>
+<td>相对更复杂</td>
+</tr>
+</tbody></table>
 <ul>
 <li>应用举例：找最终推荐人</li>
 </ul>
@@ -502,20 +554,25 @@
 <li>分布式系统中应用</li>
 </ul>
 <p>负载均衡、数据分片（Mapreduce设计思想）、分布式存储等</p>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ul>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>树其实是一种特殊的<code>图</code>，是一种无环连通图，是一种极大无环图，也是一种极小连通图。</p>
+<p>从另一个角度看，树是一种递归的数据结构</p>
+<ul>
 <li>基本概念</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gprsbh1igpj30ye0hc1ee.jpg" alt="image-20210421233018284"></p>
+<blockquote>
+<p>如果树有 n 个顶点，那么其就有 n - 1 条边，这说明了树的顶点数和边数是同阶的。</p>
+<p>任何一个节点到根节点存在<code>唯一</code>路径，路径的长度为节点所处的深度</p>
+</blockquote>
+<p>实际使用的树有可能会更复杂，比如使用在游戏中的碰撞检测可能会用到四叉树或者八叉树。以及 k 维的树结构 <code>k-d 树</code>等。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gro06z8x5bj306y06mdft.jpg" alt="img"></p>
+<p>二叉树是节点度数不超过二的树，是树的一种特殊子集，有趣的是二叉树这种被限制的树结构却能够表示和实现所有的树</p>
 <ul>
 <li>二叉树存储</li>
 </ul>
-<blockquote>
-<p>链式存储</p>
-</blockquote>
+<p>1) 链式存储</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gprsjj29roj312w0qwe67.jpg" alt="image-20210421233803644"></p>
-<blockquote>
-<p>基于数组的顺序存储</p>
-</blockquote>
+<p>2) 基于数组的顺序存储</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gprsnic8hyj312a0liat9.jpg" alt="image-20210421234153502"></p>
 <p>如果<strong>某棵二叉树是一棵完全二叉树，那用数组存储无疑是最节省内存的</strong>一种方式。因为数组的存储方式并不需要像链式存储法那样，要存储额外的左右子节点的指针。这也是为什么完全二叉树会单􏰁拎出来的原因，也是为什么完全二叉树要求最后一层的子节点<strong>都靠左</strong>的原因。</p>
 <ul>
@@ -534,7 +591,9 @@
 <li>红黑树</li>
 </ul>
 <p>为了避免复杂度的退化，引入<strong>平衡</strong>二叉查找树，红黑树就是其中的一种</p>
-<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>需要满足下面两个条件：</p>
+<p>在 1972 年由鲁道夫·贝尔发明，被称为”对称二叉 B 树”，它现代的名字源于 Leo J. Guibas 和 Robert Sedgewick 于 1978 年写的一篇论文。红黑树的结构复杂，但它的操作有着良好的最坏情况运行时间，并且在实践中高效：它可以在 O(logn) 时间内完成查找，插入和删除，这里的 n 是树中元素的数目</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>堆其实是一种优先级队列，在很多语言都有对应的内置数据结构</p>
+<p><code>需要满足下面两个条件</code>：</p>
 <p>1.堆是一个完全二叉树;</p>
 <p>2.堆中每一个节点的值都必须大于等于(或小于等于)其子树中每个节点的值。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpsyjbszopj31440u07wh.jpg" alt="image-20210422235059966"></p>
@@ -583,7 +642,8 @@
 <p>但是，字典占据空间太大，内存不够</p>
 <p>改进：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr35ejvcjpj31je0lawr8.jpg" alt="image-20210601224517136"></p>
-<h2 id="Trie-树"><a href="#Trie-树" class="headerlink" title="Trie 树"></a>Trie 树</h2><p>Trie <strong>树的本质，就是利用字符串之间的公共前缀，将重复的前缀合并在一起</strong>。</p>
+<h2 id="Trie-树"><a href="#Trie-树" class="headerlink" title="Trie 树"></a>Trie 树</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gro179xlf0j30al06q74c.jpg" alt="img"></p>
+<p>Trie <strong>树的本质，就是利用字符串之间的公共前缀，将重复的前缀合并在一起</strong>。</p>
 <p>Trie 树只是不适合精确匹配查找，这种问题更适合用散列表或者红黑树来解决。Trie 树比较适 合的是查找前缀匹配的字符串，也就是类似开篇问题的那种场景。</p>
 <p>关于 Trie 的应用场景，希望你能记住 8 个字：<strong>一次建树，多次查询</strong>。</p>
 <ul>
@@ -597,7 +657,11 @@
 <p>是BF算法的升级版</p>
 <p>RK 算法的思路是这样的：我们通过哈希算法对主串中的 n-m+1 个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了(这 里先不考虑哈希冲突的问题，后面我们会讲到)。因为哈希值是一个数字，数字之间比较是否相等是非 常快速的，所以模式串和子串比较的效率就提高了。</p>
 <p>整体复杂度：O(n)</p>
-<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>顶点：图中的元素</p>
+<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>前面讲的数据结构都可以看成是图的特例。 前面提到了二叉树完全可以实现其他树结构，其实有向图也完全可以实现无向图和混合图，因此有向图的研究一直是重点考察对象。</p>
+<ul>
+<li>基本概念</li>
+</ul>
+<p>顶点：图中的元素</p>
 <p>边：顶点与顶点之间建立的关系</p>
 <p>度：每个用户有多少个好友， 对应到图中，就叫做顶点的<strong>度</strong>(degree)，就是跟顶点相连接的边的条数。</p>
 <p>权重：边表示关系的重要程度</p>
