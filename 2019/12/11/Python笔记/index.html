@@ -26,7 +26,7 @@
 <p>Python的解释器很多，但使用最广泛的还是CPython。如果要和Java或.Net平台交互，最好的办法不是用Jython或IronPython，而是通过网络调用来交互，确保各程序之间的独立性。</p>
 <p>在 <a href="https://www.cnblogs.com/kym/archive/2012/05/14/2498728.html" target="_blank" rel="noopener">说说Python程序的执行过程  </a>里面提到：</p>
 <p>在 <code>from aa import pr</code> 时候，会生产 .pyc临时文件</p>
-<p><img src="https://i.loli.net/2021/03/08/g1QfpZdvh2VHktb.png" alt="image-20210308233407369"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grvmo43ahoj31gi07m0z9.jpg" alt="image-20210626135825923"></p>
 <p><strong>pyc的目的是重用</strong></p>
 <blockquote>
 <p>回想本文的第二段在解释编译型语言和解释型语言的优缺点时，我说编译型语言的优点在于，我们可以在程序运行时不用解释，而直接利用已经“翻译”过的文件。也就是说，我们之所以要把py文件编译成pyc文件，最大的优点在于我们在运行程序时，不需要重新对该模块进行重新的解释。</p>
@@ -67,7 +67,7 @@
 <p>中文翻译：<a href="https://zhuanlan.zhihu.com/p/79656976" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/79656976</a></p>
 <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p><strong>应该尽量减少对全局变量的使用</strong></p>
 <p>Python查找一个变量时会按照<strong>“局部作用域”、“嵌套作用域”、“全局作用域”和“内置作用域”的顺序</strong>进行搜索，前三者我们在上面的代码中已经看到了，所谓的“内置作用域”就是Python内置的那些标识符，我们之前用过的<code>input</code>、<code>print</code>、<code>int</code>等都属于内置作用域。</p>
-<p><img src="https://i.loli.net/2021/03/17/x4F2GMvkWVmsj7P.png" alt="image-20210317231411583"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grvmozul9aj31em0pub29.jpg" alt="image-20210626135919156"></p>
 <p>再看看下面这段代码，我们希望通过函数调用修改全局变量<code>a</code>的值，但实际上下面的代码是做不到的。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    a = <span class="number">200</span></span><br><span class="line">    print(a)  <span class="comment"># 200</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    a = <span class="number">100</span></span><br><span class="line">    foo()</span><br><span class="line">    print(a)  <span class="comment"># 100</span></span><br></pre></td></tr></table></figure>
 

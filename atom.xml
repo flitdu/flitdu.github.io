@@ -521,9 +521,9 @@
       <category term="NLP" scheme="http://yoursite.com/categories/NLP/"/>
     
     
-      <category term="bert" scheme="http://yoursite.com/tags/bert/"/>
-    
       <category term="nlp" scheme="http://yoursite.com/tags/nlp/"/>
+    
+      <category term="bert" scheme="http://yoursite.com/tags/bert/"/>
     
   </entry>
   
