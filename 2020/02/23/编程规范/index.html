@@ -75,11 +75,11 @@
 <ul>
 <li>函数命名，<del>小写+大写</del>【参考】</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getData</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 <p>要依据最后返回的数据类型来确定函数起始命名</p>
 <p>e.g.</p>
-<p>返回bool，以 isFinish…..()</p>
+<p>返回bool，以 is_finish…..()</p>
 <p>有数据返回：get….()开头</p>
 <p>执行操作：以set…()【设置】, perform….()【执行】开头等</p>
 <ul>
@@ -108,14 +108,10 @@
 <h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
 <li>. 结尾</li>
 <li>间隔一空行</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_weather_api</span><span class="params">(url, location)</span>:</span></span><br><span class="line">    <span class="string">"""Get the weather of specific location.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Calling weather api to check for weather by using weather api and </span></span><br><span class="line"><span class="string">    location. Make sure you provide city name only, country and county </span></span><br><span class="line"><span class="string">    names won't be accepted and will throw exception if not found the </span></span><br><span class="line"><span class="string">    city name.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param url:URL of the api to get weather.</span></span><br><span class="line"><span class="string">    :type url: str</span></span><br><span class="line"><span class="string">    :param location:Location of the city to get the weather.</span></span><br><span class="line"><span class="string">    :type location: str</span></span><br><span class="line"><span class="string">    :return: Give the weather information of given location.</span></span><br><span class="line"><span class="string">    :rtype: str</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdpwxsabsoj318k0d2ap8.jpg" alt="image-20200411163539275"></p>
-<ul>
 <li>类型注解，进一步提高对函数的理解</li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdpxcwaaxsj30ze0je4d6.jpg" alt="image-20200411165013098"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(url: str, index: int)</span> -&gt; list:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    The main function that... (函数功能的简要描述)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param url:传参解释...</span></span><br><span class="line"><span class="string">    :param index:</span></span><br><span class="line"><span class="string">    :return:返回值....</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> [url, index]</span><br></pre></td></tr></table></figure>
+
 <h2 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h2><p><a href="http://www.ruanyifeng.com/blog/2019/03/agile-development.html" target="_blank" rel="noopener">敏捷开发入门教程</a></p>
 <blockquote>
 <p>含义：迭代开发+增量开发</p>
