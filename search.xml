@@ -65,7 +65,7 @@
       <link href="/2021/06/29/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"/>
       <url>/2021/06/29/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</url>
       
-        <content type="html"><![CDATA[<a id="more"></a><h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzi8hg5bwj31gk0ogafa.jpg" alt="image-20210629222719725"></p><h2 id="大数定理"><a href="#大数定理" class="headerlink" title="大数定理"></a>大数定理</h2><p>定义参考：陈希孺《概率论与数理统计》p142</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjsoax1vj30ys0nmq8q.jpg" alt="image-20210629232119147"></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjokxpxdj30xw0u0gzz.jpg" alt="image-20210629231723478"></p><ul><li>代码展示</li></ul><p>以筛子为例，假设有1000万的筛子点数随机样本，然后，通过随机抽样，估计总体的均值情况：</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzk9qi6mzj312k0k2dhc.jpg" alt="image-20210629233743733"></p><h2 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h2><blockquote><p>在概率论上，习惯于把和的分布收敛于正态分布的那一类定理都叫’中心极限定理‘</p></blockquote><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjy1totij30u00vl7f6.jpg" alt="image-20210629232628986"></p><ul><li>应用</li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjyquvjij311a0fwdlp.jpg" alt="image-20210629232709488"></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjz3wykdj31000lmtf3.jpg" alt="image-20210629232730498"></p><p>出自【1】<a name="toc1"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href>参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzi8hg5bwj31gk0ogafa.jpg" alt="image-20210629222719725"></p><h2 id="大数定理"><a href="#大数定理" class="headerlink" title="大数定理"></a>大数定理</h2><p>定义参考：陈希孺《概率论与数理统计》p142</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjsoax1vj30ys0nmq8q.jpg" alt="image-20210629232119147"></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjokxpxdj30xw0u0gzz.jpg" alt="image-20210629231723478"></p><ul><li>代码展示</li></ul><p>参考：<a href="https://github.com/flitdu/consult/blob/main/jupyter/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%BE%E4%BE%8B.ipynb" target="_blank" rel="noopener">https://github.com/flitdu/consult/blob/main/jupyter/%E5%A4%A7%E6%95%B0%E5%AE%9A%E7%90%86%E4%B8%BE%E4%BE%8B.ipynb</a></p><p>以筛子为例，假设有1000万的筛子点数随机样本，然后，通过随机抽样，估计总体的均值情况：</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzk9qi6mzj312k0k2dhc.jpg" alt="image-20210629233743733"></p><h2 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h2><blockquote><p>在概率论上，习惯于把和的分布收敛于正态分布的那一类定理都叫’中心极限定理‘</p></blockquote><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjy1totij30u00vl7f6.jpg" alt="image-20210629232628986"></p><ul><li>应用</li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjyquvjij311a0fwdlp.jpg" alt="image-20210629232709488"></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grzjz3wykdj31000lmtf3.jpg" alt="image-20210629232730498"></p><p>出自【1】<a name="toc1"></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href>参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
       
       
       <categories>
@@ -535,9 +535,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -810,9 +810,9 @@
       
         <tags>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -989,9 +989,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> 深度学习 </tag>
-            
             <tag> 机器学习 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1016,9 +1016,9 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> 大数据 </tag>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
