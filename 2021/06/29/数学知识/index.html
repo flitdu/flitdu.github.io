@@ -80,6 +80,31 @@
 
 <p>如下图，某个公交站每小时平均有三辆车，可以用泊松分布得到一小时内等到不同数量车的概率</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs1su553fnj30y40m0x2w.jpg" alt="image-20210701220515581"></p>
+<h2 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h2><h3 id="自信息"><a href="#自信息" class="headerlink" title="自信息"></a>自信息</h3><p>描述一个事件所含的信息量</p>
+<p><strong>自信息</strong>的期望值就是信息论中的<a href="https://zh.wikipedia.org/wiki/熵_(信息论)" target="_blank" rel="noopener">熵</a>，它反映了随机变量采样时的平均不确定程度。</p>
+<p>由定义，当信息被拥有它的实体传递给接收它的实体时，仅当接收实体不知道信息的先验知识时信息才得到传递。如果接收实体事先知道了消息的内容，这条消息所传递的信息量就是0。只有当接收实体对消息对先验知识少于100%时，消息才真正传递信息。</p>
+<ul>
+<li><p>自信息计算：<code>I(x)=-log(P(x))</code></p>
+</li>
+<li><p>熵H(X):</p>
+</li>
+</ul>
+<p>$$H(x) = \sum_{i}P(x_i)I(x_i)= -\sum_{i}P(x_i)\log(P(x_i))$$</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs46rl51bvj615u0ju45b02.jpg" alt="image-20210703233812355"></p>
+<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p><a href="https://www.cnblogs.com/wangguchangqing/p/12068084.html" target="_blank" rel="noopener">一文搞懂交叉熵损失</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs45ym9oxkj30pi03wwes.jpg" alt="image-20210703231016786"></p>
+<p>其中p为真实分布，q为非真实分布。交叉熵越低，意味着q越接近p。所以在机器学习分类算法中，我们总是最小化交叉熵，交叉熵越低，间接证明算法推算出的非真实分布q越接近真实分布p。</p>
+<ul>
+<li>相对熵D_KL</li>
+</ul>
+<p>表示同一个随机变量的两个不同分布间的距离。</p>
+<p>![image-20210704002059134](../../../Library/Application Support/typora-user-images/image-20210704002059134.png)</p>
+<p>相对熵具有以下性质：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs486zrkdtj310206eq3s.jpg" alt="image-20210704002742446"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs480exk50j317a0j8tb3.jpg" alt="image-20210704002122850"></p>
+<blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs484vv26kj31l606q40v.jpg" alt="image-20210704002541376"></p>
+</blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://www.bilibili.com/s/video/BV1TJ411y7Mp" target="_blank" rel="noopener">统计的乐趣</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs3o3tsx6hj318x0u07wh.jpg" alt="image-20210703125238027"></li>
 <li></li>
