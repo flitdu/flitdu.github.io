@@ -66,24 +66,20 @@
 <ul>
 <li>0-1分布</li>
 </ul>
-<p>分布律为：$$p(X=k)=p^k(1-p)^{1-k}$$, 其中<code>k=0,1,0&lt;p&lt;1</code></p>
+<p>分布律为：$$p(X=k)=p^k(1-p)^{1-k}$$</p>
+<p>其中<code>k=0,1,0&lt;p&lt;1</code></p>
 <p>使用场景：抛硬币、新生儿的性别登记、检查产品质量是否合格等</p>
 <ul>
 <li>泊松分布</li>
 </ul>
-<p>$$p{X=k}=$$</p>
-<ul>
-<li><input disabled type="checkbox"> 支持以 PDF 格式导出文稿</li>
-<li><input checked disabled type="checkbox"> 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
-<li><input checked disabled type="checkbox"> 新增 Todo 列表功能</li>
-<li><input checked disabled type="checkbox"> 修复 LaTex 公式渲染问题</li>
-<li><input checked disabled type="checkbox"> 新增 LaTex 公式编号功能</li>
-</ul>
-<p>用来描述不寻常事情发生的概率</p>
+<p>分布律为：$$p(X=k)=\frac{\lambda ^{k}e^{-\lambda}}{k!}$$</p>
+<p>其中， <code>λ为均值，k=0,1,2.....</code></p>
+<p>用来描述不寻常事情发生的概率，如一周内赢彩票人数，某地区一天内邮递遗失的信件数等</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs40i7hk0dj30v60kejx9.jpg" alt="image-20210703200142568"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p(X=k)=\frac&#123;\lambda ^&#123;k&#125;e^&#123;-\lambda&#125;&#125;&#123;k!&#125;</span></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">poisson = <span class="keyword">lambda</span> lam,k:(lam**k*math.exp(-lam))/math.factorial(k)</span><br><span class="line">poisson(<span class="number">0.1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">x= [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">21</span>)]</span><br><span class="line">y1= [poisson(<span class="number">2.5</span>,i) <span class="keyword">for</span> i <span class="keyword">in</span> x]</span><br><span class="line">y2= [poisson(<span class="number">5</span>,i) <span class="keyword">for</span> i <span class="keyword">in</span> x]</span><br><span class="line">y3= [poisson(<span class="number">10</span>,i) <span class="keyword">for</span> i <span class="keyword">in</span> x]</span><br><span class="line"></span><br><span class="line">plt.plot(x,y1,<span class="string">'-o'</span>, label=<span class="string">'lambda=2.5'</span>)</span><br><span class="line">plt.plot(x,y2,<span class="string">'-o'</span>, label=<span class="string">'lambda=5'</span>)</span><br><span class="line">plt.plot(x,y3,<span class="string">'-o'</span>, label=<span class="string">'lambda=10'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p>如下图，某个公交站每小时平均有三辆车，可以用泊松分布得到一小时内等到不同数量车的概率</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs1su553fnj30y40m0x2w.jpg" alt="image-20210701220515581"></p>
-<p>或者一周内赢彩票人数：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs1sy8m4axj31d40u07wi.jpg" alt="image-20210701220910915"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://www.bilibili.com/s/video/BV1TJ411y7Mp" target="_blank" rel="noopener">统计的乐趣</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs3o3tsx6hj318x0u07wh.jpg" alt="image-20210703125238027"></li>
 <li></li>
