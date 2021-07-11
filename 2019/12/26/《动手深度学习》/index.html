@@ -25,10 +25,6 @@
 <blockquote>
 <p>“经验”通常以“数据”形式存在</p>
 </blockquote>
-<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h3><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaf705tk39j31dw0qiwik.jpg" alt="image-20191231000143183"></p>
-<blockquote>
-<p>从打印<code>D</code>时显示的属性<code>&lt;NDArray 2*3 @cpu(0)&gt;</code>可以看出，它是二维数组，且被创建在CPU使用的内存上。其中“@cpu(0)”里的0没有特别的意义，并不代表特定的核。</p>
-</blockquote>
 <h3 id="自动求梯度"><a href="#自动求梯度" class="headerlink" title="自动求梯度"></a>自动求梯度</h3><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gah2c9i10oj30h201qwej.jpg" alt="image-20200101145128346"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = nd.arange(<span class="number">4</span>).reshape((<span class="number">4</span>, <span class="number">1</span>))</span><br><span class="line">print(<span class="string">'x:&#123;&#125;'</span>.format(x))</span><br><span class="line">print(<span class="string">'以下为求关于x的梯度，注意以下为一个求梯度的整体表达'</span>)</span><br><span class="line">x.attach_grad()</span><br><span class="line"><span class="keyword">with</span> autograd.record():</span><br><span class="line">    y = <span class="number">2</span>*nd.dot(x.T, x)</span><br><span class="line">y.backward()</span><br><span class="line"><span class="keyword">assert</span> (x.grad - <span class="number">4</span>*x).norm().asscalar() == <span class="number">0</span>  </span><br><span class="line">x.grad</span><br></pre></td></tr></table></figure>
 
@@ -262,24 +258,6 @@
 <p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gbz3d8ziwdj318i0d8tab.jpg" alt="image-20200217082732173"></p>
 <h3 id="词嵌入（word2vec）"><a href="#词嵌入（word2vec）" class="headerlink" title="词嵌入（word2vec）"></a>词嵌入（word2vec）</h3><p>参考：<a href="https://www.zybuluo.com/Dounm/note/591752" target="_blank" rel="noopener">Word2Vec-知其然知其所以然</a></p>
 <p><a href="https://www.cnblogs.com/peghoty/p/3857839.html" target="_blank" rel="noopener">word2vec 中的数学原理详解</a></p>
-<p>词嵌入，也就是用来对词进行编码，将文本词语映射到实数域向量中。</p>
-<p>word2vec工具2012年由Google提出。包含了两个模型，即跳字模型（skip-gram） 和连续词袋模型（continuous bag of words，CBOW）。两个模型分别从两个角度来建立词的预测模型，CBOW是通过一个或多个单词的上下文来进行这个词语的预测，而Skip Gram模型是通过一个或多个单词来进行上下文的预测【13】。</p>
-<ul>
-<li>skip-gram</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gbz9ht8bfrj30ng0aymy1.jpg" alt="image-20200217115931938"></p>
-<p>训练结束后，对于词典中的任一索引为ii的词，我们均得到该词作为中心词和背景词的两组词向量<strong>v</strong>i和<strong>u</strong>i。在自然语言处理应用中，<strong>一般使用跳字模型的中心词向量作为词的表征向量。</strong></p>
-<ul>
-<li>CBOW</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gbz9jgl7oaj30nw0asgmj.jpg" alt="image-20200217120107092"></p>
-<p>与跳字模型最大的不同在于，连续词袋模型假设基于某中心词在文本序列前后的背景词来生成该中心词。</p>
-<p>同跳字模型不一样的一点在于，我们一般使<strong>用连续词袋模型的背景词向量作为词的表征向量。</strong></p>
-<h3 id="Word2vec-的训练"><a href="#Word2vec-的训练" class="headerlink" title="Word2vec 的训练"></a>Word2vec 的训练</h3><p>为了降低计算复杂度，介绍两种近似训练方法，即负采样（negative sampling）和层序softmax（hierarchical softmax）。</p>
-<ul>
-<li>负采样通过考虑同时含有正类样本和负类样本的相互独立事件来构造损失函数。其训练中每一步的梯度计算开销与采样的噪声词的个数线性相关。</li>
-<li>层序softmax使用了二叉树，并根据根结点到叶结点的路径来构造损失函数。其训练中每一步的梯度计算开销与词典大小的对数相关。</li>
-</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://zh.d2l.ai/chapter_introduction/deep-learning-intro.html#" target="_blank" rel="noopener">1. 深度学习简介</a></li>
 <li><a href="https://www.zhihu.com/question/32275069" target="_blank" rel="noopener">知乎：什么是 word embedding?</a><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaakaciu4nj31220rqdjh.jpg" alt="image-20191226235328939"></li>

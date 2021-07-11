@@ -8,8 +8,33 @@
 <li>机器学习问题，是要从有限的样例中通过算法总结出一般性的规律，并<strong>可以应用到新的未知数据上</strong>。</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3vbgocggj30vo0c6wnp.jpg" alt="image-20200524213750964"></p>
-<h2 id="机器学习类型比较"><a href="#机器学习类型比较" class="headerlink" title="机器学习类型比较"></a>机器学习类型比较</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3zqktvsxj30qk0n416j.jpg" alt="image-20200525001048405"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3zraxvfgj30zg0heqk8.jpg" alt="image-20200525001130184"></p>
+<ul>
+<li><code>没有免费的午餐</code>定理(<code>No Free Lunch Theorem:NFL</code>)</li>
+</ul>
+<blockquote>
+<p>对于一个学习算法<code>A</code>，如果在某些问题上它比算法<code>B</code>好，那么必然存在另一些问题，在那些问题中<code>B</code>比<code>A</code>更好。</p>
+</blockquote>
+<p>因此不存在这样的算法：它在所有的问题上都取得最佳的性能。</p>
+<p>因此要谈论算法的优劣必须基于具体的学习问题。</p>
+<h2 id="机器学习分类"><a href="#机器学习分类" class="headerlink" title="机器学习分类"></a>机器学习分类</h2><p>机器学习的对象是：具有一定的统计规律的数据。</p>
+<p>根据任务类型、算法模型可以进行不同的划分：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd2kydnwuj311s0raaf6.jpg" alt="image-20210711160335956"></p>
+<ul>
+<li>任务类型划分：</li>
+</ul>
+<p>监督学习任务：从已标记的训练数据来训练模型。 主要分为：分类任务、回归任务、序列标注任务。</p>
+<p>无监督学习任务：从未标记的训练数据来训练模型。主要分为：聚类任务、降维任务。</p>
+<p>半监督学习任务：用大量的未标记训练数据和少量的已标记数据来训练模型。</p>
+<p>强化学习任务：从系统与环境的大量交互知识中训练模型。</p>
+<ul>
+<li>算法类型</li>
+</ul>
+<p>1) <strong>传统统计学习：</strong></p>
+<p>基于数学模型的机器学习方法。包括<code>SVM</code>、逻辑回归、决策树等。</p>
+<p>这一类算法基于严格的数学推理，具有可解释性强、运行速度快、可应用于小规模数据集的特点。</p>
+<p>2) <strong>深度学习：</strong></p>
+<p>基于神经网络的机器学习方法。包括前馈神经网络、卷积神经网络、递归神经网络等。</p>
+<p>这一类算法基于神经网络，可解释性较差，强烈依赖于数据集规模。但是这类算法在语音、视觉、自然语言等领域非常成功。</p>
 <h2 id="处理流程对比"><a href="#处理流程对比" class="headerlink" title="处理流程对比"></a>处理流程对比</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3hz7w5zhj3102076jxx.jpg" alt="image-20200524135619621"></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3i00zl3zj310q08aq9w.jpg" alt="image-20200524135706064"></p>
 <p>花书💐：【注意可“学习”的部分越来越多】</p>
@@ -251,17 +276,17 @@
 <table>
 <thead>
 <tr>
-<th>生成模型</th>
 <th>判别模型</th>
+<th>生成模型</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>直接学习p(y|x)或决策函数f(x)，得到分类边界</td>
 <td>学习联合概率p(x,y)，–&gt;p(y|x)</td>
-<td>直接学习p(y|x)，得到分类边界</td>
 </tr>
 <tr>
-<td>朴素贝叶斯（NB）、HMM</td>
 <td>神经网络、SVM、CRF</td>
+<td>朴素贝叶斯（NB）、HMM</td>
 </tr>
 </tbody></table>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmlb71bokaj310k0fy75p.jpg" alt="img"></p>
