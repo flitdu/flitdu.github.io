@@ -60,11 +60,13 @@
 <h3 id="FNN"><a href="#FNN" class="headerlink" title="FNN"></a>FNN</h3><p>Bengio 在03年的这篇经典 <a href="https://link.zhihu.com/?target=http%3A//www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf" target="_blank" rel="noopener">paper</a> 中，提出了如下图所示的前馈神经网络结构：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr89swlnx2j30xc0syjtu.jpg" alt="img"></p>
 <p>先给每个词在连续空间中赋予一个向量(词向量)，再通过神经网络去学习这种分布式表征。利用神经网络去建模当前词出现的概率与其前 n-1 个词之间的约束关系。很显然这种方式相比 n-gram 具有更好的<strong>泛化能力</strong>，<strong>只要词表征足够好。</strong>从而很大程度地降低了数据稀疏带来的问题。但是这个结构的明显缺点是仅包含了<strong>有限的前文信息</strong>。</p>
-<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p><del><strong>word2vec 与 fasttext 可以单独开一篇</strong></del></p>
-<h2 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h2><h3 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h3><p>Word2Vec 是谷歌的分布式词向量工具。使用它可以很方便的得到词向量。Word2Vec 分别使用两个模型来学习词向量，一个是 CBOW(Continuous bag-of-word)，另一个是 Skip-gram模型。</p>
+<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><h2 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h2><ul>
+<li>Word2vec</li>
+</ul>
+<p>Word2Vec 是谷歌的分布式词向量工具。使用它可以很方便的得到词向量。Word2Vec 分别使用两个模型来学习词向量，一个是 CBOW(Continuous bag-of-word)，另一个是 Skip-gram模型。</p>
 <p>CBOW 模型是指根据上下文来预测当前单词。而Skip-gram 是根据给定的词去预测上下文。所以这两个模型的本质是让模型去学习词和上下文的 co-occurrence。有意思的是，我们需要的词向量只是两个模型的“副产物”。</p>
-<p>关于CBOW 和 Skip-gram 详细的解读参见<a href="http://pelhans.com/2019/04/29/deepdive_tensorflow-note11/" target="_blank" rel="noopener">Word2Vec</a></p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gra5imb0szj31f60sejuo.jpg" alt="image-20200621235709670"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs8r1lok98j319c0nw40t.jpg" alt="image-20210707222207677"></p>
+<p>github实现： <a href="https://github.com/chao-ji/tf-word2vec/blob/master/README.md" target="_blank" rel="noopener">https://github.com/chao-ji/tf-word2vec/blob/master/README.md</a></p>
 <ul>
 <li>代码实现</li>
 </ul>
