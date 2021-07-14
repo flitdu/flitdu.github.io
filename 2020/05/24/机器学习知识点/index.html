@@ -68,31 +68,37 @@
 <p>2) <strong>深度学习：</strong></p>
 <p>基于神经网络的机器学习方法。包括前馈神经网络、卷积神经网络、递归神经网络等。</p>
 <p>这一类算法基于神经网络，可解释性较差，强烈依赖于数据集规模。但是这类算法在语音、视觉、自然语言等领域非常成功。</p>
-<h2 id="机器学习不确定性来源"><a href="#机器学习不确定性来源" class="headerlink" title="机器学习不确定性来源"></a>机器学习不确定性来源</h2><ul>
-<li><p>模型本身固有的随机性。如：量子力学中的粒子动力学方程。</p>
-</li>
-<li><p>不完全的观测。即使是确定性系统，当无法观测所有驱动变量时，结果也是随机的。</p>
-</li>
-<li><p>不完全建模。有时必须放弃一些观测信息。</p>
+<h2 id="机器学习不确定性来源"><a href="#机器学习不确定性来源" class="headerlink" title="机器学习不确定性来源"></a>机器学习不确定性来源</h2><p>1）模型本身固有的随机性。如：量子力学中的粒子动力学方程。</p>
+<p>2）不完全的观测。即使是确定性系统，当无法观测所有驱动变量时，结果也是随机的。</p>
+<p>3）不完全建模。有时必须放弃一些观测信息。</p>
 <p>如机器人建模中：虽然可以精确观察机器人周围每个对象的位置，但在预测这些对象将来的位置时，对空间进行了离散化。则位置预测将带有不确定性。</p>
-</li>
-</ul>
 <h2 id="静态计算图-vs-动态计算图"><a href="#静态计算图-vs-动态计算图" class="headerlink" title="静态计算图 vs 动态计算图"></a>静态计算图 vs 动态计算图</h2><p><a href="https://blog.csdn.net/PaddlePaddle/article/details/100059492?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase" target="_blank" rel="noopener">都9102年了还不懂动态图吗？一文带你了解飞桨动态图</a></p>
 <blockquote>
 <p>目前深度学习框架主要有声明式编程和命令式编程两种编程方式。声明式编程，代码先描述要做的事情但不立即执行，对深度学习任务建模，需要事先定义神经网络的结构，然后再执行整个图结构，这一般称为静态图模式。而命令式编程对应的动态图模式，代码直接返回运算的结果，神经网络结构的定义和执行同步。通常来说，静态图模式能够对整体性做编译优化，更有利于性能的提升，而动态图则非常便于用户对程序进行调试。</p>
 </blockquote>
 <p><a href="https://www.zhihu.com/question/323859732" target="_blank" rel="noopener">PyTorch的动态计算图体现在什么地方？</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3ury7o3kj31ji0u0hdw.jpg" alt="image-20200524182931292"></p>
-<h2 id="训练需要的样本量"><a href="#训练需要的样本量" class="headerlink" title="训练需要的样本量"></a>训练需要的样本量</h2><blockquote>
-<p>As of 2016, a rough rule of thumb is that a supervised deep learning algorithm will generally achieve acceptable performance with around 5,000 labeled examples per category, and will match or exceed human performance when trained with a dataset containing at least 10 million labeled examples. Working successfully with datasets smaller than this is an important research area, focusing in particular on how we can take advantage of large quantities of unlabeled examples, with unsupervised or semi-supervised learning.</p>
-</blockquote>
-<p>对于监督深度学习算法，每类的样本标注量 <strong>5000</strong>，总共需至少 <strong>1000万</strong>的标注样本</p>
 <h2 id="提前终止"><a href="#提前终止" class="headerlink" title="提前终止"></a>提前终止</h2><p>依靠<strong>验证集</strong>判断，防止过拟合</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3x96sesaj30ji0i410b.jpg" alt="image-20200524224453672"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsg5jk7wp2j30zm0haq4p.jpg" alt="image-20210714080244441"></p>
 <p>此外，关于验证集作用，还可以用来模型选择和调参</p>
 <p>当通过训练集训练出多个模型后，为了能找出效果最佳的模型，使用各个模型对验证集数据进行预测，并记录模型准确率。选出效果最佳的模型所对应的参数，即用来调整模型参数。如svm中的参数c和核函数等。</p>
 <p><a href="https://cloud.tencent.com/developer/article/1558428" target="_blank" rel="noopener">训练集、验证集、测试集（附：分割方法+交叉验证）</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf8l0nvjpej315w0m4auk.jpg" alt="image-20200528232919495"></p>
+<ul>
+<li>训练需要的样本量</li>
+</ul>
+<blockquote>
+<p>As of 2016, a rough rule of thumb is that a supervised deep learning algorithm will generally achieve acceptable performance with around 5,000 labeled examples per category, and will match or exceed human performance when trained with a dataset containing at least 10 million labeled examples. Working successfully with datasets smaller than this is an important research area, focusing in particular on how we can take advantage of large quantities of unlabeled examples, with unsupervised or semi-supervised learning.</p>
+</blockquote>
+<p>对于监督深度学习算法，每类的样本标注量 <strong>5000</strong>，通常可以达到可接受的性能；而在使用包含至少<strong>1000万</strong>个带标签示例的数据集进行训练时，它将达到或超过人类的性能</p>
+<ul>
+<li>测试集划分比例</li>
+</ul>
+<blockquote>
+<p>It is common to use 80% of the data for training and hold out 20% for testing. However, this depends on the size of the dataset: if it contains 10 million instances, then holding out 1% means your test set will contain 100,000 instances: that’s probably more than enough to get a good estimate of the generalization error.</p>
+</blockquote>
+<p>如果样本数量很多，则不必2-8划分</p>
+<p>在测试集上的错误率，称为‘泛化误差’。如果训练集好，测试集差，则是过拟合</p>
 <h2 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h2><p>注意是不同训练集</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3yzqnydsj311q0eygzz.jpg" alt="image-20200524234459632"></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z0flclvj311c060k0k.jpg" alt="image-20200524234539823"></p>
@@ -340,4 +346,4 @@
 <li>《神经网络与深度学习》 邱锡鹏著  <a href="https://github.com/nndl/nndl.github.io" target="_blank" rel="noopener">https://github.com/nndl/nndl.github.io</a></li>
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/14/序列标注问题/" title="⭐️序列标注问题" class="prev">上一篇</a><a href="/2020/05/07/计算机理解/" title="⭐️计算机理解" class="next">下一篇</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/14/序列标注问题/" title="⭐️序列标注问题" class="prev">PREV</a><a href="/2020/05/07/计算机理解/" title="⭐️计算机理解" class="next">NEXT</a></div><div class="copyright"><p>© 2019 - 2021 <a target="_blank">Dufy</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="/scripts/jquery-1.8.2.min.js"></script><script src="/scripts/ar-anchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
