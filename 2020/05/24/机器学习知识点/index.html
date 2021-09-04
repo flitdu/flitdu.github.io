@@ -1,0 +1,565 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️机器学习知识点 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️机器学习知识点 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️机器学习知识点</h1><div class="post-info">2020-05-24<p class="visit"><i data-identity="2020/05/24/机器学习知识点/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3eov4z2ij310s0m2kjj.jpg" alt="image-20200524120234759"> </p>
+<span id="more"></span>
+
+<h2 id="AI-发展史"><a href="#AI-发展史" class="headerlink" title="AI 发展史"></a>AI 发展史</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3g9gspvzj30zs09egup.jpg" alt="image-20200524125656523"></p>
+<ul>
+<li>神经网络发展史</li>
+</ul>
+<p>典型的生物神经元结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsvwtxw01hj313o0i6jtt.jpg" alt="image-20210727231021857"></p>
+<p>1）浅层神经网络发展时间线：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gslge67jooj31520ddjsx.jpg" alt="IMG_7470E4A9AFF1-1"></p>
+<p>2）深度学习发展时间线：</p>
+<p>涉及到监督、无监督和强化学习</p>
+<p>2006年，Hinton首次提出深度学习的概念</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gslgviao7lj314h0c7myr.jpg" alt="IMG_775908161923-1"></p>
+<h2 id="机器学习分类"><a href="#机器学习分类" class="headerlink" title="机器学习分类"></a>机器学习分类</h2><p>机器学习的对象是：具有一定的统计规律的数据。</p>
+<p><strong>根据任务类型、算法模型可以进行不同的划分：</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsd2kydnwuj311s0raaf6.jpg" alt="image-20210711160335956"></p>
+<ul>
+<li>任务类型划分：</li>
+</ul>
+<p>监督学习任务：从已标记的训练数据来训练模型。 主要分为：分类任务、回归任务、序列标注任务。</p>
+<p>无监督学习任务：从未标记的训练数据来训练模型。主要分为：聚类任务、降维任务。</p>
+<p>半监督学习任务：用大量的未标记训练数据和少量的已标记数据来训练模型。</p>
+<p>强化学习任务：从系统与环境的大量交互知识中训练模型。</p>
+<ul>
+<li>算法类型</li>
+</ul>
+<ol>
+<li><strong>传统统计学习：</strong></li>
+</ol>
+<p>基于数学模型的机器学习方法。包括<code>SVM</code>、逻辑回归、决策树等。</p>
+<p>这一类算法基于严格的数学推理，具有可解释性强、运行速度快、可应用于小规模数据集的特点。</p>
+<ol start="2">
+<li><strong>深度学习：</strong></li>
+</ol>
+<p>基于神经网络的机器学习方法。包括前馈神经网络、卷积神经网络、递归神经网络等。</p>
+<p>这一类算法基于神经网络，可解释性较差，强烈依赖于数据集规模。但是这类算法在语音、视觉、自然语言等领域非常成功。</p>
+<ul>
+<li>深度学习与其它算法的比较</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsuqcqnxxjj311e0omq73.jpg" alt="image-20210726224040226"></p>
+<h2 id="机器学习解决问题的思路"><a href="#机器学习解决问题的思路" class="headerlink" title="机器学习解决问题的思路"></a>机器学习解决问题的思路</h2><ul>
+<li>机器学习定义</li>
+</ul>
+<blockquote>
+<p>Here is a slightly more general definition:</p>
+<p>[Machine Learning is the] field of study that gives computers the ability to learn without being explicitly programmed.</p>
+<p>—Arthur Samuel, 1959</p>
+<p>And a more engineering-oriented one:</p>
+<p>A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+<p>—Tom Mitchell, 1997</p>
+</blockquote>
+<p>注意：机器学习是从数据中学，且从数据学习中不断变得更好</p>
+<ul>
+<li>处理流程</li>
+</ul>
+<p>机器学习问题，是要从有限的样例中通过算法总结出一般性的规律，并<strong>可以应用到新的未知数据上</strong>。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3vbgocggj30vo0c6wnp.jpg" alt="image-20200524213750964"></p>
+<p>更具体的：</p>
+<blockquote>
+<p>注意椭圆循环的地方，表示模型可以通过更新样本的方式自动学习新的样本特征，参见《Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow》p6</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsdfytztjzj31940pon3t.jpg" alt="image-20210711234645305"></p>
+<ul>
+<li>三要素</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsdf82bjwlj31960qkte8.jpg" alt="image-20210711232101689"></p>
+<ul>
+<li><code>没有免费的午餐</code>定理(<code>No Free Lunch Theorem:NFL</code>)</li>
+</ul>
+<blockquote>
+<p>对于一个学习算法<code>A</code>，如果在某些问题上它比算法<code>B</code>好，那么必然存在另一些问题，在那些问题中<code>B</code>比<code>A</code>更好。</p>
+</blockquote>
+<p>因此不存在这样的算法：它在所有的问题上都取得最佳的性能。</p>
+<p>因此要谈论算法的优劣必须基于具体的学习问题。脱离具体问题，空泛地谈论’什么学习算法更好‘毫无意义。</p>
+<ul>
+<li>需要注意的问题</li>
+</ul>
+<p>由于我么面临的任务就是选择合适的算法，并且在数据集上进行训练。因此，从‘数据’ 和‘算法’ 出发，需要注意：</p>
+<p>❎ 数据量不足</p>
+<p>❎ 训练样本不具有代表性</p>
+<blockquote>
+<p>In order to generalize well, it is crucial that your training data be representative of the new cases you want to generalize to. This is true whether you use instance-based learning or model-based learning.</p>
+<p>为了泛化能力强，关键的是你的训练集要能够代表或表示你想要预测的新case.</p>
+<p>It is crucial to use a training set that is representative of the cases you want to general‐ ize to. This is often harder than it sounds: if the sample is too small, you will have sampling noise (i.e., nonrepresentative data as a result of chance), but even very large samples can be nonrepresentative if the sampling method is flawed. This is called sampling bias.</p>
+<p>但是样本数据量大也可能有问题，比如采样方法有缺陷。这被称为“采样偏差”</p>
+</blockquote>
+<p>❎ 数据质量差</p>
+<p>❎ 不相关特征：garbage in， garbage out</p>
+<p>涉及到特征工程：特征选择、特征抽取等</p>
+<p>❎ 过拟合</p>
+<p>❎ 欠拟合</p>
+<h2 id="机器学习不确定性来源"><a href="#机器学习不确定性来源" class="headerlink" title="机器学习不确定性来源"></a>机器学习不确定性来源</h2><p>1）模型本身固有的随机性。如：量子力学中的粒子动力学方程。</p>
+<p>2）不完全的观测。即使是确定性系统，当无法观测所有驱动变量时，结果也是随机的。</p>
+<p>3）不完全建模。有时必须放弃一些观测信息。</p>
+<p>如机器人建模中：虽然可以精确观察机器人周围每个对象的位置，但在预测这些对象将来的位置时，对空间进行了离散化。则位置预测将带有不确定性。</p>
+<h2 id="训练集划分"><a href="#训练集划分" class="headerlink" title="训练集划分"></a>训练集划分</h2><p>对于样本集，一般会分为训练集和测试集，比例为8：2</p>
+<p>通过模型在测试集上的错误率来估计泛化误差。如果训练集好，测试集很差，则是过拟合</p>
+<blockquote>
+<p>the validation set and the test must be as representative as possible of the data you expect to use in production</p>
+<p>验证集和测试集必须要跟我们生产环境将要面临的数据保持一直！！</p>
+</blockquote>
+<ul>
+<li>训练需要的样本量</li>
+</ul>
+<blockquote>
+<p>As of 2016, a rough rule of thumb is that a supervised deep learning algorithm will generally achieve acceptable performance with around 5,000 labeled examples per category, and will match or exceed human performance when trained with a dataset containing at least 10 million labeled examples. Working successfully with datasets smaller than this is an important research area, focusing in particular on how we can take advantage of large quantities of unlabeled examples, with unsupervised or semi-supervised learning.</p>
+</blockquote>
+<p>对于监督深度学习算法，每类的样本标注量 <strong>5000</strong>，通常可以达到可接受的性能；而在使用包含至少<strong>1000万</strong>个带标签示例的数据集进行训练时，它将达到或超过人类的性能</p>
+<ul>
+<li>测试集划分比例</li>
+</ul>
+<blockquote>
+<p>It is common to use 80% of the data for training and hold out 20% for testing. However, this depends on the size of the dataset: if it contains 10 million instances, then holding out 1% means your test set will contain 100,000 instances: that’s probably more than enough to get a good estimate of the generalization error.</p>
+</blockquote>
+<p>也就是说，如果样本数量很多，则不必2-8划分。</p>
+<ul>
+<li>交叉验证</li>
+</ul>
+<p>交叉验证主要是说在样本集少的情况下，我们既想用足够多的训练集去训练数据，又想得到超参数的合适选择。</p>
+<p>这时候可以采用交叉验证，并用多次的平均去做评估，这样结论会更准确</p>
+<p>所以，交叉验证目的是对超参数的做一个更优的选择。但是代价是训练时间周期长</p>
+<blockquote>
+<p>A common solution to this problem is called holdout validation: you simply hold out part of the training set to evaluate several candidate models and select the best one. The new heldout set is called the validation set (or sometimes the development set, or dev set). More specifically, you train multiple models with various hyperparameters on the reduced training set (i.e., the full training set minus the validation set), and you select the model that performs best on the validation set. After this holdout vali‐ dation process, you train the best model on the full training set (including the valida‐ tion set), and this gives you the final model. Lastly, you evaluate this final model on the test set to get an estimate of the generalization error.</p>
+<p>This solution usually works quite well. However, if the validation set is too small, then model evaluations will be imprecise: you may end up selecting a suboptimal model by mistake. Conversely, if the validation set is too large, then the remaining training set will be much smaller than the full training set. Why is this bad? Well, since the final model will be trained on the full training set, it is not ideal to compare candidate models trained on a much smaller training set. It would be like selecting the fastest sprinter to participate in a marathon. One way to solve this problem is to perform repeated cross-validation, using many small validation sets. Each model is evaluated once per validation set, after it is trained on the rest of the data. By averaging out all the evaluations of a model, we get a much more accurate measure of its performance. However, there is a drawback: the training time is multiplied by the number of valida‐ tion sets.—-【4】p32</p>
+</blockquote>
+<ul>
+<li>提前终止</li>
+</ul>
+<p>依靠<strong>验证集</strong>判断，防止过拟合</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsg5jk7wp2j30zm0haq4p.jpg" alt="image-20210714080244441"></p>
+<p>此外，关于验证集作用，还可以用来模型选择和调参</p>
+<p>当通过训练集训练出多个模型后，为了能找出效果最佳的模型，使用各个模型对验证集数据进行预测，并记录模型准确率。选出效果最佳的模型所对应的参数，即用来调整模型参数。如svm中的参数c和核函数等。</p>
+<h2 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h2><p>注意是<u>不同训练集</u></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3yzqnydsj311q0eygzz.jpg" alt="image-20200524234459632"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z0flclvj311c060k0k.jpg" alt="image-20200524234539823"></p>
+<ul>
+<li>组合情况</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z7fqwn9j311204gtez.jpg" alt="image-20200524235223564"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z5llkhej30ro0oitub.jpg" alt="image-20200524235036234"></p>
+<p>图2.7给出了机器学习模型的期 望错误、偏差和方差随复杂度的变化情况，其中红色虚线表示最优模型.最优模 型并不一定是偏差曲线和方差曲线的交点.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3z9ubh5tj30ti0foqeh.jpg" alt="image-20200524235442518"></p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>参考：<a target="_blank" rel="noopener" href="https://miopas.github.io/2019/04/17/multiple-classification-metrics/">计算多分类任务中 precsion、recall、F1 指标</a></p>
+<p>对于分类问题，评价标准有：</p>
+<ul>
+<li>准确率</li>
+<li>精确率P=TP/(TP+FP)</li>
+<li>召回率R=TP/(TP+FN)</li>
+<li>F值</li>
+</ul>
+<p>其中，P/R是针对<strong>每个类</strong>进行的性能估计</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf54kq30j9j30os0byjy8.jpg" alt="image-20200525234342429"></p>
+<p>为了计算所有类别的总体P,R，有两种方法：</p>
+<ul>
+<li>宏平均：每一类的算数平均值 </li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf54n3vsj2j30ls0biq8n.jpg" alt="image-20200525234601664"></p>
+<ul>
+<li>微平均</li>
+</ul>
+<p>一般 Micro 方法更容易受到样本不均衡的影响, 容易使得表现较好的大数样本掩盖表现不好的小数据量类别.</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul>
+<li>直观解释</li>
+</ul>
+<p>下图中，红色箭头方向即为梯度方向，表示函数增速最快的方向</p>
+<p>那么，沿着反方向梯度下降，则可以不断减少函数值</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsvxidrngyj309q07bjs6.jpg" alt="img"></p>
+<p>pic–&gt; <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gradient?oldid=747127712">https://en.wikipedia.org/wiki/Gradient?oldid=747127712</a></p>
+<h3 id="批量梯度下降-vs-SGD"><a href="#批量梯度下降-vs-SGD" class="headerlink" title="批量梯度下降 vs SGD"></a>批量梯度下降 vs SGD</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">@Time : 2021/7/4 7:17 下午</span></span><br><span class="line"><span class="string">@Author : Dufy</span></span><br><span class="line"><span class="string">@Email : 813540660@qq.com</span></span><br><span class="line"><span class="string">@File : optimization.py</span></span><br><span class="line"><span class="string">@Software: PyCharm </span></span><br><span class="line"><span class="string">Description :</span></span><br><span class="line"><span class="string">1) 机器学习各种优化方法学习比较</span></span><br><span class="line"><span class="string">2) https://github.com/tsycnh/mlbasic/blob/master/p1%20gradient%20descent.py</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from config import logger</span></span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span>  <span class="comment"># 用来正常显示负号</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Draw</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">12</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_hill</span>(<span class="params">self, x, y, optimizer</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;得到三维曲面点&quot;&quot;&quot;</span></span><br><span class="line">        a = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        b = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        x = np.array(x)</span><br><span class="line">        y = np.array(y)</span><br><span class="line"></span><br><span class="line">        allSSE = np.zeros(shape=(<span class="built_in">len</span>(a), <span class="built_in">len</span>(b)))</span><br><span class="line">        <span class="keyword">for</span> ai <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">            <span class="keyword">for</span> bi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(b)):</span><br><span class="line">                a0 = a[ai]</span><br><span class="line">                b0 = b[bi]</span><br><span class="line">                SSE = optimizer.calc_loss(a0,b0,x,y)</span><br><span class="line">                allSSE[ai][bi] = SSE</span><br><span class="line">        a, b = np.meshgrid(a, b)</span><br><span class="line">        <span class="keyword">return</span> [a, b, allSSE]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_scatter_3d</span>(<span class="params">self, a, b, loss</span>):</span></span><br><span class="line">        <span class="comment"># 绘制三维中的loss点</span></span><br><span class="line">        ax.scatter(a, b, loss, color=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_contour</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="comment"># 绘制等高线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        plt.scatter(a,b, s=<span class="number">5</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_regression_curve</span>(<span class="params">self, optimizer, x, y</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># 绘制图3中的回归直线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        plt.plot(x, y)</span><br><span class="line">        plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">        x_ = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        y_draw = optimizer.a * x_ + optimizer.b</span><br><span class="line">        plt.plot(x_, y_draw)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_loss_curve</span>(<span class="params">self, all_loss, all_step</span>):</span></span><br><span class="line">        <span class="comment"># 绘制图4的loss更新曲线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">        plt.plot(all_step, all_loss, color=<span class="string">&#x27;orange&#x27;</span>)</span><br><span class="line">        plt.xlabel(<span class="string">&quot;step&quot;</span>)</span><br><span class="line">        plt.ylabel(<span class="string">&quot;loss&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Optimizer</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.a = <span class="number">10</span></span><br><span class="line">        self.b = -<span class="number">20</span></span><br><span class="line">        self.rate=<span class="number">0.2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">iterate</span>(<span class="params">self, x, y, random_index=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        参数迭代更新</span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :param random_index: 是否随机梯度下降，当取值为None,随机梯度下降</span></span><br><span class="line"><span class="string">        :return: loss：当前损失； para: 当前参数 a,b</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># print((self.a, self.b), &#x27;...&#x27;)</span></span><br><span class="line">        loss = self.calc_loss(self.a, self.b, x, y)</span><br><span class="line">        self.update_para(x, y, random_index)</span><br><span class="line">        <span class="built_in">print</span>((self.a, self.b), <span class="string">&#x27;...&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc_loss</span>(<span class="params">self, a,b,x,y</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        计算损失，优化函数，Loss = (y_-y)^2/(2n)</span></span><br><span class="line"><span class="string">        :param a:</span></span><br><span class="line"><span class="string">        :param b:</span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        y_ = a * x + b</span><br><span class="line">        tmp = (y_ - y) ** <span class="number">2</span></span><br><span class="line">        loss = <span class="built_in">sum</span>(tmp) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_para</span>(<span class="params">self, x, y, index</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        更新a,b</span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y:</span></span><br><span class="line"><span class="string">        :param y_: 预测值</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> index <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            y_ = self.a * x + self.b</span><br><span class="line">            direction_a = self.rate*<span class="built_in">sum</span>((y_-y)*x)/<span class="built_in">len</span>(x)</span><br><span class="line">            direction_b = self.rate*<span class="built_in">sum</span>(y_-y)/<span class="built_in">len</span>(x)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            y_ = self.a * x[index] + self.b</span><br><span class="line">            direction_a = self.rate*(y_-y[index])*x[index]</span><br><span class="line">            direction_b = self.rate*(y_-y[index])</span><br><span class="line">        self.a -= direction_a</span><br><span class="line">        self.b -= direction_b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    x = np.array([<span class="number">30</span>, <span class="number">35</span>, <span class="number">37</span>, <span class="number">59</span>, <span class="number">70</span>, <span class="number">76</span>, <span class="number">88</span>, <span class="number">100</span>]).astype(np.float32)</span><br><span class="line">    y = np.array([<span class="number">1100</span>, <span class="number">1423</span>, <span class="number">1377</span>, <span class="number">1800</span>, <span class="number">2304</span>, <span class="number">2588</span>, <span class="number">3495</span>, <span class="number">4839</span>]).astype(np.float32)</span><br><span class="line">    x_max = <span class="built_in">max</span>(x)</span><br><span class="line">    x_min = <span class="built_in">min</span>(x)</span><br><span class="line">    y_max = <span class="built_in">max</span>(y)</span><br><span class="line">    y_min = <span class="built_in">min</span>(y)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(x)):  <span class="comment"># 0-1归一化</span></span><br><span class="line">        x[i] = (x[i] - x_min) / (x_max - x_min)</span><br><span class="line">        y[i] = (y[i] - y_min) / (y_max - y_min)</span><br><span class="line">    <span class="built_in">print</span>(x, y, sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="comment"># plt.plot(x,y,&#x27;-o&#x27;)</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line">    optimizer = Optimizer()</span><br><span class="line">    draw = Draw()</span><br><span class="line">    [ha, hb, hallSSE] = draw.draw_hill(x, y, optimizer)</span><br><span class="line">    hallSSE = hallSSE.T  <span class="comment"># 重要，将所有的losses做一个转置。原因是矩阵是以左上角至右下角顺序排列元素，而绘图是以左下角为原点。</span></span><br><span class="line">    fig = draw.fig</span><br><span class="line">    <span class="comment"># 绘制图1的曲面</span></span><br><span class="line">    ax = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line">    ax.set_top_view()</span><br><span class="line">    ax.plot_surface(ha, hb, hallSSE, rstride=<span class="number">2</span>, cstride=<span class="number">2</span>, cmap=<span class="string">&#x27;rainbow&#x27;</span>)</span><br><span class="line">    <span class="comment"># 绘制图2的等高线图</span></span><br><span class="line">    plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">    ta = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    tb = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    plt.contourf(ha, hb, hallSSE, <span class="number">15</span>, alpha=<span class="number">0.5</span>, cmap=plt.cm.hot)</span><br><span class="line">    C = plt.contour(ha, hb, hallSSE, <span class="number">15</span>, colors=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">    plt.clabel(C, inline=<span class="literal">True</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    all_loss = []</span><br><span class="line">    all_step = []</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">        random_index = random.randint(<span class="number">0</span>, <span class="built_in">len</span>(x)-<span class="number">1</span>)  <span class="comment"># 随机取一个样本点</span></span><br><span class="line">        pre_a = optimizer.a  <span class="comment"># 记录上一时刻的a</span></span><br><span class="line">        pre_b = optimizer.b</span><br><span class="line"></span><br><span class="line">        loss = optimizer.iterate(x, y, random_index)  <span class="comment"># SGD，随机梯度下降</span></span><br><span class="line">        <span class="comment"># loss = optimizer.iterate(x, y)  # 批量梯度下降</span></span><br><span class="line">        all_loss.append(loss)</span><br><span class="line">        all_step.append(step)</span><br><span class="line"></span><br><span class="line">        draw.draw_scatter_3d(pre_a, pre_b, loss) <span class="comment"># 注意，loss 与参数 a,b要对应</span></span><br><span class="line">        draw.draw_contour(pre_a, pre_b)</span><br><span class="line">        draw.draw_regression_curve(optimizer,x,y)</span><br><span class="line">        draw.draw_loss_curve(all_loss, all_step)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;step: &quot;</span>, step, <span class="string">&quot; loss: &quot;</span>, loss)</span><br><span class="line">            <span class="comment"># plt.show()</span></span><br><span class="line">            plt.pause(<span class="number">0.01</span>)</span><br><span class="line">    <span class="built_in">print</span>(all_step)</span><br><span class="line">    <span class="built_in">print</span>(all_loss)</span><br><span class="line">    plt.show()</span><br><span class="line">    <span class="comment"># plt.pause(1)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>批量梯度下降</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs7nx4sb4hj31790u01kx.jpg" alt="image-20210706234828627"></p>
+<ul>
+<li>SGD</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs7o410dfzj317o0u01kx.jpg" alt="image-20210706235507888"></p>
+<h3 id="动量方法"><a href="#动量方法" class="headerlink" title="动量方法"></a>动量方法</h3><p>迭代公式（参考p161《百面》）：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs82a02tptj30sk05mglu.jpg" alt="image-20210707080516749"></p>
+<p>主要是改动 <code>update_para()</code>方法，其它不动</p>
+<p>结果如下。可见，动量方法的损失函数更加平缓</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbw4ppjrqj31al0u07wh.jpg" alt="image-20210710153444571"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">==============================================================================</span></span><br><span class="line"><span class="string">Time : 2021/7/10 3:25 下午</span></span><br><span class="line"><span class="string">Author : Dufy</span></span><br><span class="line"><span class="string">Email : 813540660@qq.com</span></span><br><span class="line"><span class="string">File : test.py</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">关于动量法 优化方法的demo</span></span><br><span class="line"><span class="string">参考：https://github.com/tsycnh/mlbasic/blob/master/p4%20momentum.py</span></span><br><span class="line"><span class="string">==============================================================================</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span>  <span class="comment"># 用来正常显示负号</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Draw</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">12</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_hill</span>(<span class="params">self, x, y, optimizer</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;得到三维曲面点&quot;&quot;&quot;</span></span><br><span class="line">        a = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        b = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        x = np.array(x)</span><br><span class="line">        y = np.array(y)</span><br><span class="line"></span><br><span class="line">        allSSE = np.zeros(shape=(<span class="built_in">len</span>(a), <span class="built_in">len</span>(b)))</span><br><span class="line">        <span class="keyword">for</span> ai <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">            <span class="keyword">for</span> bi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(b)):</span><br><span class="line">                a0 = a[ai]</span><br><span class="line">                b0 = b[bi]</span><br><span class="line">                SSE = optimizer.calc_loss(a0,b0,x,y)</span><br><span class="line">                allSSE[ai][bi] = SSE</span><br><span class="line">        a, b = np.meshgrid(a, b)</span><br><span class="line">        <span class="keyword">return</span> [a, b, allSSE]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_scatter_3d</span>(<span class="params">self, a, b, loss</span>):</span></span><br><span class="line">        <span class="comment"># 绘制三维中的loss点</span></span><br><span class="line">        ax.scatter(a, b, loss, color=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_contour</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="comment"># 绘制等高线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        plt.scatter(a,b, s=<span class="number">5</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_regression_curve</span>(<span class="params">self, optimizer, x, y</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># 绘制图3中的回归直线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        plt.plot(x, y)</span><br><span class="line">        plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">        x_ = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        y_draw = optimizer.a * x_ + optimizer.b</span><br><span class="line">        plt.plot(x_, y_draw)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_loss_curve</span>(<span class="params">self, all_loss, all_step</span>):</span></span><br><span class="line">        <span class="comment"># 绘制图4的loss更新曲线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">        plt.plot(all_step, all_loss, color=<span class="string">&#x27;orange&#x27;</span>)</span><br><span class="line">        plt.xlabel(<span class="string">&quot;step&quot;</span>)</span><br><span class="line">        plt.ylabel(<span class="string">&quot;loss&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Optimizer</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.a = <span class="number">10</span></span><br><span class="line">        self.b = -<span class="number">20</span></span><br><span class="line">        self.rate=<span class="number">0.2</span></span><br><span class="line">        self.gamma= <span class="number">0.1</span>  <span class="comment"># moment方法上一时刻的系数</span></span><br><span class="line">        self.va = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line">        self.vb = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">iterate</span>(<span class="params">self, x, y, random_index=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;参数迭代更新</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :param random_index: 是否随机梯度下降，当取值不为None,随机梯度下降</span></span><br><span class="line"><span class="string">        :return: loss：当前损失</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        loss = self.calc_loss(self.a, self.b, x, y)</span><br><span class="line">        <span class="built_in">print</span>((self.a, self.b, loss), <span class="string">&#x27;...&#x27;</span>)  <span class="comment"># 显示同一时刻的参数以及对应的loss</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> random_index <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            y_ = self.a * x + self.b  <span class="comment"># 预测值</span></span><br><span class="line">            g_ta = <span class="built_in">sum</span>((y_-y)*x)/<span class="built_in">len</span>(x)</span><br><span class="line">            g_tb = <span class="built_in">sum</span>(y_-y)/<span class="built_in">len</span>(x)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># SGD</span></span><br><span class="line">            y_ = self.a * x[random_index] + self.b  <span class="comment"># 预测值</span></span><br><span class="line">            g_ta = (y_-y[random_index])*x[random_index]</span><br><span class="line">            g_tb = y_-y[random_index]</span><br><span class="line"></span><br><span class="line">        self.va = self.update_delta_para(self.va, g_ta)</span><br><span class="line">        self.a -= self.va</span><br><span class="line">        self.vb = self.update_delta_para(self.vb, g_tb)</span><br><span class="line">        self.b -= self.vb</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc_loss</span>(<span class="params">self, a, b, x, y</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算损失，优化函数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Loss = (y_-y)^2/(2n)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param a:</span></span><br><span class="line"><span class="string">        :param b:</span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        y_ = a * x + b</span><br><span class="line">        tmp = (y_ - y) ** <span class="number">2</span></span><br><span class="line">        loss = <span class="built_in">sum</span>(tmp) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_delta_para</span>(<span class="params">self, v, g_t</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;更新损失函数中的参数改变量</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param v: 上一时刻步伐</span></span><br><span class="line"><span class="string">        :param g_t: 梯度方向</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        v = self.gamma*v + self.rate*g_t</span><br><span class="line">        <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    x = np.array([<span class="number">30</span>, <span class="number">35</span>, <span class="number">37</span>, <span class="number">59</span>, <span class="number">70</span>, <span class="number">76</span>, <span class="number">88</span>, <span class="number">100</span>]).astype(np.float32)</span><br><span class="line">    y = np.array([<span class="number">1100</span>, <span class="number">1423</span>, <span class="number">1377</span>, <span class="number">1800</span>, <span class="number">2304</span>, <span class="number">2588</span>, <span class="number">3495</span>, <span class="number">4839</span>]).astype(np.float32)</span><br><span class="line">    x_max = <span class="built_in">max</span>(x)</span><br><span class="line">    x_min = <span class="built_in">min</span>(x)</span><br><span class="line">    y_max = <span class="built_in">max</span>(y)</span><br><span class="line">    y_min = <span class="built_in">min</span>(y)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(x)):  <span class="comment"># 0-1归一化</span></span><br><span class="line">        x[i] = (x[i] - x_min) / (x_max - x_min)</span><br><span class="line">        y[i] = (y[i] - y_min) / (y_max - y_min)</span><br><span class="line">    <span class="built_in">print</span>(x, y, sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="comment"># plt.plot(x,y,&#x27;-o&#x27;)</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line">    optimizer = Optimizer()</span><br><span class="line">    draw = Draw()</span><br><span class="line">    [ha, hb, hallSSE] = draw.draw_hill(x, y, optimizer)</span><br><span class="line">    hallSSE = hallSSE.T  <span class="comment"># 重要，将所有的losses做一个转置。原因是矩阵是以左上角至右下角顺序排列元素，而绘图是以左下角为原点。</span></span><br><span class="line">    fig = draw.fig</span><br><span class="line">    <span class="comment"># 绘制图1的曲面</span></span><br><span class="line">    ax = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line">    ax.set_top_view()</span><br><span class="line">    ax.plot_surface(ha, hb, hallSSE, rstride=<span class="number">2</span>, cstride=<span class="number">2</span>, cmap=<span class="string">&#x27;rainbow&#x27;</span>)</span><br><span class="line">    <span class="comment"># 绘制图2的等高线图</span></span><br><span class="line">    plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">    ta = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    tb = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    plt.contourf(ha, hb, hallSSE, <span class="number">15</span>, alpha=<span class="number">0.5</span>, cmap=plt.cm.hot)</span><br><span class="line">    C = plt.contour(ha, hb, hallSSE, <span class="number">15</span>, colors=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">    plt.clabel(C, inline=<span class="literal">True</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    all_loss = []</span><br><span class="line">    all_step = []</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">        random_index = random.randint(<span class="number">0</span>, <span class="built_in">len</span>(x)-<span class="number">1</span>)  <span class="comment"># 随机取一个样本点</span></span><br><span class="line">        pre_a = optimizer.a  <span class="comment"># 记录上一时刻的a</span></span><br><span class="line">        pre_b = optimizer.b</span><br><span class="line"></span><br><span class="line">        loss = optimizer.iterate(x, y, random_index)  <span class="comment"># SGD，随机梯度下降</span></span><br><span class="line">        <span class="comment"># loss = optimizer.iterate(x, y)  # 批量梯度下降</span></span><br><span class="line">        all_loss.append(loss)</span><br><span class="line">        all_step.append(step)</span><br><span class="line"></span><br><span class="line">        draw.draw_scatter_3d(pre_a, pre_b, loss) <span class="comment"># 注意，loss 与参数 a,b要对应</span></span><br><span class="line">        draw.draw_contour(pre_a, pre_b)</span><br><span class="line">        draw.draw_regression_curve(optimizer,x,y)</span><br><span class="line">        draw.draw_loss_curve(all_loss, all_step)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;step: &quot;</span>, step, <span class="string">&quot; loss: &quot;</span>, loss)</span><br><span class="line">            <span class="comment"># plt.show()</span></span><br><span class="line">            plt.pause(<span class="number">0.01</span>)</span><br><span class="line">    <span class="built_in">print</span>(all_step)</span><br><span class="line">    <span class="built_in">print</span>(all_loss)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h3><p>算法伪代码：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbydnuhgij313e0og1kx.jpg" alt="image-20210710165237579"></p>
+<p>即使随机SGD产生的效果也很惊人，损失函数抖动很小：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsbygzu2dij316n0u07wh.jpg" alt="image-20210710165550434"></p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">==============================================================================</span></span><br><span class="line"><span class="string">Time : 2021/7/10 3:25 下午</span></span><br><span class="line"><span class="string">Author : Dufy</span></span><br><span class="line"><span class="string">Email : 813540660@qq.com</span></span><br><span class="line"><span class="string">File : test.py</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">关于Adam 优化方法的demo</span></span><br><span class="line"><span class="string">参考：https://github.com/keras-team/keras/blob/a5a6a53ece/keras/optimizer_v2/adam_test.py</span></span><br><span class="line"><span class="string">==============================================================================</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]  <span class="comment"># 用来正常显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span>  <span class="comment"># 用来正常显示负号</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Draw</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">12</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_hill</span>(<span class="params">self, x, y, optimizer</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;得到三维曲面点&quot;&quot;&quot;</span></span><br><span class="line">        a = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        b = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">        x = np.array(x)</span><br><span class="line">        y = np.array(y)</span><br><span class="line"></span><br><span class="line">        allSSE = np.zeros(shape=(<span class="built_in">len</span>(a), <span class="built_in">len</span>(b)))</span><br><span class="line">        <span class="keyword">for</span> ai <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">            <span class="keyword">for</span> bi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(b)):</span><br><span class="line">                a0 = a[ai]</span><br><span class="line">                b0 = b[bi]</span><br><span class="line">                SSE = optimizer.calc_loss(a0,b0,x,y)</span><br><span class="line">                allSSE[ai][bi] = SSE</span><br><span class="line">        a, b = np.meshgrid(a, b)</span><br><span class="line">        <span class="keyword">return</span> [a, b, allSSE]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_scatter_3d</span>(<span class="params">self, a, b, loss</span>):</span></span><br><span class="line">        <span class="comment"># 绘制三维中的loss点</span></span><br><span class="line">        ax.scatter(a, b, loss, color=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_contour</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="comment"># 绘制等高线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        plt.scatter(a,b, s=<span class="number">5</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_regression_curve</span>(<span class="params">self, optimizer, x, y</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># 绘制图3中的回归直线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        plt.plot(x, y)</span><br><span class="line">        plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">        x_ = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">        y_draw = optimizer.a * x_ + optimizer.b</span><br><span class="line">        plt.plot(x_, y_draw)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draw_loss_curve</span>(<span class="params">self, all_loss, all_step</span>):</span></span><br><span class="line">        <span class="comment"># 绘制图4的loss更新曲线</span></span><br><span class="line">        plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">        plt.plot(all_step, all_loss, color=<span class="string">&#x27;orange&#x27;</span>)</span><br><span class="line">        plt.xlabel(<span class="string">&quot;step&quot;</span>)</span><br><span class="line">        plt.ylabel(<span class="string">&quot;loss&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Optimizer</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.a = <span class="number">10</span></span><br><span class="line">        self.b = -<span class="number">20</span></span><br><span class="line">        self.lr=<span class="number">0.2</span></span><br><span class="line">        self.gamma= <span class="number">0.1</span>  <span class="comment"># moment方法上一时刻的系数</span></span><br><span class="line">        self.ma = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line">        self.va = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line">        self.mb = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line">        self.vb = <span class="number">0</span> <span class="comment"># 前一次步伐信息记录</span></span><br><span class="line">        self.beta1 = <span class="number">0.9</span></span><br><span class="line">        self.beta2 = <span class="number">0.999</span></span><br><span class="line">        self.epsilon = <span class="number">1e-8</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">iterate</span>(<span class="params">self, x, y, step, random_index=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;参数迭代更新</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :param step: 迭代步数</span></span><br><span class="line"><span class="string">        :param random_index: 是否随机梯度下降，当取值不为None,随机梯度下降</span></span><br><span class="line"><span class="string">        :return: loss：当前损失</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        loss = self.calc_loss(self.a, self.b, x, y)</span><br><span class="line">        <span class="built_in">print</span>((self.a, self.b, loss), <span class="string">&#x27;...&#x27;</span>)  <span class="comment"># 显示同一时刻的参数以及对应的loss</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> random_index <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            y_ = self.a * x + self.b  <span class="comment"># 预测值</span></span><br><span class="line">            g_ta = <span class="built_in">sum</span>((y_-y)*x)/<span class="built_in">len</span>(x)</span><br><span class="line">            g_tb = <span class="built_in">sum</span>(y_-y)/<span class="built_in">len</span>(x)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># SGD</span></span><br><span class="line">            y_ = self.a * x[random_index] + self.b  <span class="comment"># 预测值</span></span><br><span class="line">            g_ta = (y_-y[random_index])*x[random_index]</span><br><span class="line">            g_tb = y_-y[random_index]</span><br><span class="line"></span><br><span class="line">        tmp, self.ma, self.va = self.update_delta_para(self.ma, self.va, g_ta, step)</span><br><span class="line">        self.a -= tmp</span><br><span class="line">        tmp, self.mb, self.vb = self.update_delta_para(self.mb, self.vb, g_tb, step)</span><br><span class="line">        self.b -= tmp</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calc_loss</span>(<span class="params">self, a, b, x, y</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算损失，优化函数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Loss = (y_-y)^2/(2n)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param a:</span></span><br><span class="line"><span class="string">        :param b:</span></span><br><span class="line"><span class="string">        :param x:</span></span><br><span class="line"><span class="string">        :param y: 真实值</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        y_ = a * x + b</span><br><span class="line">        tmp = (y_ - y) ** <span class="number">2</span></span><br><span class="line">        loss = <span class="built_in">sum</span>(tmp) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_delta_para</span>(<span class="params">self, m, v, g_t, t</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;更新损失函数中的参数改变量</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        一方面，Adam记录梯度的一阶矩，即过往梯度与当前梯度的平均，体现了惯性保持；</span></span><br><span class="line"><span class="string">        另一方面，还记录梯度的二阶矩，即过往梯度平方与当前梯度平方的平均，体现了环境感知能力，</span></span><br><span class="line"><span class="string">                为不同参数产生自适应的学习速率</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :param m: 上一时刻 一阶矩</span></span><br><span class="line"><span class="string">        :param v: 上一时刻 二阶矩</span></span><br><span class="line"><span class="string">        :param g_t: 梯度方向</span></span><br><span class="line"><span class="string">        :param t: 迭代步数</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        t += <span class="number">1</span></span><br><span class="line">        m = self.beta1*m + (<span class="number">1</span>-self.beta1)*g_t</span><br><span class="line">        v = self.beta2*v + (<span class="number">1</span>-self.beta2)*g_t**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">        mhat_t = m/(<span class="number">1</span>-self.beta1**t)</span><br><span class="line">        vhat_t = v/(<span class="number">1</span>-self.beta2**t)</span><br><span class="line">        delta_param = self.lr * mhat_t / (np.sqrt(vhat_t + self.epsilon))</span><br><span class="line">        <span class="keyword">return</span> delta_param, m, v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    x = np.array([<span class="number">30</span>, <span class="number">35</span>, <span class="number">37</span>, <span class="number">59</span>, <span class="number">70</span>, <span class="number">76</span>, <span class="number">88</span>, <span class="number">100</span>]).astype(np.float32)</span><br><span class="line">    y = np.array([<span class="number">1100</span>, <span class="number">1423</span>, <span class="number">1377</span>, <span class="number">1800</span>, <span class="number">2304</span>, <span class="number">2588</span>, <span class="number">3495</span>, <span class="number">4839</span>]).astype(np.float32)</span><br><span class="line">    x_max = <span class="built_in">max</span>(x)</span><br><span class="line">    x_min = <span class="built_in">min</span>(x)</span><br><span class="line">    y_max = <span class="built_in">max</span>(y)</span><br><span class="line">    y_min = <span class="built_in">min</span>(y)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(x)):  <span class="comment"># 0-1归一化</span></span><br><span class="line">        x[i] = (x[i] - x_min) / (x_max - x_min)</span><br><span class="line">        y[i] = (y[i] - y_min) / (y_max - y_min)</span><br><span class="line">    <span class="built_in">print</span>(x, y, sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="comment"># plt.plot(x,y,&#x27;-o&#x27;)</span></span><br><span class="line">    <span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line">    optimizer = Optimizer()</span><br><span class="line">    draw = Draw()</span><br><span class="line">    [ha, hb, hallSSE] = draw.draw_hill(x, y, optimizer)</span><br><span class="line">    hallSSE = hallSSE.T  <span class="comment"># 重要，将所有的losses做一个转置。原因是矩阵是以左上角至右下角顺序排列元素，而绘图是以左下角为原点。</span></span><br><span class="line">    fig = draw.fig</span><br><span class="line">    <span class="comment"># 绘制图1的曲面</span></span><br><span class="line">    ax = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line">    ax.set_top_view()</span><br><span class="line">    ax.plot_surface(ha, hb, hallSSE, rstride=<span class="number">2</span>, cstride=<span class="number">2</span>, cmap=<span class="string">&#x27;rainbow&#x27;</span>)</span><br><span class="line">    <span class="comment"># 绘制图2的等高线图</span></span><br><span class="line">    plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">    ta = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    tb = np.linspace(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>)</span><br><span class="line">    plt.contourf(ha, hb, hallSSE, <span class="number">15</span>, alpha=<span class="number">0.5</span>, cmap=plt.cm.hot)</span><br><span class="line">    C = plt.contour(ha, hb, hallSSE, <span class="number">15</span>, colors=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">    plt.clabel(C, inline=<span class="literal">True</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    all_loss = []</span><br><span class="line">    all_step = []</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">        random_index = random.randint(<span class="number">0</span>, <span class="built_in">len</span>(x)-<span class="number">1</span>)  <span class="comment"># 随机取一个样本点</span></span><br><span class="line">        pre_a = optimizer.a  <span class="comment"># 记录上一时刻的a</span></span><br><span class="line">        pre_b = optimizer.b</span><br><span class="line"></span><br><span class="line">        <span class="comment"># loss = optimizer.iterate(x, y, step, random_index)  # SGD，随机梯度下降</span></span><br><span class="line">        loss = optimizer.iterate(x, y, step)  <span class="comment"># 批量梯度下降</span></span><br><span class="line">        all_loss.append(loss)</span><br><span class="line">        all_step.append(step)</span><br><span class="line"></span><br><span class="line">        draw.draw_scatter_3d(pre_a, pre_b, loss) <span class="comment"># 注意，loss 与参数 a,b要对应</span></span><br><span class="line">        draw.draw_contour(pre_a, pre_b)</span><br><span class="line">        draw.draw_regression_curve(optimizer,x,y)</span><br><span class="line">        draw.draw_loss_curve(all_loss, all_step)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> step % <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;step: &quot;</span>, step, <span class="string">&quot; loss: &quot;</span>, loss)</span><br><span class="line">            <span class="comment"># plt.show()</span></span><br><span class="line">            plt.pause(<span class="number">0.01</span>)</span><br><span class="line">    <span class="built_in">print</span>(all_step)</span><br><span class="line">    <span class="built_in">print</span>(all_loss)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><p>可以看成是只有一层的神经网络，【参见】<a href="#toc3">⏬</a><a name='toc4'></a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/mYZdgTwMIOVcbpKdNUSqYg">万字干货|逻辑回归最详尽解释</a></p>
+<ul>
+<li>损失函数由来</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggetaqsw68j316i0tc4qp.jpg" alt="image-20200704120929534"></p>
+<h2 id="决策🌲"><a href="#决策🌲" class="headerlink" title="决策🌲"></a>决策🌲</h2><p>决策树的判断过程类似于if-else</p>
+<p>有不同的决策准则</p>
+<blockquote>
+<ol>
+<li>信息增益准则：对取值数目较多的属性偏好</li>
+<li>增益率准则：对取值数目较少的属性偏好</li>
+<li>基尼指数</li>
+</ol>
+</blockquote>
+<ul>
+<li>ID3</li>
+</ul>
+<p>树的构建原则：信息增益变大</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh10q8159j30ug0eawtw.jpg" alt="image-20201107232910616"></p>
+<blockquote>
+<p>信息熵的公式，其实也很简单：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh11c1zz0g305f01k3y9.gif"></p>
+<p>Pk表示的是：当前样本集合D中第k类样本所占的比例为Pk。</p>
+</blockquote>
+<ul>
+<li>C4.5</li>
+</ul>
+<p>定义增益率</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh26ybc3tg306u018a9t.gif"></p>
+<p>其中：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh26ynvdng306401ha9t.gif">，为属性a的’固有值‘</p>
+<p>在使用时候，<strong>先从候选划分属性中找出信息增益高于平均水平的属性，再从中选择增益率最高的。</strong></p>
+<ul>
+<li>CART</li>
+</ul>
+<p>属性a 的基尼指数为：【选择其值最小的属性】</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh2hzyoznj30eg03kgn3.jpg" alt="image-20201108002022469"></p>
+<p>其中，Gini(D)为基尼值，衡量数据集D的纯度<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkh2jxpauej30ie06aju1.jpg" alt="image-20201108002214116"></p>
+<ul>
+<li>剪枝</li>
+</ul>
+<p>目的是用来对付’过拟合‘</p>
+<p>分为两种</p>
+<blockquote>
+<p>预剪枝：基于’贪心‘</p>
+</blockquote>
+<p>在确定好属性后，根据<strong>验证集</strong>来判断进一步的划分是否提高了验证集的准确率，来据此最终确定划分的进行与否。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkhkws53fej31hk0dqb29.jpg" alt="image-20201108105721357"></p>
+<blockquote>
+<p>后剪枝，一般比预剪枝有更多的分支。性能上优于预剪枝，时间复杂度高</p>
+</blockquote>
+<p>是在树构建好后，<strong>自底向上</strong>对非叶结点进行考察，若将该结点对应的子树替换为叶结点能带来泛化性能提升，则将该子树替换为叶结点。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkhl8drcv6j30ta0bm4ai.jpg" alt="image-20201108110829534"></p>
+<h2 id="随机🌲🌲🌲"><a href="#随机🌲🌲🌲" class="headerlink" title="随机🌲🌲🌲"></a>随机🌲🌲🌲</h2><p>RF 是Bagging 的一个扩展变体</p>
+<p>RF在以决策树为基学习器构建Bagging 集成的基础上，进一步在决策树的训练过程中引入随机属性选择</p>
+<blockquote>
+<p>拓展–【基分类器的特点】：</p>
+<p>最好是不稳定的分类器，即对样本分布较为敏感为好</p>
+<p>除了决策树，神经网络也适合作为基分类器</p>
+</blockquote>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><ul>
+<li>分类</li>
+</ul>
+<p>下图给出了前馈网络、记忆网络和图网络的网络结构示例，其中圆形节点 表示一个神经元，方形节点表示一组神经元.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf8jjlevz7j310u0e2q5a.jpg" alt="image-20200528223756765"></p>
+<ul>
+<li>激活函数</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt2trlp6gcj31600eu0tw.jpg" alt="image-20210802224312295"></p>
+<ul>
+<li>反向传播</li>
+</ul>
+<p><strong>1）单个神经元梯度：</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt6a5znwrqj30xw0fwq4d.jpg" alt="image-20210805222724210"></p>
+<p>采用均方差误差函数，得到：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt6a6o1ekaj30hw04274a.jpg" alt="image-20210805222803328"></p>
+<p>可见，误差对<code>w_j1</code>的偏导数，只与输出值o_1,t 以及当前权值相连的输入x_j 相关</p>
+<p><strong>2）带隐藏层</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt6bbxdwmoj318q0egtbb.jpg" alt="image-20210805230742616"></p>
+<p>注意，每层的计算需要依赖上一层的结果</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt6bkjpatyj31500u0dj4.jpg" alt="image-20210805231558794"></p>
+<blockquote>
+<p>依照此规律，只需要循环迭代计算每一层每个节点的𝛿𝐾，𝛿 ，𝛿𝐼，…等值即可求得当前层的偏导数，从而得到每层权值矩阵 W 的梯度，再通过梯度下降算法迭代优化网络参数 即可。—–【6】7.7章节</p>
+</blockquote>
+<p>算法实现：<a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/tensorflow2/2.%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD.ipynb">龙书反向传播实现</a></p>
+<h2 id="前馈神经网络的理解"><a href="#前馈神经网络的理解" class="headerlink" title="前馈神经网络的理解"></a>前馈神经网络的理解</h2><p>对于分类的前馈神经网络 = 特征抽取 + 分类器（Logistic 、Softmax等）</p>
+<p>可以看出，神经网络的一个重要作用就是 特征的抽取变换，即将样本的 原始特征向量 𝒙 转换到更有效的特征向量 𝜙(𝒙)，这个过程叫作特征抽取.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s1kuc18j30ro0c8h8h.jpg" alt="image-20200530001758319"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s2fmaxaj30rw096k7i.jpg" alt="image-20200530001848263"></p>
+<p>也就是说，Logistic回归或 Softmax 回 归 也可以看作只有一层的神经网络.<a href="#toc4">返回</a><a name='toc3'></a><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf9s3r18cpj312w0im4qp.jpg" alt="image-20200530002003455"></p>
+<h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><p>常用的卷积网络整体结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfartst120j30yu08qq9f.jpg" alt="image-20200530205604156"></p>
+<ul>
+<li>特点</li>
+</ul>
+<p>局部连接、权重共享</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfarirkl72j30ux0u0qv6.jpg" alt="image-20200530204517689"></p>
+<ul>
+<li>卷积操作</li>
+</ul>
+<p>多通道、单卷积核：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtcimlxjgpj31700ieae3.jpg" alt="image-20210811075326750"></p>
+<ul>
+<li>感受野</li>
+</ul>
+<p>用来表示网络内部的不同位置的神经元对原图像的感受范围的大小【2】<a name='toc2'></a>：</p>
+<p>注意步长为2</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbiw3qht9j31400oih94.jpg" alt="image-20200531123227076"></p>
+<ul>
+<li>典型神经网络</li>
+</ul>
+<p>提出时间线：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk7r3klj313c0howgq.jpg" alt="image-20200214144809822"></p>
+<h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk4gdluj30k0067aae.jpg" alt="img"></p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p>2012年，AlexNet横空出世。这个模型的名字来源于论文第一作者的姓名Alex Krizhevsky [1]。AlexNet使用了8层卷积神经网络，并以很大的优势赢得了ImageNet 2012图像识别挑战赛。<strong>它首次证明了学习到的特征可以超越手工设计的特征，从而一举打破计算机视觉研究的前状</strong>。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk9hjd1j31x60lw78p.jpg" alt="image-20200214154508934"></p>
+<p>!<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk8ivkkj31960kcdjv.jpg" alt="image-20200214154030499"></p>
+<blockquote>
+<p>对于全连接处，需要一个flatten()的操作：</p>
+<p>import numpy as np<br>a = np.array([[1,2],[3,4]])<br>a.flatten()——&gt;array([1, 2, 3, 4])</p>
+</blockquote>
+<h3 id="VGG16"><a href="#VGG16" class="headerlink" title="VGG16"></a>VGG16</h3><p>VGG提出了可以通过重复使用简单的基础块来构建深度模型的思路。</p>
+<blockquote>
+<p>不得不说VGG是个很可爱的神经网络结构，它的成功说明了网络结构还是深的好。它使用的卷积全部为3x3，Pad=1，步长为1，也就是说，卷积不会改变输出大小，而改变输出大小这件事就交给了2x2，步长为2 的max pool，也就是说每通过一个 max pool，卷积的尺寸都会折半。</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk6oaecj30nm0f0dh5.jpg" alt="Fig-A1-The-standard-VGG-16-network-architecture-as-proposed-in-32-Note-that-only"></p>
+<h3 id="GoogLeNet–含并行连结的网络"><a href="#GoogLeNet–含并行连结的网络" class="headerlink" title="GoogLeNet–含并行连结的网络"></a>GoogLeNet–含并行连结的网络</h3><blockquote>
+<p>2014年对于计算机视觉领域是一个丰收的一年，在这一年的ImageNet图像识别挑战赛(ILSVRC,ImageNet Large Scale Visual Recognition Challenge)中出现了两个经典、影响至深的卷积神经网络模型，其中第一名是GoogLeNet、第二名是VGG。</p>
+</blockquote>
+<p>GoogLeNet中的基础卷积块叫作Inception块，得名于同名电影《盗梦空间》（Inception）。与上一节介绍的NiN块相比，这个基础块在结构上更加复杂，如图5.8所示。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk5pkvuj31bc05e0vb.jpg" alt="image-20200215222051857"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk6cs2rj30pg0ce0tv.jpg" alt="image-20200215205221364"></p>
+<p>关于1*1卷积的使用，原因如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk8zia0j31ie05w40z.jpg" alt="image-20200215221611332"></p>
+<p>ＧoogLeNet共有22层，原始输入数据的大小为224*<em>224</em> *3。整体结构如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk73z5gj31ho0ieadp.jpg" alt="image-20200215212610137"></p>
+<p>详细展开如下【1】<a name='toc'></a>：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhka04ltj30j01x2wo3.jpg" alt="img"></p>
+<p>GoogLeNet网络模型参数变化如下图所示：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbhk818amj31800newlk.jpg" alt="image-20200215222310360"></p>
+<h3 id="残差网络（ResNet）"><a href="#残差网络（ResNet）" class="headerlink" title="残差网络（ResNet）"></a>残差网络（ResNet）</h3><p>残差网络是为了解决深度神经网络（DNN）隐藏层过多时的<strong>网络退化问题</strong>而提出。退化（degradation）问题是指：当网络隐藏层变多时，网络的准确度达到饱和然后急剧退化，而且这个退化不是由于过拟合引起的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjood5x0j30nk0fi3z8.jpg" alt="image-20200531125106396"></p>
+<p>下图中的Weight在卷积网络中是指卷积操作，addition是指单位加操作。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42706477">详解残差网络</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjnte9a7j30ly0igjsa.jpg" alt="image-20200216001145750"></p>
+<h3 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjnsgl1rj310009e3z8.jpg" alt="image-20200216002107204"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbjntwu5nj31ao04040c.jpg" alt="image-20200216002221064"></p>
+<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbl41xx1xj31aw0c87it.jpg" alt="image-20200531134917803"></p>
+<ul>
+<li>应用模式</li>
+</ul>
+<p>分为3种：</p>
+<p>1）序列到类别—-&gt;[分类]<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg5y26jfj31em0cgjtf.jpg" alt="image-20210529175518470"></p>
+<p>2）同步的seq2seq—-&gt;[词性标注]</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg8bb42jj315i0d478m.jpg" alt="image-20210529175737896"></p>
+<p>3）异步的seq2seq—-&gt;[机器翻译]</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzg8o00dnj31fg0bgwlg.jpg" alt="image-20210529175758146"></p>
+<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbna2f6a4j31gs0gke81.jpg" alt="image-20200531150413922"></p>
+<p>LSTM 相比普通RNN增加了一个元胞状态单元 𝒄𝑡,以解决普通RNN中的梯度消失和爆炸问题 </p>
+<p>𝒉𝑡 是短期状态单元，𝒄𝑡 是长期状态单元，二者配合形成长短期记忆</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqzgmw8zg0j31mu0iiq9d.jpg" alt="image-20200531151124615"></p>
+<ul>
+<li>三个门的作用</li>
+</ul>
+<blockquote>
+<p>遗忘门 𝒇𝑡 控制上一个时刻的𝒄𝑡-1 需要遗忘多少信息.</p>
+<p>输入门𝒊𝑡 控制当前时刻的候选状态𝒄̃ 有多少信息需要保存.</p>
+<p>输出门 𝒐𝑡 控制当前时刻的内部状态 𝒄𝑡 有多少信息需要输出给外部状态𝒉𝑡.</p>
+</blockquote>
+<p>公式计算：<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbnb0vejyj30rk0hak24.jpg" alt="image-20200531150510653"></p>
+<h3 id="GRU-网络"><a href="#GRU-网络" class="headerlink" title="GRU 网络"></a>GRU 网络</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbpugthi3j313e0lgnff.jpg" alt="image-20200531163304219"></p>
+<h3 id="深层RNN"><a href="#深层RNN" class="headerlink" title="深层RNN"></a>深层RNN</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq1bzzr4j30ig04w40h.jpg" alt="image-20200531163940715"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq1xhzvoj310u0hsh1k.jpg" alt="image-20200531164014520"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbq2an9doj30zi0i0qjk.jpg" alt="image-20200531164035799"></p>
+<h3 id="递归神经网络"><a href="#递归神经网络" class="headerlink" title="递归神经网络"></a>递归神经网络</h3><p>递归神经网络(Recursive Neural Network，RecNN)是循环神经网络在有向无循环图上的扩展 [Pollack, 1990].递归神经网络的一般结构为树状的层次结构。</p>
+<p>当递归神经网络的结构退化为线性序列结构(见图6.11b)时，递归神经网络就等价于简单循环网络.</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbqklx0g7j318u0h4to9.jpg" alt="image-20200531165812112"></p>
+<h2 id="神经网络优化方法"><a href="#神经网络优化方法" class="headerlink" title="神经网络优化方法"></a>神经网络优化方法</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfbrd5iwfvj316w0m0kha.jpg" alt="image-20200531172535809"></p>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1rrc39zyj30hj09cq48.jpg" alt="概率图模型体系：HMM、MEMM、CRF"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33397147">概率图模型体系：HMM、MEMM、CRF</a></p>
+<hr>
+<h3 id="生成模型-vs-判别模型"><a href="#生成模型-vs-判别模型" class="headerlink" title="生成模型 vs 判别模型"></a>生成模型 vs 判别模型</h3><p><a target="_blank" rel="noopener" href="https://seanlee97.github.io/2018/08/20/%E8%B0%88%E8%B0%88%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%E4%B8%89%E5%A4%A7%E6%A8%A1%E5%9E%8BHMM%E3%80%81MEMM%E3%80%81CRF/">谈谈序列标注三大模型HMM、MEMM、CRF</a></p>
+<table>
+<thead>
+<tr>
+<th>判别模型</th>
+<th>生成模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直接学习p(y|x)或决策函数f(x)，得到分类边界</td>
+<td>学习联合概率p(x,y)，–&gt;p(y|x)</td>
+</tr>
+<tr>
+<td>神经网络、SVM、CRF</td>
+<td>朴素贝叶斯（NB）、HMM</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gmlb71bokaj310k0fy75p.jpg" alt="img"></p>
+<h3 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h3><p>隐马尔可夫模型是关于时序的概率模型，描述由一个隐藏的马尔可夫链随机生成不可观测的状态随机序列，再由各个状态生成一个观测而产生观测随机序列的过程。</p>
+<p>隐马尔可夫模型由初始状态概率向量π、状态转移概率矩阵A和观测概率矩阵B决定。因此，隐马尔可夫模型可以写成λ=(A,B,π)</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfj17wih5cj30mk04mgpj.jpg"></p>
+<ul>
+<li>HMM的3个基本问题：</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gryf867hrpj31560ditb4.jpg"></p>
+<ul>
+<li>学习算法</li>
+</ul>
+<p>分两种情况：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1srfevfdj316o07tahs.jpg"></p>
+<ul>
+<li>预测</li>
+</ul>
+<p>求隐藏状态序列的过程</p>
+<p>采用维特比算法，根据动态规划求概率最大的路径.</p>
+<p>采用了DP思想，可以减少计算量，即每一次直接引用前一个时刻的计算结果以避免重复计算。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gl1tqj90rjj30bm046jrs.jpg"></p>
+<h3 id="CRF"><a href="#CRF" class="headerlink" title="CRF"></a>CRF</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gfjocxiwxvj30qw0aqn51.jpg"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://nndl.github.io/v/cnn-googlenet">ＧoogLeNet清晰图</a><a href="#toc">🔼</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28492837">深度神经网络中的感受野(Receptive Field)</a><a href="#toc2">🔼</a></li>
+<li>《神经网络与深度学习》 邱锡鹏著  <a target="_blank" rel="noopener" href="https://github.com/nndl/nndl.github.io">https://github.com/nndl/nndl.github.io</a></li>
+<li><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsgwyipi99j318j0u01dl.jpg" alt="image-20210714235117174"></li>
+<li>深度学习理论进展综述</li>
+</ol>
+<p>作者单位：悉尼大学（陶大程等人）<br>论文 <a href="https://link.zhihu.com/?target=https://arxiv.org/pdf/2012.10931.pdf">Recent advances in deep learning theory</a></p>
+<ol start="6">
+<li>《龙书》</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book</a></p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/14/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/" title="⭐️序列标注问题" class="prev">PREV</a><a href="/2020/05/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%A7%A3/" title="⭐️计算机理解" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

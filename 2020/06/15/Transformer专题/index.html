@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️Transformer专题 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️Transformer专题 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️Transformer专题</h1><div class="post-info">2020-06-15<p class="visit"><i data-identity="2020/06/15/Transformer专题/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggiv2d0ikgj31ap0u0jw7.jpg" alt="image-20200705000546978"></p>
+<span id="more"></span>
+
+
+
+<p>——–需要整理！！</p>
+<h2 id="seq2seq"><a href="#seq2seq" class="headerlink" title="seq2seq"></a>seq2seq</h2><p>Seq2seq 是一个Encoder-Decoder 结构的网络，它的输入是一个序列，输出也是一个序列。</p>
+<p><strong>Encoder 将可变长度的信号序列变为固定长度的向量表达，Decoder 将这个固定长度的向量变成可变长度的目标信号序列</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gts6as61swj60o008w3yr02.jpg" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/147310766">整理了12小时，只为让你20分钟搞懂Seq2seq</a></p>
+<hr>
+<p>关于seq2seq，<strong>要区分训练和预测的不同：</strong></p>
+<p>训练时候情况如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gts6dvbvxxj61400izwgx02.jpg" alt="img"></p>
+<p>预测：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gts6h4dxbwj61400iq76y02.jpg" alt="img"></p>
+<p>Transformer 也是一个seq2seq的模型架构</p>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>包含种类:</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh741wtwkbj30w60ekt9j.jpg" alt="img">优点：</p>
+<ol>
+<li>远距离相互依赖特征的捕获</li>
+<li>并行化</li>
+</ol>
+<ul>
+<li>self-attention</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtrjfqlvg7j613k0s6wi102.jpg" alt="image-20210824074502707"></p>
+<ul>
+<li>多头机制</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtsbbc9ib8j616h0u0tcy02.jpg" alt="image-20210824234933682"></p>
+<h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><p>transformer结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh73xk6h72j30x40pe77t.jpg" alt="img"></p>
+<p>框架细节：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63191028">Transform详解(超详细) Attention is all you need论文</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gttgek83ofj61400n2gov02.jpg" alt="img"></p>
+<blockquote>
+<p>batchNormalization与layerNormalization的区别：<img src="https://tva1.sinaimg.cn/large/008i3skNly1gttheawbi6j60yq0jwjsw02.jpg" alt="img"></p>
+<p>Batch Normalization 的处理对象是对一批样本， Layer Normalization 的处理对象是单个样本。Batch Normalization 是对这批样本的同一维度特征做归一化， Layer Normalization 是对这单个样本的所有维度特征做归一化。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113233908">https://zhuanlan.zhihu.com/p/113233908</a></p>
+</blockquote>
+<ul>
+<li>解读</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh73zadk1wj31400ndn04.jpg" alt="img"></p>
+<blockquote>
+<p>上图整体上依然是个seq2seq结构，左边表示Encoder，右边表示Decoder，两边的N均表示将对应的block重复N次。</p>
+<ol>
+<li>首先将带有位置信息的Embedding形式的输入sequence <code>a</code>经过Multi-Head Attention处理成sequence <code>b</code>；</li>
+<li>Add：将Multi-Head Attention的input <code>a</code>和output <code>b</code>相加得到<code>b&#39;</code>；</li>
+<li>Norm：将<code>b&#39;</code>进行Layer Norm规范化处理；</li>
+<li>为了增强模型表示能力，将上一步产生的结果递交给两层全连接的FFN，第一层ReLU激活，第二层线性激活，然后继续Add&amp;Norm处理；</li>
+<li>将1-4步重复N次后进入Decoder，首先依然进行Multi-Head Attention处理，与上边不同的是加入Masked方法使得模型只能attend到已经产生的sequence，然后继续Add&amp;Norm处理；</li>
+<li>将Encoder的结果进行Multi-Head Attention处理；</li>
+<li>将上一步的结果进行FNN&amp;Add&amp;Norm操作；</li>
+<li>将5-7步重复N次后得到最终output。</li>
+</ol>
+</blockquote>
+<p>动图流程：</p>
+<p><strong>强烈推荐：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98650532">Transformer原理：自底向上解析</a></strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh73vedyqjg30hs0fq4qp.gif" alt="img"></p>
+<ul>
+<li>代码实现</li>
+</ul>
+<p> <a target="_blank" rel="noopener" href="https://github.com/harvardnlp/annotated-transformer">https://github.com/harvardnlp/annotated-transformer</a></p>
+<p>文章：</p>
+<p>（1）<a target="_blank" rel="noopener" href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">http://nlp.seas.harvard.edu/2018/04/03/attention.html</a></p>
+<p>（2）<a target="_blank" rel="noopener" href="https://www.cnblogs.com/guoyaohua/p/transformer.html%E3%80%90%E8%AF%91%E6%96%87%E3%80%91">https://www.cnblogs.com/guoyaohua/p/transformer.html【译文】</a></p>
+<h2 id="Bert-预训练"><a href="#Bert-预训练" class="headerlink" title="Bert 预训练"></a>Bert 预训练</h2><p>不同预训练模型参数量大小：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gts79i57ahj61hg0iogpp02.jpg" alt="image-20200709235337403"></p>
+<p>预训练过程：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnjpevk5kuj31240k2e7k.jpg" alt="image-20210211170514652"></p>
+<h3 id="结构解析"><a href="#结构解析" class="headerlink" title="结构解析"></a>结构解析</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103226488">BERT 详解</a></p>
+<p> <img src="https://tva1.sinaimg.cn/large/008i3skNly1gts8el4dm5j60k00fkjsc02.jpg" alt="img"></p>
+<p>BERT 模型的结构主要由三部分构成：</p>
+<p>（1) 输入层</p>
+<p>输入表示为每个词对应的词向量，segment向量，位置向量相加而成。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gts8elez92j60yb0c5q5k02.jpg" alt="img"> </p>
+<p>（2) 编码层</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtsbinp0tdj60w30u0gnt02.jpg" alt="img"></p>
+<p>（3) 任务相关层 </p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtsbjhi00wj313s0gnmxx.jpg" alt="img"></p>
+<p>模型的每一个输入都对应一个输出，根据不同的任务我们可以选择不同的输出，主要有两类输出</p>
+<p>①  pooler output：对应的是[CLS]的输出</p>
+<p>②  sequence output：对应的是所有其他的输入字的最后输出。</p>
+<h3 id="bert能干什么？"><a href="#bert能干什么？" class="headerlink" title="bert能干什么？"></a>bert能干什么？</h3><p>首先我们可以看到BERT 具有两种输出，一个是pooler output，对应的[CLS]的输出，以及sequence output，对应的是序列中的所有字的最后一层hidden输出。所以BERT主要可以处理两种，一种任务是分类/回归任务（使用的是pooler output），一种是序列任务（sequence output）。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtsa7d8cpaj313z0u00u2.jpg" alt="img"></p>
+<ul>
+<li>分类</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtsa8n2yiqj31400og760.jpg" alt="img"></p>
+<ul>
+<li>句对任务</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtsac4alzpj61600pedj602.jpg" alt="image-20210824231542309"></p>
+<ul>
+<li>回归任务</li>
+<li>文本相似度</li>
+<li>ner</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtsae6hx65j61400ontaq02.jpg" alt="img"></p>
+<ul>
+<li>cloze task（完形填空）其实是bert预训练的一种任务</li>
+<li>问答</li>
+<li>….</li>
+</ul>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/S0dR--M88apEf5RV5dLmWw">「行知」NLP新星：BERT的优雅解读</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sandwichnlp/p/11947627.html">预训练语言模型整理（ELMo/GPT/BERT…）</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111513291">你保存的BERT模型为什么那么大？</a></p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Lo6tbA5lBgbtXFqatnq0pA">LSTM之父Jürgen Schmidhuber新作：一种方法，超越线性Transformers</a></li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="美团BERT的探索和实践"><a href="#美团BERT的探索和实践" class="headerlink" title="美团BERT的探索和实践"></a><a target="_blank" rel="noopener" href="https://tech.meituan.com/2019/11/14/nlp-bert-practice.html">美团BERT的探索和实践</a></h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggqvl6g6jfj31jh0u04qq.jpg" alt="image-20200714223506424"></p>
+<h3 id="NLP-15-分钟搭建中文文本分类模型"><a href="#NLP-15-分钟搭建中文文本分类模型" class="headerlink" title="NLP - 15 分钟搭建中文文本分类模型"></a>NLP - 15 分钟搭建中文文本分类模型</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggz0eauu7dj31ay0u0hdt.jpg" alt="image-20200721232624433"></p>
+<h3 id="Albert-–文本分类"><a href="#Albert-–文本分类" class="headerlink" title="Albert –文本分类"></a>Albert –文本分类</h3><ul>
+<li>NLP（二十八）多标签文本分类</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jclian91/article/details/105386190">https://blog.csdn.net/jclian91/article/details/105386190</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwqexq3nij31fc0t0e81.jpg" alt="image-20200720000956746"></p>
+<h3 id="Albert-–NER"><a href="#Albert-–NER" class="headerlink" title="Albert –NER"></a>Albert –NER</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jclian91/article/details/104806598">NLP（二十四）利用ALBERT实现命名实体识别</a></p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/percent4/ALBERT_NER_KERAS">https://github.com/percent4/ALBERT_NER_KERAS</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwqay6dzmj316v0u0x5a.jpg" alt="image-20200720000606291"></p>
+<ul>
+<li>NLP（三十）利用ALBERT和机器学习来做<strong>文本分类</strong></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/rt0yGcsYHQVRsXUYVmGoyQ">https://mp.weixin.qq.com/s/rt0yGcsYHQVRsXUYVmGoyQ</a></p>
+<p>结合了常规机器学习方法，进行NER 效果的展示。当然，也可以结合深度学习：<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU2NTYyMDk5MQ==&mid=2247484526&idx=1&sn=89ded8db053fbd66b1f24d964a0f31a6&chksm=fcb9bdfecbce34e888f83c8d2109807e46a514c5818c9fabdb30e96ab5bd0d69a5e86c201165&scene=21#wechat_redirect">NLP（二十二）利用ALBERT实现文本二分类</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggw8z1p21oj30x10u0b29.jpg" alt="image-20200719140624964"></p>
+<h3 id="NLP-基于kashgari和BERT实现中文命名实体识别（NER）"><a href="#NLP-基于kashgari和BERT实现中文命名实体识别（NER）" class="headerlink" title="NLP 基于kashgari和BERT实现中文命名实体识别（NER）"></a>NLP 基于kashgari和BERT实现中文命名实体识别（NER）</h3><p><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/x9J2EabKz6/">https://www.shuzhiduo.com/A/x9J2EabKz6/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggz0lq5nsjj31q80u0e81.jpg" alt="image-20200721233332717"></p>
+<p>同时，参考： NLP - 基于 BERT 的中文命名实体识别（NER)<a target="_blank" rel="noopener" href="https://eliyar.biz/nlp_chinese_bert_ner/">https://eliyar.biz/nlp_chinese_bert_ner/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggz0kjixpej31f80q8qp7.jpg" alt="image-20200721233222760"></p>
+<p>自己的github:</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:8888/notebooks/machine_learning/BERT/kashgari-BERT-ner.ipynb">http://localhost:8888/notebooks/machine_learning/BERT/kashgari-BERT-ner.ipynb</a></p>
+<h3 id="Bert-bilstm-CRF实体识别-bertBiLSTMCRF"><a href="#Bert-bilstm-CRF实体识别-bertBiLSTMCRF" class="headerlink" title="Bert+bilstm+CRF实体识别,bertBiLSTMCRF"></a><a target="_blank" rel="noopener" href="https://www.pythonf.cn/read/57841">Bert+bilstm+CRF实体识别,bertBiLSTMCRF</a></h3><p>基于Keras实现</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggz1a8a67yj316w0u07wh.jpg" alt="image-20200721235659840"></p>
+<h3 id="BERT中文命名实体识别TensorFlow实现"><a href="#BERT中文命名实体识别TensorFlow实现" class="headerlink" title="BERT中文命名实体识别TensorFlow实现"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/macanv/article/details/85684284">BERT中文命名实体识别TensorFlow实现</a></h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggon41ke13j31fs0to7wh.jpg" alt="image-20200713001108626"></p>
+<h3 id="Bert-flask"><a href="#Bert-flask" class="headerlink" title="Bert flask"></a>Bert flask</h3><p><a target="_blank" rel="noopener" href="https://github.com/luoyangbiao/bert_flask">https://github.com/luoyangbiao/bert_flask</a></p>
+<p>使用bert训练MRPC数据集，写成API接口模式以及简易的html界面</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giswgduusej31ef0u0kjl.jpg" alt="image-20200916231711260"></p>
+<h3 id="BERT相关论文、文章和代码资源汇总"><a href="#BERT相关论文、文章和代码资源汇总" class="headerlink" title="BERT相关论文、文章和代码资源汇总"></a><a target="_blank" rel="noopener" href="https://www.52nlp.cn/bert-paper-%E8%AE%BA%E6%96%87-%E6%96%87%E7%AB%A0-%E4%BB%A3%E7%A0%81%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB">BERT相关论文、文章和代码资源汇总</a></h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggz0aff3u0j31ar0u0b29.jpg" alt="image-20200714000535300"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>一些论文<img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glgw2ryo91j31po0qekjm.jpg" alt="image-20201208235818627"></li>
+<li><a target="_blank" rel="noopener" href="https://www.6aiq.com/article/1587091834767"> PTMs：史上最全面总结 NLP 预训练模型</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/06/22/nlp%E7%AC%94%E8%AE%B0/" title="⭐️nlp笔记" class="prev">PREV</a><a href="/2020/06/14/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/" title="⭐️序列标注问题" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

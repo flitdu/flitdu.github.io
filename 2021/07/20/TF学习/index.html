@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️TensorFlow 学习 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️TensorFlow 学习 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️TensorFlow 学习</h1><div class="post-info">2021-07-20<p class="visit"><i data-identity="2021/07/20/TF学习/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><span id="more"></span>
+
+<h2 id="TensorFlow-能做什么？"><a href="#TensorFlow-能做什么？" class="headerlink" title="TensorFlow 能做什么？"></a>TensorFlow 能做什么？</h2><p>TensorFlow 可以为以上的这些需求提供完整的解决方案。具体而言，TensorFlow 包含以下特性：</p>
+<ul>
+<li>训练流程</li>
+</ul>
+<p><strong>数据的处理</strong> ：使用 tf.data 和 TFRecord 可以高效地构建和预处理数据集，构建训练数据流。同时可以使用 TensorFlow Datasets 快速载入常用的公开数据集。</p>
+<p><strong>模型的建立与调试</strong> ：使用即时执行模式和著名的神经网络高层 API 框架 Keras，结合可视化工具 TensorBoard，简易、快速地建立和调试模型。也可以通过 TensorFlow Hub 方便地载入已有的成熟模型。</p>
+<p><strong>模型的训练</strong> ：支持在 CPU、GPU、TPU 上训练模型，支持单机和多机集群并行训练模型，充分利用海量数据和计算资源进行高效训练。</p>
+<blockquote>
+<p>不过远程调试对网络的稳定性要求高，如果需要长时间训练模型，建议登录远程机终端直接训练模型（Linux 下可以结合 <code>nohup</code> 命令 <a target="_blank" rel="noopener" href="https://tf.wiki/zh_hans/basic/installation.html#nohup">1</a> ，让进程在后端运行，不受终端退出的影响）</p>
+<p>—-<a target="_blank" rel="noopener" href="https://tf.wiki/zh_hans/basic/installation.html#nohup">https://tf.wiki/zh_hans/basic/installation.html#nohup</a></p>
+</blockquote>
+<p><strong>模型的导出</strong> ：将模型打包导出为统一的 SavedModel 格式，方便迁移和部署。</p>
+<ul>
+<li>部署流程</li>
+</ul>
+<p><strong>服务器部署</strong> ：使用 TensorFlow Serving 在服务器上为训练完成的模型提供高性能、支持并发、高吞吐量的 API。</p>
+<p><strong>移动端和嵌入式设备部署</strong> ：使用 TensorFlow Lite 将模型转换为体积小、高效率的轻量化版本，并在移动端、嵌入式端等功耗和计算能力受限的设备上运行，支持使用 GPU 代理进行硬件加速，还可以配合 Edge TPU 等外接硬件加速运算。</p>
+<p><strong>网页端部署</strong> ：使用 TensorFlow.js，在网页端等支持 JavaScript 运行的环境上也可以运行模型，支持使用 WebGL 进行硬件加速。</p>
+<h2 id="源码解读"><a href="#源码解读" class="headerlink" title="源码解读"></a>源码解读</h2><p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yao62995/tensorflow">https://github.com/yao62995/tensorflow</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yao62995/p/5773578.html">图解tensorflow源码] [原创] Tensorflow 图解分析 （Session, Graph, Kernels, Devices）</a></p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>Tensorflow底层最核心的概念是张量，计算图以及自动微分。</p>
+<p>程序=算法+数据结构</p>
+<p>Tensorflow程序 = 张量（数据结构）+计算图算法语言</p>
+<h3 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h3><p>张量，即多维数组</p>
+<p>从行为特性看，分为两种：</p>
+<ul>
+<li>常量constant</li>
+</ul>
+<p>张量的数据类型和numpy.array基本一一对应。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">i = tf.constant(<span class="number">1</span>) <span class="comment"># tf.int32 类型常量</span></span><br><span class="line">l = tf.constant(<span class="number">1</span>,dtype = tf.int64) <span class="comment"># tf.int64 类型常量</span></span><br><span class="line">f = tf.constant(<span class="number">1.23</span>) <span class="comment">#tf.float32 类型常量</span></span><br><span class="line">d = tf.constant(<span class="number">3.14</span>,dtype = tf.double) <span class="comment"># tf.double 类型常量</span></span><br><span class="line">s = tf.constant(<span class="string">&quot;hello world&quot;</span>) <span class="comment"># tf.string类型常量</span></span><br><span class="line">b = tf.constant(<span class="literal">True</span>) <span class="comment">#tf.bool类型常量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(tf.int64 == np.int64) </span><br><span class="line"><span class="built_in">print</span>(tf.<span class="built_in">bool</span> == np.<span class="built_in">bool</span>)</span><br><span class="line"><span class="built_in">print</span>(tf.double == np.float64)</span><br><span class="line"><span class="built_in">print</span>(tf.string == np.unicode) <span class="comment"># tf.string类型和np.unicode类型不等价</span></span><br><span class="line">------------</span><br><span class="line"><span class="literal">True</span> <span class="literal">True</span> <span class="literal">True</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>张量还有维度概念：</p>
+<blockquote>
+<p>0维：标量</p>
+<p>1维：向量</p>
+<p>2维：矩阵</p>
+<p>3维：彩色图像有rgb三个通道</p>
+<p>4维：视频的时间维</p>
+</blockquote>
+<p>有几层中括号，就是多少维的张量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">matrix = tf.constant([[1.0,2.0],[3.0,4.0]]) #矩阵, 2维张量</span><br><span class="line"></span><br><span class="line">print(tf.rank(matrix).numpy())</span><br><span class="line">print(np.ndim(matrix))</span><br><span class="line">2</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>可以用<code>tf.cast</code>改变张量的数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x= tf.constant(<span class="number">1.2</span>)</span><br><span class="line">x1 = tf.cast(x, dtype=tf.int32)</span><br><span class="line">x, x1</span><br></pre></td></tr></table></figure>
+
+<p>(&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.2&gt;,<br> &lt;tf.Tensor: shape=(), dtype=int32, numpy=1&gt;)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">u = tf.constant(<span class="string">u&quot;你好 世界&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(u.numpy())  <span class="comment"># 转化为numpy 张量</span></span><br><span class="line"><span class="built_in">print</span>(u.numpy().decode(<span class="string">&quot;utf-8&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>b’\xe4\xbd\xa0\xe5\xa5\xbd \xe4\xb8\x96\xe7\x95\x8c’<br>你好 世界</p>
+<ul>
+<li>变量Variable</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 常量值不可以改变，常量的重新赋值相当于创造新的内存空间</span></span><br><span class="line">c = tf.constant([<span class="number">1.0</span>,<span class="number">2.0</span>])</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(c))</span><br><span class="line">c = c + tf.constant([<span class="number">1.0</span>,<span class="number">1.0</span>])</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(c))  <span class="comment"># id 变了</span></span><br></pre></td></tr></table></figure>
+
+<p>tf.Tensor([1. 2.], shape=(2,), dtype=float32)<br>26874808288<br>tf.Tensor([2. 3.], shape=(2,), dtype=float32)<br>26777421616</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变量的值可以改变，可以通过assign, assign_add等方法给变量重新赋值</span></span><br><span class="line">v = tf.Variable([<span class="number">1.0</span>,<span class="number">2.0</span>],name = <span class="string">&quot;v&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(v)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(v))</span><br><span class="line">v.assign_add([<span class="number">1.0</span>,<span class="number">1.0</span>])</span><br><span class="line"><span class="built_in">print</span>(v)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(v))</span><br></pre></td></tr></table></figure>
+
+<p>&lt;tf.Variable ‘v:0’ shape=(2,) dtype=float32, numpy=array([1., 2.], dtype=float32)&gt;<br>26833443728<br>&lt;tf.Variable ‘v:0’ shape=(2,) dtype=float32, numpy=array([2., 3.], dtype=float32)&gt;<br>26833443728</p>
+<h3 id="计算图"><a href="#计算图" class="headerlink" title="计算图"></a>计算图</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtlag55skij613g0liwg902.jpg" alt="image-20210818220021713"></p>
+<p>有三种计算图的构建方式：静态计算图，动态计算图，以及Autograph.</p>
+<ul>
+<li>静态计算图</li>
+</ul>
+<p>在TensorFlow1.0时代，采用的是静态计算图，需要先使用TensorFlow的各种算子创建计算图，然后再开启一个会话Session，显式执行计算图。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_eager_execution()  <span class="comment">#禁用即时执行模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用静态计算图分两步，第一步定义计算图，第二步在会话中执行计算图。</span></span><br><span class="line"><span class="comment">#定义计算图</span></span><br><span class="line">g = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g.as_default():</span><br><span class="line">    <span class="comment">#placeholder为占位符，执行会话时候指定填充对象</span></span><br><span class="line">    x = tf.placeholder(name=<span class="string">&#x27;x&#x27;</span>, shape=[], dtype=tf.string)  </span><br><span class="line">    y = tf.placeholder(name=<span class="string">&#x27;y&#x27;</span>, shape=[], dtype=tf.string)</span><br><span class="line">    z = tf.string_join([x,y],name = <span class="string">&#x27;join&#x27;</span>,separator=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行计算图</span></span><br><span class="line"><span class="comment"># fetches的结果非常像一个函数的返回值，而feed_dict中的占位符相当于函数的参数序列。</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph = g) <span class="keyword">as</span> sess:</span><br><span class="line">    <span class="built_in">print</span>(sess.run(fetches = z,feed_dict = &#123;x:<span class="string">&quot;hello&quot;</span>,y:<span class="string">&quot;world&quot;</span>&#125;))</span><br><span class="line">    </span><br><span class="line">writer=tf.summary.FileWriter(<span class="string">&#x27;./graph_record&#x27;</span>,sess.graph)  <span class="comment"># tensorboard --logdir=graph_record 显示</span></span><br></pre></td></tr></table></figure>
+
+<p>b’hello world’</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtlamdf2bdj611k0dy3yz02.jpg" alt="image-20210818220621266"></p>
+<ul>
+<li>动态计算图</li>
+</ul>
+<p>而在TensorFlow2.0时代，采用的是动态计算图，即每使用一个算子后，该算子会被动态加入到隐含的默认计算图中立即执行得到结果，而无需开启Session。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"># 动态计算图在每个算子处都进行构建，构建后立即执行</span><br><span class="line"></span><br><span class="line">x = tf.constant(&quot;hello&quot;)</span><br><span class="line">y = tf.constant(&quot;world&quot;)</span><br><span class="line">z = tf.strings.join([x,y],separator=&quot; &quot;)</span><br><span class="line"></span><br><span class="line">tf.print(z)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"># 可以将动态计算图代码的输入和输出关系封装成函数</span><br><span class="line"></span><br><span class="line">def strjoin(x,y):</span><br><span class="line">    z =  tf.strings.join([x,y],separator = &quot; &quot;)</span><br><span class="line">    tf.print(z)</span><br><span class="line">    return z</span><br><span class="line"></span><br><span class="line">result = strjoin(tf.constant(&quot;hello&quot;),tf.constant(&quot;world&quot;))</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>hello world<br>tf.Tensor(b’hello world’, shape=(), dtype=string)</p>
+<p>如果需要在TensorFlow2.0中使用静态图，可以使用@tf.function装饰器将普通Python函数转换成对应的TensorFlow计算图构建代码。运行该函数就相当于在TensorFlow1.0中用Session执行代码。使用tf.function构建静态图的方式叫做 Autograph.</p>
+<p>TensorFlow 2中执行或开发TensorFlow1.x代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_eager_execution()  <span class="comment">#禁用即时执行模式</span></span><br><span class="line">node1 = tf.constant(<span class="number">3.0</span>)</span><br><span class="line">node2 = tf.constant(<span class="number">4.0</span>)</span><br><span class="line">node3 = tf.add(node1,node2)</span><br><span class="line"><span class="built_in">print</span>(node3)</span><br><span class="line"></span><br><span class="line"><span class="comment"># &quot;由于是图执行模式，这时仅仅是建立了计算图，但没有执行</span></span><br><span class="line"><span class="comment"># &quot;定义好计算图后，需要建立一个Session，使用会话对象来实现执行图的执行&quot;</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;node1:&quot;</span>,sess.run(node1))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;node2:&quot;</span>,sess.run(node2))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;node3:&quot;</span>,sess.run(node3))</span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+
+<p>Tensor(“Add_3:0”, shape=(), dtype=float32)<br>node1: 3.0<br>node2: 4.0<br>node3: 7.0</p>
+<ul>
+<li>Autograph</li>
+</ul>
+<p>动态计算图运行效率相对较低。</p>
+<p>可以用@tf.function装饰器将普通Python函数转换成和TensorFlow1.0对应的静态计算图构建代码。</p>
+<p>在TensorFlow2.0中，如果采用Autograph的方式使用计算图，第一步定义计算图变成了定义函数，第二步执行计算图变成了调用函数。</p>
+<p>不需要使用会话了，一些都像原始的Python语法一样自然。</p>
+<blockquote>
+<p>实践中，我们一般会先用动态计算图调试代码，然后在需要提高性能的的地方利用@tf.function切换成Autograph获得更高的效率。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line"></span><br><span class="line"># 使用autograph构建静态图</span><br><span class="line"></span><br><span class="line">@tf.function</span><br><span class="line">def strjoin(x,y):</span><br><span class="line">    z =  tf.strings.join([x,y],separator = &quot; &quot;)</span><br><span class="line">    tf.print(z)</span><br><span class="line">    return z</span><br><span class="line"></span><br><span class="line">result = strjoin(tf.constant(&quot;hello&quot;),tf.constant(&quot;world&quot;))</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自动微分"><a href="#自动微分" class="headerlink" title="自动微分"></a>自动微分</h3><p>默认情况下，调用 GradientTape.gradient() 方法时， GradientTape 占用的资源会立即得到释放。通过创建一个持久的梯度带，可以计算同个函数的多个导数。这样在磁带对象被垃圾回收时，就可以多次调用 ‘gradient()’ 方法。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = tf.constant(<span class="number">3.0</span>)</span><br><span class="line"><span class="keyword">with</span> tf.GradientTape(persistent=<span class="literal">True</span>) <span class="keyword">as</span> t:</span><br><span class="line">  t.watch(x)  <span class="comment"># 对常量张量也可以求导，需要增加watch</span></span><br><span class="line">  y = x * x</span><br><span class="line">  z = y * y</span><br><span class="line">dz_dx = t.gradient(z, x)  <span class="comment"># 108.0 (4*x^3 at x = 3)</span></span><br><span class="line">dy_dx = t.gradient(y, x)  <span class="comment"># 6.0</span></span><br><span class="line"><span class="keyword">del</span> t  <span class="comment"># Drop the reference to the tape</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/guide/autodiff?hl=zh-cn">https://www.tensorflow.org/guide/autodiff?hl=zh-cn</a></p>
+</blockquote>
+<p>二阶导数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line"># f(x) = a*x**2 + b*x + c的导数</span><br><span class="line"></span><br><span class="line">x = tf.Variable(0.0,name = &quot;x&quot;,dtype = tf.float32)</span><br><span class="line">a = tf.constant(1.0)</span><br><span class="line">b = tf.constant(-2.0)</span><br><span class="line">c = tf.constant(1.0)</span><br><span class="line"># 可以求二阶导数</span><br><span class="line">with tf.GradientTape() as tape2:</span><br><span class="line">    with tf.GradientTape() as tape1:   </span><br><span class="line">        y = a*tf.pow(x,2) + b*x + c</span><br><span class="line">    dy_dx = tape1.gradient(y,x)   </span><br><span class="line">dy2_dx2 = tape2.gradient(dy_dx,x)</span><br><span class="line"></span><br><span class="line">print(dy2_dx2)</span><br></pre></td></tr></table></figure>
+
+<p>tf.Tensor(2.0, shape=(), dtype=float32)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 可以在autograph中使用</span><br><span class="line"></span><br><span class="line">@tf.function</span><br><span class="line">def f(x):   </span><br><span class="line">    a = tf.constant(1.0)</span><br><span class="line">    b = tf.constant(-2.0)</span><br><span class="line">    c = tf.constant(1.0)</span><br><span class="line"></span><br><span class="line">    # 自变量转换成tf.float32</span><br><span class="line">    x = tf.cast(x,tf.float32)</span><br><span class="line">    with tf.GradientTape() as tape:</span><br><span class="line">        tape.watch(x)</span><br><span class="line">        y = a*tf.pow(x,2)+b*x+c</span><br><span class="line">    dy_dx = tape.gradient(y,x) </span><br><span class="line"></span><br><span class="line">    return((dy_dx,y))</span><br><span class="line"></span><br><span class="line">tf.print(f(tf.constant(0.0)))</span><br><span class="line">tf.print(f(tf.constant(1.0)))</span><br><span class="line">(-2, 1)</span><br><span class="line">(0, 0)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="TF-层次结构"><a href="#TF-层次结构" class="headerlink" title="TF 层次结构"></a>TF 层次结构</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtmf3o2l32j617w0oodjc02.jpg" alt="image-20210819212650613"></p>
+<h2 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a>一些方法</h2><h3 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h3><p>repeat,batch, shuffle</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=c7G5W4Wv72Q">https://www.youtube.com/watch?v=c7G5W4Wv72Q</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt1htsipgij31d00okah5.jpg" alt="image-20210801190435983"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt1hykynf1j316o0m0n27.jpg" alt="image-20210801190915257"></p>
+<h2 id="keras"><a href="#keras" class="headerlink" title="keras"></a>keras</h2><h3 id="构建模型"><a href="#构建模型" class="headerlink" title="构建模型"></a>构建模型</h3><p>使用Keras接口有以下3种方式构建模型：</p>
+<ul>
+<li>使用Sequential按层顺序构建模型（最简单）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">model = models.Sequential()</span><br><span class="line">model.add(layers.Dense(20,activation = &#x27;relu&#x27;,input_shape=(15,)))</span><br><span class="line">model.add(layers.Dense(10,activation = &#x27;relu&#x27; ))</span><br><span class="line">model.add(layers.Dense(1,activation = &#x27;sigmoid&#x27; ))</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>使用函数式API构建任意结构模型，</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">inputs = layers.Input(shape=(32,32,3))</span><br><span class="line">x = layers.Conv2D(32,kernel_size=(3,3))(inputs)</span><br><span class="line">x = layers.MaxPool2D()(x)  # 默认pool_size=(2, 2),</span><br><span class="line">x = layers.Conv2D(64,kernel_size=(5,5))(x)</span><br><span class="line">x = layers.MaxPool2D()(x)</span><br><span class="line">x = layers.Dropout(rate=0.1)(x)</span><br><span class="line">x = layers.Flatten()(x)</span><br><span class="line">x = layers.Dense(32,activation=&#x27;relu&#x27;)(x)</span><br><span class="line">outputs = layers.Dense(1,activation = &#x27;sigmoid&#x27;)(x)</span><br><span class="line"></span><br><span class="line">model = models.Model(inputs = inputs,outputs = outputs)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>继承Model基类构建自定义模型。</li>
+</ul>
+<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><p>训练模型通常有3种方法，内置fit方法，内置train_on_batch方法，以及自定义训练循环。</p>
+<ul>
+<li>fit 方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二分类问题选择二元交叉熵损失函数</span></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">            loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>,</span><br><span class="line">            metrics=[<span class="string">&#x27;AUC&#x27;</span>])</span><br><span class="line"></span><br><span class="line">history = model.fit(x_train,y_train,</span><br><span class="line">                    batch_size= <span class="number">64</span>,</span><br><span class="line">                    epochs= <span class="number">30</span>,</span><br><span class="line">                    validation_split=<span class="number">0.2</span> <span class="comment">#分割一部分训练数据用于验证</span></span><br><span class="line">                   )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://tf.wiki/zh_hans/">https://tf.wiki/zh_hans/</a></li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsnqwmvj2ij31xs0qigsp.jpg" alt="image-20210720214050387"></p>
+<ol start="2">
+<li><a target="_blank" rel="noopener" href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book</a></li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt1n4hnwo3j31x10u011i.jpg" alt="image-20210801220754292"></p>
+<ol start="3">
+<li>官方文档</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt39xoflqcj31qo0u0458.jpg" alt="image-20210803080243039"></p>
+<ol start="4">
+<li>30天吃掉那只Tensorflow2</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://jackiexiao.github.io/eat_tensorflow2_in_30_days/">https://jackiexiao.github.io/eat_tensorflow2_in_30_days/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtk7a5esd0j61te0tqgsl02.jpg" alt="image-20210817232515561"></p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/07/26/Django/" title="⭐️Django" class="prev">PREV</a><a href="/2021/06/29/%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" title="⭐️机器学习中的数学知识" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

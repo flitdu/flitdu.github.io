@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️《计算机视觉零基础入门》一 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️《计算机视觉零基础入门》一 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️《计算机视觉零基础入门》一</h1><div class="post-info">2019-10-21<p class="visit"><i data-identity="2019/10/21/视频《计算机视觉零基础入门》笔记/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bq0zihxsj318x0u0e17.jpg" alt="image-20191026171658891">计算机视觉的基础部分</p>
+<span id="more"></span>
+
+<h2 id="CV研究内容"><a href="#CV研究内容" class="headerlink" title="CV研究内容"></a>CV研究内容</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g867uc9sa4j316w0u0atu.jpg" alt="image-20191021225816608"></p>
+<h2 id="开源库介绍"><a href="#开源库介绍" class="headerlink" title="开源库介绍"></a>开源库介绍</h2><h3 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88ho75ilsj31eg0lq7jo.jpg" alt="image-20191023221110178"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">jpg = cv2.imread(<span class="string">&#x27;lena.jpg&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(jpg.shape)  <span class="comment"># 显示照片尺寸</span></span><br><span class="line"><span class="comment"># print(jpg[:, :, 0])</span></span><br><span class="line">matrix = jpg[:, :, <span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(matrix)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">&#x27;Image&#x27;</span>, jpg)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 释放窗口</span></span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88k306us9j31860oqb29.jpg" alt="image-20191023233434594"></p>
+<h3 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hlq2bqdj30r60j60zr.jpg" alt="image-20191023220850458"></p>
+<h3 id="TF"><a href="#TF" class="headerlink" title="TF"></a>TF</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hmwjwvvj31b60tg19y.jpg" alt="image-20191023220958093"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88ij0d3wtj31220cu488.jpg" alt="image-20191023224050424"></p>
+<ul>
+<li>一段小代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建矩阵相乘</span></span><br><span class="line">matrix1 = tf.constant([[<span class="number">3</span>, <span class="number">3</span>]])  <span class="comment">#1*2</span></span><br><span class="line">matrix2 = tf.constant([[<span class="number">2</span>], [<span class="number">2</span>]])  <span class="comment">#2*1</span></span><br><span class="line">product = tf.matmul(matrix1,matrix2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上面的操作是定义图，然后用Session去计算</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    result2 = sess.run(product)</span><br><span class="line">    <span class="built_in">print</span>(result2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[12]]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hnot8hej31h60u07qo.jpg" alt="image-20191023221042758"></p>
+<h3 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hri4dg9j30ps0h4tdr.jpg" alt="image-20191023221423907"></p>
+<h2 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8687og5zmj30qq0csn2g.jpg" alt="image-20191021231236564"></p>
+<h3 id="颜色空间"><a href="#颜色空间" class="headerlink" title="颜色空间"></a>颜色空间</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8945ro5laj314d0u01kx.jpg" alt="image-20191024110916473"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8946blj9bj315o0u0x40.jpg" alt="image-20191024110948993"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8948pherqj31840u0b29.jpg" alt="image-20191024111205894"></p>
+<h3 id="图片存储原理"><a href="#图片存储原理" class="headerlink" title="图片存储原理"></a>图片存储原理</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g894c7qq75j317v0u0b29.jpg" alt="image-20191024111528472"></p>
+<h3 id="图像增强的目标"><a href="#图像增强的目标" class="headerlink" title="图像增强的目标"></a>图像增强的目标</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g894eb3vxyj316e0u0x44.jpg" alt="image-20191024111729539"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g894nqb35zj30rw0i20yb.jpg" alt="image-20191024112633226"></p>
+<h3 id="点运算"><a href="#点运算" class="headerlink" title="点运算"></a>点运算</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89mgkzvqpj31e90u0tty.jpg" alt="image-20191024214219531"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89mils0s2j319d0u0b29.jpg" alt="image-20191024214422904"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89mj6fxqdj31go0u0hdt.jpg" alt="image-20191024214456945"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8anjuln0fj31aa0u0e81.jpg" alt="image-20191025190545520"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ankfx29ij317y0u0nna.jpg" alt="image-20191025190619852"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89mto1o5bj318m0u0u0x.jpg" alt="image-20191024215501042"></p>
+<h3 id="形态学运算"><a href="#形态学运算" class="headerlink" title="形态学运算"></a>形态学运算</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89mxae9quj315s0u0h5m.jpg" alt="image-20191024215830657"></p>
+<h3 id="邻域运算"><a href="#邻域运算" class="headerlink" title="邻域运算"></a>邻域运算</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89n7csyh8j315d0u0qv5.jpg" alt="image-20191024220809051"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89n9e7028j316u0u04qp.jpg" alt="image-20191024221009187"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g89na2h7y6j31e40u0hdt.jpg" alt="image-20191024221047918"></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a82kyg18j316a0u0e81.jpg" alt="image-20191025101010112"></p>
+<p>右上方这个框是怎么得到的呢？参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangfuliang123/article/details/76100973">高斯滤波器原理及其实现</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/sunmc1204953974/article/details/50634652">高斯滤波</a></p>
+<p>对于5*5，x-y坐标如下：<img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a8kn4u7rj30v80qw4bx.jpg" alt="image-20191025102731942"></p>
+<p>代入高斯分布函数可得到如下矩阵：</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a88m9x2hj30n605q74t.jpg" alt="image-20191025101559218"></p>
+<p>代码：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%  matlab中可以使用fspecial函数实现高斯滤波模板</span></span><br><span class="line">fspecial(<span class="string">&#x27;gaussian&#x27;</span>, [ <span class="number">5</span> <span class="number">5</span>], <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% ------------------------------------</span></span><br><span class="line"><span class="comment">%关于高斯滤波生成</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% date 2019/10/24</span></span><br><span class="line"><span class="comment">% by Dufy</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% ------------------------------------</span></span><br><span class="line">clc</span><br><span class="line">clear</span><br><span class="line">close all</span><br><span class="line">format compact</span><br><span class="line">sigma = <span class="number">1.5</span>;</span><br><span class="line">f=@(x,y)(<span class="number">1</span>/<span class="number">2</span>/<span class="built_in">pi</span>/sigma^<span class="number">2</span> * <span class="built_in">exp</span>(-(x.^<span class="number">2</span>+y.^<span class="number">2</span>)/<span class="number">2</span>/sigma^<span class="number">2</span>) );</span><br><span class="line"></span><br><span class="line"><span class="comment">% gauss_filter = zeros(3,3)</span></span><br><span class="line">location_xy= [<span class="number">-2</span>,<span class="number">2</span>;<span class="number">-1</span>,<span class="number">2</span>;<span class="number">0</span>,<span class="number">2</span>;<span class="number">1</span>,<span class="number">2</span>;<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">location_xy= [<span class="number">-1</span>,<span class="number">1</span>;<span class="number">0</span>,<span class="number">1</span>;<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">filter(<span class="number">1</span>,:) = [f(location_xy(:,<span class="number">1</span>),location_xy(:,<span class="number">2</span>)) ]&#x27;</span><br><span class="line">location_xy= location_xy + [<span class="number">0</span>,<span class="number">-1</span>]</span><br><span class="line">filter(<span class="number">2</span>,:) =[f(location_xy(:,<span class="number">1</span>),location_xy(:,<span class="number">2</span>)) ]&#x27;</span><br><span class="line">location_xy= location_xy + [<span class="number">0</span>,<span class="number">-1</span>]</span><br><span class="line">filter(<span class="number">3</span>,:) =[f(location_xy(:,<span class="number">1</span>),location_xy(:,<span class="number">2</span>)) ]&#x27;</span><br><span class="line">sum(filter(:))</span><br><span class="line">filter = filter/sum(filter(:))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a8dyoxm2j30og09yaak.jpg" alt="image-20191025102107035"></p>
+<ul>
+<li>高斯滤波效果</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a8omsngmj30s60is7g8.jpg" alt="image-20191025103122512"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9f9id94j315c0u01jm.jpg" alt="image-20191025105657444"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9fmb4xnj317c0u0u0x.jpg" alt="image-20191025105717296"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9kyg2p8j314t0u04mk.jpg" alt="image-20191025110226097"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9l8qghjj315h0u04qp.jpg" alt="image-20191025110242775"></p>
+<p>====================================**</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a91gce1vj31470u07wa.jpg" alt="image-20191025104341191"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a8zwqepij30sa0jy11e.jpg" alt="image-20191025104212471"></p>
+<h3 id="频率域"><a href="#频率域" class="headerlink" title="频率域"></a>频率域</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9ai3hnhj315e0u0npd.jpg" alt="image-20191025105222848"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9qcpm6yj318j0u0e81.jpg" alt="image-20191025110736759"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8a9qs4v74j31410u0e1h.jpg" alt="image-20191025110802281"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8aa4f0w67j315o0u0b29.jpg" alt="image-20191025112105890"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8aa4t72w9j318m0u04qq.jpg" alt="image-20191025112130226"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8aa5aw9h2j314h0u0npd.jpg" alt="image-20191025112158852"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8aa8ksrnmj317d0u07wh.jpg" alt="image-20191025112508472"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8aa9e7x0jj315g0u0azu.jpg" alt="image-20191025112555404"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Created by Dufy on 2019/10/25</span></span><br><span class="line"><span class="string">IDE used: PyCharm Community Edition</span></span><br><span class="line"><span class="string">Description :</span></span><br><span class="line"><span class="string">1)openCV滤波</span></span><br><span class="line"><span class="string">2)比较高斯滤波，中值滤波</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Change Activity:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jpg = cv2.imread(&#x27;lenna-full.jpg&#x27;)  #彩色图像</span></span><br><span class="line"><span class="comment"># print(jpg.shape)  # 显示照片尺寸</span></span><br><span class="line"><span class="comment"># # print(jpg[:, :, 0])</span></span><br><span class="line"><span class="comment"># matrix = jpg[:, :, 0]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取灰度图像</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;lenna.png&#x27;</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(img.shape)  <span class="comment"># 显示照片尺寸</span></span><br><span class="line"><span class="comment"># print(jpg[:, :, 0])</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(img)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2000</span>):  <span class="comment">#添加点噪声</span></span><br><span class="line">    temp_x = np.random.randint(<span class="number">0</span>, img.shape[<span class="number">0</span>])</span><br><span class="line">    temp_y = np.random.randint(<span class="number">0</span>, img.shape[<span class="number">1</span>])</span><br><span class="line">    img[temp_x][temp_y] = <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># cv2.imshow(&#x27;Image&#x27;, img)</span></span><br><span class="line"><span class="comment"># cv2.waitKey(0)</span></span><br><span class="line"></span><br><span class="line">blur_1 = cv2.GaussianBlur(img,(<span class="number">5</span>,<span class="number">5</span>),<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">blur_2 = cv2.medianBlur(img, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">131</span>)</span><br><span class="line">plt.imshow(img,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;original image with noise&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">132</span>)</span><br><span class="line">plt.imshow(blur_1,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;gauss blur&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">133</span>)</span><br><span class="line">plt.imshow(blur_2,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;medium filter&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ac9wy87uj30v40c4465.jpg" alt="image-20191025123537434"></p>
+<blockquote>
+<p>关于cv2.GaussianBlur(img,(5,5),0)，这里的0 的解释，参见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/godadream/article/details/81568844">OpenCV高斯滤波GaussianBlur </a></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8acd40g80j31ik09eq53.jpg" alt="image-20191025123841668"></p>
+</blockquote>
+<ul>
+<li></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Created by Dufy on 2019/10/25</span></span><br><span class="line"><span class="string">IDE used: PyCharm Community Edition</span></span><br><span class="line"><span class="string">Description :</span></span><br><span class="line"><span class="string">1)openCV滤波</span></span><br><span class="line"><span class="string">2)比较拉普拉斯，sobel滤波</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Change Activity:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jpg = cv2.imread(&#x27;lenna-full.jpg&#x27;)  #彩色图像</span></span><br><span class="line"><span class="comment"># print(jpg.shape)  # 显示照片尺寸</span></span><br><span class="line"><span class="comment"># # print(jpg[:, :, 0])</span></span><br><span class="line"><span class="comment"># matrix = jpg[:, :, 0]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取灰度图像</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;chess.jpg&#x27;</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(img.shape)  <span class="comment"># 显示照片尺寸</span></span><br><span class="line"><span class="comment"># print(jpg[:, :, 0])</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(img)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># for i in range(2000):  #添加点噪声</span></span><br><span class="line"><span class="comment">#     temp_x = np.random.randint(0, img.shape[0])</span></span><br><span class="line"><span class="comment">#     temp_y = np.random.randint(0, img.shape[1])</span></span><br><span class="line"><span class="comment">#     img[temp_x][temp_y] = 255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># cv2.imshow(&#x27;Image&#x27;, img)</span></span><br><span class="line"><span class="comment"># cv2.waitKey(0)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">laplas = cv2.Laplacian(img, cv2.CV_64F)  <span class="comment">#拉普拉斯算子</span></span><br><span class="line">sobelx  = cv2.Sobel(img, cv2.CV_64F,<span class="number">1</span>,<span class="number">0</span>, ksize=<span class="number">5</span>)</span><br><span class="line">sobely  = cv2.Sobel(img, cv2.CV_64F,<span class="number">0</span>,<span class="number">1</span>, ksize=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.imshow(img,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;original image&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.imshow(laplas,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Laplacian&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.imshow(sobelx,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Sobel X&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">224</span>)</span><br><span class="line">plt.imshow(sobely,<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Sobel Y&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ah4p5sa3j30wi0nq4cs.jpg" alt="image-20191025152333966"></p>
+<ul>
+<li></li>
+</ul>
+<p>参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/youmuchen/p/8361713.html">python 图像的离散傅立叶变换</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Created by Dufy on 2019/10/25</span></span><br><span class="line"><span class="string">IDE used: PyCharm Community Edition</span></span><br><span class="line"><span class="string">Description :</span></span><br><span class="line"><span class="string">1)openCV滤波</span></span><br><span class="line"><span class="string">2)FFT</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Change Activity:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">img = plt.imread(<span class="string">&#x27;lenna.png&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#根据公式转成灰度图</span></span><br><span class="line">img = <span class="number">0.2126</span> * img[:,:,<span class="number">0</span>] + <span class="number">0.7152</span> * img[:,:,<span class="number">1</span>] + <span class="number">0.0722</span> * img[:,:,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示原图</span></span><br><span class="line">plt.subplot(<span class="number">121</span>),plt.imshow(img,<span class="string">&#x27;gray&#x27;</span>),plt.title(<span class="string">&#x27;original&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#进行傅立叶变换，并显示结果</span></span><br><span class="line">f = np.fft.fft2(img)</span><br><span class="line">fshift = np.fft.fftshift(f)</span><br><span class="line">magnitude_spectrum = <span class="number">20</span> * np.log(np.<span class="built_in">abs</span>(fshift))</span><br><span class="line">plt.subplot(<span class="number">122</span>),plt.imshow(magnitude_spectrum,<span class="string">&#x27;gray&#x27;</span>),plt.title(<span class="string">&#x27;magnitude_spectrum&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8an4m7ef2j30vm0h6k0r.jpg" alt="image-20191025185106612"></p>
+<ul>
+<li></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">-------------------------------------------------</span><br><span class="line">Created by Dufy on 2019/10/25</span><br><span class="line">IDE used: PyCharm Community Edition</span><br><span class="line">Description :</span><br><span class="line">1)openCV滤波</span><br><span class="line">2)比较自适应直方图均衡与CLAHE效果</span><br><span class="line">-------------------------------------------------</span><br><span class="line">Change Activity:</span><br><span class="line"></span><br><span class="line">-------------------------------------------------</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">import cv2</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># jpg = cv2.imread(&#x27;lenna-full.jpg&#x27;)  #彩色图像</span><br><span class="line"># print(jpg.shape)  # 显示照片尺寸</span><br><span class="line"># # print(jpg[:, :, 0])</span><br><span class="line"># matrix = jpg[:, :, 0]</span><br><span class="line"></span><br><span class="line">#读取灰度图像</span><br><span class="line">img = cv2.imread(&#x27;test.jpg&#x27;, 0)   #直接读为灰度图像</span><br><span class="line">print(img.shape)  # 显示照片尺寸</span><br><span class="line"># print(jpg[:, :, 0])</span><br><span class="line"></span><br><span class="line">print(img)</span><br><span class="line"></span><br><span class="line">res = cv2.equalizeHist(img)</span><br><span class="line"></span><br><span class="line">clahe = cv2.createCLAHE(clipLimit=2,tileGridSize=(10,10))</span><br><span class="line">cla = clahe.apply(img)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.subplot(131)</span><br><span class="line">plt.imshow(img,&#x27;gray&#x27;)</span><br><span class="line">plt.title(&#x27;original image&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(132)</span><br><span class="line">plt.imshow(res,&#x27;gray&#x27;)</span><br><span class="line">plt.title(&#x27;Laplacian&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(133)</span><br><span class="line">plt.imshow(cla,&#x27;gray&#x27;)</span><br><span class="line">plt.title(&#x27;clahe&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8anp8o29gj30y00cq79t.jpg" alt="image-20191025191056637"></p>
+<h2 id="图像特征及描述"><a href="#图像特征及描述" class="headerlink" title="图像特征及描述"></a>图像特征及描述</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g868hpmrk6j30sc0le4b1.jpg" alt="image-20191021232214263"></p>
+<h3 id="颜色特征"><a href="#颜色特征" class="headerlink" title="颜色特征"></a>颜色特征</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdlcsqs4j314v0u0hdt.jpg" alt="image-20191026100646661"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdkc3o91j314t0u0kfb.jpg" alt="image-20191026100547915"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdknpdvmj318r0u01kx.jpg" alt="image-20191026100606999"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdnilpjjj319z0u0e81.jpg" alt="image-20191026100851299"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdpbyuauj31cx0u0b29.jpg" alt="image-20191026101036387"></p>
+<h3 id="几何特征"><a href="#几何特征" class="headerlink" title="几何特征"></a>几何特征</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdr7ok1kj319h0u0npd.jpg" alt="image-20191026101223948"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bds0dllaj31is0u04ex.jpg" alt="image-20191026101310697"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdt5bt3fj316j0u0b29.jpg" alt="image-20191026101415447"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bduixxtyj316a0u0nob.jpg" alt="image-20191026101535544"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdvcgp8qj317y0u07wh.jpg" alt="image-20191026101622280"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdxl1ssaj31850u0hdt.jpg" alt="image-20191026101831707"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bdyqmrzjj31620u0e81.jpg" alt="image-20191026101938470"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be02zwzqj31b00u0b29.jpg" alt="image-20191026102055630"></p>
+<h3 id="特征点"><a href="#特征点" class="headerlink" title="特征点"></a>特征点</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be26s6gpj31bn0u04qp.jpg" alt="image-20191026102256762"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be2i86rgj317n0u0qv5.jpg" alt="image-20191026102315778"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be3e2jl5j316c0u0u0x.jpg" alt="image-20191026102405500"></p>
+<p><strong>====================================</strong></p>
+<p><strong>Harris角点</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be4znzuij31c10u07q7.jpg" alt="image-20191026102539418"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be72sqerj31780u0b29.jpg" alt="image-20191026102739308"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be7il73ej31880u04qp.jpg" alt="image-20191026102804253"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8be89wk0wj319k0u0e82.jpg" alt="image-20191026102847909"></p>
+<p><strong>====================================</strong></p>
+<p><strong>FAST角点</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8beb57ogaj31b60u0e81.jpg" alt="image-20191026103133506"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bec2r2i1j317j0u0npd.jpg" alt="image-20191026103226907"></p>
+<p><strong>====================================</strong></p>
+<p><strong>斑点</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bed3ipq9j317q0u0nlw.jpg" alt="image-20191026103326174"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8beeos9stj318o0u0ave.jpg" alt="image-20191026103457881"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8begopvx6j316k0u01ky.jpg" alt="image-20191026103652560"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8beha5nrsj31620u01ky.jpg" alt="image-20191026103726086"></p>
+<p><strong>====================================</strong></p>
+<p><strong>SIFT</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8behyedcaj31890u0nms.jpg" alt="image-20191026103807265"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bejky7pkj316t0u01er.jpg" alt="image-20191026103940504"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bem50przj31900u0e81.jpg" alt="image-20191026104207474"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8benhvortj317h0u0b29.jpg" alt="image-20191026104324947"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8beq3zkx7j318q0u0npd.jpg" alt="image-20191026104555993"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8berrurqkj318p0u0x6p.jpg" alt="image-20191026104732259"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8besnuhz1j31600u0npe.jpg" alt="image-20191026104823030"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8betbqo42j316z0u01kx.jpg" alt="image-20191026104902617"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bg0omnv2j31940u0b29.jpg" alt="image-20191026113042178"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bg2ltlvtj318t0u01kx.jpg" alt="image-20191026113232766"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bg3xrty4j318h0u01kx.jpg" alt="image-20191026113346623"></p>
+<p><strong>====================================</strong></p>
+<p><strong>SURF</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8big3c74yj31a90u0b29.jpg" alt="image-20191026125441693"></p>
+<p><strong>====================================</strong></p>
+<p><strong>ORB</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bijjkg0uj314d0u0e81.jpg" alt="image-20191026125800794"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bikwireij31c80u04qp.jpg" alt="image-20191026125918983"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8big3c74yj31a90u0b29.jpg" alt="image-20191026125441693"></p>
+<p><strong>====================================</strong></p>
+<p><strong>LBP</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bin6ofttj316z0u04ki.jpg" alt="image-20191026130131036"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8biq7mt8wj315q0u01ky.jpg" alt="image-20191026130410412"></p>
+<p><strong>====================================</strong></p>
+<p><strong>Gabor</strong></p>
+<p><strong>====================================</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bir9kkvhj316a0u0e81.jpg" alt="image-20191026130523349"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8biru9wljj317u0u0e5n.jpg" alt="image-20191026130559137"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bis16akjj31fq0seapy.jpg" alt="image-20191026130610134"></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>ORB特征匹配,参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/a19990412/article/details/81208468">https://blog.csdn.net/a19990412/article/details/81208468</a></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Created by Dufy on 2019/10/25</span></span><br><span class="line"><span class="string">IDE used: PyCharm Community Edition</span></span><br><span class="line"><span class="string">Description :</span></span><br><span class="line"><span class="string">1)openCV滤波</span></span><br><span class="line"><span class="string">2)ORB 特征点匹配</span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">Change Activity:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-------------------------------------------------</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># jpg = cv2.imread(&#x27;lenna-full.jpg&#x27;)  #彩色图像</span></span><br><span class="line"><span class="comment"># print(jpg.shape)  # 显示照片尺寸</span></span><br><span class="line"><span class="comment"># # print(jpg[:, :, 0])</span></span><br><span class="line"><span class="comment"># matrix = jpg[:, :, 0]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#读取灰度图像</span></span><br><span class="line">img2 = cv2.imread(<span class="string">&#x27;test_orb1.jpg&#x27;</span>, <span class="number">0</span>)   <span class="comment">#直接读为灰度图像</span></span><br><span class="line">img1 = cv2.imread(<span class="string">&#x27;test_orb2.jpg&#x27;</span>, <span class="number">0</span>)   <span class="comment">#直接读为灰度图像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">orb = cv2.ORB_create()</span><br><span class="line"></span><br><span class="line">kp1, des1 = orb.detectAndCompute(img1, <span class="literal">None</span>)</span><br><span class="line">kp2, des2 = orb.detectAndCompute(img2, <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=<span class="literal">True</span>)</span><br><span class="line">matches = bf.match(des1, des2)</span><br><span class="line">matches = <span class="built_in">sorted</span>(matches, key=<span class="keyword">lambda</span> x: x.distance)</span><br><span class="line">img3 = cv2.drawMatches(img1, kp1, img2, kp2, matches[:<span class="number">80</span>], img2, flags=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">plt.imshow(img3), plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bncqqvdaj30vm0moe1q.jpg" alt="image-20191026154426932"></p>
+<h2 id="深度学习之前的方法"><a href="#深度学习之前的方法" class="headerlink" title="深度学习之前的方法"></a>深度学习之前的方法</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g868jrkxmhj30sg0jwn9r.jpg" alt="image-20191021232412555"></p>
+<h3 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bntqloyij31i20tq7wh.jpg" alt="image-20191026160048436"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnug3tjjj31760u0hdt.jpg" alt="image-20191026160128006"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnuxswxvj318p0u0hdt.jpg" alt="image-20191026160156445"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnvonll2j315l0u0hdt.jpg" alt="image-20191026160241306"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnwvipjjj31870u0hdb.jpg" alt="image-20191026160350036"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnxp2y7wj318n0u0hdt.jpg" alt="image-20191026160435497"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bny0y7dkj31dg0u0e81.jpg" alt="image-20191026160454970"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnyuovi7j316a0u0e81.jpg" alt="image-20191026160544245"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bnzylgmdj31cq0u0e81.jpg" alt="image-20191026160645322"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bo0bpvbyj315b0u0e81.jpg" alt="image-20191026160708577"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bo1hjki4j31910u0hdt.jpg" alt="image-20191026160813994"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bo2jcxadj31510u07wh.jpg" alt="image-20191026160916329"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bobmi79gj31510u0e81.jpg" alt="image-20191026161800455"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bockyl67j31bh0u04qp.jpg" alt="image-20191026161856670"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8boluf9x7j31560u01kx.jpg" alt="image-20191026162749851"></p>
+<h3 id="人脸检测"><a href="#人脸检测" class="headerlink" title="人脸检测"></a>人脸检测</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bomnu67lj316p0u0npd.jpg" alt="image-20191026162835064"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpj6byljj316b0u01kx.jpg" alt="image-20191026165950399"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpjv4bnuj316n0u07wh.jpg" alt="image-20191026170026757"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpl0ygqej31cu0u0ty0.jpg" alt="image-20191026170136663"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bplak0etj31670u01jm.jpg" alt="image-20191026170153792"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpm8tz4qj31b40u0npd.jpg" alt="image-20191026170244220"></p>
+<h3 id="行人检测"><a href="#行人检测" class="headerlink" title="行人检测"></a>行人检测</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bowwdpvqj316a0u0qv5.jpg" alt="image-20191026163826765"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bp542srtj31830u0b29.jpg" alt="image-20191026164617848"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bp5qbuytj31970u04qp.jpg" alt="image-20191026164654325"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bp6bb333j319j0u0np2.jpg" alt="image-20191026164729005"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bp8fcz7yj316h0u0qv5.jpg" alt="image-20191026164930599"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bp90x6ekj318y0u0kjl.jpg" alt="image-20191026165006773"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpcr3kulj31b20u0b29.jpg" alt="image-20191026165341082"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpe5gjr4j317p0u07wh.jpg" alt="image-20191026165456056"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpf55yboj319j0u0qv5.jpg" alt="image-20191026165558015"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8bpfh7bqvj316w0u0e81.jpg" alt="image-20191026165617776"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av57591442/">https://www.bilibili.com/video/av57591442/</a></p>
+</li>
+<li><p>参考书</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hyh8zjjj318g0u07r6.jpg" alt="image-20191023222105760"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av51932171?from=search&seid=17591498257210869457">傅立叶变换如何理解？美颜和变声都是什么原理？李永乐老师告诉你</a></p>
+</li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/10/26/%E8%A7%86%E9%A2%91%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%8B%E7%AC%94%E8%AE%B0%E4%BA%8C/" title="⭐️《计算机视觉零基础入门》二：深度学习基础" class="prev">PREV</a><a href="/2019/10/17/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" title="⭐️学习资料" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

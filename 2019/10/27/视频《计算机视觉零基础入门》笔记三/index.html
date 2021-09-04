@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️《计算机视觉零基础入门》三：图像分类 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️《计算机视觉零基础入门》三：图像分类 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️《计算机视觉零基础入门》三：图像分类</h1><div class="post-info">2019-10-27<p class="visit"><i data-identity="2019/10/27/视频《计算机视觉零基础入门》笔记三/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>[TOC]</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8681ddxx6j316q0u01kx.jpg" alt="image-20191021230628451"></p>
+<span id="more"></span>
+
+
+
+<h1 id="网络发展的脉络"><a href="#网络发展的脉络" class="headerlink" title="网络发展的脉络"></a>网络发展的脉络</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8698opeogj30og01kaaz.jpg" alt="image-20191021234822647"></p>
+<h2 id="AlexNet："><a href="#AlexNet：" class="headerlink" title="AlexNet："></a>AlexNet：</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eb0p4x8ij31860u01kx.jpg" alt="image-20191028225425548"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebmdhgycj31720u0b29.jpg" alt="image-20191028231514495"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebopo5euj31610u0npd.jpg" alt="image-20191028231726497"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebqtggxzj317h0u0b29.jpg" alt="image-20191028231909896"></p>
+<h2 id="VGG：层数变深"><a href="#VGG：层数变深" class="headerlink" title="VGG：层数变深"></a>VGG：层数变深</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebs9q5bbj318p0u0hdt.jpg" alt="image-20191028232054861"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebv1539jj318d0u07wh.jpg" alt="image-20191028232327946"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ebvl4l19j319e0u0kjl.jpg" alt="image-20191028232403065"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec1595n1j317s0u01ky.jpg" alt="image-20191028232925767"></p>
+<h2 id="GoogLeNet：变深，且变宽了，且各种可能性考虑在内了"><a href="#GoogLeNet：变深，且变宽了，且各种可能性考虑在内了" class="headerlink" title="GoogLeNet：变深，且变宽了，且各种可能性考虑在内了"></a>GoogLeNet：变深，且变宽了，且各种可能性考虑在内了</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec395m65j318t0u07wh.jpg" alt="image-20191028233127406"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec74sgfnj317w0u01kx.jpg" alt="image-20191028233511309"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ec8wq01lj31bu0u0e81.jpg" alt="image-20191028233654296"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecbns0kij31js0u0hdt.jpg" alt="image-20191028233931451"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecdqaeljj31dr0u01kx.jpg" alt="image-20191028234126557"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecfpx7klj318u0u01kx.jpg" alt="image-20191028234322815"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8echl0t8vj319n0u0hdt.jpg" alt="image-20191028234513865"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecj2iyt2j319p0u07wi.jpg" alt="image-20191028234632331"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eckxn9rdj318p0u0b29.jpg" alt="image-20191028234820495"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecl68th7j317b0u04qp.jpg" alt="image-20191028234839942"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecnjrym2j315x0u01kx.jpg" alt="image-20191028235056095"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eco3axkvj313r0u01iq.jpg" alt="image-20191028235128881"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecox6wodj31bt0u01kx.jpg" alt="image-20191028235217472"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecpvy14cj317n0u07wh.jpg" alt="image-20191028235312207"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecqy3chlj31840u0npd.jpg" alt="image-20191028235413473"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ectv8uzsj31730u07v8.jpg" alt="image-20191028235701903"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecv6492ij31810u0e81.jpg" alt="image-20191028235807330"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ecwz5rfdj319l0u0hdt.jpg" alt="image-20191029000001247"></p>
+<h2 id="ResNet：发明跳层的连接"><a href="#ResNet：发明跳层的连接" class="headerlink" title="ResNet：发明跳层的连接"></a>ResNet：发明跳层的连接</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edxn2l8mj318x0u0hat.jpg" alt="image-20191029000216504"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edxshrsdj312i0u0qub.jpg" alt="image-20191029000345139"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed31c20aj316v0u0hdt.jpg" alt="image-20191029000548522"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edycf31qj317g0u0kj3.jpg" alt="image-20191029000721360"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed58zepaj317g0u0kj3.jpg" alt="image-20191029000740778"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed5ze678j31aw0u0npd.jpg" alt="image-20191029000841621"></p>
+<h2 id="ResNeXt：基数概念，多个通路同时处理"><a href="#ResNeXt：基数概念，多个通路同时处理" class="headerlink" title="ResNeXt：基数概念，多个通路同时处理"></a>ResNeXt：基数概念，多个通路同时处理</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ed7hpnl2j31al0u04qp.jpg" alt="image-20191029000953442"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edyqlr3kj31870u0b29.jpg" alt="image-20191029001245060"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edc0oth2j319u0u0b29.jpg" alt="image-20191029001422113"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edd4if30j317l0u0hdt.jpg" alt="image-20191029001533251"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eddy5obhj316p0u0hdt.jpg" alt="image-20191029001618561"></p>
+<h2 id="CNN设计准则"><a href="#CNN设计准则" class="headerlink" title="CNN设计准则"></a>CNN设计准则</h2><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edfksvhjj31f10u0h6q.jpg" alt="image-20191029001754131"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edhqogjrj31970u01kx.jpg" alt="image-20191029001959476"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edijfoskj318n0u01kx.jpg" alt="image-20191029002044040"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edjc7kqpj314s0u0qtt.jpg" alt="image-20191029002131603"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8edkgd8mzj316a0u0x33.jpg" alt="image-20191029002235513"></p>
+<h1 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h1><h2 id="什么是目标检测"><a href="#什么是目标检测" class="headerlink" title="什么是目标检测"></a>什么是目标检测</h2><p>计算机视觉中关于图像识别有四大类任务：</p>
+<p><strong>分类-Classification</strong>：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。</p>
+<p><strong>定位-Location</strong>：解决“在哪里？”的问题，即定位出这个目标的的位置。</p>
+<p><strong>检测-Detection</strong>：解决“是什么？在哪里？”的问题，即定位出这个目标的的位置并且知道目标物是什么。</p>
+<p><strong>分割-Segmentation</strong>：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go2168sqq1j318s0ii0xz.jpg" alt="image-20190921233638145"></p>
+<h2 id="深度检测与传统区别："><a href="#深度检测与传统区别：" class="headerlink" title="深度检测与传统区别："></a>深度检测与传统区别：</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216dhm8tj31u00u0wqb.jpg" alt="image-20190921143612143"></p>
+<h2 id="深度检测算法流派"><a href="#深度检测算法流派" class="headerlink" title="深度检测算法流派"></a>深度检测算法流派</h2><h3 id="两步-or-一步"><a href="#两步-or-一步" class="headerlink" title="两步 or 一步"></a>两步 or 一步</h3><p>在深度学习兴起并逐渐成为计算机视觉的核心方法之后，基于深度学习算法的一系列目标检测算法大致可以分为两大流派：</p>
+<ul>
+<li>两步走（two-stage）算法：先产生候选区域然后再进行CNN分类(RCNN系列)</li>
+<li>一步走（one-stage）算法：直接对输入图像应用算法并输出类别和相应的定位(yolo系列)</li>
+</ul>
+<p>无论是两步走还是一步走算法，它们都是在识别的快和准两点上寻找一个平衡点和或者极端点。要么准要么快，但随着深度学习和计算机视觉的向前发展，既快有准的算法也在逐渐的实现当中。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216e642xj31qc0qs0zl.jpg" alt="image-20190921143432725"></p>
+<h3 id="两步之R-CNN"><a href="#两步之R-CNN" class="headerlink" title="两步之R-CNN"></a>两步之R-CNN</h3><p> R-CNN 作为将深度学习引入目标检测算法的开山之作，在目标检测算法发展历史上具有重大意义。R-CNN 算法是两步走方法的代表，即先生成候选区域（region proposal），然后再利用 CNN 进行识别分类。由于候选框对于算法的成败起着关键作用，所以该方法就以 Region 开头首字母 R 加 CNN 进行命名。</p>
+<p>这个网络也是目标检测的鼻祖了。其原理非常简单，主要通过提取多个Region Proposal(候选区域)来判断位置，作者认为以往的对每个滑动窗口进行检测算法是一种浪费资源的方式。在RCNN中，不再对所有的滑动窗口跑算法，而是只选择一些窗口，在少数窗口上运行CNN。</p>
+<p>总体而言，R-CNN 方法分为四个步骤：</p>
+<ul>
+<li>输入图像</li>
+<li>利用selective search对图像生成1K~2K的候选区域（region proposal），这个量比传统的算法要少得多。具体一点，选出region proposal的方法是运行图像分割算法，对于分割算法跑出来的块，把它作为可能的region proposal输出。</li>
+<li>提取特征：将region proposal resize为统一大小，送进去掉了softmax的CNN，对每个候region proposal提取特征</li>
+<li>对区域进行分类：对从CNN output出来的特征向量送进每一类的SVM分类, 如果我有十个类别，那么每个region proposal要跑10个SVM，得到类别。这里为什么要用SVM而不是softmax，有一种说法是为了解决样本不均衡的问题，另外是早期神经网络还不如现在这样发达，当时SVM还是比较领先的分类器。</li>
+<li>修正：对CNN output的特征向量（这个特征向量和第4步中拿去喂给SVM的是一个向量）做回归（左上角右下角的四个坐标），修正region proposal的位置。<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go2168gu74j30k005rmxv.jpg" alt="img"></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216bez5sj31lx0u0qbt.jpg" alt="image-20190921182415610"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216ahfgtj31sb0u047b.jpg" alt="image-20190921182813707"><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go21699zy3j31jj0u0n3t.jpg" alt="image-20190921183004130"><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216c89j9j31n00u0tgx.jpg" alt="image-20190921183210595"></p>
+<blockquote>
+<p>视频参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av19359393?p=2">【深度学习大讲堂】首期第五讲：基于深度学习的目标检测技术</a></p>
+</blockquote>
+<p>虽然 R-CNN 在 2013年的当时可谓横空出世，但也存在许多缺陷：selective search 方法生成训练网络的正负样本候选区域在速度上非常慢，影响了算法的整体速度；CNN 需要分别对每一个生成的候选区域进行一次特征提取，存在着大量的重复运算，制约了算法性能。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go2169ovodj313c0bkwfz.jpg" alt="image-20190905221200887"></p>
+<p>​      <img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go216cn8pxj31c60u0afi.jpg" alt="image-20190921190636878"> </p>
+<h3 id="一步之yolo-v1"><a href="#一步之yolo-v1" class="headerlink" title="一步之yolo v1"></a>一步之yolo v1</h3><p>纵然两步走的目标检测算法在不断进化，检测准确率也越来越高，但两步走始终存在的速度的瓶颈。在一些实时的目标检测需求的场景中，R-CNN 系列算法终归是有所欠缺。因而一步走（one-stage）算法便应运而生了，其中以 yolo 算法系列为代表，演绎了一种端到端的深度学习系统的实时目标检测效果。yolo 算法系列的主要思想就是直接从输入图像得到目标物体的类别和具体位置，不再像 R-CNN 系列那样产生候选区域。这样做的直接效果便是快。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8693uwjz8j317s0tkb29.jpg" alt="image-20191021234343320"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g868ypmkqvj30rm0hmdm4.jpg" alt="image-20191021233847805"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etpdnvuwj31db0u0h2d.jpg" alt="image-20191029094055353"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etq8om6yj315r0u0b29.jpg" alt="image-20191029094144946"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etr8a5lnj31770u0x6p.jpg" alt="image-20191029094240025"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ett236ztj319e0u01b0.jpg" alt="image-20191029094427565"></p>
+<h3 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ettztdv1j314w0u0npd.jpg" alt="image-20191029094521497"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etuw5cljj317k0u0b29.jpg" alt="image-20191029094612179"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8etzt1it1j317v0u07wi.jpg" alt="image-20191029095056217"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eu0d27xnj31710u0npd.jpg" alt="image-20191029095128549"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euh1fl9sj316d0u0qv5.jpg" alt="image-20191029100713353"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8eutpm807j318a0u0e81.jpg" alt="image-20191029101940612"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euuggaluj318o0u0npd.jpg" alt="image-20191029102023598"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8euw6gy07j318h0u07wh.jpg" alt="image-20191029102203182"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evjetknzj316d0u0hdt.jpg" alt="image-20191029104422442"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evl0ssf1j319c0u0hdt.jpg" alt="image-20191029104556002"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evq48qwfj317e0u07wh.jpg" alt="image-20191029105050028"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evqxnb3bj316a0u0e81.jpg" alt="image-20191029105136486"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evuq8omzj316e0u04qp.jpg" alt="image-20191029105516253"></p>
+<h3 id="SPP-Net"><a href="#SPP-Net" class="headerlink" title="SPP-Net"></a>SPP-Net</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evvn9qaaj31cu0u01kx.jpg" alt="image-20191029105608475"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evweu3xqj315d0u0b29.jpg" alt="image-20191029105652603"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evwrzuuyj318a0u0kjl.jpg" alt="image-20191029105713951"></p>
+<p>​    <img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evx6qxkhj31520u01kx.jpg" alt="image-20191029105738210"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evz1uqj6j315t0u0kjl.jpg" alt="image-20191029105924631"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8evznpg7kj31900u0hdt.jpg" alt="image-20191029105959802"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew155kigj31hn0u0tur.jpg" alt="image-20191029110125937"></p>
+<h3 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast-R-CNN"></a>Fast-R-CNN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew618hwij31co0sokaq.jpg" alt="image-20191029110607856"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew6ux7ryj31520u0b29.jpg" alt="image-20191029110654865"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew734uj8j317b0u0u0x.jpg" alt="image-20191029110707811"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew8jmvhmj315t0u04qp.jpg" alt="image-20191029110832735"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ew9os2s1j31850u0tvn.jpg" alt="image-20191029110938175"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewb251lyj31au0u0hdt.jpg" alt="image-20191029111057289"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewbe1dl3j317a0u04qp.jpg" alt="image-20191029111115935"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewcku5u7j318a0u04qp.jpg" alt="image-20191029111224897"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewfqqwfsj31510u07wh.jpg" alt="image-20191029111527816"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewh2fh3rj315x0u0b29.jpg" alt="image-20191029111643965"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewhn6nnlj315l0u0awb.jpg" alt="image-20191029111717100"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewi0vqcnj313x0u01kx.jpg" alt="image-20191029111739626"></p>
+<h3 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster-RCNN"></a>Faster-RCNN</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jiqizhixin.com/articles/2018-02-23-3">机器之心：像玩乐高一样拆解Faster R-CNN：详解目标检测的实现过程</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewikrzo3j318b0u0b29.jpg" alt="image-20191029111810669"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewj2jm7qj317d0u04qp.jpg" alt="image-20191029111839641"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewnbx6xyj31740u04qp.jpg" alt="image-20191029112240938"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewoadxtdj317z0u04qp.jpg" alt="image-20191029112334990"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewplucxoj31880u07wh.jpg" alt="image-20191029112449521"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g8ewsv2r2uj31hi0oend2.jpg" alt="image-20191029112804852"></p>
+<h1 id="图片分割"><a href="#图片分割" class="headerlink" title="图片分割"></a>图片分割</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88h7tz6wvj30u40meaoo.jpg" alt="image-20191023215522241"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88h86830nj30qg0hy439.jpg" alt="image-20191023215549615"></p>
+<h1 id="图像描述"><a href="#图像描述" class="headerlink" title="图像描述"></a>图像描述</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hbv30sej317t0u0e5z.jpg" alt="image-20191023215921556"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hcit6ooj30re0iegrc.jpg" alt="image-20191023215959233"></p>
+<h1 id="图片生成"><a href="#图片生成" class="headerlink" title="图片生成"></a>图片生成</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88he773n9j30sk0k8qqq.jpg" alt="image-20191023220136137"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hfnezr6j30rs0ikq8v.jpg" alt="image-20191023220259866"></p>
+<h1 id="图片检索"><a href="#图片检索" class="headerlink" title="图片检索"></a>图片检索</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g88hh0d54wj31bt0u0qv5.jpg" alt="image-20191023220417331"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650725842&idx=2&sn=e18500166c6108d7194588befba061a4&chksm=871b19acb06c90ba9c19ba73719d375c4fe1f378f9bccae82e508c34a20c7513c55a84d3441b&scene=21#wechat_redirect">机器之心:深度 | 用于图像分割的卷积神经网络：从R-CNN到Mark R-CNN</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55856134">RCNN, Fast R-CNN 与 Faster RCNN理解及改进方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/24916786">图解YOLO</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55856134">RCNN, Fast R-CNN 与 Faster RCNN理解及改进方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23006190?refer=xiaoleimlnote">RCNN- 将CNN引入目标检测的开山之作</a></li>
+<li><a href="%5Bhttps://github.com/scutan90/DeepLearning-500-questions/tree/master/ch08_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%5D(https://github.com/scutan90/DeepLearning-500-questions/tree/master/ch08_%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B)">第八章 目标检测</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/10/28/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="⭐️问题记录【置顶】" class="prev">PREV</a><a href="/2019/10/26/%E8%A7%86%E9%A2%91%E3%80%8A%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E3%80%8B%E7%AC%94%E8%AE%B0%E4%BA%8C/" title="⭐️《计算机视觉零基础入门》二：深度学习基础" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

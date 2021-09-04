@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️肺炎预测 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️肺炎预测 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️肺炎预测</h1><div class="post-info">2020-02-20<p class="visit"><i data-identity="2020/02/20/肺炎预测/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>[TOC]</p>
+<p>这是摘要……</p>
+<span id="more"></span>
+
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/wuhanfeiyan2019.ipynb">https://github.com/flitdu/consult/blob/main/jupyter/wuhanfeiyan2019.ipynb</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dict_add_sari = &#123;<span class="string">&#x27;1-20&#x27;</span>:<span class="number">77</span>, <span class="string">&#x27;1-21&#x27;</span>:<span class="number">149</span>,<span class="string">&#x27;1-22&#x27;</span>:<span class="number">131</span>, <span class="string">&#x27;1-23&#x27;</span>:<span class="number">259</span>,<span class="string">&#x27;1-24&#x27;</span>:<span class="number">444</span>, <span class="string">&#x27;1-25&#x27;</span>:<span class="number">688</span>,</span><br><span class="line">            <span class="string">&#x27;1-26&#x27;</span>:<span class="number">769</span>, <span class="string">&#x27;1-27&#x27;</span>:<span class="number">1771</span>,<span class="string">&#x27;1-28&#x27;</span>:<span class="number">1459</span>, <span class="string">&#x27;1-29&#x27;</span>:<span class="number">1737</span>&#125;</span><br><span class="line">dict_confirmed_sari = &#123;<span class="string">&#x27;1-19&#x27;</span>:<span class="number">227</span>,<span class="string">&#x27;1-20&#x27;</span>:<span class="number">291</span>, <span class="string">&#x27;1-21&#x27;</span>:<span class="number">453</span>,<span class="string">&#x27;1-22&#x27;</span>:<span class="number">584</span>, <span class="string">&#x27;1-23&#x27;</span>:<span class="number">843</span>,<span class="string">&#x27;1-24&#x27;</span>:<span class="number">1287</span>, <span class="string">&#x27;1-25&#x27;</span>:<span class="number">1975</span>,</span><br><span class="line">            <span class="string">&#x27;1-26&#x27;</span>:<span class="number">2744</span>, <span class="string">&#x27;1-27&#x27;</span>:<span class="number">4515</span>,<span class="string">&#x27;1-28&#x27;</span>:<span class="number">5974</span>, <span class="string">&#x27;1-29&#x27;</span>:<span class="number">7711</span>&#125;</span><br><span class="line">x1 = []</span><br><span class="line">y1 = []</span><br><span class="line">ii=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> dict_confirmed_sari.items():</span><br><span class="line"><span class="comment">#     print(key, value)</span></span><br><span class="line">    x1.append(ii)</span><br><span class="line">    y1.append(value)</span><br><span class="line">    ii +=<span class="number">1</span></span><br><span class="line">max_num = <span class="built_in">max</span>(y1)</span><br><span class="line"><span class="comment"># print(max(y1))</span></span><br><span class="line"><span class="built_in">print</span>(x1, y1, <span class="built_in">len</span>(x1))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> x1:</span><br><span class="line">    x1[i] -= <span class="built_in">round</span>(<span class="built_in">len</span>(x1)/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y1)):</span><br><span class="line">    y1[i] /= max_num  <span class="comment">#归一化</span></span><br><span class="line">x = x1 </span><br><span class="line">y = y1</span><br><span class="line">sample_num = <span class="built_in">len</span>(x)</span><br><span class="line"><span class="comment"># x,y 数据赋值</span></span><br><span class="line">arr_x = np.random.randn(sample_num,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr_x)):</span><br><span class="line">    arr_x[i] = x[i]</span><br><span class="line"><span class="comment">#     print(arr_x[i],&#x27;===&#x27;)</span></span><br><span class="line"></span><br><span class="line">arr_y = np.random.randn(sample_num,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr_y)):</span><br><span class="line">    arr_y[i] = y[i]</span><br><span class="line"><span class="built_in">print</span>(arr_x,arr_y,<span class="string">&#x27;===&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">w=np.random.random((sample_num,<span class="number">1</span>))</span><br><span class="line">a = w[<span class="number">0</span>]</span><br><span class="line">b = w[<span class="number">1</span>]</span><br><span class="line">c = w[<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partial_a</span>(<span class="params">a, b, c</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(np.multiply(<span class="number">1.</span>/(<span class="number">1</span>+b*np.exp(-c*arr_x)), (pred_y-arr_y)))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partial_b</span>(<span class="params">a, b, c</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> np.multiply(-<span class="number">1</span>*np.exp(-c*arr_x), (pred_y-arr_y))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partial_c</span>(<span class="params">a, b, c</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> np.multiply(b*arr_x*np.exp(-c*arr_x), (pred_y-arr_y))</span><br><span class="line"></span><br><span class="line">epoch = <span class="number">200000</span></span><br><span class="line">alpha = <span class="number">.2</span></span><br><span class="line">loss_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(epoch):</span><br><span class="line">    pred_y = a*<span class="number">1.</span>/(<span class="number">1</span>+b*np.exp(-c*arr_x))</span><br><span class="line"></span><br><span class="line">    bb = np.multiply(pred_y*pred_y,partial_b(a, b, c))</span><br><span class="line">    cc = np.multiply(pred_y*pred_y,partial_c(a, b, c))</span><br><span class="line"><span class="comment">#     print(cc,&#x27;----&#x27;)</span></span><br><span class="line"><span class="comment">#     print(np.sum(bb),&#x27;===&#x27;)</span></span><br><span class="line">    a -= alpha/sample_num*partial_a(a, b, c)</span><br><span class="line">    b -= alpha/sample_num*np.<span class="built_in">sum</span>(bb)</span><br><span class="line">    c -= alpha/sample_num*np.<span class="built_in">sum</span>(cc)</span><br><span class="line"><span class="comment">#     print(a,b,c)</span></span><br><span class="line">    w[<span class="number">0</span>] = a</span><br><span class="line">    w[<span class="number">1</span>] = b</span><br><span class="line">    w[<span class="number">2</span>] = c</span><br><span class="line"><span class="comment">#     print(w)</span></span><br><span class="line">    </span><br><span class="line">    loss = np.<span class="built_in">sum</span>((pred_y - arr_y)*(pred_y - arr_y))/sample_num</span><br><span class="line">    loss_list.append(loss)</span><br><span class="line"><span class="comment">#     print(loss,&#x27;====-----&#x27;)</span></span><br><span class="line"><span class="comment"># print(w)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(loss_list)</span></span><br><span class="line">plt.plot(<span class="built_in">range</span>(epoch), loss_list, color=<span class="string">&quot;k&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>, marker=<span class="string">&quot;^&quot;</span>, linewidth=<span class="number">1.0</span>, label=<span class="string">&#x27;loss&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">plt.plot(x, arr_y, color=<span class="string">&quot;r&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>, marker=<span class="string">&quot;*&quot;</span>, linewidth=<span class="number">1.0</span>, label=<span class="string">&#x27;real&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.plot(x, pred_y, color=&quot;b&quot;, linestyle=&quot;--&quot;, marker=&quot;s&quot;, linewidth=1.0, label=&#x27;predict&#x27;)</span></span><br><span class="line"><span class="comment"># plt.legend(loc=&#x27;upper left&#x27;)</span></span><br><span class="line"><span class="comment"># plt.show() </span></span><br><span class="line"></span><br><span class="line">x1 = <span class="built_in">list</span>(<span class="built_in">range</span>(-<span class="number">6</span>,<span class="number">60</span>,<span class="number">1</span>))</span><br><span class="line"><span class="comment"># print(x1)</span></span><br><span class="line">pred_y = a*<span class="number">1.</span>/(<span class="number">1</span>+b*np.exp(-c*x1))</span><br><span class="line">plt.plot(x1, pred_y, color=<span class="string">&quot;b&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>, marker=<span class="string">&quot;s&quot;</span>, linewidth=<span class="number">1.0</span>, label=<span class="string">&#x27;predict&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show() </span><br><span class="line"><span class="built_in">print</span>(pred_y*max_num)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAX0AAAD4CAYAAAAAczaOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAZEklEQVR4nO3df5DcdX3H8ec7l0su8ksMwYQEvKRgxwj+yiX+KB6OVCBONaXQaVJHUYNREVrrYE3K2KHcTC04NW3HtJACaaBaIlSHMARSKw4BicjlJ8Qkep5BLtnoXUAskHCXy7t/fL977G12bz932du9+3xfj5mb2/3sZ/f73u/uvfZ7n+9nv19zd0REJBsm1LsAERGpHYW+iEiGKPRFRDJEoS8ikiEKfRGRDJlY7wKKnXHGGd7c3FzvMkRExpUtW7b0uPu0Sv3GXOg3NzfT3t5e7zJERMYVM3s2pJ+Gd0REMkShLyKSIQp9EZEMGXNj+qX09fXR1dXFkSNH6l1K1TU1NTFr1iwaGxvrXYqIZMC4CP2uri5OOeUUmpubMbN6l1M17s6hQ4fo6upi9uzZ9S5HRDJgXAzvHDlyhKlTp1YM/N7eXvbs2UNfX1+NKjsxZsbUqVOj/A9GRMamcRH6QNAWfi6X46WXXuLAgQM1qKg6YvrPRUTGvnET+pX09vbS09MDwKFDh8bN1r6ISC1FE/q5XI78uQHcvepb+yeffHJVH09EpB6iCP3CrXxIQn/Pnj20trZy8ODBOlYmIjK2RBH6uVzuuLbbb7+dxx9/nLa2tqouy9358pe/zPnnn88FF1zAunXrBmpobW3lHe94B+effz6PPfYY/f39fPKTnxzou3LlyqrWIiIyXONiymYlL7/8MoWnfezp6eGBBx7A3VmzZg1f/epXmT59elWW9d3vfpft27ezY8cOenp6mD9/Pq2trXz729/m0ksv5YYbbqC/v59XXnmF7du3s3//fp555hkAfvvb31alBhGRkRqXW/o33ngjZjbwc/jwYcyM+fPnM3/+fBYuXMjRo0cBOHz4MDNmzMDMmDdvHgDLli0bdP/hjP8//vjjLFmyhIaGBt74xjdy0UUX8dRTTzF//nzWrFnDjTfeyNNPP80pp5zCnDlz6Ozs5LrrruPhhx/m1FNPHZX1ISISatyGvrsP/MybN4958+Zx8OBBurq6aGpqor+/f6D/lClTyOVybNmyBYDVq1cPuv9ZZ50VvOxyJ5JvbW1l06ZNzJw5k49//OPcddddnH766ezYsYMPfOADrFq1iquvvvrEnriIyAkal6Ffzv79+7n++us5duzYoPb+/v6qje23traybt06+vv76e7uZtOmTSxYsIBnn32WM888k8985jMsXbqUrVu30tPTw7Fjx7jiiitoa2tj69atValBRGSkohjTz3N3tm7dSm9v76D23t5ennjiiaos4/LLL2fz5s28/e1vx8y45ZZbmD59OmvXruXrX/86jY2NnHzyydx1113s37+fT33qUwMfQl/72teqUoOIyEhZueGKemlpafHik6js3r2bt7zlLUPer7e3l507dwIwYcIELrjggnFzELOQ5yciMhQz2+LuLZX6RTO8k8vlBg5pMBpfzhIRiUFQ6JvZZWa218w6zGx5idsnm9m69PYnzaw5bW80s7Vm9rSZ7TazFdUtP5H/clbhN3J1KAYRkeNVDH0zawBWAQuBucASM5tb1G0p8IK7nwusBG5O2/8UmOzuFwDzgM/mPxCGa6hhqFJfzhovW/tjbXhNROIWsqW/AOhw90537wXuARYV9VkErE0v3wdcbMlYiwMnmdlEYArQC/xuuEU2NTVx6NChsgFZ/OUsSML05ZdfHu6iair/H0lTU1O9SxGRjAiZvTMTeK7gehfw7nJ93P2omb0ITCX5AFgE5IDXAX/l7s8XL8DMlgHLAM4555zjCpg1axZdXV10d3eXLNDMOOmkk/jVr37FrFmzmDDhtc+y3bt3BzzF+smfOUtEpBZCQr/UAd+LN7nL9VkA9ANnAacDj5nZ/7p756CO7quB1ZDM3il+oMbGxqAzS916661s3bqVe++9t2qHXRARiUnI8E4XcHbB9VlA8WD5QJ90KOc04Hngz4GH3b3P3X8D/AioOKVopPr6+njiiSeqfpA1EZFYhIT+U8B5ZjbbzCYBi4H1RX3WA1ell68EHvFkkP1XwActcRLwHmBPdUofLJfLceutt3Ls2DHWrFmjQyqLiJRQMfTd/ShwLbAR2A18x913mdlNZvbRtNsdwFQz6wC+BOSnda4CTgaeIfnwWOPuO6v8HABoa2sb2JlbzcMuiIjEZFx8I7eSXC7HnDlzBp1gfMqUKXR2dmpsX0QyIVPfyG1raxvVg6yJiMQi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" alt="img"></p>
+<p><img src="data:image/png;base64,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" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[  124.66508144   201.62476      325.03849093   521.28730098</span><br><span class="line">   829.21601571  1302.39600146  2006.67813807  3006.68099229</span><br><span class="line">  4335.53153629  5954.01864904  7728.50496679  9463.13943743</span><br><span class="line"> 10978.7015096  12178.29851452 13055.69233412 13661.03579227</span><br><span class="line"> 14062.05103888 14320.60360219 14484.40252139 14587.02124116</span><br><span class="line"> 14650.86220855 14690.40587256 14714.83339053 14729.89791933</span><br><span class="line"> 14739.1786839  14744.89262687 14748.40918713 14750.57287996</span><br><span class="line"> 14751.90397411 14752.7227826  14753.22643573 14753.53622455</span><br><span class="line"> 14753.72676657 14753.84396183 14753.91604368 14753.96037796</span><br><span class="line"> 14753.98764587 14754.00441705 14754.01473218 14754.0210765</span><br><span class="line"> 14754.02497858 14754.02737856 14754.02885466 14754.02976254</span><br><span class="line"> 14754.03032093 14754.03066436 14754.03087559 14754.03100551</span><br><span class="line"> 14754.03108542 14754.03113456 14754.03116479 14754.03118338</span><br><span class="line"> 14754.03119482 14754.03120185 14754.03120618 14754.03120884</span><br><span class="line"> 14754.03121047 14754.03121148 14754.0312121  14754.03121248</span><br><span class="line"> 14754.03121271 14754.03121286 14754.03121294 14754.031213</span><br><span class="line"> 14754.03121303 14754.03121305]</span><br></pre></td></tr></table></figure>
+
+<h2 id="调参技巧"><a href="#调参技巧" class="headerlink" title="调参技巧"></a>调参技巧</h2><p>需要对数据归一化，更易收敛；</p>
+<p>首先预测第二天数据，拿到第二天真实数据后，计算相对误差；然后重新调整模型参数，将第二天数据误差达到最小，再预测第三天数据，重复下去…..</p>
+<h2 id="预测记录"><a href="#预测记录" class="headerlink" title="预测记录"></a>预测记录</h2><p>知乎链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/368541456/answer/991525039">多位专家预测出新型肺炎疫情拐点即将出现，什么情况下才能说疫情拐点出现？</a></p>
+<p>1-30至2-19预测情况统计（包括预测误差、实际确诊人数和预测峰值人数，2-1后对模型进行了修改，2-11后诊断标准改变），两条红色曲线越接近则疫情情况越好</p>
+<p><img src="https://pic4.zhimg.com/50/v2-fb325aa54347e1ba912d0b0fb4d23b4f_b.jpg" alt="img"></p>
+<p><img src="https://pic3.zhimg.com/50/v2-2da4f0974160fd0bd41e82cf2fee89aa_b.jpg" alt="img"></p>
+<p>​                                                                            诊断标准变之前统计</p>
+<hr>
+<h3 id="2020-01-30"><a href="#2020-01-30" class="headerlink" title="2020-01-30"></a>2020-01-30</h3><p>自己建立了一个模型，来对疫情数据进行分析（感谢大家的支持，仅供参考，不必太当真哈）</p>
+<p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gc2zkxmaifj30v80kctdx.jpg" alt="image-20200220171845508"></p>
+<p>依据模型预测结果，今日（1-30号）后，肺炎确诊病例会有9463。实际情况，今晚24点后可以得知。</p>
+<p>并且模型预测最终的确诊人数会在 14754 例，从今天算，需要10天时间达到顶峰，也就是到农历15-16号，元宵节前后，与之前网上钟南山院士的判断相符合。</p>
+<p>这次疫情，来的突然，目前还在上行阶段。</p>
+<p>应该来说，相比较SARS（下图），这次疫情高峰期会得早，去的也会早。</p>
+<p><img src="https://pic2.zhimg.com/50/v2-aa92e4326c24bd9e2364ddc9a5769adb_b.jpg" alt="img"></p>
+<p>目前每日新增数据如下图。结合确诊预测模型，个人觉得新增数据未来不会有大的增加，加速上升的势头在国家的强有力措施下得到了遏制。</p>
+<p><img src="https://pic1.zhimg.com/50/v2-c37b9914050cd11fdd2867d82ab9d5c3_b.jpg" alt="img"></p>
+<p>全国人民万众一心，对于武汉等重灾区也是八方支援，我们中国一定会很快打赢这场看不见敌人的战争。</p>
+<p>今后一段时间还是要戴口罩，少出行，在家待着就是为国家做贡献。</p>
+<p>还是多说一句，这次疫情，重蹈SARS覆辙，中间仅仅隔17年，本质上是没有处理好人与自然的关系，爱护野生动物，不可无限制向大自然索取。</p>
+<p>两次教训不可谓不惨痛，唯有立法方可根除。</p>
+<p>加油武汉！加油中国！</p>
+<p>随着新数据的出现，后续会持续更新预测情况</p>
+<p>2020-01-30</p>
+<p>附：【模型预测确诊病例数据】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">124.6687847    201.62960005   325.04447171   521.29406501</span><br><span class="line">  829.22254726  1302.40034933  2006.67755113  3006.67326849</span><br><span class="line"> 4335.51835413  5954.00996685  7728.52041165  9463.20259611</span><br><span class="line">10978.82979291 12178.49680202 13055.95424192 13661.34911942</span><br><span class="line">14062.40273107 14320.98243352 14484.79988951 14587.43098325</span><br><span class="line">14651.28008706 14690.82904768 14715.25999013 14730.32672247</span><br><span class="line">14739.60890002 14745.32374667 14748.8408837  14751.00494403</span><br><span class="line">14752.33627199 14753.15522906 14753.6589765  14753.96882512</span><br><span class="line">14754.15940502 14754.27662427 14754.34872128 14754.39306514</span><br><span class="line">14754.42033911 14754.4371141  14754.44743164 14754.45377748</span><br><span class="line">14754.45768052 14754.46008109 14754.46155757 14754.46246569</span><br><span class="line">14754.46302423 14754.46336776 14754.46357905 14754.46370901</span><br><span class="line">14754.46378894 14754.4638381  14754.46386833 14754.46388693</span><br><span class="line">14754.46389837 14754.4639054  14754.46390973 14754.46391239</span><br><span class="line">14754.46391403 14754.46391503 14754.46391565 14754.46391603</span><br><span class="line">14754.46391627 14754.46391641 14754.4639165  14754.46391656</span><br><span class="line">14754.46391659 14754.46391661</span><br></pre></td></tr></table></figure>
+
+<h3 id="2020-01-31"><a href="#2020-01-31" class="headerlink" title="2020-01-31"></a>2020-01-31</h3><p>模型验证情况：</p>
+<p>预测30日9463，真实数字为9692，误差2.3%</p>
+<p>预测31日确诊病例11147，最终确诊人数会在16000左右。</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-01-31</p>
+<h3 id="2020-02-01"><a href="#2020-02-01" class="headerlink" title="2020-02-01"></a>2020-02-01</h3><p>验证：</p>
+<p>预测31日 11147，真实数字为11791，误差5.4%</p>
+<p>可以看出预测比实际偏小，意味着最终的确诊人数会更高，真希望自己预测的会偏大点。</p>
+<p>考虑到3%左右的致死率，不知道又会有多少人因此而夺命。</p>
+<p>君不见钟院士，83岁，仍然挂帅出征在疫情一线；部分地方执政者，身肩抗击肺炎重任而“一问三不知”、无计可施，拿辖区民众生命开玩笑。</p>
+<p>疫情的好转需要大家万众一心，共克时艰，做好各自本职工作。就在昨天，本次疫情已经升级为“国际关注的突发公共卫生事件”，背后的大国博弈必定激烈。</p>
+<p>对于2月末结束战斗，目前保持乐观。</p>
+<p>等疫情过后，立法根除已经变得刻不容缓!以往广东，如今湖北，再过段时间就可以换个别的省。</p>
+<p>再次声明，所做只是一种出于对疫情关注产生的兴趣，不严谨之处还望轻喷。自己除了戴口罩、不外出，还能为疫情做的一点个人贡献就是对未来的肺炎趋势做出点判断，供需要的人参考。</p>
+<p>预测2-1日确诊病例 12836，最终确诊人数会在17000左右。</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-01</p>
+<h3 id="2020-02-02"><a href="#2020-02-02" class="headerlink" title="2020-02-02"></a>2020-02-02</h3><p>验证情况：</p>
+<p>2-1日预测 12836，真实数字为14380，误差10.7%</p>
+<p>-———————————-</p>
+<p>对模型进行了修改</p>
+<p>预测2-2日确诊病例 17625，最终确诊人数会在36000左右。（疫情的变化有点快）</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-02</p>
+<h3 id="2020-02-03"><a href="#2020-02-03" class="headerlink" title="2020-02-03"></a>2020-02-03</h3><p>验证情况：</p>
+<p>2-2日预测 17625，真实数字为17209，误差2.4%</p>
+<p>-———————————-</p>
+<p>预测2-3日确诊病例 20193，最终确诊人数会在34470左右</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-03</p>
+<h3 id="2020-02-04"><a href="#2020-02-04" class="headerlink" title="2020-02-04"></a>2020-02-04</h3><p>最新与SARS对比图：</p>
+<p><img src="https://pic4.zhimg.com/50/v2-8f0e2ced2e257f980eb7adc581c9b206_b.jpg" alt="img"></p>
+<p>03年SARS发展图：</p>
+<p><img src="https://pic1.zhimg.com/50/v2-42f39eb8639ebdc3c01c61aa424b2ec0_b.jpg" alt="img"></p>
+<p>可见此次疫情来之猛</p>
+<p>感染新增趋势：</p>
+<p><img src="https://pic1.zhimg.com/50/v2-b14aba682ac767ce9be42a4707fe17fd_b.jpg" alt="img"></p>
+<p>看来我们的吃这下更加世界知名了，不仅能吃出菜系，更可以吃出自然失衡、国际关注突发。</p>
+<p>疫情终会过去，唯有立法，方可彻底解决当前困局。</p>
+<p>今后必须加强卫生监管，各个省都存在爆发危险，如果不整治，昨日广东，现在湖北，明天会是哪个？</p>
+<p>别忘了，恩格斯在《自然辩证法》说过的那段警世名言：</p>
+<blockquote>
+<p>不要过分陶醉于我们人类对自然界的胜利。对于每一次这样的胜利，自然界都对我们进行报复，我们最初的成果又消失了。 世界上有很多地方，如美索不达米亚、小亚细亚以及其他各地的居民，为了想得到耕地，把森林都砍完了，但他们梦想不到，这些地方今天正因此成为不毛之地。</p>
+</blockquote>
+<p>类似此次疫情的突发情况，都可以看作是未来中国崛起路上对国家能力的检验，涉及到医学水平、执政者决策能力、地方管理者应急组织能力、调度协调能力、不同企业的随机应变能力、民众科学普及程度等等。</p>
+<p>一次疫情，可以看作是一场大检验、大考核。中国要崛起，这些各方面的能力必须上来。等疫情过后，最重要的是总结经验、教训，这背后都是一个个鲜活的生命。</p>
+<p>重大事件–&gt;应对–&gt;总结–&gt;新的重大事件….，缺一环而不可。</p>
+<p>那些打不倒自己的，终将使自己强大。</p>
+<p>验证情况：</p>
+<p>2-3日预测 20193，真实数字为20440，误差1.2%</p>
+<p>-———————————-</p>
+<p>预测2-4日确诊病例 23803 ，最终确诊人数会在42000左右</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-04</p>
+<hr>
+<h3 id="2020-02-05"><a href="#2020-02-05" class="headerlink" title="2020-02-05"></a>2020-02-05</h3><p>验证情况：</p>
+<p>2-4日预测 23803，真实数字为24325，误差2.1%</p>
+<p>-———————————-</p>
+<p>预测2-5日确诊病例 28382，最终确诊人数会在 56000 左右（自己有点惊讶，只能相信）</p>
+<p>关于拐点，参照下图，预计会在这两三天会到来，果真如此，那么意味着疫情将得到有效控制。</p>
+<p><img src="https://pic4.zhimg.com/50/v2-145a4e9afba6e360df14bd8247d16d6d_b.jpg" alt="img"></p>
+<p>目前，新增确诊人数仍在不断上升</p>
+<p><img src="https://pic2.zhimg.com/50/v2-7e6e6e001eb6f173a76f42af742ba642_b.jpg" alt="img"></p>
+<p>一次疫情，可以看作是一场大检验、大考核。中国要崛起，这些各方面的能力必须上来。等疫情过后，最重要的是总结经验、教训，这背后都是一个个鲜活的生命换来的。</p>
+<p>重大事件–&gt;应对–&gt;总结–&gt;新的重大事件….，缺一环而不可。</p>
+<p>那些打不倒自己的，终将使自己强大。</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-05</p>
+<h3 id="2020-02-06"><a href="#2020-02-06" class="headerlink" title="2020-02-06"></a>2020-02-06</h3><p>验证情况：</p>
+<p>2-5日预测 28382，真实数字为28018，误差1.3%</p>
+<p>-———————————-</p>
+<p>预测2-6日确诊病例 31733，最终确诊人数会在 52460 左右</p>
+<p><strong>注意到，今天的新增确诊＜昨日，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-06</p>
+<h3 id="2020-02-07"><a href="#2020-02-07" class="headerlink" title="2020-02-07"></a>2020-02-07</h3><p>疫情“吹哨人”去世，这个代价太过沉重</p>
+<p><img src="https://pic4.zhimg.com/50/v2-0502e4cc033315174d1cfa3f090e3a1a_b.jpg" alt="img"></p>
+<p>“他们欠你一个道歉，我们欠你一句谢谢。李文亮医生，一路走好!”</p>
+<p>验证情况：</p>
+<p>2-6日预测 31733，真实数字为31161，误差1.8%</p>
+<p>-———————————-</p>
+<p>预测2-7日确诊病例 34112，最终确诊人数会在 47154 左右</p>
+<p><strong>注意到，今天的新增确诊依旧＜昨日&lt;前天，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-07</p>
+<h3 id="2020-02-08"><a href="#2020-02-08" class="headerlink" title="2020-02-08"></a>2020-02-08</h3><p>今日返程，车站更新。</p>
+<p>路上各个村口红旗飘扬，一些人在值守，处于“封村”状态。</p>
+<p>国道上看不到车辆。</p>
+<p>验证情况：</p>
+<p>2-7日预测 34112，真实数字为34560，误差1.3%</p>
+<p>-———————————-</p>
+<p>预测2-8日确诊病例 37391，最终确诊人数会在49619左右</p>
+<p><strong>注意到，昨日新增确诊有上升势头，但仍＜前两天的峰值，前景发展未可知。但是，只要今后的新增不超过前几天的峰值，就表明疫情得到了控制，后续发展看好。</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-08</p>
+<h3 id="2020-02-09"><a href="#2020-02-09" class="headerlink" title="2020-02-09"></a>2020-02-09</h3><p>验证情况：</p>
+<p>2-8日预测 37391，真实数字为37202，误差 0.5%</p>
+<p>-———————————-</p>
+<p>预测2-9日确诊病例 39505，最终确诊人数会在48449左右</p>
+<p><strong>注意到，昨日新增持续走低，为新增峰值以来最低值，好消息！目前来看，峰值确诊依旧稳定在5万左右。</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-09</p>
+<h3 id="2020-02-10"><a href="#2020-02-10" class="headerlink" title="2020-02-10"></a>2020-02-10</h3><p>验证情况：</p>
+<p>2-9日预测 39505，真实数字为40260，误差 1.8%</p>
+<p>-———————————-</p>
+<p>预测2-10日确诊42302病例 ，最终确诊人数会在51000左右</p>
+<p><strong>注意到，昨日新增确诊有上升势头，但仍＜历史峰值。但是，只要今后的新增不超过前几天的峰值，后续发展看好。峰值确诊依旧稳定在5万左右。</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-10</p>
+<h3 id="2020-02-11"><a href="#2020-02-11" class="headerlink" title="2020-02-11"></a>2020-02-11</h3><p>验证情况：</p>
+<p>2-10日预测 42302，真实数字为42651，误差 0.8%</p>
+<p>-———————————-</p>
+<p>预测2-11日确诊44184病例 ，最终确诊人数会在51000左右</p>
+<p><strong>注意到，昨日新增确为峰值以来最低值，好消息！目前新增正朝着稳步下降的趋势走，后续发展看好（更加确定）。峰值确诊依旧稳定在5万左右。</strong></p>
+<p>我想提醒的是，疫情过后，万不可急着庆祝而忘了溯源，今后如何彻底解决本次危机、杜绝再次发生（连着发生2次已经）？</p>
+<p>我们GDP已经是第二，<strong>2019年</strong>我国国内生产总值为99.0865万亿元，大概每天2700亿元，本次疫情带来的损失又是多少？平时，我们可否拿出一部分放在环境保护上或者环保研发上？</p>
+<p>人也是自然的一部分，我们与其它生物包括细菌，病毒，共同生活在这个星球，共同组成目前这个生态系统。当人类肆意品尝、污染环境（当今的塑料垃圾真的是有点惊人，何时解决！！？？），傲慢凌驾于自然之上时，真的觉得是占了便宜吗？</p>
+<p>既然一部分人，仍旧执迷不悟 ，拿所有人来冒险，为了我们的家园，为何不立法保证、强制实施呢？</p>
+<p>我想不到别的更好的办法….</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-11</p>
+<hr>
+<h3 id="2020-02-12"><a href="#2020-02-12" class="headerlink" title="2020-02-12"></a>2020-02-12</h3><p>验证情况：</p>
+<p>2-11日预测 44184，真实数字为44653，误差 1.0%</p>
+<p>-———————————-</p>
+<p>预测2-12日确诊 45944 病例 ，最终确诊人数会在51000左右</p>
+<p><strong>注意到，昨日新增继续下降，好消息！后续发展看好。峰值确诊依旧稳定在5万左右。</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-12</p>
+<hr>
+<h3 id="2020-02-13"><a href="#2020-02-13" class="headerlink" title="2020-02-13"></a>2020-02-13</h3><p>今日新增过万，吓我一跳。看来此前估计，还是有点乐观了。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-2dd257ca77045e20b59744e93c722bb4_hd.jpg" alt="img">新增确诊图</p>
+<p>之所以新增确诊激增，在于诊断标准变了，增加了“临床诊断病例”。</p>
+<p>验证情况：</p>
+<blockquote>
+<p>12日确诊 59804，这其中包含湖北临床诊断病例13332例， 如果诊断标准未变，那么今日确诊&lt;46472。2-12日预测 45944，误差&lt; 1.1%</p>
+</blockquote>
+<p>当然，既然确诊数确实猛增，那么实际情况也确实如此，当日误差仍旧定为 23.2%。</p>
+<p>-———————————-</p>
+<p>预测2-13日确诊 69879 病例 ，最终确诊人数会在150000左右</p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-13</p>
+<hr>
+<h3 id="2020-02-14"><a href="#2020-02-14" class="headerlink" title="2020-02-14"></a>2020-02-14</h3><p>验证情况：</p>
+<p>2-13日预测 69879 ，真实数字为64894，误差 7.6 %</p>
+<p>-———————————-</p>
+<p>预测2-14日确诊 72124 病例 ，最终确诊人数会在14 万左右</p>
+<p><strong>注意到，昨日新增下降，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-14</p>
+<hr>
+<h3 id="2020-02-15"><a href="#2020-02-15" class="headerlink" title="2020-02-15"></a>2020-02-15</h3><p>验证情况：</p>
+<p>2-14日预测 72124 ，真实数字为66492，误差 8.4 %</p>
+<p>目前还没到修改模型的地步，对后续情况继续保持跟踪</p>
+<p>-———————————-</p>
+<p>预测2-15日确诊 70745 病例 ，最终确诊人数会在10 万左右</p>
+<p><strong>注意到，昨日新增继续下降，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-15</p>
+<hr>
+<h3 id="2020-02-16"><a href="#2020-02-16" class="headerlink" title="2020-02-16"></a>2020-02-16</h3><p>来看一下我们的“敌人”长什么样：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-461a98e222e11c317f1d1fa2bac21716_hd.jpg" alt="12"></p>
+<p>​                                                    图片来源：美国卫生研究院（NIH）官网</p>
+<p><img src="https://pic4.zhimg.com/80/v2-28e355ca0c58a5c9d8643dd64df56982_hd.jpg" alt="img"></p>
+<p>​            顶级医学杂志《柳叶刀》(The Lancet)公布了新型冠状病毒(2019-nCoV/novel coronavirus)的彩色照片</p>
+<p>验证情况：</p>
+<p>2-15日预测 70745 ，真实数字为68501，误差 3.2 %</p>
+<p>-———————————-</p>
+<p>预测2-16日确诊72587病例 ，最终确诊人数会在9.5万左右</p>
+<p><strong>注意到，昨日新增继续下降，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-16</p>
+<hr>
+<h3 id="2020-02-17"><a href="#2020-02-17" class="headerlink" title="2020-02-17"></a>2020-02-17</h3><p>验证情况：</p>
+<p>2-16日预测 72587  ，真实数字为70548，误差 2.8 %</p>
+<p>-———————————-</p>
+<p>预测2-17日确诊 73365 病例 ，最终确诊人数会在8.8 万左右</p>
+<p><strong>注意到，昨日新增略微反弹</strong></p>
+<p>必须立法禁止，对于果子狸，穿山甲等，只要与重大疾病相关的中间宿主，一定要从法律层面立法禁止。这不仅是保护自然，亦是保护人类自己</p>
+<p>我们不应该讨论立不立法，而是讨论如何让医学家参与制定哪些野生动物明确要在禁止吃之列。</p>
+<p><strong>支持立法彻底解决!</strong></p>
+<p><img src="https://pic4.zhimg.com/50/v2-c45bff343c5e2609b263e88f7730596c_b.jpg" alt="img"></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-17</p>
+<h3 id="2020-02-18"><a href="#2020-02-18" class="headerlink" title="2020-02-18"></a>2020-02-18</h3><blockquote>
+<p>最近，联合国粮农组织正在巴基斯坦开会，谈到蝗灾时坦诚：“气候变化与史无前例的蝗虫危机之间存在不可分割的联系。” 2020年刚开始不到60天，我们就已经看到山火、蝗灾和疫情在世界肆虐，南极气温也突破了20摄氏度。</p>
+</blockquote>
+<p><img src="https://pic2.zhimg.com/50/v2-7f831c8e43fe1d811483abc325a0ae64_b.jpg" alt="img"></p>
+<p>这个世界很美好，也很脆弱。整个自然界是相互联系的有机整体。善待自然，亦是尊重我们自己。</p>
+<p>就像电影《流浪地球》开头的台词：</p>
+<p>“最初，没有人在意这场灾难。这不过是一场山火、一次旱灾、一个物种的灭绝、一座城市的消失，直到这场灾难和每个人息息相关。”</p>
+<p>验证情况：</p>
+<p>2-17日预测 73365  ，真实数字为72438，误差 1.2 %</p>
+<p>-———————————-</p>
+<p>预测2-18日确诊 75102 病例 ，最终确诊人数会在 8.6 万左右</p>
+<p><strong>注意到，昨日新增继续下降，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-18</p>
+<h3 id="2020-02-19"><a href="#2020-02-19" class="headerlink" title="2020-02-19"></a>2020-02-19</h3><p>验证情况：</p>
+<p>2-18日误差 1.2 %</p>
+<p>-———————————-</p>
+<p>预测2-19日确诊75971病例 ，最终确诊人数会在 8.4 万左右</p>
+<p><strong>注意到，昨日新增继续下降，好消息！</strong></p>
+<p>加油武汉！加油中国！</p>
+<p>2020-02-19</p>
+<h3 id="2020-02-20"><a href="#2020-02-20" class="headerlink" title="2020-02-20"></a>2020-02-20</h3><p>预测2-20日确诊75920病例 ，最终确诊人数会在 8.2 万左右</p>
+<p>注意到，昨日新增有一个猛降，好消息！</p>
+<p>加油武汉！加油中国！</p>
+<p>局势已明朗，接下来就不更新啦，谢谢大家!</p>
+<p>2020-02-20</p>
+<hr>
+<h3 id="21号后表格统计"><a href="#21号后表格统计" class="headerlink" title="21号后表格统计"></a>21号后表格统计</h3><table>
+<thead>
+<tr>
+<th align="center">日期</th>
+<th align="center">确诊预测</th>
+<th align="center">实际确诊</th>
+<th align="center">误差</th>
+<th>最终峰值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2-20</td>
+<td align="center">75920</td>
+<td align="center">75465</td>
+<td align="center">0.006</td>
+<td>82304</td>
+</tr>
+<tr>
+<td align="center">2-21</td>
+<td align="center">76564</td>
+<td align="center">76288</td>
+<td align="center"></td>
+<td>81589</td>
+</tr>
+<tr>
+<td align="center">2-22</td>
+<td align="center"></td>
+<td align="center">76936</td>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2020/02/23/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" title="⭐️编程规范" class="prev">PREV</a><a href="/2020/02/13/%E7%88%AC%E8%99%ABdemo/" title="⭐️爬虫demo" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

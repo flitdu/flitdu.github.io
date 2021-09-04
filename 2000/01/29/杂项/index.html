@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️杂项 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️杂项 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/categories/live/" target="_self" data-hover="生活" class="nav-list-link">生活</a></li><li class="nav-list-item"><a href="/categories/read/" target="_self" data-hover="读书" class="nav-list-link">读书</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️杂项</h1><div class="post-info">2000-01-29<p class="visit"><i data-identity="2000/01/29/杂项/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><span id="more"></span>
+
+<h2 id="github-加速访问"><a href="#github-加速访问" class="headerlink" title="github 加速访问"></a>github 加速访问</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/080bb50dd59a">国内加速访问Github的办法</a></p>
+<p>主要是刷新dns 缓存【注：ip可能根据时间而变化，所以，发现慢的时候建议重新再获取一次ip进行修改】</p>
+<blockquote>
+<p>1 打开<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://IPAddress.com">http://IPAddress.com</a>网站，搜目标网址对应的IP地址</p>
+<p>2 修改本地电脑系统hosts文件</p>
+<p>sudo vi /etc/hosts</p>
+<p>3 刷新系统dns缓存</p>
+<p>修改后会直接生效，如未生效重起或用命令刷新</p>
+<ul>
+<li><p>Windows 中<br> 用WIN+R打开命令行。输入<code>ipconfig /flushdns</code></p>
+</li>
+<li><p>Linux中<br> <code>systemctl restart nscd</code></p>
+</li>
+<li><p>Mac中<br> <code>sudo dscacheutil -flushcache</code>或<code>sudo killall -HUP mDNSResponder</code></p>
+</li>
+</ul>
+</blockquote>
+<h2 id="jupyter"><a href="#jupyter" class="headerlink" title="jupyter"></a>jupyter</h2><p>网页打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m IPython notebook</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在线打开.ipynb文件：</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://nbviewer.jupyter.org/">https://nbviewer.jupyter.org/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go2hgxu37kj31w40jywhi.jpg" alt="image-20200308154001794"></p>
+<ul>
+<li>重要参考：</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/YfaIOMyW5frHsjXTHsWidw">Jupyter Notebook新手入门手册</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">代码：</span><br><span class="line">Python 代码</span><br><span class="line">Shell 指令</span><br><span class="line">Magic 指令</span><br><span class="line">+ 各种骚操作</span><br><span class="line"></span><br><span class="line">标记语言：</span><br><span class="line">字体（font）</span><br><span class="line">链接（link）</span><br><span class="line">公式（formula）</span><br><span class="line">图片（image）</span><br><span class="line">视频（video）</span><br><span class="line">网页（HTML）</span><br><span class="line">+ 各种骚操作</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p><a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor#fnref:latex">https://www.zybuluo.com/mdeditor#fnref:latex</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gkgxb4gho1j31xz0u011c.jpg" alt="image-20200223174602227"></p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>hexo搭建的博客有两个<code>yml</code>配置文件，一个称之为<code>站点配置文件</code>，是根目录下的<code>_config.yml</code>，另一个是<code>主题配置文件</code>，是主题目录下的<code>_config.yml</code>文件。</p>
+<ul>
+<li>发布</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>hexo 学习</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://easyhexo.com/">https://easyhexo.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Chenjiabing/p/13878059.html">女朋友看了我的博客，说太LOW了，于是我搞了一天~</a></p>
+<ul>
+<li>搜索加载失败</li>
+</ul>
+<blockquote>
+<p>此时，是因为你的xml解析有问题，换成json来解析即可，编辑你的站点配置文件 <code>_config.yml</code></p>
+<p>找到搜索的地方 把 Search的xml解析改成json解析，具体改完后 如下：</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.codeleading.com/article/54735089357/">https://www.codeleading.com/article/54735089357/</a></p>
+<ul>
+<li>修改标签展示样式</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtxk6ioajzj615i06mgly02.jpg" alt="image-20210829124409062"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtxk69hmkpj611i0iaq5c02.jpg" alt="image-20210829124344121"></p>
+<p>下面添加 ‘#’</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">itemtype=&quot;http://schema.org/Thing&quot;&gt;</span><br><span class="line">                  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(cat.path) &#125;&#125;&quot;</span> <span class="attr">itemprop</span>=<span class="string">&quot;url&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">itemprop</span>=<span class="string">&quot;name&quot;</span>&gt;</span>#&#123;&#123; cat.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字体行高</li>
+</ul>
+<p>找到文件：<code>source\css\_variables\base.styl</code></p>
+<p>修改：<code>$font-size-large = $font-size-base + 2px</code>为：<code>$font-size-large = $font-size-base</code>。</p>
+<p>修改：<code>$line-height-base = 2</code>为：<code>$line-height-base = 1.8</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://zhangzw.com/posts/20190701.html">Hexo Next 主题自定义样式</a></p>
+<h2 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h2><p><a target="_blank" rel="noopener" href="https://www.notion.so/">https://www.notion.so/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpoaovb6d1j31k80u0kjl.jpg" alt="image-20210418230345850"></p>
+<h2 id="LaTeX"><a href="#LaTeX" class="headerlink" title="LaTeX"></a>LaTeX</h2><p><a target="_blank" rel="noopener" href="https://latex.vimsky.com/">在线公式编辑转图片</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1go2hj2q9ejj31jg0oe1kx.jpg" alt="image-20210227225809938"></p>
+<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2><p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/regex/">http://tool.chinaz.com/regex/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs3zeyzss6j31xc0tw41c.jpg" alt="image-20210703192359462"></p>
+<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><p><a target="_blank" rel="noopener" href="https://app.diagrams.net/">https://app.diagrams.net/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqpbtju9rvj31ub0u07wi.jpg" alt="image-20210418225707396"></p>
+<h2 id="mac-vs-code"><a href="#mac-vs-code" class="headerlink" title="mac vs code"></a>mac vs code</h2><p>官网 ： <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/?dv=osx">https://code.visualstudio.com/docs/?dv=osx</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt7icucte1j31lm0u0qa3.jpg" alt="image-20210806235621510"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/UtE9aEE9RFwDDrbuK-s2qQ">读者：厨子，你用啥写的文章啊</a></li>
+<li></li>
+</ol>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2000/11/08/copy/" title="⭐️copy" class="prev">PREV</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
