@@ -25,7 +25,7 @@
 <p>DAG: 有向无环图，Directed Acyclic  Graph</p>
 <p>Pig: 接近脚本的方式去描述MR</p>
 <p>Hive: 用的是SQL，SQL–&gt;JAVA–&gt;MR</p>
-<p>Hbase: kv store</p>
+<p>Hbase: kv store，非常适合用来进行<strong>大数据的实时查询</strong></p>
 <p>Zookeeper: 高一致性的分布存取协同系统</p>
 </blockquote>
 <p>一般来说，数据包括两种：业务数据和日志数据</p>
@@ -33,13 +33,15 @@
 <p>可以通过Sqoop进行导入，比如一张表，数据少的话，每天我把表全部导入一遍，这叫<strong>全量同步</strong>；数据特别大，就只同步每天变化和新增的 ，这是<strong>增量同步</strong></p>
 <p>对应的是离线分析</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu4u9uufl1j60t008474n02.jpg" alt="image-20210904195217405"></p>
-<p>2）实时处理</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu4ukuqbz9j614c08sjs702.jpg" alt="image-20210904200251705"></p>
+<p>2）准实时处理</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu4xhpcbhlj614k08ijs902.jpg" alt="image-20210904214336869"></p>
 <p>离线数据是等半夜数据都抽到Hive 中再计算，而Spark Streaming 则是实时数据来一小批，它就处理一小批。</p>
 <p>从本质上讲，spark streaming还是批处理，只不过是每一批数据很少，并且处理很及时，从而达到实时计算的目的。</p>
 <blockquote>
 <p>spark 是一整套组件的统称，比如你可以用 JAVA写Spark 任务，用Spark SQL  去写SQL，可以用 Spark MLib 完成机器学习的模型训练等</p>
 </blockquote>
+<p>3）Flink实时处理</p>
+<p>一条一条数据处理</p>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
 <li>zookeeper</li>
 </ul>

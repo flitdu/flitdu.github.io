@@ -3,13 +3,18 @@
 </head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️MySQL</h1><div class="post-info">2020-12-05</div><div class="post-content"><span id="more"></span>
 
 <p>MySQL 是最流行的关系型数据库管理系统</p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p><strong>数据处理大致可以分成两大类：</strong></p>
-<p>联机事务处理OLTP（on-line transaction processing）、联机分析处理OLAP（On-Line Analytical Processing）。</p>
-<p>OLTP是传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。</p>
-<p>OLAP是数据仓库系统的主要应用，支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。</p>
-<p>OLTP 系统强调数据库内存效率，强调内存各种指标的命令率，强调绑定变量，强调并发操作；</p>
-<p>OLAP 系统则强调数据分析，强调SQL执行市场，强调磁盘I/O，强调分区等。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtv0z6nzfij60ca0dawew02.jpg"></p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li>OLTP、 OLAP</li>
+</ul>
+<blockquote>
+<p>当今的数据处理大致可以分成两大类：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86">联机事务处理</a>OLTP（on-line transaction processing）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86">联机分析处理</a>OLAP（On-Line Analytical Processing）。OLTP是传统的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/8999831">关系型数据库</a>的主要应用，主要是基本的、日常的事务处理，例如银行交易。OLAP是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93">数据仓库</a>系统的主要应用，支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu502h5a0fj61720jitbc02.jpg" alt="image-20210904231246998"></p>
+<ul>
+<li>结构化和非结构化数据</li>
+</ul>
+<p>结构化数据：可以用二维表结构来逻辑表达实现的数据，如 SQL 数据库表中的行。</p>
+<p>非结构化数据：办公文档、文本、图片、XML、HTML、各类报表、图像和音频/视频信息等等</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015216149">CentOS 7.0下使用yum安装MySQL</a></p>
 <p>注意，服务器链接失败，可能需要关闭防火墙，<a target="_blank" rel="noopener" href="https://blog.csdn.net/Zhongtongyi/article/details/108029090">DataGrip无法连接阿里云服务器MySQL原因</a></p>
 <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><ul>
@@ -39,6 +44,11 @@
 <p><strong>系统 = 业务逻辑 x 数据</strong></p>
 <p><strong>我们当年就在想，能不能有一个系统以一个统一的接口尽可能大的覆盖到更多场景。</strong></p>
 <p>以分布式数据库为统一中心的架构</p>
+<ul>
+<li>数据库排名</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://db-engines.com/en/ranking">https://db-engines.com/en/ranking</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu4z38l8m8j622c0tcalf02.jpg" alt="image-20210904223854821"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol start="2">
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/sql-syntax-manual.html">菜鸟–SQL语法手册</a></li>
 </ol>
