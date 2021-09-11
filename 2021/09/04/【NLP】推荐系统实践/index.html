@@ -44,6 +44,20 @@
 <p>2）数值型特征</p>
 <p>要进行归一化、分桶等.</p>
 <h2 id="线上服务"><a href="#线上服务" class="headerlink" title="线上服务"></a>线上服务</h2><h3 id="线上服务模块"><a href="#线上服务模块" class="headerlink" title="线上服务模块"></a>线上服务模块</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guct2p9ddcj618y0u0acq02.jpg" alt="img"></p>
+<p>线上服务模块的功能非常繁杂，它不仅需要跟离线训练好的模型打交道，把离线模型进行上线，在线进行模型服务（Model Serving），还需要跟数据库打交道，把候选物品和离线处理好的特征载入到服务器。</p>
+<p>而且线上服务器内部的逻辑也十分地复杂，不仅包括了一些经典的过程，比如召回层和排序层，还包括一些业务逻辑，比如照顾推荐结果多样性，流行度的一些硬性的混合规则，甚至还包括了一些 AB 测试相关的测试代码。</p>
+<ul>
+<li>召回、排序层的特点</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gud3avpwtqj61xv0u0gpx02.jpg" alt="image-20210911230912376"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gud3hguw7uj61hc0aqabz02.jpg" alt="img"></p>
+<p>在设计召回层时，计算速度和召回率其实是两个矛盾的指标</p>
+<ul>
+<li>召回方法</li>
+</ul>
+<p>1）单策略召回</p>
+<p>2）多路召回</p>
+<p>3）基于Embedding 的召回</p>
 <ul>
 <li>高并发处理</li>
 </ul>
@@ -58,6 +72,8 @@
 <h3 id="存储模块"><a href="#存储模块" class="headerlink" title="存储模块"></a>存储模块</h3><p><code>QPS</code>: Queries Per Second，每秒查询数。每秒能够响应的查询次数。</p>
 <p>分级存储：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guczncknflj61140u00uq02.jpg" alt="img"></p>
+<p>SparrowRecsys项目的存储方案：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guczy1zsrbj31hc0giwhe.jpg" alt="img"></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>java8</li>
 </ul>
@@ -78,6 +94,18 @@
 <p>…</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/profile  </span><br><span class="line"># 在环境变量中导入  </span><br><span class="line">export TERM=xterm-color  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Redis </li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/af33284aa57a">mac下安装配置redis</a></p>
+<p>redis 在线：<a target="_blank" rel="noopener" href="https://try.redis.io/">https://try.redis.io/</a></p>
+<p><code>brew install redis</code></p>
+<p>启动：<code>/usr/local/bin/redis-server /usr/local/etc/redis.conf</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gud2bf22x0j61bw0mkq7d02.jpg" alt="image-20210911223507567"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep redis  # 查看redis服务是否启动</span><br><span class="line">redis-cli  # 启动客户端</span><br></pre></td></tr></table></figure>
+
+
 
 
 
