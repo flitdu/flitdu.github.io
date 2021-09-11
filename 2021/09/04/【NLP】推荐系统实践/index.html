@@ -28,7 +28,9 @@
 <p>广义上，所有特征均可分为两类：</p>
 <p>1） 类别、ID型特征</p>
 <p><strong>序列数据：</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guatpgzsisj30qo09aabk.jpg" alt="img"></p>
 <p>One-hot, multi-hot, Embedding</p>
+<p>推广：item2vec</p>
 <p><strong>图数据：</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu9ni7nb52j61hc0i6acq02.jpg" alt="img"></p>
 <p>Graph Embedding， 可以采取如下方法：</p>
@@ -36,9 +38,26 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu9ne7h5fwj61hc0j7jv102.jpg" alt="img"></p>
 <p><u>【方法二】：Node2vec</u></p>
 <p>在同质性 和结构性间权衡</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu9nlwnf0nj60y00csq4g02.jpg" alt="image-20210908234932091"></p>
+<p>结构性：u, s_6</p>
+<p>同质性：u,s1,s2..</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guckvoohhwj61bw0fcwha02.jpg" alt="image-20210911123149663"></p>
 <p>2）数值型特征</p>
 <p>要进行归一化、分桶等.</p>
+<h2 id="线上服务"><a href="#线上服务" class="headerlink" title="线上服务"></a>线上服务</h2><h3 id="线上服务模块"><a href="#线上服务模块" class="headerlink" title="线上服务模块"></a>线上服务模块</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guct2p9ddcj618y0u0acq02.jpg" alt="img"></p>
+<ul>
+<li>高并发处理</li>
+</ul>
+<p>1）负载均衡—&gt;提升服务能力</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guct6lrq7cj61hc0u0whp02.jpg" alt="img"></p>
+<p>2）缓存—&gt;降低服务压力</p>
+<p>3）推荐服务降级机制—&gt;保证故障时刻的服务不崩溃，压力不传导</p>
+<ul>
+<li>服务框架</li>
+</ul>
+<p>Java 嵌入式服务器 Jetty</p>
+<h3 id="存储模块"><a href="#存储模块" class="headerlink" title="存储模块"></a>存储模块</h3><p><code>QPS</code>: Queries Per Second，每秒查询数。每秒能够响应的查询次数。</p>
+<p>分级存储：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guczncknflj61140u00uq02.jpg" alt="img"></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>java8</li>
 </ul>
