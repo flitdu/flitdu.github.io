@@ -9,7 +9,8 @@
 <h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>推荐系统是利用用户信息、物品信息、场景信息【数据】这三大部分有价值的数据，通过构建推荐模型得出推荐列表的工程系统</p>
 <p>特征工程就是利用工程手段从用户信息、物品信息、场景信息中提取特征的过程</p>
 <p>构建推荐系统特征工程的原则：<strong>尽可能地让特征工程抽取出的一组特征，能够保留推荐环境及用户行为工程中的所有‘有用’ 信息，并且尽量摒弃冗余信息</strong></p>
-<h3 id="怎么挑出有用特征"><a href="#怎么挑出有用特征" class="headerlink" title="怎么挑出有用特征"></a>怎么挑出有用特征</h3><p>1）用户行为数据</p>
+<h3 id="怎么挑出有用特征"><a href="#怎么挑出有用特征" class="headerlink" title="怎么挑出有用特征"></a>怎么挑出有用特征</h3><p>1）用户行为数据<a name="top"></a></p>
+<p>用户行为数据是推荐系统最常用，也是最关键的数据</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu6598gs7rj31hc0eeq6b.jpg" alt="img"></p>
 <p>2）用户关系数据</p>
 <p>3）属性、标签类数据</p>
@@ -43,7 +44,7 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guckvoohhwj61bw0fcwha02.jpg" alt="image-20210911123149663"></p>
 <p>2）数值型特征</p>
 <p>要进行归一化、分桶等.</p>
-<h2 id="线上服务"><a href="#线上服务" class="headerlink" title="线上服务"></a>线上服务</h2><h3 id="线上服务模块"><a href="#线上服务模块" class="headerlink" title="线上服务模块"></a>线上服务模块</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guct2p9ddcj618y0u0acq02.jpg" alt="img"></p>
+<h2 id="线上服务"><a href="#线上服务" class="headerlink" title="线上服务"></a>线上服务</h2><h3 id="线上服务基础"><a href="#线上服务基础" class="headerlink" title="线上服务基础"></a>线上服务基础</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guct2p9ddcj618y0u0acq02.jpg" alt="img"></p>
 <p>线上服务模块的功能非常繁杂，它不仅需要跟离线训练好的模型打交道，把离线模型进行上线，在线进行模型服务（Model Serving），还需要跟数据库打交道，把候选物品和离线处理好的特征载入到服务器。</p>
 <p>而且线上服务器内部的逻辑也十分地复杂，不仅包括了一些经典的过程，比如召回层和排序层，还包括一些业务逻辑，比如照顾推荐结果多样性，流行度的一些硬性的混合规则，甚至还包括了一些 AB 测试相关的测试代码。</p>
 <ul>
@@ -74,6 +75,16 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guczncknflj61140u00uq02.jpg" alt="img"></p>
 <p>SparrowRecsys项目的存储方案：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guczy1zsrbj31hc0giwhe.jpg" alt="img"></p>
+<h3 id="模型服务"><a href="#模型服务" class="headerlink" title="模型服务"></a>模型服务</h3><ul>
+<li>预存推荐结果或Embedding 结果</li>
+<li>预训练 Embedding +轻量级线上模型</li>
+<li>利用PPML 转换和部署模型</li>
+<li>TensorFLow Serving</li>
+</ul>
+<p>Sparrow Recsys项目模型服务部分的架构:</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gudmqml09kj616s0e2wg502.jpg" alt="img"></p>
+<h2 id="推荐模型"><a href="#推荐模型" class="headerlink" title="推荐模型"></a>推荐模型</h2><h3 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h3><p>协同过滤算法，就是一种完全依赖用户和物品之间行为关系的推荐算法（参见特征工程：怎么挑出有用特征）<a href="#top">ddd</a></p>
+<p>协同大家的反馈、评价和意见</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>java8</li>
 </ul>
