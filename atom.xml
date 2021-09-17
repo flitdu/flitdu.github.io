@@ -77,6 +77,37 @@
   </entry>
   
   <entry>
+    <title>⭐️搜索记录</title>
+    <link href="http://example.com/2021/08/16/%E3%80%90NLP%E3%80%91%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95/"/>
+    <id>http://example.com/2021/08/16/%E3%80%90NLP%E3%80%91%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-08-15T16:00:00.000Z</published>
+    <updated>2021-09-17T16:18:46.856Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul><li>倒排索引</li></ul><h2 id="谷歌搜索原理"><a href="#谷歌搜索原理" class="headerlink" title="谷歌搜索原理"></a>谷歌搜索原理</h2><p>1.<a href="https://www.google.com/search/howsearchworks/">Google 搜索的工作方式</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtk5clpcd1j61it0u0q9m02.jpg"></p><ol start="2"><li><p><a href="https://www.youtube.com/watch?v=0eKVizvYSUQ&ab_channel=Google">How Google Search Works (in 5 minutes)</a></p></li><li><p><a href="https://www.youtube.com/watch?v=J5RZOU6vK4Q&t=130s&ab_channel=Google">How Google makes improvements to its search algorithm</a></p></li><li></li></ol><h2 id="搜索经验"><a href="#搜索经验" class="headerlink" title="搜索经验"></a>搜索经验</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">以前搞过一段时间的搜索，特别是结构化内容搜索中的垂直行业搜索。基本的步骤与非结构化搜索差不多。</span><br><span class="line"></span><br><span class="line">主要包括三块，建库数据引入，建库数据预处理，在线检索。</span><br><span class="line">对于建库数据引入，就是指如何接入站点数据，涉及到爬虫操作。因此，需要了解一下爬虫如何使用。</span><br><span class="line"></span><br><span class="line">建库数据预处理，涉及到数据解析，生成词典，索引，摘要。因为数据预处理分了多个阶段，那么还需要kafka传递，数据预处理还涉及到flink，索引涉及到类似于elasticsearch的引擎，摘要涉及到高效的kv存储系统。因此，这块需要学习。kafka,flink,elasticsearch,kv存储等。</span><br><span class="line"></span><br><span class="line">在线检索是根据用户的query给用户返回搜索结果。首先需要通过语意识别分析出query可能搜索的类别（领域），然后对query进行分词，拿着分词在特定类别下面通过状态机命中模板（词典相关），然后拿模板中字段的值去elasticsearch提取符合条件的key，然后去摘要库获取摘要结果，最后再拿一些网页/用户信息对多条返回结果进行排名，返回最精准的结果给用户。</span><br><span class="line">这里涉及到语意分析，分词，状态机，排序等知识。</span><br><span class="line"></span><br><span class="line">之前关注实战多了点，后续需要补充理论知识。</span><br><span class="line">------------from 极客时间《王喆推荐系统》国庆策划</span><br></pre></td></tr></table></figure><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ul><li><a href="https://tech.meituan.com/2021/07/08/multi-business-modeling.html">多业务建模在美团搜索排序中的实践</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu9lyam76bj612f0u077x02.jpg" alt="图2 系统架构图"></p><ul><li><a href="https://zhuanlan.zhihu.com/p/24083308">浅谈搜索系统</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guk2wnc9zoj61iv0u0whd02.jpg" alt="preview"></p><ul><li><a href="https://zhuanlan.zhihu.com/p/45878653">两年搜索推荐的技术演进之路</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guk301fhkwj60vv0k5q3y02.jpg" alt="img"></p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+
+
+&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;倒排索引&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;谷歌搜索原</summary>
+      
+    
+    
+    
+    <category term="NLP" scheme="http://example.com/categories/NLP/"/>
+    
+    
+    <category term="搜索" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>⭐️Django</title>
     <link href="http://example.com/2021/07/26/Django/"/>
     <id>http://example.com/2021/07/26/Django/</id>
@@ -405,37 +436,6 @@
     
     
     <category term="阅读" scheme="http://example.com/tags/%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>⭐️搜索记录</title>
-    <link href="http://example.com/2021/01/16/%E3%80%90NLP%E3%80%91%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95/"/>
-    <id>http://example.com/2021/01/16/%E3%80%90NLP%E3%80%91%E6%90%9C%E7%B4%A2%E8%AE%B0%E5%BD%95/</id>
-    <published>2021-01-15T16:00:00.000Z</published>
-    <updated>2021-09-17T16:17:53.633Z</updated>
-    
-    <content type="html"><![CDATA[<span id="more"></span><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul><li>倒排索引</li></ul><h2 id="谷歌搜索原理"><a href="#谷歌搜索原理" class="headerlink" title="谷歌搜索原理"></a>谷歌搜索原理</h2><p>1.<a href="https://www.google.com/search/howsearchworks/">Google 搜索的工作方式</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtk5clpcd1j61it0u0q9m02.jpg"></p><ol start="2"><li><p><a href="https://www.youtube.com/watch?v=0eKVizvYSUQ&ab_channel=Google">How Google Search Works (in 5 minutes)</a></p></li><li><p><a href="https://www.youtube.com/watch?v=J5RZOU6vK4Q&t=130s&ab_channel=Google">How Google makes improvements to its search algorithm</a></p></li><li></li></ol><h2 id="搜索经验"><a href="#搜索经验" class="headerlink" title="搜索经验"></a>搜索经验</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">以前搞过一段时间的搜索，特别是结构化内容搜索中的垂直行业搜索。基本的步骤与非结构化搜索差不多。</span><br><span class="line"></span><br><span class="line">主要包括三块，建库数据引入，建库数据预处理，在线检索。</span><br><span class="line">对于建库数据引入，就是指如何接入站点数据，涉及到爬虫操作。因此，需要了解一下爬虫如何使用。</span><br><span class="line"></span><br><span class="line">建库数据预处理，涉及到数据解析，生成词典，索引，摘要。因为数据预处理分了多个阶段，那么还需要kafka传递，数据预处理还涉及到flink，索引涉及到类似于elasticsearch的引擎，摘要涉及到高效的kv存储系统。因此，这块需要学习。kafka,flink,elasticsearch,kv存储等。</span><br><span class="line"></span><br><span class="line">在线检索是根据用户的query给用户返回搜索结果。首先需要通过语意识别分析出query可能搜索的类别（领域），然后对query进行分词，拿着分词在特定类别下面通过状态机命中模板（词典相关），然后拿模板中字段的值去elasticsearch提取符合条件的key，然后去摘要库获取摘要结果，最后再拿一些网页/用户信息对多条返回结果进行排名，返回最精准的结果给用户。</span><br><span class="line">这里涉及到语意分析，分词，状态机，排序等知识。</span><br><span class="line"></span><br><span class="line">之前关注实战多了点，后续需要补充理论知识。</span><br><span class="line">------------from 极客时间《王喆推荐系统》国庆策划</span><br></pre></td></tr></table></figure><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ul><li><a href="https://tech.meituan.com/2021/07/08/multi-business-modeling.html">多业务建模在美团搜索排序中的实践</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu9lyam76bj612f0u077x02.jpg" alt="图2 系统架构图"></p><ul><li><a href="https://zhuanlan.zhihu.com/p/24083308">浅谈搜索系统</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guk2wnc9zoj61iv0u0whd02.jpg" alt="preview"></p><ul><li><a href="https://zhuanlan.zhihu.com/p/45878653">两年搜索推荐的技术演进之路</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guk301fhkwj60vv0k5q3y02.jpg" alt="img"></p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-
-
-&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;倒排索引&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;谷歌搜索原</summary>
-      
-    
-    
-    
-    <category term="NLP" scheme="http://example.com/categories/NLP/"/>
-    
-    
-    <category term="搜索" scheme="http://example.com/tags/%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   
