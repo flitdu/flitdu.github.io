@@ -153,7 +153,23 @@
 <p>比如，修改A为<code>A= np.array([[0.95,0.03,0.02],[0.15,0.67,0.18],[0.12,0.36,0.52]])</code>：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsczpo3592j30x00gggpj.jpg"></p>
 <p>当然，这只是一个简单的模拟。真实的社会情况，远比这个要复杂。</p>
-<h2 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h2><ul>
+<h2 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h2><p><strong>此处还需要整理~~~~</strong></p>
+<p><u><em>数据</em></u>：承载了信息的东西</p>
+<p>数据与否，有相当因素取决于解读者的主观视角。这也是面对同样一件普通事物，专家与普通人为何表现不一样？</p>
+<p><em>信息</em>：是用来消除随机不确定的东西</p>
+<p>比如，我说了两句话：</p>
+<blockquote>
+<p>我今年22岁</p>
+<p>我明年23岁</p>
+</blockquote>
+<p>第一句话，如果是为了向不了解我的人介绍我的年龄而可以算作信息</p>
+<p>第二句则不是信息</p>
+<p>关于第一句，说之前对于不知道的人，由于不确定会有一个概率假设，假设其对于年龄的估计为18-27,每个估计所含的信息量为lg(10)，那么第一句话说完后（假设说的是真话），那么每个估计的概率分布变为红色01，所以第一句话的信息量为：lg(10)=3.3bit</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guq9jrshk0j61c40bsjtw02.jpg" alt="image-20210923083739416"></p>
+<p>同样，对于第二句，先验概率分布为：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guq9uk8zv7j61c80a2zmt02.jpg" alt="image-20210923084803897"></p>
+<p>第二句话，包含消息自然为0</p>
+<ul>
 <li>自信息</li>
 </ul>
 <p>描述一个事件所含的信息量</p>
