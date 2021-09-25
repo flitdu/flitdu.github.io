@@ -157,6 +157,7 @@
 <p><u><em>数据</em></u>：承载了信息的东西</p>
 <p>数据与否，有相当因素取决于解读者的主观视角。这也是面对同样一件普通事物，专家与普通人为何表现不一样？</p>
 <p><em>信息</em>：是用来消除随机不确定的东西</p>
+<p>描述一个事件所含的信息量计算：<code>I(x)=-log(P(x))</code></p>
 <p>比如，我说了两句话：</p>
 <blockquote>
 <p>我今年22岁</p>
@@ -164,25 +165,27 @@
 </blockquote>
 <p>第一句话，如果是为了向不了解我的人介绍我的年龄而可以算作信息</p>
 <p>第二句则不是信息</p>
-<p>关于第一句，说之前对于不知道的人，由于不确定会有一个概率假设，假设其对于年龄的估计为18-27,每个估计所含的信息量为lg(10)，那么第一句话说完后（假设说的是真话），那么每个估计的概率分布变为红色01，所以第一句话的信息量为：lg(10)=3.3bit</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guq9jrshk0j61c40bsjtw02.jpg" alt="image-20210923083739416"></p>
+<p>关于第一句，说之前对于不知道的人，由于不确定会有一个概率假设，假设其对于年龄的估计为18-27,每个估计所含的信息量为lg(10)，那么第一句话说完后（<strong>假设说的是真话</strong>），那么每个估计的概率分布变为红色01，所以第一句话的信息量为：lg(10)=3.3bit</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guqxuldhqnj61h20cqwhh02.jpg" alt="image-20210923223825669"></p>
 <p>同样，对于第二句，先验概率分布为：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guq9uk8zv7j61c80a2zmt02.jpg" alt="image-20210923084803897"></p>
 <p>第二句话，包含消息自然为0</p>
-<ul>
-<li>自信息</li>
-</ul>
-<p>描述一个事件所含的信息量</p>
-<p>自信息计算：<code>I(x)=-log(P(x))</code></p>
+<blockquote>
+<p><strong>但是，假如我们是依据假消息来消除不确定性，那么，不仅不利于判断形势，由此造成的不确定性将会更多，也就是俗话说的‘落入圈套’</strong></p>
+</blockquote>
+<p>再比如，如英语有26个字母，假如每个字母在文章中出现次数平均的话，每个字母的讯息量为：-lg2(1/26)=4.7 bit</p>
+<p>而汉字常用的有2500个，假如每个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B1%89%E5%AD%97">汉字</a>在文章中出现次数平均的话，每个汉字的信息量为：11.3 bit</p>
+<p>正因为汉字的信息量大，所以表达同样的意思，汉字要少的多</p>
 <ul>
 <li>熵H(X)：</li>
 </ul>
-<p><strong>自信息</strong>的期望值就是信息论中的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA)">熵</a>，它反映了随机变量采样时的平均不确定程度。</p>
-<p>由定义，当信息被拥有它的实体传递给接收它的实体时，仅当接收实体不知道信息的先验知识时信息才得到传递。如果接收实体事先知道了消息的内容，这条消息所传递的信息量就是0。只有当接收实体对消息对先验知识少于100%时，消息才真正传递信息。</p>
-<p>实际上，求的是关于信息量的概率期望</p>
+<p>信息论中的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA)">熵</a>，是信息的杂乱程度的量化描述</p>
+<p>熵是整个系统的平均消息量，即：</p>
 <p>$$H(x) = \sum_{i}P(x_i)I(x_i)= -\sum_{i}P(x_i)\log(P(x_i))$$</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gs46rl51bvj615u0ju45b02.jpg"></p>
-<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangguchangqing/p/12068084.html">一文搞懂交叉熵损失</a><br>$$<br>H(p,q) = -\sum_x^{} p(x)log q(x)<br>$$<br>其中p为真实分布，q为非真实分布。交叉熵越低，意味着q越接近p。所以在机器学习分类算法中，我们总是最小化交叉熵，交叉熵越低，间接证明算法推算出的非真实分布q越接近真实分布p。</p>
+<ul>
+<li>交叉熵</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangguchangqing/p/12068084.html">一文搞懂交叉熵损失</a><br>$$<br>H(p,q) = -\sum_x^{} p(x)log q(x)<br>$$<br>其中p为真实分布，q为非真实分布。交叉熵越低，意味着q越接近p。所以在机器学习分类算法中，我们总是最小化交叉熵，交叉熵越低，间接证明算法推算出的非真实分布q越接近真实分布p。</p>
 <ul>
 <li>相对熵D_KL</li>
 </ul>
