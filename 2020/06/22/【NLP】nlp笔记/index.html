@@ -115,15 +115,17 @@
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/books/fasttext-doc-zh">https://www.bookstack.cn/books/fasttext-doc-zh</a></p>
 <h2 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h2><p><img src="https://miro.medium.com/max/1400/0*0efgxnFIaLTZ2qkY" alt="img"></p>
-<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><ul>
-<li>普通RNN</li>
-</ul>
-<p>结构：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37788308/article/details/80632809">RNN（Recurrent Neural Network）循环神经网络</a></p>
+<h2 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h2><h3 id="普通RNN"><a href="#普通RNN" class="headerlink" title="普通RNN"></a>普通RNN</h3><p>结构：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gstlc3g1stj31aq0i6jsr.jpg" alt="image-20210725230129775"></p>
-<p>$$<br>O_t =g(V \cdot S_t)\<br>S_t = f(U \cdot X_t+W \cdot S_{t-1})<br>$$</p>
-<ul>
-<li>LSTM</li>
-</ul>
+<p>$$<br>O_t =g(V \cdot S_t)\<br>S_t = f(U \cdot X_t+W \cdot S_{t-1})<br>$$<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37788308/article/details/80632809">RNN（Recurrent Neural Network）循环神经网络</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">O_t =g(V \cdot S_t)</span><br><span class="line">S_t = f(U \cdot X_t+W \cdot S_&#123;t-1&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gusyprm0l2j61q10nbgow02.jpg" alt="A LSTM neural network."><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gusypslygej60qe04xt8y02.jpg" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a></p>
+<p>当然，LSTM 也可以堆叠增加深度，一般不会太深：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gusyk0mlz9j60j80fht9e02.jpg" alt="img"></p>
 <h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><table>
 <thead>
 <tr>
