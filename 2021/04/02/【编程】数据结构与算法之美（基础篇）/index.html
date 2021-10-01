@@ -343,7 +343,31 @@
 
 
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>按照复杂度分为：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqh6vp5meyj310k0le7wh.jpg" alt="image-20210410184545788"></p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>时间复杂度</th>
+<th>是否基于比较</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡、插入、选择</td>
+<td>O(n^2)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>快排，归并</td>
+<td>O(nlog(n))</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>桶，计数，基数</td>
+<td>O(n）</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv090z6225j61bs0tsgr202.jpg" alt="image-20211001235515892"></p>
 <ul>
 <li>原地排序</li>
 </ul>
@@ -379,6 +403,14 @@
 <p>属于原地排序；</p>
 <p>由于元素相等时候不进行移动，故为<strong>稳定的；</strong></p>
 <p>2个for循环，复杂度O(n^2）</p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是插入排序的变形，思路是不断分组——插入排序，直到gap 变为1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort_gap</span>(<span class="params">li, gap</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;只需要将插入排序的 1--&gt;gap&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(gap,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-gap  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+gap] = li[j]</span><br><span class="line">            j -= gap</span><br><span class="line">        li[j+gap] = tmp</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    gap = <span class="built_in">len</span>(li)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> gap&gt;=<span class="number">1</span>:</span><br><span class="line">        insert_sort_gap(li, gap)</span><br><span class="line">        gap //= <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂度</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shellsort">https://en.wikipedia.org/wiki/Shellsort</a></p>
+<p>和选取的 gap 有关</p>
 <h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>每轮找到最值元素，然后交换</p>
 <p>不稳定</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):  <span class="comment"># 趟数</span></span><br><span class="line">        min_loc = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(li)):</span><br><span class="line">            <span class="keyword">if</span> li[j]&lt;li[min_loc]:</span><br><span class="line">                min_loc =j</span><br><span class="line">        li[min_loc], li[i] = li[i], li[min_loc]  <span class="comment"># 交换</span></span><br></pre></td></tr></table></figure>
@@ -420,21 +452,34 @@
 <p>代码：参见力扣：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">https://leetcode-cn.com/problems/kth-largest-element-in-an-array/</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="comment">#  [3,2,1,5,6,4] 和 k = 3</span></span><br><span class="line">        <span class="comment"># &quot;采用快排思想&quot;</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            q = partition(li, p,r)</span><br><span class="line">            <span class="keyword">if</span> q+<span class="number">1</span>==k:</span><br><span class="line">                <span class="keyword">return</span> li[q]</span><br><span class="line">            <span class="keyword">elif</span> q+<span class="number">1</span>&gt;k:</span><br><span class="line">                <span class="keyword">return</span> helper(li, p, q-<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> helper(li, q+<span class="number">1</span>, r)</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            pivot = li[p]  <span class="comment"># 选队首为比较点</span></span><br><span class="line">            <span class="keyword">while</span> p&lt;r:</span><br><span class="line">                <span class="keyword">while</span> li[r]&lt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    r -= <span class="number">1</span></span><br><span class="line">                li[p] = li[r]</span><br><span class="line">                <span class="keyword">while</span> li[p] &gt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    p += <span class="number">1</span></span><br><span class="line">                li[r] = li[p]</span><br><span class="line">            li[p] = pivot  <span class="comment"># p/r相遇,得到</span></span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> helper(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
-
 </blockquote>
-<h3 id="复杂度O-n-排序"><a href="#复杂度O-n-排序" class="headerlink" title="复杂度O(n)排序"></a>复杂度O(n)排序</h3><p>它们均不涉及元素之间的比较操作：</p>
+<h3 id="复杂度O-n-排序"><a href="#复杂度O-n-排序" class="headerlink" title="复杂度O(n)排序"></a>复杂度O(n)排序</h3><p>它们均不涉及元素之间的比较操作</p>
 <ul>
-<li>桶排序</li>
 <li>计数排序</li>
 </ul>
 <p>计数排序其实是桶排序的一种特殊情况</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">counting_sort</span>(<span class="params">array</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(array) &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> array</span><br><span class="line">    max_num = <span class="built_in">max</span>(array)</span><br><span class="line">    count = [<span class="number">0</span>] * (max_num + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> array:</span><br><span class="line">        count[num] += <span class="number">1</span></span><br><span class="line">    new_array = <span class="built_in">list</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(count)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(count[i]):</span><br><span class="line">            new_array.append(i)</span><br><span class="line">    <span class="keyword">return</span> new_array</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    array = [<span class="number">5</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">    <span class="built_in">print</span>(counting_sort(array))</span><br></pre></td></tr></table></figure>
+<p>时间复杂度：O(n+K)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">counting_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    max_num = <span class="built_in">max</span>(li)</span><br><span class="line">    count_li = [<span class="number">0</span>] * (max_num + <span class="number">1</span>)  <span class="comment"># 计数列表</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> li:</span><br><span class="line">        count_li[num] += <span class="number">1</span></span><br><span class="line">    li.clear()</span><br><span class="line">    <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(count_li):</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(v):</span><br><span class="line">            li.append(i)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqr4pd7xhmj312w0mkh4f.jpg" alt="image-20210522131414275"></p>
+<p>缺点：</p>
+<p>1）当数列最大、最小值差距过大时</p>
+<p>意味着，空间的极大浪费</p>
+<p>2）小数</p>
+<ul>
+<li>桶排序</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv089dd00cj60o209k0tf02.jpg" alt="image-20211001232844068"></p>
 <ul>
 <li>基数排序</li>
 </ul>
-<h3 id="排序总结"><a href="#排序总结" class="headerlink" title="排序总结"></a>排序总结</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqr5d9a7zej317y0p8qv5.jpg" alt="image-20210522133715895"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gv08qbo2ndg60s40fywic02.gif" alt="img"></p>
+<ul>
+<li>比较</li>
+</ul>
+<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
+<p><strong>基数排序：</strong>根据键值的每位数字来分配桶；</p>
+<p><strong>计数排序：</strong>每个桶只存储单一键值；</p>
+<p><strong>桶排序：</strong>每个桶存储一定范围的数值；</p>
 <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guxyd2a1mmj60xg0c4dgf02.jpg" alt="image-20210930001510344"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">li, val</span>):</span></span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(li)-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:  <span class="comment"># 候选区有值</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        mid = (left+right)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> li[mid]==val:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> li[mid]&gt;val:  <span class="comment"># 待查找的值在 mid 左侧</span></span><br><span class="line">            right = mid-<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 待查找的值在 mid 右侧</span></span><br><span class="line">            left = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">----------</span><br><span class="line">li = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(binary_search(li, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 
