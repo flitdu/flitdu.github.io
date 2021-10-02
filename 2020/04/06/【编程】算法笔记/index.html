@@ -96,11 +96,6 @@
 <li><p>while 1 要比 while True 更快（当然后者的可读性更好）；</p>
 </li>
 </ol>
-<h2 id="Python内置list"><a href="#Python内置list" class="headerlink" title="Python内置list"></a>Python内置list</h2><p>数组的两种实现方式，考虑到能容纳任意的元素，且在更换存储区域时，list 对象的标识ID不变，只能采用分离式实现技术</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdyac17nifj30rg0bye5m.jpg" alt="image-20200418222341456"></p>
-<p>元素外置顺序表如下，可以使得存储的元素大小不一，且有统一公式计算:</p>
-<p>$$Loc(e_i)=l_0+c*i$$</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdy99ths79j30u80niu0x.jpg" alt="image-20200418214651055"></p>
 <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><blockquote>
 <p>首先建立Node：</p>
 </blockquote>
@@ -153,25 +148,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def createLinkHead(li):</span><br><span class="line">    &#x27;头插法&#x27;</span><br><span class="line">    head = Node(li[0])</span><br><span class="line">    for ele in li[1:]:</span><br><span class="line">        node = Node(ele)</span><br><span class="line">        node.next = head</span><br><span class="line">        head = node</span><br><span class="line">    return head</span><br><span class="line"></span><br><span class="line">def printLinklist(lk):</span><br><span class="line">    while lk:</span><br><span class="line">        print(lk.item, end = &#x27;,&#x27;)</span><br><span class="line">        lk = lk.next</span><br><span class="line"></span><br><span class="line">lk = createLinkHead([1,2,3])</span><br><span class="line">printLinklist(lk)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghkrhlpkl6j30pa09ek04.jpg" alt="image-20200809190038327"></p>
-<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><ul>
-<li>内置模块</li>
-</ul>
-<p>双端队列，即可实现栈，也可实现队列。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建队列</span></span><br><span class="line">d = collections.deque()</span><br><span class="line"></span><br><span class="line">d.append(<span class="number">1</span>) <span class="comment">#从队尾入队</span></span><br><span class="line">d.popleft() <span class="comment">#从队头出队</span></span><br><span class="line"></span><br><span class="line">d.appendleft(<span class="number">2</span>) <span class="comment">#从队头入队</span></span><br><span class="line">d.pop() <span class="comment">#从队尾出队</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2021/03/04/CvMgqEfAXjTtO4U.png" alt="image-20210304235311165"></p>
-<p>使用 <code>deque(maxlen=N)</code> 构造函数会新建一个固定大小的队列。当新的元素加入并且这个队列已满的时候， 最老的元素会自动被移除掉。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">q = deque(maxlen=<span class="number">3</span>)</span><br><span class="line">q.append(<span class="number">12</span>)</span><br><span class="line">q.append(<span class="number">1</span>)</span><br><span class="line">q.append(<span class="number">142</span>)   <span class="comment">#---&gt; deque([12， 1, 142])</span></span><br><span class="line">q.append(-<span class="number">19</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(q, <span class="string">&#x27;-------&#x27;</span>)</span><br><span class="line">q.popleft()</span><br><span class="line">q</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deque([1, 142, -19], maxlen=3) -------</span><br><span class="line">deque([142, -19])</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>应用：</p>
-<p>在某种意义上，这种混合线性结构提供了单个数据结构中的栈和队列的所有能力</p>
-</blockquote>
-<p>e.g.  解决回文问题，如 ‘radar’, ‘toot’字符判断</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdw1gu2puvj30wo094agl.jpg" alt="image-20200416234547162"></p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gdw1rinaigj30x80mggz2.jpg" alt="image-20200416235602591"></p>
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><blockquote>
 <p>链表构造形式</p>
 </blockquote>

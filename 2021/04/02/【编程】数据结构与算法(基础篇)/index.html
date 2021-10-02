@@ -238,6 +238,19 @@
 <p>在多线程情况下，会有多个线程同时操作队列，这个时候就会存在线程安全问题，那如何实现一个线程安全的队列呢?</p>
 <p>线程安全的队列我们叫作<strong>并发队列</strong>。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加 锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队 列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原 因。</p>
 <p>总之，阻塞队列就是入队、出队操作可以阻塞，并发队列就是队列的操作多线程安全</p>
+<ul>
+<li>内置模块</li>
+</ul>
+<p>双端队列</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv17ma4kggj60yw0d8wgi02.jpg" alt="image-20210304235311165"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="comment"># 创建队列</span></span><br><span class="line">d = collections.deque()</span><br><span class="line"></span><br><span class="line">d.append(<span class="number">1</span>) <span class="comment">#从队尾入队</span></span><br><span class="line">d.popleft() <span class="comment">#从队头出队</span></span><br><span class="line"></span><br><span class="line">d.appendleft(<span class="number">2</span>) <span class="comment">#从队头入队</span></span><br><span class="line">d.pop() <span class="comment">#从队尾出队</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>deque(maxlen=N)</code> 构造函数会新建一个固定大小的队列。当新的元素加入并且这个队列已满的时候， 最前面的元素会自动pop()。</p>
+<p>可以实现linux tail命令，打印文件的最后几行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tail</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        q = deque(f, n)</span><br><span class="line">        <span class="keyword">return</span> q</span><br><span class="line"><span class="built_in">print</span>(tail(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>从栈的操作特性上来看，<strong>栈是一种</strong>“<strong>操作受限</strong>”<strong>的线性表</strong>，只允许在一端插入和删除数据。</p>
 <p>事实上，从功能上来说，数组或链表确实可以替代栈，但你要知道，特定的数据结构是对特定场景的抽象，而且，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</p>
 <p><strong>当某个数据集合只涉及在一端插入和删除数据，并且满足后进先出、先进后出的特性，这时我们就应该 首选</strong>“<strong>栈</strong>”<strong>这种数据结构</strong>。</p>
@@ -798,6 +811,10 @@
 </ol>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpku2vnsy0j31k20jo1jo.jpg" alt="image-20210415231226060"></p>
 <ol start="2">
-<li><a target="_blank" rel="noopener" href="https://blog.fundebug.com/2018/08/27/code-interview-data-structure/">代码面试需要知道的8种数据结构(附面试题及答案链接)</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.fundebug.com/2018/08/27/code-interview-data-structure/">代码面试需要知道的8种数据结构(附面试题及答案链接)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mp4y1D7UP?from=search&seid=9730477613809740339">哔哩哔哩视频：清华计算机博士带你学习Python算法+数据结构</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv18apj01qj61hy0u0dm402.jpg" alt="image-20200815171822878"></p>
+</li>
+<li></li>
 </ol>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E%EF%BC%88%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%89/" title="⭐️数据结构与算法之美（高级篇 &amp; 实战篇）" class="prev">PREV</a><a href="/2021/03/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="⭐️并发编程【未看完】" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
