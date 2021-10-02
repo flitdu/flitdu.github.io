@@ -898,6 +898,8 @@
 <p>注意，只有一个元素时，要这样写：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (&#x27;s&#x27;,)</span><br><span class="line">print(a,type(a))  #(&#x27;s&#x27;,) &lt;class &#x27;tuple&#x27;&gt;</span><br></pre></td></tr></table></figure>
 
+
+
 <h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>复杂度：【10】</p>
 <table>
 <thead>
@@ -941,51 +943,7 @@
 <blockquote>
 <p> 在dict中查找某个key是否存在操作的时间复杂度为o（1）；查找某个value是否存在操作的时间复杂度为o（n）</p>
 <p>本质：dict作为一个hash链表，是对其key进行hash操作的，而非value。</p>
-<p>验证：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">num = <span class="number">10000</span></span><br><span class="line">dic = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">    dic[i] = i</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> dic.keys():   <span class="comment"># 时间快</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">end = time.time()</span><br><span class="line"><span class="built_in">print</span> (end - start)</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> dic.values():</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">end = time.time()</span><br><span class="line"><span class="built_in">print</span> (end - start)</span><br></pre></td></tr></table></figure>
-
-<p>0.0018889904022216797<br>0.7385590076446533</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th align="left">操作</th>
-<th>方法</th>
-<th>实例</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">添加</td>
-<td>d[a] = b</td>
-<td></td>
-<td>{a: b}</td>
-</tr>
-<tr>
-<td align="left">查询</td>
-<td>d[a]</td>
-<td></td>
-<td>不存在会报错</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td>d.get()</td>
-<td>d = {‘a’: 1, ‘b’: 2, ‘c’: 3} <br />print(d.get(‘s’)) <br />print(d.get(‘s’, 0))  # 查询不存在，则返回0 <br />print(d.get(‘a’, 0))  <br />print(d)  # 原先的d 不变</td>
-<td>None<br/>0<br/>1<br/>{‘a’: 1, ‘b’: 2, ‘c’: 3}</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td>d.setdefault()</td>
-<td></td>
-<td>查询不到会新增，改变原先dict</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gi92bkp4acj313k0dcdxy.jpg" alt="image-20200830192855373"></p>
 <p>基本格式是{key ：value}</p>
 <ul>
