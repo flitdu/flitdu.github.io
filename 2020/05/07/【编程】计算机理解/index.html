@@ -31,6 +31,11 @@
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1geli4gzshxj31hs0i677e.jpg" alt="image-20200509001856037"></p>
 <p>值得好好观看👆</p>
 <p>来自百度词条【晶体管】</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/348237008">CPU 是怎么认识代码的？</a></li>
+</ul>
+<p>里面的回答很经典</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv14ph93lhj60pk0bb0tb02.jpg" alt="img"></p>
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghstmfbx9kj31i80b2e5e.jpg" alt="image-20200816181855186"></p>
 <p>在python 程序中，当我们的程序运行起来后，内存中存储的字符串默认使用的是unicode。目的是 Unicode定长，好处理。但是，如果涉及到字符串的存储和传输，就必须进行编码，编码成utf-8 或 gbk 进行传递，原因是unicode 太浪费空间了。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;很好&#x27;</span>  <span class="comment"># 内存中使用unicode</span></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">bs = s.encode(<span class="string">&#x27;utf-8&#x27;</span>)  </span><br><span class="line"><span class="built_in">print</span>(bs)   <span class="comment"># b&#x27;\xe5\xbe\x88\xe5\xa5\xbd&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(bs))  <span class="comment"># &lt;class &#x27;bytes&#x27;&gt;bytes 数据类型</span></span><br><span class="line"><span class="comment"># 在utf-8中，一个汉字是3个字节，每个\x代表一个字节</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.encode(<span class="string">&#x27;gbk&#x27;</span>))  <span class="comment"># 4字节：b&#x27;\xba\xdc\xba\xc3&#x27;</span></span><br></pre></td></tr></table></figure>
