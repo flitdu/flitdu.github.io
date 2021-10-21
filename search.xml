@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>⭐️c语言学习</title>
+      <link href="/2021/10/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2021/10/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<span id="more"></span><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><p>公式：<code>$$</code>, 回车<br>$$<br>P(A_i \mid B) = \frac{P(B\mid A)P(A_i)}{\sum_{j=1}^{n}P(A_j)P(B \mid A_j)}<br>$$</p><p>质能方程 $$e=mc^2$$</p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>⭐️推荐系统实践</title>
       <link href="/2021/09/04/%E3%80%90NLP%E3%80%91%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5/"/>
       <url>/2021/09/04/%E3%80%90NLP%E3%80%91%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5/</url>
