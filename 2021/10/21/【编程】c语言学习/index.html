@@ -2,11 +2,22 @@
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️c语言学习</h1><div class="post-info">2021-10-21</div><div class="post-content"><span id="more"></span>
 
-<h3 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h3><p>c 语言的执行需要</p>
-<p>使用gcc编译：</p>
-<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><p>公式：<code>$$</code>, 回车<br>$$<br>P(A_i \mid B) = \frac{P(B\mid A)P(A_i)}{\sum_{j=1}^{n}P(A_j)P(B \mid A_j)}<br>$$</p>
-<p>质能方程 $$e=mc^2$$</p>
-<p>出自【1】<a name='toc1'></a></p>
+
+
+<h3 id="c语言标准"><a href="#c语言标准" class="headerlink" title="c语言标准"></a>c语言标准</h3><p>C 语言标准的第一次大型修订，发生在1999年，增加了许多语言特性，比如双斜杠（<code>//</code>）的注释语法。这个版本称为 C99，是目前最流行的 C 版本。</p>
+<p>当代很多流行语言都是以 C 语言为基础，比如 C++、Java、C#、JavaScript 等等。学好 C 语言有助于对这些语言加深理解。</p>
+<h3 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h3><p>c 是一种编译型语言，需要经过编译器生成二进制的可执行文件，才能执行</p>
+<p>构建<code>test.c</code>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用gcc编译：<code>gcc test.c</code>生成 <code>a.out</code></p>
+<p>运行 ‘./a.out’</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./a.out </span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+
+<p>‘gcc -o’ 还可以指定编译后的文件名：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -o hello test.c</span><br><span class="line">$ ./hello</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvncnmrvyrj60iw02k3ym02.jpg" alt="image-20211021232849344"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://wangdoc.com/clang/intro.html">阮一峰c语言教程</a></li>
 </ol>
