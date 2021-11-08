@@ -54,7 +54,16 @@
 <td><code>%c</code></td>
 <td></td>
 </tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *sp = <span class="string">&quot;pointer&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s, %p,%c,%c\n&quot;</span>,sp, sp,*sp,*(sp+<span class="number">2</span>)); </span><br><span class="line">---------</span><br><span class="line">pointer, <span class="number">0x1099d5f96</span>,p,i</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <ul>
 <li>限定宽度</li>
 </ul>
@@ -93,7 +102,8 @@
 
 
 <h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p>何为指针？</p>
-<p>指针是一个值，代表一个内存的地址</p>
+<p>指针是一个值，代表一个内存的地址;</p>
+<p>指针占的字节与平台有关，64位机器占8B</p>
 <p>针对不同的变量类型，可以声明不同的指针，如 <code>char*</code>表示指向字符的指针，<code>int*</code>表示指向整数的指针</p>
 <ul>
 <li>指针变量的初始化</li>
@@ -136,6 +146,4 @@
 <ol start="2">
 <li></li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw18x2acc0j31is0u0gtn.jpg" alt="image-20211102235716348"></p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw18xsg2sgj31fg0u07em.jpg" alt="image-20211102235759817"></p>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/09/04/%E3%80%90NLP%E3%80%91%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5/" title="⭐️推荐系统实践" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
