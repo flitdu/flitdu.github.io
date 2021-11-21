@@ -5,8 +5,8 @@
     
     <entry>
       <title>⭐️玩转树莓派</title>
-      <link href="/2021/11/21/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-      <url>/2021/11/21/%E6%A0%91%E8%8E%93%E6%B4%BE/</url>
+      <link href="/2021/11/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91%E7%8E%A9%E8%BD%AC%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+      <url>/2021/11/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91%E7%8E%A9%E8%BD%AC%E6%A0%91%E8%8E%93%E6%B4%BE/</url>
       
         <content type="html"><![CDATA[<span id="more"></span><h2 id="系统烧录准备"><a href="#系统烧录准备" class="headerlink" title="系统烧录准备"></a>系统烧录准备</h2><ul><li>OS资源下载</li></ul><p><a href="https://link.segmentfault.com/?enc=SYdBXQMUet9OaWkQvbzaJw==.U0/Giy0C8KU06MigZXGGvDlUQTKUDnN1oo3eSpuXPn8VSxzWvCCOOTG32muvRetW">树莓派（raspberrypi）常用镜像高速下载</a> ：收集了超过12种树莓派系统镜像，同时带有介绍，你可以选择一个最佳的树莓派系统，在页面即可下载系统镜像，非常方便。</p><p><a href="https://link.segmentfault.com/?enc=P8TZmKN1Try4AxNxWIgDbw==.vyWQZA5JMunGT1rbf6wqP0MCTMJmcMh55mhJdyJMOGc=">树莓派操作系统镜像下载地址（史上最全）</a>：收集了树莓派所有的52个系统，而且每一个系统都有简短的介绍。</p><ul><li>使用 Raspberry Pi Imager</li></ul><p><a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">https://www.raspberrypi.com/documentation/computers/getting-started.html</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwn7nnpymjj30zg0mmgn7.jpg" alt="image-20211121235610322"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://segmentfault.com/a/1190000021776077">树莓派资源整理汇总(2020年2月18日更新)</a></li><li></li></ol>]]></content>
       
@@ -21,6 +21,8 @@
         <tags>
             
             <tag> 树莓派 </tag>
+            
+            <tag> 硬件 </tag>
             
         </tags>
       
