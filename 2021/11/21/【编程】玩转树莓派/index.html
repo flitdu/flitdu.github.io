@@ -2,9 +2,7 @@
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️玩转树莓派</h1><div class="post-info">2021-11-21</div><div class="post-content"><span id="more"></span>
 
-
-
-<h2 id="系统烧录准备"><a href="#系统烧录准备" class="headerlink" title="系统烧录准备"></a>系统烧录准备</h2><ul>
+<h2 id="登录准备"><a href="#登录准备" class="headerlink" title="登录准备"></a>登录准备</h2><h3 id="系统烧录"><a href="#系统烧录" class="headerlink" title="系统烧录"></a>系统烧录</h3><ul>
 <li>OS资源下载</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=SYdBXQMUet9OaWkQvbzaJw==.U0/Giy0C8KU06MigZXGGvDlUQTKUDnN1oo3eSpuXPn8VSxzWvCCOOTG32muvRetW">树莓派（raspberrypi）常用镜像高速下载</a> ：收集了超过12种树莓派系统镜像，同时带有介绍，你可以选择一个最佳的树莓派系统，在页面即可下载系统镜像，非常方便。</p>
@@ -14,6 +12,34 @@
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/getting-started.html">https://www.raspberrypi.com/documentation/computers/getting-started.html</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwn7nnpymjj30zg0mmgn7.jpg" alt="image-20211121235610322"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li>编辑 <code>config.txt</code> 在末尾添加  <code>dtoverlay=dwc2 </code></li>
+<li>编辑 <code>cmdline.txt</code>，在 <code>rootwait</code> 后添加一个空格，然后添加 <code>modules-load=dwc2,g_ether</code></li>
+<li>创建一个名为 <code>ssh</code> 的空文件，开启树莓派的 sshd 服务, <code>touch ssh</code></li>
+<li>热点设置，新建 <code>wpa_supplicant.conf</code> 文件写入以下内容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=1</span><br><span class="line">country=CN</span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;WIFI 的名称&quot;</span><br><span class="line">    psk=&quot;WIFI 密码&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ssh-连接"><a href="#ssh-连接" class="headerlink" title="ssh 连接"></a>ssh 连接</h3><p><strong>手机开启热点，电脑也在同一个热点下</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gwobbezstxj30py0dsjsp.jpg" alt="image-20211122224808731"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gwobfd0u9cj31940hg41n.jpg" alt="image-20211122225157649"></p>
+<h3 id="家里wifi-设置连接"><a href="#家里wifi-设置连接" class="headerlink" title="家里wifi 设置连接"></a>家里wifi 设置连接</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xl15575173411/article/details/77248397">电脑通过wifi连接树莓派3</a></p>
+<p>查看可用的wifi: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iwlist wlan0 scan</span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
+
+<p>进入到编辑页面，在最底端加入这样一些语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">ssid=<span class="string">&quot;网络名&quot;</span></span><br><span class="line">psk=<span class="string">&quot;密码&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令查看树莓派连接wifi的IP地址，记住这个IP地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig wlan0</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gwobtf4ykrj30xm0aimzd.jpg" alt="image-20211122230531180"></p>
+<p>重启树莓派，打开ssh登录界面，输入这个IP地址(或 <code>raspberrypi.local</code>)，就不需要网线就能登录树莓派了。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021776077">树莓派资源整理汇总(2020年2月18日更新)</a></li>
 <li></li>
