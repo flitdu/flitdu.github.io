@@ -4,8 +4,23 @@
 
 
 
-<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li></li>
+<h2 id="Chap2-信息的表示和处理"><a href="#Chap2-信息的表示和处理" class="headerlink" title="Chap2: 信息的表示和处理"></a>Chap2: 信息的表示和处理</h2><p>计算机有自己的处理方式，我们若想利用好计算机，就要知道计算机是表示和处理信息的。计算机有一套自己的处理逻辑，采用二进制系统。</p>
+<p>联想到在NLP 发展里程中，围绕自然语言的表示（one-hot–&gt;word2vec–&gt;bert等）也经历了不断的发展，好的表示有时会带来效果上巨大的跃升</p>
+<p>历史上 <a target="_blank" rel="noopener" href="https://www.infoq.cn/article/p0kecufq5f9w_irxji3x">软件缺陷而引发的灾难</a> ：</p>
+<ul>
+<li><em>1996年6月4 日阿丽亚娜5号首次测试发射失败：</em></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwzy1t88u6j30go0azdfw.jpg" alt="img"></p>
+<ul>
+<li><p><em>再举一个真实的例子， 纽约时报曾经报道，波音 787 的电力控制系统在 248 天电力不中断的状况下会自动关机（这可能发生在飞行途中），为此 FAA (美国联邦航空管理局) 告知航空公司，他们必须每隔 120 天进行一次维护重启，这显然是治标不治本的办法，我们来探究一下其中的真正原因：</em></p>
+<blockquote>
+<p>美国卡内基梅隆大学 (CMU) 的 <a target="_blank" rel="noopener" href="http://users.ece.cmu.edu/~koopman/">Phil Koopman</a> 教授指出，这其实是 integer overflow 问题，也就是所谓的整型溢出问题，原文链接在<a target="_blank" rel="noopener" href="https://betterembsw.blogspot.com/2015/05/counter-rollover-bites-boeing-787.html">这里</a>，我们简单小结一下，报告指出的248天为：248 days * 24 hours/day  * 60 minute/hour * 60 seconds/minute = 21427200秒，等效于2142720000（以1/100秒来计算），十六进制表示就是：0x7Fb75000 ，而最大的32位正整型是0x7FFFFFFF，248天看起来非常接近该限制，实际上，0x7FFFFFFF = 2147483647 /（24 * 60 * 60）= 24855/100 = 248.55天，因此，实际上崩溃会在248.55天之后发生，也就是说，使用了32位的有符号整型来记录时间（记录的单位是10ms），然后遇到溢出。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)">https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)</a></li>
+<li>视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RK4y1R7Kf?p=2&spm_id_from=pageDriver">[原创] 深入理解计算机系统 - CSAPP重点导读（更新完毕）</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwzx5yb8rej31og0u011m.jpg" alt="image-20211202234515584"></li>
 <li></li>
 </ol>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/11/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91%E7%8E%A9%E8%BD%AC%E6%A0%91%E8%8E%93%E6%B4%BE/" title="⭐️玩转树莓派" class="prev">PREV</a><a href="/2021/10/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="⭐️c语言学习" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
