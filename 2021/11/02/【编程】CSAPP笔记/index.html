@@ -21,7 +21,7 @@
 <h3 id="原码、反码与补码"><a href="#原码、反码与补码" class="headerlink" title="原码、反码与补码"></a>原码、反码与补码</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">原码, 反码, 补码 详解 </a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx1yf53pabj30jw08smxk.jpg" alt="image-20211204175944888"></p>
 <ul>
-<li>原码</li>
+<li><strong>原码</strong></li>
 </ul>
 <p>第一位是符号位，其余位表示值。比如如果是8位二进制:</p>
 <blockquote>
@@ -37,7 +37,7 @@
 <p>[-127 , 127]</p>
 </blockquote>
 <ul>
-<li>反码</li>
+<li><strong>反码</strong></li>
 </ul>
 <p>正数的反码是其本身</p>
 <p>负数的反码是在其原码的基础上, 符号位不变，其余各个位取反.</p>
@@ -58,7 +58,7 @@
 </code></pre>
 <p>反码的优点：正数和负数的加法都一样， 不需要单独判断符号的电路。但是，0表示还是不唯一</p>
 <ul>
-<li>补码</li>
+<li><strong>补码</strong></li>
 </ul>
 <p>正数的补码就是其本身</p>
 <p>负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1. (<strong>即在反码的基础上+1</strong>)</p>
@@ -66,12 +66,13 @@
 <p>[+1] = [00000001]原 = [00000001]反 = [00000001]补</p>
 <p>[-1] = [10000001]原 = [11111110]反 = [11111111]补</p>
 </blockquote>
-<p><strong>补码转十进制值：</strong></p>
-<p>方法1）按照定义<br>方法2）对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取反即可</p>
+<p>补码转十进制值的两种方法：</p>
+<p>1)按照定义</p>
+<p>2)对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取反即可</p>
 <blockquote>
 <p>e.g.， [1011]补 = -([0101]原)=-7</p>
 </blockquote>
-<p>补码表示的一个显著优点就是补码的减法可以通过补码加法来实现，即补码运算具有如下性质</p>
+<p>补码表示的一个显著优点就是补码的减法可以通过补码加法来实现，即补码运算具有如下性质：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx37auybx8j30wk032mxa.jpg" alt="image-20211205195032550">而‐B补 可以通过将 B补“按位取反，末位加 1” 的法则进行计算。</p>
 <p>e.g.</p>
 <blockquote>
@@ -79,7 +80,7 @@
 <p>   1 0 1<br> - 0 1 1<br>-———<br>    1 0 1<br> + 1 0 1   &lt;—[-B]补<br>-———<br> 1 0 1 0  &lt;— -6</p>
 </blockquote>
 <ul>
-<li>乘法</li>
+<li><strong>乘法</strong></li>
 </ul>
 <p>乘法亦会转化为加法计算</p>
 <p><em>参见龙芯团队书籍《计算机体系结构基础》p210:</em></p>
@@ -87,6 +88,20 @@
 <p>图8.27给出两个 4 位补码相乘的例子。<strong>注意在补码加法运算中，需要进 行 8 位的符号位扩展，并仅保留 8 位结果。</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx36xtbzg9j31060fswg3.jpg" alt="image-20211205194001174"></p>
 <p>知乎相关提问：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22420697">补码乘法位级操作过程是这样的么？</a></p>
+<ul>
+<li>一些练习</li>
+</ul>
+<p>1） 整数比较判断（p75–习题2.44）</p>
+<p>考虑 int x, y;  unsigned ux =x</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x&lt;<span class="number">0</span>		--&gt; ((x*<span class="number">2</span>)&lt;<span class="number">0</span>)   ❌</span><br><span class="line">ux &gt;<span class="number">-1</span>  							❌</span><br><span class="line">x&gt;y   --&gt;  -x &lt; -y    ❌</span><br><span class="line">x*x &gt;= <span class="number">0</span>  				    ❌</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;limits.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x1 = INT_MIN;  <span class="comment">//最小值 1000....00</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;case1: x=%d, x*2=%d\n&quot;</span>, x1, x1*<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">unsigned</span> ux=<span class="number">5</span>;   <span class="comment">//有符号数会强制转为无符号数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;case2: ux&gt;-1: %d\n&quot;</span>, ux&gt;<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> x2=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> y= INT_MIN;  <span class="comment">// y相反数为自己，仍为最小数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;case3: x &gt;y: %d\n&quot;</span>, x2&gt;y);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;case3: -x&lt;-y: %d\n&quot;</span>, -x2&lt;-y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> x3=<span class="number">50000</span>;   <span class="comment">//溢出</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;case4: x*x: %d\n&quot;</span>, x3*x3);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case1: x=-2147483648, x*2=0</span><br><span class="line">case2: ux&gt;-1: 0</span><br><span class="line">case3: x &gt;y: 1</span><br><span class="line">case3: -x&lt;-y: 0</span><br><span class="line">case4: x*x: -1794967296</span><br></pre></td></tr></table></figure>
+
+<p>2）Brian Kernighan（K&amp;R中的K，也是AWK的作者之一）在谈论<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K64y1Q7Ru/">编程风格</a>的时候举了一个比特操作的例子：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx3eu127m6j31j40u0n0j.jpg" alt="image-20211206001313055"></p>
 <h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>1985年：IEEE-754 标准</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)">https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)</a></li>
