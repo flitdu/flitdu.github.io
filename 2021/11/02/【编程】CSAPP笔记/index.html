@@ -102,7 +102,40 @@
 
 <p>2）Brian Kernighan（K&amp;R中的K，也是AWK的作者之一）在谈论<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K64y1Q7Ru/">编程风格</a>的时候举了一个比特操作的例子：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx3eu127m6j31j40u0n0j.jpg" alt="image-20211206001313055"></p>
+<p>3). 大小端</p>
+<p>可以通过反汇编查看：<code>objdump -d /bin/ls</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4iyvlo6dj313407qdim.jpg" alt="image-20211206232145903"></p>
+<p>由上图可知，<code>C5</code>在低地址，所以为 小端表示</p>
+<p>也可以通过字节序展示查看：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Demo_2:观察字节序的一个简单例子</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *pointer;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%p\t0x%.2x\n&quot;</span>,start+i, start[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0x01234567</span>;</span><br><span class="line">    show_bytes((pointer) &amp;a, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">////////////////////////////</span></span><br><span class="line"><span class="number">0x7ffee697c8ac</span>	<span class="number">0x67</span></span><br><span class="line"><span class="number">0x7ffee697c8ad</span>	<span class="number">0x45</span></span><br><span class="line"><span class="number">0x7ffee697c8ae</span>	<span class="number">0x23</span></span><br><span class="line"><span class="number">0x7ffee697c8af</span>	<span class="number">0x01</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>1985年：IEEE-754 标准</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4k4wfr9mj31e808it9l.jpg" alt="image-20211207000208368"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Demo_3</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    assert(+<span class="number">0.</span> == <span class="number">-0.</span>);      <span class="comment">// 断言成功</span></span><br><span class="line">    assert(<span class="number">1.0</span>/+<span class="number">0.</span> == <span class="number">1.0</span>/<span class="number">-0.</span>); <span class="comment">// 断言失败</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体编码方式（32位浮点数为例）：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4kbm3wvsj31600jg0ve.jpg" alt="image-20211207000838521"></p>
+<p><strong>特别注意</strong>：浮点数加法和乘法不满足结合律 ，也不满足乘法对加法的分配律，以下举例说明：</p>
+<p>(3.14+1e10)-1e10 = 0, 3.14+(1e10-1e10) = 3.14，(1e20 *1e20) * 1e-20= inf, 1e20 * (1e20 * 1e-20)= 1e20</p>
+<p>1e20 * (1e20 - 1e20)= 0.0, 1e20 * 1e20 - 1e20 * 1e20 = NaN</p>
+<p>这些特殊的数学性质对于科学计算程序员和编译器的优化限制都具有重要意义，举例如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = a + b + c;</span><br><span class="line">y = b + c + d;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译器可能试图通过产生下列代码来省去一个浮点加法</span></span><br><span class="line">t = b + c;</span><br><span class="line">x = a + t;</span><br><span class="line">y = t + d;</span><br><span class="line"><span class="comment">// 但是对x来说，这个计算可能会产生于原始值不同的值,因为它使用了加法运算的不同结合方式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>视频补充</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a54y1k7YE?p=4">CMU教授的视频教程 - Lecture4：Floating Point</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g5411K7Z7?p=17">计算机结构的伟大思想 - P17：浮点数运算</a> (40:00开始~)</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1554y1s7LS?p=27">台湾元智大学计算机组成原理：浮点数-1</a>，</p>
+<p> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1554y1s7LS?p=28">台湾元智大学计算机组成原理：浮点数-2</a> （中文讲解很清楚）</p>
+<p>PS. 一个很有意思的介绍浮点数的网站：<a target="_blank" rel="noopener" href="https://0.30000000000000004.com/">https://0.30000000000000004.com</a></p>
+<p>谷歌要花费力气来设计自己的BFloat16，详情请参考：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">Google BFloat16</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)">https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)</a></li>
 <li>视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RK4y1R7Kf?p=2&spm_id_from=pageDriver">[原创] 深入理解计算机系统 - CSAPP重点导读（更新完毕）</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwzx5yb8rej31og0u011m.jpg" alt="image-20211202234515584"></li>
