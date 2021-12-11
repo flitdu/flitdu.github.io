@@ -133,13 +133,25 @@
 <p>This directory contains the files that you will need to run the CS:APP<br>Data Lab, which helps develops the student’s understanding of bit<br>representations, two’s complement arithmetic, and IEEE floating point.</p>
 </blockquote>
 <ul>
-<li>函数说明</li>
+<li>Docker 运行</li>
 </ul>
-<p><code>dlc</code>  : 检查合法性  <code>./dlc bits.c</code></p>
-<p>运行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br><span class="line">make btest</span><br><span class="line">./btest</span><br></pre></td></tr></table></figure>
-
-
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82529114">Introduction to CSAPP（八）：Datalab</a></p>
+<blockquote>
+<p>用法详情还是需要你自己去阅读代码中的README文件，加油。总的来说，你需要做的是：</p>
+<ol>
+<li>阅读<code>bits.c</code>的注释与代码</li>
+<li>修改它</li>
+<li>命令行运行<code>./dlc -e bits.c</code>查看自己用了多少操作符，以及是否有代码风格问题</li>
+<li>运行<code>make clean &amp;&amp; make btest</code>编译文件</li>
+<li>运行<code>./btest</code>检查自己是否做对了</li>
+<li>return 1 直到全部做完</li>
+<li>最终运行<code>./driver.pl</code>获得打分</li>
+</ol>
+</blockquote>
+<ul>
+<li>完成</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two&#x27;s complement number,</span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="comment">//return 2;</span></span><br></pre></td></tr></table></figure>
 
 
 
