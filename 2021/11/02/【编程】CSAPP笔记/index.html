@@ -223,6 +223,26 @@
 <p>![img](<a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C">https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C</a> bareilly_副本.jpg?alt=media&amp;token=e4a8c6d9-60f9-4d1e-810a-1d4478fbaf73)</p>
 <p><a target="_blank" rel="noopener" href="https://www.bell-labs.com/usr/dmr/www/">https://www.bell-labs.com/usr/dmr/www/</a></p>
 <h2 id="Chap3-程序的机器级表示"><a href="#Chap3-程序的机器级表示" class="headerlink" title="Chap3: 程序的机器级表示"></a>Chap3: 程序的机器级表示</h2><ul>
+<li>汇编代码与机器代码</li>
+</ul>
+<p>对于源程序 xx.c，可以通过如下命令生成<strong>汇编代码</strong> <code>xx.s</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -S xx.c</span><br></pre></td></tr></table></figure>
+
+<p>通过如下命令生成二进制格式的<strong>目标代码</strong><code>xx.o</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -c xx.c</span><br></pre></td></tr></table></figure>
+
+<p>通过反汇编命令<code>objdump</code>可以将机器代码翻译成汇编代码,查看 .o 文件内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d xx.o</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf">x64 Cheat Sheet</a> pdf</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxckpmarcqj30xp0u0wja.jpg" alt="image-20211213222625144"></p>
