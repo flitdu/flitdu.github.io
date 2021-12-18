@@ -199,10 +199,10 @@
   
   <entry>
     <title>⭐️Django</title>
-    <link href="http://example.com/2021/07/26/Django/"/>
-    <id>http://example.com/2021/07/26/Django/</id>
+    <link href="http://example.com/2021/07/26/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91Django/"/>
+    <id>http://example.com/2021/07/26/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91Django/</id>
     <published>2021-07-25T16:00:00.000Z</published>
-    <updated>2021-07-26T14:10:43.323Z</updated>
+    <updated>2021-12-18T15:56:30.362Z</updated>
     
     <content type="html"><![CDATA[<span id="more"></span><ul><li>AI展示</li></ul><p><a href="https://www.cnblogs.com/xiaoer/p/11262456.html">自然语言处理NLP学习笔记三：使用Django做一个NLP的Web站点</a></p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
     
@@ -219,8 +219,10 @@
     
     
     
-    <category term="网页" scheme="http://example.com/categories/%E7%BD%91%E9%A1%B5/"/>
+    <category term="网络" scheme="http://example.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
+    
+    <category term="Django" scheme="http://example.com/tags/Django/"/>
     
   </entry>
   
