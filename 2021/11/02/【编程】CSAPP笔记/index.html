@@ -236,12 +236,32 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>整数寄存器</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjg1k366sj30u00y9jwo.jpg" alt="image-20211219210345292"></p>
+<ul>
+<li>操作数类型</li>
+</ul>
+<p>1）寄存器：%rax</p>
+<p>2）内存引用：(%rax)</p>
+<p>3）立即数: $8</p>
+<h3 id="mov指令"><a href="#mov指令" class="headerlink" title="mov指令"></a>mov指令</h3><p>将数据从源位置**<u>复制</u>**到目的位置</p>
+<p>mov 指令的后缀与寄存器的大小一定得是匹配的(e.g. ，movl 中l 表示4 bytes，而寄存器 %eax 的大小也是 4)：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfnvay8sj31960jy0vl.jpg" alt="image-20211219205032799"></p>
+<p>c 语言数据类型在 x86-64中的大小：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfsqmt0qj30vw0d4q4g.jpg" alt="image-20211219205516203"></p>
+<h3 id="push压栈指令"><a href="#push压栈指令" class="headerlink" title="push压栈指令"></a>push压栈指令</h3><p>e.g. 保存寄存器 rax 内存储的数据 0x123</p>
+<p><code>pushq %rax</code></p>
+<p>等价于如下两步：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subq $8, %rsp     // 寄存器rsp 值 -8，为待压入的值腾位置</span><br><span class="line">movq %rax, (%rsp)  // 将 寄存器rax 中值复制到新的栈顶位置</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjijy64hmj313c0i0di0.jpg" alt="image-20211219223036575"></p>
+<h3 id="pop出栈"><a href="#pop出栈" class="headerlink" title="pop出栈"></a>pop出栈</h3><p>同压栈操作类似，pop指令也可等效为如下两步</p>
+<blockquote>
+<p>注意，pop后，内存地址 0x100中保存的数据 0x123依旧存在</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjiskjxg4j31220hgjte.jpg" alt="image-20211219223853989"></p>
 <h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf">x64 Cheat Sheet</a> pdf</li>
 </ul>
