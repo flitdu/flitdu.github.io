@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-19T02:27:39.762Z</updated>
+  <updated>2021-12-19T15:38:08.697Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,22 +21,16 @@
     <link href="http://example.com/2021/12/18/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/"/>
     <id>http://example.com/2021/12/18/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-12-17T16:00:00.000Z</published>
-    <updated>2021-12-19T02:27:39.762Z</updated>
+    <updated>2021-12-19T15:38:08.697Z</updated>
     
-    <content type="html"><![CDATA[<span id="more"></span><p><img src="https://tva1.sinaimg.cn/large/0082zybpgy1gbusg75nh1j315x0u0qg6.jpg" alt="image-20200213150732293"></p><h2 id="书籍爬取"><a href="#书籍爬取" class="headerlink" title="书籍爬取"></a>书籍爬取</h2><p><a href="https://github.com/xdlkc/EpubwSpider">https://github.com/xdlkc/EpubwSpider</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtk51dtwgcj60w10u0tba02.jpg" alt="image-20210817220722473"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><strong><a href="https://github.com/wistbean/learn_python3_spider">learn_python3_spider</a></strong></li></ol><blockquote><p>python爬虫教程系列、从0到1学习python爬虫，包括浏览器抓包，手机APP抓包，如 fiddler、mitmproxy，各种爬虫涉及的模块的使用，如：requests、beautifulSoup、selenium、appium、scrapy等，以及IP代理，验证码识别，Mysql，MongoDB数据库的python使用，多线程多进程爬虫的使用，css 爬虫加密逆向破解，JS爬虫逆向，分布式爬虫，爬虫项目实战实例等</p></blockquote><ol start="2"><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<span id="more"></span><h2 id="数据抓包"><a href="#数据抓包" class="headerlink" title="数据抓包"></a>数据抓包</h2><h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>在搜索引擎中 输入’history‘,回车：</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjkblgtn2j324u0r8tj9.jpg" alt="image-20211219233146565"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.google.com/search?q=history&amp;sxsrf=AOaemvKJ3ajMp6N_uHAFRuQ2_QSay54LeA:1639927812421&amp;ei=BFC_YYOjGemkrgTIxoeIAQ&amp;ved=0ahUKEwiDtd2Vl_D0AhVpkosKHUjjAREQ4dUDCA4&amp;uact=5&amp;oq=history&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgAEEMyBQgAEJECMgUIABCRAjIECC4QQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQyBQgAEIAEOgcIIxCwAxAnOgcIABBHELADOgcIIxDqAhAnSgQIQRgASgQIRhgAUPkNWPo3YMI5aAVwAngBgAHdCogB3CeSAQc1LTEuMi4ymAEAoAEBsAEKyAEKwAEB&amp;sclient=gws-wiz</span><br></pre></td></tr></table></figure><p>可以知道这是一个GET 请求，且<code>?</code> 后面为get 请求的参数，参数以 ’键值对‘ 的形式出现</p><p> 截取前面的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.google.com/search?q=history</span><br></pre></td></tr></table></figure><p>在 <code>q=</code> 后面直接添加不同搜索内容就可以实现相应的搜索结果：</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjkhmvq55j31pq0kyjxn.jpg" alt="image-20211219233735165"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><strong><a href="https://github.com/wistbean/learn_python3_spider">learn_python3_spider</a></strong></li></ol><blockquote><p>python爬虫教程系列、从0到1学习python爬虫，包括浏览器抓包，手机APP抓包，如 fiddler、mitmproxy，各种爬虫涉及的模块的使用，如：requests、beautifulSoup、selenium、appium、scrapy等，以及IP代理，验证码识别，Mysql，MongoDB数据库的python使用，多线程多进程爬虫的使用，css 爬虫加密逆向破解，JS爬虫逆向，分布式爬虫，爬虫项目实战实例等</p></blockquote><ol start="2"><li></li></ol>]]></content>
     
     
       
       
     <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
 
-
-
-
-
-
-
-&lt;p&gt;&lt;img src=&quot;https://tva1.sinaimg.cn/large/0082zybpgy1gbusg75nh1j315x0u0qg6.jpg&quot; alt=&quot;image-20200213150732293</summary>
+&lt;h2 id=&quot;数据抓包&quot;&gt;&lt;a href=&quot;#数据抓包&quot; class=&quot;headerlink&quot; title=&quot;数据抓包&quot;&gt;&lt;/a&gt;数据抓包&lt;/h2&gt;&lt;h3 id=&quot;GET-请求&quot;&gt;&lt;a href=&quot;#GET-请求&quot; class=</summary>
       
     
     
