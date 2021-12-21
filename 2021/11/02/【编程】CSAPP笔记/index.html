@@ -237,8 +237,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>整数寄存器</li>
+<li>x86-64通用目的寄存器</li>
 </ul>
+<p>用于存储整数数据和指针</p>
+<p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjg1k366sj30u00y9jwo.jpg" alt="image-20211219210345292"></p>
 <ul>
 <li>操作数类型</li>
@@ -262,10 +264,17 @@
 <p>注意，pop后，内存地址 0x100中保存的数据 0x123依旧存在</p>
 </blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjiskjxg4j31220hgjte.jpg" alt="image-20211219223853989"></p>
+<h3 id="cmpq指令"><a href="#cmpq指令" class="headerlink" title="cmpq指令"></a>cmpq指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a==b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a in %rdi, b in %rsi</span><br><span class="line">  cmp    %rsi,%rdi   (a-b) 设置条件码寄存器</span><br><span class="line">  sete   %al</span><br><span class="line">  movzbl %al,%eax</span><br><span class="line">  retq  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxko67rt12j313i0fagnn.jpg" alt="image-20211220223031369"></p>
 <h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf">x64 Cheat Sheet</a> pdf</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxckpmarcqj30xp0u0wja.jpg" alt="image-20211213222625144"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EW411u7th?p=7">【计算机科学速成课】7：中央处理器CPU</a></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxlw94dj3hj31220mugsr.jpg" alt="image-20211221235539251"></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)">https://fengmuzi2003.gitbook.io/csapp3e/![image-20211202234352970](https://tva1.sinaimg.cn/large/008i3skNgy1gwzx4int76j32480qo7bl.jpg)</a></li>
 <li>视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RK4y1R7Kf?p=2&spm_id_from=pageDriver">[原创] 深入理解计算机系统 - CSAPP重点导读（更新完毕）</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwzx5yb8rej31og0u011m.jpg" alt="image-20211202234515584"></li>
