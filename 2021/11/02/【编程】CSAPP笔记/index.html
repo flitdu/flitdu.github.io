@@ -241,7 +241,21 @@
 </ul>
 <p>用于存储整数数据和指针</p>
 <p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjg1k366sj30u00y9jwo.jpg" alt="image-20211219210345292"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn0w0gug6j30u00yh79p.jpg" alt="image-20211222232137445"></p>
+<p>其中，调用者、被调用者保存寄存器分类如下：</p>
+<table>
+<thead>
+<tr>
+<th>调用者保存寄存器</th>
+<th>其余</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>被调用者保存寄存器</td>
+<td>%rbx ,%rbp,%r12~%r15</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn1f9t52xj31e60moq7a.jpg" alt="image-20211222234007914"></p>
 <ul>
 <li>操作数类型</li>
 </ul>
@@ -264,9 +278,14 @@
 <p>注意，pop后，内存地址 0x100中保存的数据 0x123依旧存在</p>
 </blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjiskjxg4j31220hgjte.jpg" alt="image-20211219223853989"></p>
-<h3 id="cmpq指令"><a href="#cmpq指令" class="headerlink" title="cmpq指令"></a>cmpq指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a==b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a in %rdi, b in %rsi</span><br><span class="line">  cmp    %rsi,%rdi   (a-b) 设置条件码寄存器</span><br><span class="line">  sete   %al</span><br><span class="line">  movzbl %al,%eax</span><br><span class="line">  retq  </span><br></pre></td></tr></table></figure>
+<h3 id="cmpq指令"><a href="#cmpq指令" class="headerlink" title="cmpq指令"></a>cmpq指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a==b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a in %rdi, b in %rsi</span><br><span class="line">  cmp    %rsi,%rdi   (a-b) 设置条件码寄存器</span><br><span class="line">  sete   %al</span><br><span class="line">  movzbl %al,%eax</span><br><span class="line">  retq</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxko67rt12j313i0fagnn.jpg" alt="image-20211220223031369"></p>
+<h3 id="栈上局部存储"><a href="#栈上局部存储" class="headerlink" title="栈上局部存储"></a>栈上局部存储</h3><p>当代码中对一个局部变量使用地址运算符时，此时，我们需要在栈上为这个局部变量开辟相应的存储空间</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">caller</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">long</span> arg1 = <span class="number">534</span>;</span><br><span class="line"><span class="keyword">long</span> arg2 = <span class="number">1057</span>;</span><br><span class="line"><span class="keyword">long</span> sum = swap_add(&amp;arg1, &amp;arg2); &lt;------</span><br><span class="line"><span class="keyword">long</span> diff = arg1 - arg2;</span><br><span class="line"><span class="keyword">return</span> sum * diff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn0chqbdpj31860og78r.jpg" alt="image-20211222230251965"></p>
+<h3 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h3><p>B站视频讲解：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cD4y1D7uR?p=19">p19- 过程函数调用 07:00</a> </p>
 <h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf">x64 Cheat Sheet</a> pdf</li>
 </ul>
