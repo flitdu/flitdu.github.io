@@ -331,7 +331,7 @@
 <h2 id="Chap4-处理器体系结构"><a href="#Chap4-处理器体系结构" class="headerlink" title="Chap4: 处理器体系结构"></a>Chap4: 处理器体系结构</h2><h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline??"></a>pipeline??</h3><h3 id="补充资料-2"><a href="#补充资料-2" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q64y1s7MH/?spm_id_from=333.788.recommend_more_video.-1">【硬核科普】全站最硬科普：7分钟带你了解造芯全过程</a></p>
 <p>Patterson演讲：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fr4y1N7hx/">计算机体系结构的新黄金时代</a>，Hennessy演讲：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TV411y7Jo/">计算机体系结构的新黄金时代</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12A41177Qt?p=1">计算机体系结构（胡伟武 汪文祥）20年秋季学期</a></p>
-<p>关于现代处理器，强烈推荐阅读这份很好的在线文档：<a target="_blank" rel="noopener" href="http://www.lighterra.com/papers/modernmicroprocessors/">Modern Microprocessors A 90-Minute Guide!</a></p>
+<p>关于现代处理器，强烈推荐阅读这份很好的在线文档：<a target="_blank" rel="noopener" href="http://www.lighterra.com/papers/modernmicroprocessors/">Modern Microprocessors A 90-Minute Guide!</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyktrcremj324a0r2133.jpg" alt="image-20220101231226145"></p>
 <p>大学伯克利分校 CS61C：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g5411K7Z7/">计算机架构的伟大思想</a> - 授课教授Krste</p>
 <h2 id="Chap5-优化程序性能"><a href="#Chap5-优化程序性能" class="headerlink" title="Chap5: 优化程序性能"></a>Chap5: 优化程序性能</h2><p><strong>编译器领域最早成名的教材</strong>： <em>Compilers: Principles,Techniques,and Tools，</em>中文名（龙书）：<em>编译原理</em></p>
 <p>本书的一大特点就是抽象难懂，主要讨论了编译器设计的重要主题，包括词法分析、语法分析、语义分析、中间代码生成、代码优化、代码生成等过程</p>
@@ -370,6 +370,33 @@
 <p><strong>虚拟内存有什么优点？</strong>    1**.** 可以使用磁盘交换空间  2. 虚拟地址到物理地址映射灵活  3. 进程地址空间隔离</p>
 <p>==&gt; <a target="_blank" rel="noopener" href="https://elixir.bootlin.com/glibc/latest/source/malloc/malloc.c">glibc源码一瞥</a> （相关的补充参考资料： <a target="_blank" rel="noopener" href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/">Understanding glibc malloc</a>）</p>
 <p><strong><em>*</em> 案例参考（遇到的问题 &amp; 解决的方法）</strong>：<a target="_blank" rel="noopener" href="https://paper.seebug.org/papers/Archive/refs/heap/glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86ptmalloc%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90.pdf">阿里（华庭=庄明强）：Glibc内存管理ptmalloc源代码分析</a></p>
+<h2 id="Chap10-系统级-I-O"><a href="#Chap10-系统级-I-O" class="headerlink" title="Chap10: 系统级 I/O"></a>Chap10: 系统级 I/O</h2><p><strong>学习系统I/O，标准I/O，最好的办法是：自己动手写一个终端编辑器（功能类似vim）</strong></p>
+<p>可以参考Redis 的作者antirez编写的Kilo，之所以称为Kilo是因为它不到1024行的代码， 他花了几个小时就编写出了文本编辑器的原型，同时antirez表示编写该编辑器的原因很简单：<a target="_blank" rel="noopener" href="http://antirez.com/news/108">仅为了乐趣</a> 。</p>
+<p>PS. 这里还有一份很棒的入门指南：<a target="_blank" rel="noopener" href="https://viewsourcecode.org/snaptoken/kilo/">Build Your Own Text Editor</a></p>
+<h2 id="Chap11-网路编程"><a href="#Chap11-网路编程" class="headerlink" title="Chap11: 网路编程"></a>Chap11: 网路编程</h2><p>今天互联网中的大千世界都立足于TCP/IP协议之上，Socket甚至已经成为了网络编程的同义词。</p>
+<p>Socket的英文原意为 “插孔” 或者 “插座”，通常称作”套接字”，它允许两个进程进行通信，这两个进程可能运行在同一个机器上，也可能运行在不同机器上。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyicxi46xj316o0k0wfs.jpg" alt="img"></p>
+<p>从应用程序员的角度来看，它是应用层与TCP/IP协议族通信的中间软件抽象层，是一组接口API。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyigr4x74j314u0rkacg.jpg" alt="img"></p>
+<p>提及网路编程，W. Richard Stevens对我们这些学习Unix/Linux的程序员的影响是巨大的，每每捧读他写的书都会被感动，不仅被他那丰富的知识所折服，更是被他那一丝不苟，严谨治学的态度所折服。</p>
+<p>“他不清楚的，他下决心要弄明白。他知道的，他要努力传授给所有感兴趣的人们！”这就是Stevens！</p>
+<p>他的个人网站至今还能访问：<a target="_blank" rel="noopener" href="http://www.kohala.com/start/%EF%BC%8C%E8%AE%A9%E6%88%91%E4%BB%AC%E5%90%91%E4%BB%96%E8%87%B4%E6%95%AC">http://www.kohala.com/start/，让我们向他致敬</a></p>
+<h2 id="Chap12-并发编程"><a href="#Chap12-并发编程" class="headerlink" title="Chap12: 并发编程"></a>Chap12: 并发编程</h2><p>处理器发展的趋势：多核时代早已到来！免费的午餐已经结束了！</p>
+<p>参考文章（Herb Sutter）：<a target="_blank" rel="noopener" href="http://www.gotw.ca/publications/concurrency-ddj.htm">The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyjo1ksctj30nm0e0act.jpg" alt="img"></p>
+<p>多核处理器成为上述变革的主流解決方案，想要压榨出更多的处理器效能，软件必须跟上硬件的设计！</p>
+<ul>
+<li>并发与并行</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EN411o7FY/">【大佬讲座】谷歌大神 Rob Pike：并发 vs 并行 (傻傻分不清楚？)</a></p>
+<p>Concurrency （并发）指程序架构，将程序拆成多个可独立运行的部分，不一定要同时运行，Parallelism（并行） 指程序执行，同时执行多个程序。</p>
+<p>Concurrency 可能会用到 Parallelism，但不一定要用 Parallelism 才能实现 Concurrency。在 Concurrent 中，工作可拆分成「独立执行」的部份，于是「可以」让很多事情一起做，但「不一定」要真的同时做，参见下图。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyjyjtg7sj31600hitao.jpg" alt="image-20220101224145839"></p>
+<p>那么我们究竟应该如何创建一个并行程序呢？以下流程图示取自CMU：15-418 并行计算架构与编程。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyk3hp9ifj31490u0gq7.jpg" alt="image-20220101224710564"></p>
+<p>延伸阅读：</p>
+<p>卡内基梅隆大学：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aa4y1s7EH/">并行计算架构与编程 (15-418 / 15-618)</a></p>
+<p>伊利诺伊大学：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1z541137iG/">异构并行编程（胡文美教授）- 重点讲解CUDA编程</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><p><a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/csapp3e/">https://fengmuzi2003.gitbook.io/csapp3e/</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxwa4bmaqsj32480qo101.jpg" alt="image-20211202234352970"></p>
@@ -382,7 +409,8 @@
 </li>
 <li><p>知乎相关 lab 专栏：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/deeplearningcat">https://zhuanlan.zhihu.com/deeplearningcat</a>  <img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx6w20frn5j31em0tidl7.jpg" alt="image-20211208233527359"></p>
 </li>
-<li></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cD4y1D7uR?p=23">【合集】CSAPP-深入理解计算机系统</a> <img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxykv2epifj31rs0r2q8r.jpg" alt="image-20220101231341901"></p>
+</li>
 <li></li>
 </ol>
-</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/11/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91%E7%8E%A9%E8%BD%AC%E6%A0%91%E8%8E%93%E6%B4%BE/" title="⭐️玩转树莓派" class="prev">PREV</a><a href="/2021/10/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="⭐️c语言学习" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2021 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/11/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91%E7%8E%A9%E8%BD%AC%E6%A0%91%E8%8E%93%E6%B4%BE/" title="⭐️玩转树莓派" class="prev">PREV</a><a href="/2021/10/21/%E3%80%90%E7%BC%96%E7%A8%8B%E3%80%91c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" title="⭐️c语言学习" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2022 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
