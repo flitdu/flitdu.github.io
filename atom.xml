@@ -258,23 +258,20 @@
   </entry>
   
   <entry>
-    <title>⭐️Django</title>
+    <title>⭐️网页</title>
     <link href="http://example.com/2021/07/26/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91Django/"/>
     <id>http://example.com/2021/07/26/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91Django/</id>
     <published>2021-07-25T16:00:00.000Z</published>
-    <updated>2021-12-18T15:56:30.362Z</updated>
+    <updated>2022-01-15T15:38:12.615Z</updated>
     
-    <content type="html"><![CDATA[<span id="more"></span><ul><li>AI展示</li></ul><p><a href="https://www.cnblogs.com/xiaoer/p/11262456.html">自然语言处理NLP学习笔记三：使用Django做一个NLP的Web站点</a></p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<span id="more"></span><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><strong>HTML</strong> (HyperText Markup Language)，主要是将关注的内容展示出来</p><p>e.g.</p><p>在文本框内，输入内容，点击后实现谷歌搜索</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gyes5fz69kj31jx0u0grf.jpg" alt="image-20220115233550342"></p><p>code：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span></span><br><span class="line">search</span><br><span class="line"><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;https://www.google.com/search&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;q&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Search&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h2><p><a href="https://www.cnblogs.com/xiaoer/p/11262456.html">自然语言处理NLP学习笔记三：使用Django做一个NLP的Web站点</a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://validator.w3.org/">html合法性检查</a></li><li></li></ol>]]></content>
     
     
       
       
     <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
 
-&lt;ul&gt;
-&lt;li&gt;AI展示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/xiaoer/p/11262456.html&quot;&gt;自然语言处理NLP学习笔记三：使用Django做一个NLP的</summary>
+&lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;HTML&lt;/strong&gt; (HyperText Mark</summary>
       
     
     
@@ -283,6 +280,8 @@
     
     
     <category term="Django" scheme="http://example.com/tags/Django/"/>
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
     
   </entry>
   
@@ -530,34 +529,6 @@
   </entry>
   
   <entry>
-    <title>⭐️影单</title>
-    <link href="http://example.com/2021/03/01/%E5%BD%B1%E5%8D%95/"/>
-    <id>http://example.com/2021/03/01/%E5%BD%B1%E5%8D%95/</id>
-    <published>2021-02-28T16:00:00.000Z</published>
-    <updated>2021-03-30T14:35:08.463Z</updated>
-    
-    <content type="html"><![CDATA[<span id="more"></span><h2 id="这6部电影，让你和孩子宅着也能感受春天况味"><a href="#这6部电影，让你和孩子宅着也能感受春天况味" class="headerlink" title="这6部电影，让你和孩子宅着也能感受春天况味"></a><a href="https://mp.weixin.qq.com/s/kCwqLCL-0OJH1YeDLzg6zA">这6部电影，让你和孩子宅着也能感受春天况味</a></h2><p><img src="https://i.loli.net/2021/03/30/JuBYhPmLdM9zts2.png" alt="image-20210330223245613"></p><h2 id="《我的章鱼老师》"><a href="#《我的章鱼老师》" class="headerlink" title="《我的章鱼老师》"></a><a href="https://mp.weixin.qq.com/s/hqaiET7db_UDmFCcdPExHQ"><strong>《我的章鱼老师》</strong></a></h2><p><img src="https://i.loli.net/2021/03/07/eQ674pDbnkCwOta.png" alt="image-20210307220905536"></p><p>出自【1】<a name='toc1'></a></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-
-
-
-&lt;h2 id=&quot;这6部电影，让你和孩子宅着也能感受春天况味&quot;&gt;&lt;a href=&quot;#这6部电影，让你和孩子宅着也能感受春天况味&quot; class=&quot;headerlink&quot; title=&quot;这6部电影，让你和孩子宅着也能感受春天况味&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="电影" scheme="http://example.com/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>⭐️阅读摘要</title>
     <link href="http://example.com/2021/02/27/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E9%98%85%E8%AF%BB%E6%91%98%E8%A6%81/"/>
     <id>http://example.com/2021/02/27/%E3%80%90%E9%9A%8F%E7%AC%94%E3%80%91%E9%98%85%E8%AF%BB%E6%91%98%E8%A6%81/</id>
@@ -575,6 +546,34 @@
     
     
     <category term="阅读" scheme="http://example.com/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>⭐️MySQL</title>
+    <link href="http://example.com/2020/12/05/%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91MySQL/"/>
+    <id>http://example.com/2020/12/05/%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91MySQL/</id>
+    <published>2020-12-04T16:00:00.000Z</published>
+    <updated>2021-11-29T15:38:37.501Z</updated>
+    
+    <content type="html"><![CDATA[<span id="more"></span><p>MySQL 是最流行的关系型数据库管理系统</p><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul><li>OLTP、 OLAP</li></ul><blockquote><p>当今的数据处理大致可以分成两大类：<a href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86">联机事务处理</a>OLTP（on-line transaction processing）、<a href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86">联机分析处理</a>OLAP（On-Line Analytical Processing）。OLTP是传统的<a href="https://baike.baidu.com/item/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/8999831">关系型数据库</a>的主要应用，主要是基本的、日常的事务处理，例如银行交易。OLAP是<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93">数据仓库</a>系统的主要应用，支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。</p></blockquote><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu502h5a0fj61720jitbc02.jpg" alt="image-20210904231246998"></p><ul><li>结构化和非结构化数据</li></ul><p>结构化数据：可以用二维表结构来逻辑表达实现的数据，如 SQL 数据库表中的行。</p><p>非结构化数据：办公文档、文本、图片、XML、HTML、各类报表、图像和音频/视频信息等等</p><ul><li>NoSQL</li></ul><p>NoSQL 数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题。</p><p>4种NoSQL  数据库：key-value数据库、图形数据库、列式数据库、文档数据库</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://segmentfault.com/a/1190000015216149">CentOS 7.0下使用yum安装MySQL</a></p><p>注意，服务器链接失败，可能需要关闭防火墙，<a href="https://blog.csdn.net/Zhongtongyi/article/details/108029090">DataGrip无法连接阿里云服务器MySQL原因</a></p><h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><ul><li>left join</li></ul><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9lc2tw38j316e078ted.jpg"></p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9lbofoohj30za094dmp.jpg"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">a.id, a.date, b.pname, b.category_id, b.price </span><br><span class="line">from </span><br><span class="line">t_order a</span><br><span class="line">left joint_product b</span><br><span class="line">on a.pid = b.id</span><br></pre></td></tr></table></figure><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9lcprf3rj31dy080ahq.jpg"></p><h2 id="python-操作mysql"><a href="#python-操作mysql" class="headerlink" title="python 操作mysql"></a>python 操作mysql</h2><p>参考：<a href="https://www.cnblogs.com/xinhua19/p/15037164.html">Python操作Mysql</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gsntsg9nebj30ju0bvwff.jpg"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">【建立连接】代码示例</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"> </span><br><span class="line">pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;localhost&#x27;</span>,user=<span class="string">&#x27;user&#x27;</span>,<span class="string">&#x27;password=&#x27;</span>password<span class="string">&#x27;,database=&#x27;</span>database<span class="string">&#x27;,port=3306     </span></span><br><span class="line"><span class="string"> )  </span></span><br></pre></td></tr></table></figure><h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/127055198">未来的数据库会是什么样的？</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gtv13ahmicj60k007qjri02.jpg"></p><p>数据是架构的中心</p><p>仔细想想，我们其实做的一切工作，都是围绕着数据。数据的产生，数据的存储，数据的消费，数据的流动……只不过是根据不同的需求，变化数据的形态和服务方式。</p><p><strong>系统 = 业务逻辑 x 数据</strong></p><p><strong>我们当年就在想，能不能有一个系统以一个统一的接口尽可能大的覆盖到更多场景。</strong></p><p>以分布式数据库为统一中心的架构</p><ul><li>数据库排名</li></ul><p><a href="https://db-engines.com/en/ranking">https://db-engines.com/en/ranking</a></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gu4z38l8m8j622c0tcalf02.jpg" alt="image-20210904223854821"></p><ul><li><a href="https://asktug.com/t/topic/1396">【精选实践】爱奇艺实用数据库选型树：不同场景如何快速选择数据库？</a></li></ul><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwwfy95r6dj30qw0a03zp.jpg" alt="image-20211129233302332"></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwwfxntzbhj30j60bf3z4.jpg" alt="3%20WX20191014-202519%402x"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://www.runoob.com/w3cnote/sql-syntax-manual.html">菜鸟–SQL语法手册</a></li><li>关于TiDB的文章：<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwwg3g1ilwj30t20qo40y.jpg" alt="image-20211129233801736"></li><li></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;p&gt;MySQL 是最流行的关系型数据库管理系统&lt;/p&gt;
+&lt;h2 id=&quot;术语&quot;&gt;&lt;a href=&quot;#术语&quot; class=&quot;headerlink&quot; title=&quot;术语&quot;&gt;&lt;/a&gt;术语&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;OLTP、 OLAP</summary>
+      
+    
+    
+    
+    <category term="数据库" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="mysql" scheme="http://example.com/tags/mysql/"/>
     
   </entry>
   
