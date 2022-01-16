@@ -926,8 +926,6 @@
             
             <tag> book </tag>
             
-            <tag> 待办 </tag>
-            
         </tags>
       
     </entry>
@@ -1001,7 +999,7 @@
       
         <tags>
             
-            <tag> 待办 </tag>
+            <tag> [object Object] </tag>
             
         </tags>
       
@@ -1100,8 +1098,6 @@
       
       
         <tags>
-            
-            <tag> 待办 </tag>
             
             <tag> 自学 </tag>
             
