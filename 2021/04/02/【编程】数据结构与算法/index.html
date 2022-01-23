@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️数据结构与算法（基础篇） · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️数据结构与算法（基础篇） - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> ⭐️数据结构与算法 · Hexo</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="⭐️数据结构与算法 - John Doe"><meta name="keywords"><meta name="author" content="John Doe"><link rel="short icon" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/favicon.ico"><link rel="stylesheet" href="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://example.com/atom.xml" title="Hexo"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️数据结构与算法（基础篇）</h1><div class="post-info">2021-04-02</div><div class="post-content"><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84xlwx77j30u01tau05.jpg" alt="img"></p>
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️数据结构与算法</h1><div class="post-info">2021-04-02</div><div class="post-content"><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp84xlwx77j30u01tau05.jpg" alt="img"></p>
 <span id="more"></span>
 
 
@@ -121,13 +121,11 @@
 <li>均摊时间复杂度</li>
 </ul>
 <p>对一个数据结构进行一组连续操作中，大部分情况下时间复杂度都很低，只有个别情况下时间复杂度比较高，而且这些操作之间<strong>存在前后连贯的时序关系</strong>，这个时候，我们就可以将这一组操作放在一块儿分析，看是否能将较高时间复杂度那次操作的耗时，平摊到其他那些时间复杂度比较低的操作上。而且，在能够应用均摊时间复杂度分析的场合，<strong>一般均摊时间复杂度就等于最好情况时间复杂度</strong>。</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>它可以说是最基础、最简单的数据结构了。数组用一块连续的内存空间，来存储相同类型的一组数据，<strong>最大的特点就是支持随机访问</strong>，但插入、删除操作也因此变得比较低效，平均情况时间复杂度为 O(n)。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组用一块连续的内存空间，来存储相同类型的一组数据，<strong>最大的特点就是支持随机访问</strong>，但插入、删除操作也因此变得比较低效，平均情况时间复杂度为 O(n)。</p>
 <p><strong>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</strong></p>
 <p>这里需要注意以下几点：</p>
-<ul>
-<li>第一是<strong>线性表</strong>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。<strong>每个线性表上的数据最多只有前和后两个方向（前驱和后继）</strong>。其实除了数组，链表、队列、栈等也是线性表结构。【注意这里的‘前后’】</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp99afqpnvj30vq0n5acy.jpg" alt="img"></p>
+<p>第一是<strong>线性表</strong>（Linear List）。顾名思义，线性表就是数据排成像一条线一样的结构。<strong>每个线性表上的数据最多只有前和后两个方向（前驱和后继）</strong>。其实除了数组，链表、队列、栈等也是线性表结构。【注意这里的‘前后’】</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gyntpi8xx1j312d0u0tbg.jpg" alt="image-20220123191948251"></p>
 <p>与之对应，<strong>有<u><em>’非线性表‘</em></u>，</strong>数据之间并不是简单的前后关系，如树，图等</p>
 <blockquote>
 <p>那么有了线性结构，我们为什么还需要非线性结构呢？ </p>
@@ -140,11 +138,11 @@
 <p>随机访问的公式如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]_address = base_address + i * data_type_size</span><br></pre></td></tr></table></figure>
 
-<p>如下，内存块的首地址为 base_address =1000, data_type_size=4B</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp99htxhu5j30vq0g4jso.jpg" alt="img"></p>
+<p>如下，内存块的首地址为 base_address =00, data_type_size=4B</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gynu3bnhnzj310q0880ud.jpg" alt="image-20220123193304934"></p>
 <h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>对于插入，如果数组是有序的， 插入平均复杂度为O(n)【依据概率计算】：（1+2+…+n）/n=O(n)</p>
 <p>但是，如果数组存储的数据并没有任何规律，数组只是当做一个存储数据的集合，复杂度可以降为o(1)，如下：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp99t9lxiyj31100fg77l.jpg" alt="IMG_A2267639DBED-1"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gyntl88fbkj313c0jcwg1.jpg" alt="image-20220123191537896"></p>
 <p>利用这种处理技巧，在特定场景下，在第 k 个位置插入一个元素的时间复杂度就会降为 O(1)。</p>
 <p>这个处理思想在<strong>快排中也会用到</strong></p>
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>和插入类似，如果删除数组末尾的数据，则最好情况时间复杂度为 O(1)；如果删除开头的数据，则最坏情况时间复杂度为 O(n)；平均情况时间复杂度也为 O(n)。</p>
@@ -423,7 +421,7 @@
 <p>属于原地排序；</p>
 <p>由于元素相等时候不进行交换，故为<strong>稳定的；</strong></p>
 <p>复杂度O(n^2）</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guyha2cgb1j60di0ast9102.jpg" alt="0cdd46b5a856adfa35000c620539eef4.png"></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gynntfko8kj31960jytan.jpg" alt="image-20220123155600173"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-<span class="number">1</span>  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+<span class="number">1</span>] = li[j]</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        li[j+<span class="number">1</span>] = tmp  <span class="comment"># 注意这里写到 j+1</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -886,17 +884,11 @@
 
 
 
-
-
+<p>​    </p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li>别人的课程索引：<a target="_blank" rel="noopener" href="http://173.249.58.195/">http://173.249.58.195/</a></li>
-</ol>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpku2vnsy0j31k20jo1jo.jpg" alt="image-20210415231226060"></p>
-<ol start="2">
 <li><p><a target="_blank" rel="noopener" href="https://blog.fundebug.com/2018/08/27/code-interview-data-structure/">代码面试需要知道的8种数据结构(附面试题及答案链接)</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uA411N7c5?p=1">清华大学博士讲解Python数据结构与算法（完整版）全套100节</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv18apj01qj61hy0u0dm402.jpg" alt="image-20200815171822878"></p>
 </li>
-<li></li>
 </ol>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/04/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E%EF%BC%88%E9%AB%98%E7%BA%A7%E7%AF%87%EF%BC%89/" title="⭐️数据结构与算法之美（高级篇 &amp; 实战篇）" class="prev">PREV</a><a href="/2021/03/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="⭐️并发编程【未看完】" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2022 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
