@@ -253,267 +253,6 @@
 
 <p>具体执行结果差异如下：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv20xsmyf6j61tm0tu43t02.jpg" alt="image-20211003124633168"></p>
-<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>掌握程度:轻松写出二叉树遍历、八皇后、背包问题、DFS 的递归代码</p>
-<ul>
-<li>递归的理解</li>
-</ul>
-<p>递归包括两个过程 ，去的过程叫’递‘，回来的过程叫’归‘，自顶向下。</p>
-<p>递归是一种编程技巧</p>
-<p> 所谓递归，就是有去有回。</p>
-<ul>
-<li>特点</li>
-</ul>
-<p>1）调用自身</p>
-<p>2）结束条件</p>
-<p>3）子问题拆分</p>
-<p><strong>编写递归代码的关键是，只要遇到递归，我们就把它抽象成一个递推公式，不用想一层层的调用 关系，不要试图用人脑去分解递归的每个步骤</strong>。</p>
-<p>递归要警惕堆栈溢出和重复计算(👇)</p>
-<ul>
-<li>递归函数的非递归化</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bobbypollo/article/details/79891556">理解递归的本质：递归与栈</a></p>
-<p>采用数据栈</p>
-<blockquote>
-<p>我们知道递归函数存在的最大问题是，当递归次数足够大时，会导致函数栈溢出而死机，函数栈的大小一般是一个固定值，对于linux来说一般默认是8M。</p>
-<p> 因此，编程老司机会教导我们，不得用递归函数！但递归函数的代码实现实在是简洁啊，不让用？臣妾做不到啊！</p>
-<p> 那么问题来了，所有递归函数都能非递归化吗？答案是肯定的。</p>
-<p> 本质上讲，对于同一个问题，如果必然要用广义递归的方案来处理，那么狭义递归函数只不过是其中的一种实现方式，如果放弃狭义递归函数的话，我们不得不借助一个额外的数据结构：栈。</p>
-<p> 如此看来，无论如何都要用到栈，只不过要么让编译器来维护一个栈（函数栈），要么让程序狗来维护一个栈（数据栈）。</p>
-</blockquote>
-<p> 这两个栈的区别如下：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>函数栈</th>
-<th>数据栈</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>位置</td>
-<td>进程的stack区</td>
-<td>进程的heap区</td>
-</tr>
-<tr>
-<td>大小限制</td>
-<td>小（8M？）</td>
-<td>能分配到很大</td>
-</tr>
-<tr>
-<td>每个栈“元素”所需空间</td>
-<td>比较大，因为要存储函数上下文</td>
-<td>可以设计到很小，比如只存储一个指针</td>
-</tr>
-<tr>
-<td>栈开销</td>
-<td>大</td>
-<td>可以做的很小</td>
-</tr>
-<tr>
-<td>代码简易程度/可维护性</td>
-<td>简洁易读</td>
-<td>相对更复杂</td>
-</tr>
-</tbody></table>
-<ul>
-<li>应用举例：找最终推荐人</li>
-</ul>
-<p>一般来说，我们会通过数据库来记录这种推荐关系。在数据库表中，我们可以记录两行数据，其中 actor_id 表示用户 id，referrer_id 表示推荐人 id。</p>
-<table>
-<thead>
-<tr>
-<th>actor_id</th>
-<th>referrer_id</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>B</td>
-<td>A</td>
-</tr>
-<tr>
-<td>C</td>
-<td>B</td>
-</tr>
-</tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">long findRootReferrerId(long actorId) &#123;</span><br><span class="line">  Long referrerId = select referrer_id from [table] where actor_id = actorId;  # 通过这个缩小规模</span><br><span class="line">  if (referrerId == null) return actorId;   # 终止条件</span><br><span class="line">  return findRootReferrerId(referrerId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用户 C 的“最终推荐人”为用户 A</p>
-<ul>
-<li>汉诺塔问题</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guxwwotvuuj60ga05t3yd02.jpg" alt="img"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span>(<span class="params">n,a,b,c</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    汉诺塔问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    n 个盘子 从a经过b移动到c</span></span><br><span class="line"><span class="string">    步骤：</span></span><br><span class="line"><span class="string">    1 (n-1)个从a--&gt;c--&gt;b</span></span><br><span class="line"><span class="string">    2 n a--&gt;c</span></span><br><span class="line"><span class="string">    3 n-1 从b--&gt;a--&gt;c</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param n:</span></span><br><span class="line"><span class="string">    :param a:</span></span><br><span class="line"><span class="string">    :param b:</span></span><br><span class="line"><span class="string">    :param c:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n&gt;<span class="number">0</span>:  <span class="comment"># 终止条件</span></span><br><span class="line">        hanoi(n-<span class="number">1</span>, a,c,b)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;moving from <span class="subst">&#123;a&#125;</span>--&gt;<span class="subst">&#123;c&#125;</span>&#x27;</span>)</span><br><span class="line">        hanoi(n-<span class="number">1</span>, b, a,c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hanoi(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最大公约数</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fraction</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,a,b,</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;a:分子， b:分母&quot;&quot;&quot;</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        x = self.gcd1(self.a, self.b)</span><br><span class="line">        self.a = self.a/x</span><br><span class="line">        self.b = self.b/x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gcd1</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        最大公约数，辗转相除法</span></span><br><span class="line"><span class="string">        :param a:</span></span><br><span class="line"><span class="string">        :param b:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.gcd1(b, a % b)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;最大公约数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">while</span> b &gt; <span class="number">0</span>:</span><br><span class="line">            r = a % b</span><br><span class="line">            a = b</span><br><span class="line">            b = r</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">zgs</span>(<span class="params">self,a,b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;最小公倍数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> a*b/self.gcd1(a,b)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;self.a:<span class="number">.0</span>f&#125;</span>/<span class="subst">&#123;self.b:<span class="number">.0</span>f&#125;</span>&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span>(<span class="params">self, other</span>):</span></span><br><span class="line">        <span class="comment"># a/b+c/d</span></span><br><span class="line">        a= self.a</span><br><span class="line">        b= self.b</span><br><span class="line">        c= other.a</span><br><span class="line">        d = other.b</span><br><span class="line">        denominator =self.zgs(b,d)  <span class="comment"># 通分后分母</span></span><br><span class="line">        numerator = a*(denominator/b)+c*(denominator/d)  <span class="comment"># 分子</span></span><br><span class="line">        <span class="keyword">return</span> Fraction(numerator, denominator)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># f = Fraction(30,15)</span></span><br><span class="line"><span class="comment"># print(f)</span></span><br><span class="line">a =Fraction(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line">b =Fraction(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(a+b)</span><br><span class="line"><span class="number">5</span>/<span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>按照复杂度分为：</p>
-<table>
-<thead>
-<tr>
-<th>排序算法</th>
-<th>时间复杂度</th>
-<th>是否基于比较</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>冒泡、插入、选择</td>
-<td>O(n^2)</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>快排，归并</td>
-<td>O(nlog(n))</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>桶，计数，基数</td>
-<td>O(n）</td>
-<td>❌</td>
-</tr>
-</tbody></table>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv090z6225j61bs0tsgr202.jpg" alt="image-20211001235515892"></p>
-<ul>
-<li>原地排序</li>
-</ul>
-<p>指空间复杂度O(1)的排序算法</p>
-<ul>
-<li>排序稳定性</li>
-</ul>
-<p>指的是待排序序列中有值相等的元素，经过排序后，<strong>相等元素之间原有的先后顺序不变</strong>，则称<strong>稳定</strong>的排序算法，否则就叫作不稳定的排序算法</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpev7b92qvj31ct0u07wi.jpg" alt="image-20210410191801301"></p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
-<p>思想：通过比较相邻元素，交换位置，每一轮将最值元素通过’冒泡‘浮到边界位置</p>
-</blockquote>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guyfat4mp4j60w20eot9q02.jpg" alt="image-20210930100111313"></p>
-<p>代码实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):  <span class="comment"># 趟数，第i趟</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):  <span class="comment"># 箭头</span></span><br><span class="line">            <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">                li[j], li[j+<span class="number">1</span>] = li[j+<span class="number">1</span>], li[j]</span><br><span class="line">        <span class="built_in">print</span>(li)</span><br></pre></td></tr></table></figure>
-
-<p>改进：</p>
-<p>如果某趟没有发生交换，说明已经排好序了，提前终止</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):</span><br><span class="line">        exchange = <span class="literal">False</span>  <span class="comment"># 添加标志位</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">                li[j], li[j+<span class="number">1</span>] = li[j+<span class="number">1</span>], li[j]</span><br><span class="line">                exchange=<span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> exchange:</span><br><span class="line">            <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复杂度分析：</li>
-</ul>
-<p>属于原地排序；</p>
-<p>由于元素相等时候不进行交换，故为<strong>稳定的；</strong></p>
-<p>复杂度O(n^2）</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gynntfko8kj31960jytan.jpg" alt="image-20220123155600173"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-<span class="number">1</span>  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+<span class="number">1</span>] = li[j]</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        li[j+<span class="number">1</span>] = tmp  <span class="comment"># 注意这里写到 j+1</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复杂度分析：</li>
-</ul>
-<p>属于原地排序；</p>
-<p>由于元素相等时候不进行移动，故为<strong>稳定的；</strong></p>
-<p>2个for循环，复杂度O(n^2）</p>
-<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是插入排序的变形，思路是不断分组——插入排序，直到gap 变为1</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort_gap</span>(<span class="params">li, gap</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;只需要将插入排序的 1--&gt;gap&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(gap,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-gap  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+gap] = li[j]</span><br><span class="line">            j -= gap</span><br><span class="line">        li[j+gap] = tmp</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    gap = <span class="built_in">len</span>(li)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> gap&gt;=<span class="number">1</span>:</span><br><span class="line">        insert_sort_gap(li, gap)</span><br><span class="line">        gap //= <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复杂度</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shellsort">https://en.wikipedia.org/wiki/Shellsort</a></p>
-<p>和选取的 gap 有关</p>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>每轮找到最值元素，然后交换</p>
-<p>不稳定</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):  <span class="comment"># 趟数</span></span><br><span class="line">        min_loc = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(li)):</span><br><span class="line">            <span class="keyword">if</span> li[j]&lt;li[min_loc]:</span><br><span class="line">                min_loc =j</span><br><span class="line">        li[min_loc], li[i] = li[i], li[min_loc]  <span class="comment"># 交换</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>综合比较</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpfsqje6ajj31gw0mqx6q.jpg" alt="image-20210411143808882"></p>
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>发明人是冯诺依曼，时间 1945年</p>
-<p>归并和快排背后 使用的都是分治思想，而分治算法一般都是用递归实现的。</p>
-<p><strong>分治是一种解决问题的处理思想， 递归是一种编程技巧</strong>，这二者并不冲突。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpfusgjj5vj311t0u0npe.jpg" alt="image-20210411154915840"></p>
-<p>代码：【注意合并过程，代码有打印】</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">递归实现：</span></span><br><span class="line"><span class="string">递推公式： merge_sort(p,r) = merge(merge_sort(p,q),merge_sort(q+1, r))</span></span><br><span class="line"><span class="string">终止条件： p&gt;=r</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">li = [<span class="number">11</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">if</span> p&gt;=r: <span class="keyword">return</span></span><br><span class="line">    mid = (p+r)//<span class="number">2</span>   <span class="comment"># 中间位置</span></span><br><span class="line">    merge_sort(li, p, mid)</span><br><span class="line">    merge_sort(li, mid+<span class="number">1</span>, r)</span><br><span class="line">    merge(li, p, mid, r)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">li, p, mid, r</span>):</span></span><br><span class="line">    tmp = []  <span class="comment"># 申请临时数组，存放merge 结果</span></span><br><span class="line">    i= p</span><br><span class="line">    j = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;=mid <span class="keyword">and</span> j&lt;=r:</span><br><span class="line">        <span class="keyword">if</span> li[i]&lt;=li[j]:  <span class="comment"># ‘=’保证是稳定的</span></span><br><span class="line">            tmp.append(li[i])</span><br><span class="line">            i +=<span class="number">1</span> </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tmp.append(li[j])</span><br><span class="line">            j +=<span class="number">1</span></span><br><span class="line">    <span class="comment"># while 执行完肯定有一部分没数了</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> i&lt;=mid: <span class="comment"># 说明这部分还没取完</span></span><br><span class="line">        tmp.append(li[i])</span><br><span class="line">        i +=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> j&lt;=r: <span class="comment"># 说明这部分还没取完</span></span><br><span class="line">        tmp.append(li[j])</span><br><span class="line">        j +=<span class="number">1</span></span><br><span class="line">    li[p:r+<span class="number">1</span>] = tmp</span><br><span class="line">    <span class="built_in">print</span>(tmp)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;原始序列<span class="subst">&#123;li&#125;</span>&#x27;</span>)</span><br><span class="line">merge_sort(li, <span class="number">0</span>, <span class="built_in">len</span>(li)-<span class="number">1</span>)</span><br><span class="line">li</span><br><span class="line">----</span><br><span class="line">原始序列[<span class="number">11</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">8</span>, <span class="number">11</span>]</span><br><span class="line">[<span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">7</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]   <span class="comment"># 注意合并过程与⤴️图一致</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复杂度分析：</li>
-</ul>
-<p>空间复杂度O(n), 不属于原地排序；</p>
-<p><strong>稳定的</strong>， 可由<code>if li[i]&lt;=li[j]: tmp.append(li[i])</code> 保证</p>
-<p>复杂度O(nlg(n)）</p>
-<h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><p>快排，也是采用分治思想</p>
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 递推公式：</span></span><br><span class="line"><span class="comment"># quick_sort(p…r) = quick_sort(p…q-1) + quick_sort(q+1… r)</span></span><br><span class="line"><span class="comment"># 终止条件：</span></span><br><span class="line"><span class="comment"># p &gt;= r</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p&lt;r:</span><br><span class="line">        q = partition(li, p, r)   <span class="comment"># 获分区点</span></span><br><span class="line">        quick_sort(li, p, q-<span class="number">1</span>)</span><br><span class="line">        quick_sort(li, q+<span class="number">1</span>, r)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    pivot = li[p]  <span class="comment"># 选队首为比较点</span></span><br><span class="line">    <span class="keyword">while</span> p&lt;r:</span><br><span class="line">        <span class="keyword">while</span> li[r]&gt;=pivot <span class="keyword">and</span> p&lt;r:  <span class="comment"># 从右边找，比 pivot小的</span></span><br><span class="line">            r -= <span class="number">1</span></span><br><span class="line">        li[p] = li[r]  <span class="comment"># 写空位</span></span><br><span class="line">        <span class="keyword">while</span> li[p] &lt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">        li[r] = li[p]</span><br><span class="line">    li[p] = pivot  <span class="comment"># p/r相遇,归位</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">li = [<span class="number">13</span>,<span class="number">11</span>,<span class="number">25</span>,<span class="number">7</span>,<span class="number">19</span>,<span class="number">3</span>]      </span><br><span class="line">quick_sort(li, <span class="number">0</span>, <span class="built_in">len</span>(li)-<span class="number">1</span>)</span><br><span class="line">li</span><br></pre></td></tr></table></figure>
-
-<p>关于<code>def partition(li, p, r)   # 获分区点</code>函数的解释：</p>
-<p>黑框内为待替换位置，也是最终的返回位置，随着递推，p、r越来越接近。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpg0782djyj314w0rekef.jpg" alt="image-20210411185628255"></p>
-<p>快排时间复杂度：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(1) = C；   n=1时，只需要常量级的执行时间，所以表示为C。</span><br><span class="line">T(n) = 2*T(n/2) + n； n&gt;1</span><br></pre></td></tr></table></figure>
-
-<p>T(n) = O(nlogn)</p>
-<ul>
-<li>快排与归并 的比较</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpg0ev9ov4j31do0ti4qq.jpg" alt="image-20210411190349148"></p>
-<p>可以发现，归并排序的处理过程是<strong>由下到上</strong>的，先处理子问题，然后再合并。而快排正好相反，它的处 理过程是<strong>由上到下</strong>的，先分区，然后再处理子问题。归并排序虽然是稳定的、时间复杂度为 O(nlogn) 的 排序算法，但是它是非原地排序算法。我们前面讲过，归并之所以是非原地排序算法，主要原因是合并 函数无法在原地执行。快速排序通过设计巧妙的原地分区函数，可以实现原地排序，解决了归并排序占 用太多内存的问题。</p>
-<blockquote>
-<p>问题：O(n) 时间复杂度内求无序数组中的第 K 大元素。</p>
-<p>利用快排，经过一次快排，得到A[0,1,…,p-1], A[p], A[p+1,…,n-1]</p>
-<p>然后根据K与p大小关系，进行递归，每次减半</p>
-<p>复杂度：n+n/2+…+1=O(n)</p>
-<p>代码：参见力扣：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">https://leetcode-cn.com/problems/kth-largest-element-in-an-array/</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="comment">#  [3,2,1,5,6,4] 和 k = 3</span></span><br><span class="line">        <span class="comment"># &quot;采用快排思想&quot;</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            q = partition(li, p,r)</span><br><span class="line">            <span class="keyword">if</span> q+<span class="number">1</span>==k:</span><br><span class="line">                <span class="keyword">return</span> li[q]</span><br><span class="line">            <span class="keyword">elif</span> q+<span class="number">1</span>&gt;k:</span><br><span class="line">                <span class="keyword">return</span> helper(li, p, q-<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> helper(li, q+<span class="number">1</span>, r)</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            pivot = li[p]  <span class="comment"># 选队首为比较点</span></span><br><span class="line">            <span class="keyword">while</span> p&lt;r:</span><br><span class="line">                <span class="keyword">while</span> li[r]&lt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    r -= <span class="number">1</span></span><br><span class="line">                li[p] = li[r]</span><br><span class="line">                <span class="keyword">while</span> li[p] &gt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    p += <span class="number">1</span></span><br><span class="line">                li[r] = li[p]</span><br><span class="line">            li[p] = pivot  <span class="comment"># p/r相遇,得到</span></span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> helper(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<h3 id="复杂度O-n-排序"><a href="#复杂度O-n-排序" class="headerlink" title="复杂度O(n)排序"></a>复杂度O(n)排序</h3><p>它们均不涉及元素之间的比较操作</p>
-<ul>
-<li>计数排序</li>
-</ul>
-<p>计数排序其实是桶排序的一种特殊情况</p>
-<p>时间复杂度：O(n+K)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">counting_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    max_num = <span class="built_in">max</span>(li)</span><br><span class="line">    count_li = [<span class="number">0</span>] * (max_num + <span class="number">1</span>)  <span class="comment"># 计数列表</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> li:</span><br><span class="line">        count_li[num] += <span class="number">1</span></span><br><span class="line">    li.clear()</span><br><span class="line">    <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(count_li):</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(v):</span><br><span class="line">            li.append(i)</span><br></pre></td></tr></table></figure>
-
-<p>缺点：</p>
-<p>1）当数列最大、最小值差距过大时</p>
-<p>意味着，空间的极大浪费</p>
-<p>2）小数</p>
-<ul>
-<li>桶排序</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv089dd00cj60o209k0tf02.jpg" alt="image-20211001232844068"></p>
-<ul>
-<li>基数排序</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gv08qbo2ndg60s40fywic02.gif" alt="img"></p>
-<ul>
-<li>比较</li>
-</ul>
-<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
-<p><strong>基数排序：</strong>根据键值的每位数字来分配桶；</p>
-<p><strong>计数排序：</strong>每个桶只存储单一键值；</p>
-<p><strong>桶排序：</strong>每个桶存储一定范围的数值；</p>
-<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guxyd2a1mmj60xg0c4dgf02.jpg" alt="image-20210930001510344"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">li, val</span>):</span></span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(li)-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:  <span class="comment"># 候选区有值</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        mid = (left+right)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> li[mid]==val:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> li[mid]&gt;val:  <span class="comment"># 待查找的值在 mid 左侧</span></span><br><span class="line">            right = mid-<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 待查找的值在 mid 右侧</span></span><br><span class="line">            left = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">----------</span><br><span class="line">li = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(binary_search(li, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(lgn)</p>
-<p>递归和非递归代码参见：<a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.ipynb"><strong>二分查找.ipynb</strong> </a></p>
-<ul>
-<li>适用场景</li>
-</ul>
-<p>二分查找只能用<strong>在插入、删除操作不频繁，一次排序多次查找的场景中</strong>。针对动态变化的数据集合，二分查找将不再适用。那针对动态数据集合，如何在其中快速查找某个数据呢?别急，等到二叉树 那一节我会详细讲。</p>
-<ul>
-<li>二分查找变形</li>
-</ul>
-<ol>
-<li>变体一:查找第一个值等于给定值的元素</li>
-<li>变体二:查找最后一个值等于给定值的元素</li>
-<li>变体三:查找第一个 ≥ 给定值的元素</li>
-<li>变体四:查找最后一个 ≤ 给定值的元素</li>
-</ol>
-<p>参见：<a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.ipynb"><strong>二分查找.ipynb</strong> </a></p>
 <h2 id="跳表"><a href="#跳表" class="headerlink" title="跳表"></a>跳表</h2><p>应用场景：Redis用跳表实现有序集合</p>
 <p>跳表是一种各方面性能都比较优秀的<strong>动态数据结构</strong>，可以支持快速地插入、删除、查找操作，写起来也不复杂，甚至可以替代红黑树(Red-black tree)。</p>
 <blockquote>
@@ -697,7 +436,7 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr20z3neoij61140t27aq02.jpg" alt="image-20210531232612740"></p>
 <p>2） 求Top K</p>
 <p>需一直维护一个大小为K的小顶堆，复杂度 nlog(K)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sift</span>(<span class="params">li, low, high</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    向下调整实现</span></span><br><span class="line"><span class="string">    小根堆</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param li: 列表</span></span><br><span class="line"><span class="string">    :param low: 堆的根节点位置</span></span><br><span class="line"><span class="string">    :param high: 堆的最后一个元素位置</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    i = low  <span class="comment"># i 指向根节点</span></span><br><span class="line">    j = <span class="number">2</span>*i+<span class="number">1</span>  <span class="comment"># j 开始是左孩子</span></span><br><span class="line">    tmp = li[low]  <span class="comment"># 把堆顶存起来</span></span><br><span class="line">    <span class="keyword">while</span> j&lt;=high: <span class="comment"># 只要j位置有数</span></span><br><span class="line">        <span class="keyword">if</span> j+<span class="number">1</span>&lt;=high <span class="keyword">and</span> li[j+<span class="number">1</span>] &lt; li[j]:  <span class="comment"># 右孩子有，且右孩子小</span></span><br><span class="line">            j = j+<span class="number">1</span>  <span class="comment"># j 换到右孩子分支</span></span><br><span class="line">        <span class="keyword">if</span> li[j]&lt;tmp:</span><br><span class="line">            li[i] = li[j]  <span class="comment"># 上去</span></span><br><span class="line">            i =j  <span class="comment"># 往下看一层</span></span><br><span class="line">            j = <span class="number">2</span>*i +<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            li[i]=tmp  <span class="comment"># 把 tmp 放到某一级领导的位置,此行代码可不写</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    li[i]= tmp  <span class="comment"># i到了叶子节点，需要将tmp 放过去</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk</span>(<span class="params">li, k</span>):</span></span><br><span class="line">    heap = li[:k]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((k-<span class="number">2</span>)//<span class="number">2</span>, -<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        sift(heap, i, k-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 比较</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k, <span class="built_in">len</span>(li)):</span><br><span class="line">        <span class="keyword">if</span> li[i]&gt;heap[<span class="number">0</span>]:</span><br><span class="line">            heap[<span class="number">0</span>]= li[i]</span><br><span class="line">            sift(heap,<span class="number">0</span> ,k-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># k个值堆排序，出数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        heap[i], heap[<span class="number">0</span>] = heap[<span class="number">0</span>], heap[i]</span><br><span class="line">        sift(heap, <span class="number">0</span>, i-<span class="number">1</span>)  <span class="comment"># i-1 是新的high</span></span><br><span class="line">    <span class="keyword">return</span> heap</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sift</span>(<span class="params">li, low, high</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    向下调整实现</span></span><br><span class="line"><span class="string">    小根堆</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param li: 列表</span></span><br><span class="line"><span class="string">    :param low: 堆的根节点位置</span></span><br><span class="line"><span class="string">    :param high: 堆的最后一个元素位置</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    i = low  <span class="comment"># i 指向根节点</span></span><br><span class="line">    j = <span class="number">2</span>*i+<span class="number">1</span>  <span class="comment"># j 开始是左孩子</span></span><br><span class="line">    tmp = li[low]  <span class="comment"># 把堆顶存起来</span></span><br><span class="line">    <span class="keyword">while</span> j&lt;=high: <span class="comment"># 只要j位置有数</span></span><br><span class="line">        <span class="keyword">if</span> j+<span class="number">1</span>&lt;=high <span class="keyword">and</span> li[j+<span class="number">1</span>] &lt; li[j]:  <span class="comment"># 右孩子有，且右孩子小</span></span><br><span class="line">            j = j+<span class="number">1</span>  <span class="comment"># j 换到右孩子分支</span></span><br><span class="line">        <span class="keyword">if</span> li[j]&lt;tmp:</span><br><span class="line">            li[i] = li[j]  <span class="comment"># 上去</span></span><br><span class="line">            i =j  <span class="comment"># 往下看一层</span></span><br><span class="line">            j = <span class="number">2</span>*i +<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            li[i]=tmp  <span class="comment"># 把 tmp 放到某一级领导的位置,此行代码可不写</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    li[i]= tmp  <span class="comment"># i到了叶子节点，需要将tmp 放过去</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topk</span>(<span class="params">li, k</span>):</span></span><br><span class="line">    heap = li[:k]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((k-<span class="number">2</span>)//<span class="number">2</span>, -<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        sift(heap, i, k-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 比较</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k, <span class="built_in">len</span>(li)):</span><br><span class="line">        <span class="keyword">if</span> li[i]&gt;heap[<span class="number">0</span>]:</span><br><span class="line">            heap[<span class="number">0</span>]= li[i]</span><br><span class="line">            sift(heap,<span class="number">0</span> ,k-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># k个值堆排序，出数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        heap[i], heap[<span class="number">0</span>] = heap[<span class="number">0</span>], heap[i]</span><br><span class="line">        sift(heap, <span class="number">0</span>, i-<span class="number">1</span>)  <span class="comment"># i-1 是新的high</span></span><br><span class="line">    <span class="keyword">return</span> heap</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">li = list(range(1000))</span><br><span class="line">random.shuffle(li)</span><br><span class="line">print(li)</span><br><span class="line">topk_li = topk(li,10)</span><br><span class="line">print(topk_li)</span><br><span class="line">[999, 998, 997, 996, 995, 994, 993, 992, 991, 990]</span><br></pre></td></tr></table></figure>
 
@@ -722,13 +461,7 @@
 </ul>
 <p>搜索引擎关键词提示，底层最基本的原理就是 Trie 树</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grmtz93bvej31560t8wqs.jpg" alt="image-20210618232114437"></p>
-<h2 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h2><h3 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h3><p>Brute Force, 也即暴力匹配算法，复杂度为O（mn），其中m为模式串长度，n 为主串长度，n&gt;m</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpwd1fyt1sj30vk0eqwzb.jpg" alt="image-20210425222923858"></p>
-<h3 id="RK-算法"><a href="#RK-算法" class="headerlink" title="RK 算法"></a>RK 算法</h3><p>RK 算法的全称叫 Rabin-Karp 算法，是由它的两位发明者 Rabin 和 Karp 的名字来命名的。</p>
-<p>是BF算法的升级版</p>
-<p>RK 算法的思路是这样的：我们通过哈希算法对主串中的 n-m+1 个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了(这 里先不考虑哈希冲突的问题，后面我们会讲到)。因为哈希值是一个数字，数字之间比较是否相等是非 常快速的，所以模式串和子串比较的效率就提高了。</p>
-<p>整体复杂度：O(n)</p>
-<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>前面讲的数据结构都可以看成是图的特例。 前面提到了二叉树完全可以实现其他树结构，其实有向图也完全可以实现无向图和混合图，因此有向图的研究一直是重点考察对象。</p>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p>图与树类似，区别在于图没有子结点或父结点，因此也没有根结点。图由结点和边构成，且任何结点可以有多个入边或出边。<br>图是最灵活的数据结构，几乎可以表示所有类型的数据。例如，图非常适合描述社交网络，其中结点代表人，边代表人与人之间的友谊。</p>
 <ul>
 <li>基本概念</li>
 </ul>
@@ -744,16 +477,287 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gr360ayorxj31340ms76f.jpg" alt="image-20210428232731364"></p>
 <p>2）邻接表：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqh6wzd1jdj315c0t0b29.jpg" alt="image-20210428232950016"></p>
-<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><blockquote>
+<ul>
+<li>BFS</li>
+</ul>
+<blockquote>
 <p>关于BFS和DFS，一个用到了队列，一个用到了递归</p>
 <p>注意体会之</p>
 </blockquote>
 <p>广度优先搜索(Breadth-First-Search)</p>
 <p>借助 ’队列‘ 实现</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqh718n6w9j316b0u0qv5.jpg" alt="image-20210513225914579"></p>
-<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><p>回溯思想</p>
+<ul>
+<li>DFS</li>
+</ul>
+<p>回溯思想</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gq0zutx00oj30t40fialq.jpg" alt="image-20210429224059475"></p>
-<h2 id="四种算法思想"><a href="#四种算法思想" class="headerlink" title="四种算法思想"></a>四种算法思想</h2><p>贪心 算法、分治算法、回溯算法、动态规划，更加确切地说，它们应该是算法思想，并不是具体的算法，常用来指导我们设计具体的算法和编码等。</p>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>掌握程度:轻松写出二叉树遍历、八皇后、背包问题、DFS 的递归代码</p>
+<ul>
+<li>递归的理解</li>
+</ul>
+<p>递归表示函数在定义中调用自身</p>
+<p>递归包括两个过程 ，去的过程叫’递‘，回来的过程叫’归‘，自顶向下。</p>
+<p> 所谓递归，就是有去有回。</p>
+<ul>
+<li>特点</li>
+</ul>
+<p>1）调用自身</p>
+<p>2）结束条件</p>
+<p>3）子问题拆分</p>
+<p><strong>编写递归代码的关键是，只要遇到递归，我们就把它抽象成一个递推公式，不用想一层层的调用 关系，不要试图用人脑去分解递归的每个步骤</strong>。</p>
+<p>递归要警惕堆栈溢出和重复计算(👇)</p>
+<ul>
+<li>递归函数的非递归化</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bobbypollo/article/details/79891556">理解递归的本质：递归与栈</a></p>
+<p>采用数据栈</p>
+<blockquote>
+<p>我们知道递归函数存在的最大问题是，当递归次数足够大时，会导致函数栈溢出而死机，函数栈的大小一般是一个固定值，对于linux来说一般默认是8M。</p>
+<p> 因此，编程老司机会教导我们，不得用递归函数！但递归函数的代码实现实在是简洁啊，不让用？臣妾做不到啊！</p>
+<p> 那么问题来了，所有递归函数都能非递归化吗？答案是肯定的。</p>
+<p> 本质上讲，对于同一个问题，如果必然要用广义递归的方案来处理，那么狭义递归函数只不过是其中的一种实现方式，如果放弃狭义递归函数的话，我们不得不借助一个额外的数据结构：栈。</p>
+<p> 如此看来，无论如何都要用到栈，只不过要么让编译器来维护一个栈（函数栈），要么让程序狗来维护一个栈（数据栈）。</p>
+</blockquote>
+<p> 这两个栈的区别如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="left">函数栈</th>
+<th align="left">数据栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位置</td>
+<td align="left">进程的stack区</td>
+<td align="left">进程的heap区</td>
+</tr>
+<tr>
+<td>大小限制</td>
+<td align="left">小（8M？）</td>
+<td align="left">能分配到很大</td>
+</tr>
+<tr>
+<td>每个栈“元素”所需空间</td>
+<td align="left">比较大，因为要存储函数上下文</td>
+<td align="left">可以设计到很小，比如只存储一个指针</td>
+</tr>
+<tr>
+<td>栈开销</td>
+<td align="left">大</td>
+<td align="left">可以做的很小</td>
+</tr>
+<tr>
+<td>代码简易程度/可维护性</td>
+<td align="left">简洁易读</td>
+<td align="left">相对更复杂</td>
+</tr>
+</tbody></table>
+<ul>
+<li>应用举例：找最终推荐人</li>
+</ul>
+<p>一般来说，我们会通过数据库来记录这种推荐关系。在数据库表中，我们可以记录两行数据，其中 actor_id 表示用户 id，referrer_id 表示推荐人 id。</p>
+<table>
+<thead>
+<tr>
+<th>actor_id</th>
+<th>referrer_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>B</td>
+<td>A</td>
+</tr>
+<tr>
+<td>C</td>
+<td>B</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">long findRootReferrerId(long actorId) &#123;</span><br><span class="line">  Long referrerId = select referrer_id from [table] where actor_id = actorId;  # 通过这个缩小规模</span><br><span class="line">  if (referrerId == null) return actorId;   # 终止条件</span><br><span class="line">  return findRootReferrerId(referrerId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用户 C 的“最终推荐人”为用户 A</p>
+<ul>
+<li>汉诺塔问题</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guxwwotvuuj60ga05t3yd02.jpg" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span>(<span class="params">n,a,b,c</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    汉诺塔问题</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    n 个盘子 从a经过b移动到c</span></span><br><span class="line"><span class="string">    步骤：</span></span><br><span class="line"><span class="string">    1 (n-1)个从a--&gt;c--&gt;b</span></span><br><span class="line"><span class="string">    2 n a--&gt;c</span></span><br><span class="line"><span class="string">    3 n-1 从b--&gt;a--&gt;c</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param n:</span></span><br><span class="line"><span class="string">    :param a:</span></span><br><span class="line"><span class="string">    :param b:</span></span><br><span class="line"><span class="string">    :param c:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n&gt;<span class="number">0</span>:  <span class="comment"># 终止条件</span></span><br><span class="line">        hanoi(n-<span class="number">1</span>, a,c,b)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;moving from <span class="subst">&#123;a&#125;</span>--&gt;<span class="subst">&#123;c&#125;</span>&#x27;</span>)</span><br><span class="line">        hanoi(n-<span class="number">1</span>, b, a,c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hanoi(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最大公约数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fraction</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,a,b,</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;a:分子， b:分母&quot;&quot;&quot;</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        x = self.gcd1(self.a, self.b)</span><br><span class="line">        self.a = self.a/x</span><br><span class="line">        self.b = self.b/x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gcd1</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        最大公约数，辗转相除法</span></span><br><span class="line"><span class="string">        :param a:</span></span><br><span class="line"><span class="string">        :param b:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> a</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.gcd1(b, a % b)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gcd</span>(<span class="params">self, a, b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;最大公约数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">while</span> b &gt; <span class="number">0</span>:</span><br><span class="line">            r = a % b</span><br><span class="line">            a = b</span><br><span class="line">            b = r</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">zgs</span>(<span class="params">self,a,b</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;最小公倍数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> a*b/self.gcd1(a,b)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&#x27;<span class="subst">&#123;self.a:<span class="number">.0</span>f&#125;</span>/<span class="subst">&#123;self.b:<span class="number">.0</span>f&#125;</span>&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span>(<span class="params">self, other</span>):</span></span><br><span class="line">        <span class="comment"># a/b+c/d</span></span><br><span class="line">        a= self.a</span><br><span class="line">        b= self.b</span><br><span class="line">        c= other.a</span><br><span class="line">        d = other.b</span><br><span class="line">        denominator =self.zgs(b,d)  <span class="comment"># 通分后分母</span></span><br><span class="line">        numerator = a*(denominator/b)+c*(denominator/d)  <span class="comment"># 分子</span></span><br><span class="line">        <span class="keyword">return</span> Fraction(numerator, denominator)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># f = Fraction(30,15)</span></span><br><span class="line"><span class="comment"># print(f)</span></span><br><span class="line">a =Fraction(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line">b =Fraction(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(a+b)</span><br><span class="line"><span class="number">5</span>/<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>按照复杂度分为：</p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>时间复杂度</th>
+<th>是否基于比较</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡、插入、选择</td>
+<td>O(n^2)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>快排，归并</td>
+<td>O(nlog(n))</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>桶，计数，基数</td>
+<td>O(n）</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv090z6225j61bs0tsgr202.jpg" alt="image-20211001235515892"></p>
+<ul>
+<li>原地排序</li>
+</ul>
+<p>指空间复杂度O(1)的排序算法</p>
+<ul>
+<li>排序稳定性</li>
+</ul>
+<p>指的是待排序序列中有值相等的元素，经过排序后，<strong>相等元素之间原有的先后顺序不变</strong>，则称<strong>稳定</strong>的排序算法，否则就叫作不稳定的排序算法</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpev7b92qvj31ct0u07wi.jpg" alt="image-20210410191801301"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+<p>思想：通过比较相邻元素，交换位置，每一轮将最值元素通过’冒泡‘浮到边界位置</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1guyfat4mp4j60w20eot9q02.jpg" alt="image-20210930100111313"></p>
+<p>代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):  <span class="comment"># 趟数，第i趟</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):  <span class="comment"># 箭头</span></span><br><span class="line">            <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">                li[j], li[j+<span class="number">1</span>] = li[j+<span class="number">1</span>], li[j]</span><br><span class="line">        <span class="built_in">print</span>(li)</span><br></pre></td></tr></table></figure>
+
+<p>改进：</p>
+<p>如果某趟没有发生交换，说明已经排好序了，提前终止</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):</span><br><span class="line">        exchange = <span class="literal">False</span>  <span class="comment"># 添加标志位</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-i-<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> li[j]&gt;li[j+<span class="number">1</span>]:</span><br><span class="line">                li[j], li[j+<span class="number">1</span>] = li[j+<span class="number">1</span>], li[j]</span><br><span class="line">                exchange=<span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> exchange:</span><br><span class="line">            <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂度分析：</li>
+</ul>
+<p>属于原地排序；</p>
+<p>由于元素相等时候不进行交换，故为<strong>稳定的；</strong></p>
+<p>复杂度O(n^2）</p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gynntfko8kj31960jytan.jpg" alt="image-20220123155600173"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-<span class="number">1</span>  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+<span class="number">1</span>] = li[j]</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        li[j+<span class="number">1</span>] = tmp  <span class="comment"># 注意这里写到 j+1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂度分析：</li>
+</ul>
+<p>属于原地排序；</p>
+<p>由于元素相等时候不进行移动，故为<strong>稳定的；</strong></p>
+<p>2个for循环，复杂度O(n^2）</p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是插入排序的变形，思路是不断分组——插入排序，直到gap 变为1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort_gap</span>(<span class="params">li, gap</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;只需要将插入排序的 1--&gt;gap&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(gap,<span class="built_in">len</span>(li)):  <span class="comment"># 摸到的牌下标</span></span><br><span class="line">        j = i-gap  <span class="comment"># 手里牌</span></span><br><span class="line">        tmp = li[i]  <span class="comment"># 摸到的牌</span></span><br><span class="line">        <span class="keyword">while</span> li[j]&gt;tmp <span class="keyword">and</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            li[j+gap] = li[j]</span><br><span class="line">            j -= gap</span><br><span class="line">        li[j+gap] = tmp</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    gap = <span class="built_in">len</span>(li)//<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> gap&gt;=<span class="number">1</span>:</span><br><span class="line">        insert_sort_gap(li, gap)</span><br><span class="line">        gap //= <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂度</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shellsort">https://en.wikipedia.org/wiki/Shellsort</a></p>
+<p>和选取的 gap 有关</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>每轮找到最值元素，然后交换</p>
+<p>不稳定</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)-<span class="number">1</span>):  <span class="comment"># 趟数</span></span><br><span class="line">        min_loc = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,<span class="built_in">len</span>(li)):</span><br><span class="line">            <span class="keyword">if</span> li[j]&lt;li[min_loc]:</span><br><span class="line">                min_loc =j</span><br><span class="line">        li[min_loc], li[i] = li[i], li[min_loc]  <span class="comment"># 交换</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>综合比较</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpfsqje6ajj31gw0mqx6q.jpg" alt="image-20210411143808882"></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>发明人是冯诺依曼，时间 1945年</p>
+<p>归并和快排背后 使用的都是分治思想，而分治算法一般都是用递归实现的。</p>
+<p><strong>分治是一种解决问题的处理思想， 递归是一种编程技巧</strong>，这二者并不冲突。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpfusgjj5vj311t0u0npe.jpg" alt="image-20210411154915840"></p>
+<p>代码：【注意合并过程，代码有打印】</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">递归实现：</span></span><br><span class="line"><span class="string">递推公式： merge_sort(p,r) = merge(merge_sort(p,q),merge_sort(q+1, r))</span></span><br><span class="line"><span class="string">终止条件： p&gt;=r</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">li = [<span class="number">11</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">if</span> p&gt;=r: <span class="keyword">return</span></span><br><span class="line">    mid = (p+r)//<span class="number">2</span>   <span class="comment"># 中间位置</span></span><br><span class="line">    merge_sort(li, p, mid)</span><br><span class="line">    merge_sort(li, mid+<span class="number">1</span>, r)</span><br><span class="line">    merge(li, p, mid, r)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">li, p, mid, r</span>):</span></span><br><span class="line">    tmp = []  <span class="comment"># 申请临时数组，存放merge 结果</span></span><br><span class="line">    i= p</span><br><span class="line">    j = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i&lt;=mid <span class="keyword">and</span> j&lt;=r:</span><br><span class="line">        <span class="keyword">if</span> li[i]&lt;=li[j]:  <span class="comment"># ‘=’保证是稳定的</span></span><br><span class="line">            tmp.append(li[i])</span><br><span class="line">            i +=<span class="number">1</span> </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tmp.append(li[j])</span><br><span class="line">            j +=<span class="number">1</span></span><br><span class="line">    <span class="comment"># while 执行完肯定有一部分没数了</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> i&lt;=mid: <span class="comment"># 说明这部分还没取完</span></span><br><span class="line">        tmp.append(li[i])</span><br><span class="line">        i +=<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> j&lt;=r: <span class="comment"># 说明这部分还没取完</span></span><br><span class="line">        tmp.append(li[j])</span><br><span class="line">        j +=<span class="number">1</span></span><br><span class="line">    li[p:r+<span class="number">1</span>] = tmp</span><br><span class="line">    <span class="built_in">print</span>(tmp)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;原始序列<span class="subst">&#123;li&#125;</span>&#x27;</span>)</span><br><span class="line">merge_sort(li, <span class="number">0</span>, <span class="built_in">len</span>(li)-<span class="number">1</span>)</span><br><span class="line">li</span><br><span class="line">----</span><br><span class="line">原始序列[<span class="number">11</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">8</span>, <span class="number">11</span>]</span><br><span class="line">[<span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">[<span class="number">3</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">7</span>]</span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>]   <span class="comment"># 注意合并过程与⤴️图一致</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复杂度分析：</li>
+</ul>
+<p>空间复杂度O(n), 不属于原地排序；</p>
+<p><strong>稳定的</strong>， 可由<code>if li[i]&lt;=li[j]: tmp.append(li[i])</code> 保证</p>
+<p>复杂度O(nlg(n)）</p>
+<h3 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h3><p>快排，也是采用分治思想</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 递推公式：</span></span><br><span class="line"><span class="comment"># quick_sort(p…r) = quick_sort(p…q-1) + quick_sort(q+1… r)</span></span><br><span class="line"><span class="comment"># 终止条件：</span></span><br><span class="line"><span class="comment"># p &gt;= r</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p&lt;r:</span><br><span class="line">        q = partition(li, p, r)   <span class="comment"># 获分区点</span></span><br><span class="line">        quick_sort(li, p, q-<span class="number">1</span>)</span><br><span class="line">        quick_sort(li, q+<span class="number">1</span>, r)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">    pivot = li[p]  <span class="comment"># 选队首为比较点</span></span><br><span class="line">    <span class="keyword">while</span> p&lt;r:</span><br><span class="line">        <span class="keyword">while</span> li[r]&gt;=pivot <span class="keyword">and</span> p&lt;r:  <span class="comment"># 从右边找，比 pivot小的</span></span><br><span class="line">            r -= <span class="number">1</span></span><br><span class="line">        li[p] = li[r]  <span class="comment"># 写空位</span></span><br><span class="line">        <span class="keyword">while</span> li[p] &lt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">        li[r] = li[p]</span><br><span class="line">    li[p] = pivot  <span class="comment"># p/r相遇,归位</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">li = [<span class="number">13</span>,<span class="number">11</span>,<span class="number">25</span>,<span class="number">7</span>,<span class="number">19</span>,<span class="number">3</span>]      </span><br><span class="line">quick_sort(li, <span class="number">0</span>, <span class="built_in">len</span>(li)-<span class="number">1</span>)</span><br><span class="line">li</span><br></pre></td></tr></table></figure>
+
+<p>关于<code>def partition(li, p, r)   # 获分区点</code>函数的解释：</p>
+<p>黑框内为待替换位置，也是最终的返回位置，随着递推，p、r越来越接近。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpg0782djyj314w0rekef.jpg" alt="image-20210411185628255"></p>
+<p>快排时间复杂度：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T(1) = C；   n=1时，只需要常量级的执行时间，所以表示为C。</span><br><span class="line">T(n) = 2*T(n/2) + n； n&gt;1</span><br></pre></td></tr></table></figure>
+
+<p>T(n) = O(nlogn)</p>
+<ul>
+<li>快排与归并 的比较</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpg0ev9ov4j31do0ti4qq.jpg" alt="image-20210411190349148"></p>
+<p>可以发现，归并排序的处理过程是<strong>由下到上</strong>的，先处理子问题，然后再合并。而快排正好相反，它的处 理过程是<strong>由上到下</strong>的，先分区，然后再处理子问题。归并排序虽然是稳定的、时间复杂度为 O(nlogn) 的 排序算法，但是它是非原地排序算法。我们前面讲过，归并之所以是非原地排序算法，主要原因是合并 函数无法在原地执行。快速排序通过设计巧妙的原地分区函数，可以实现原地排序，解决了归并排序占 用太多内存的问题。</p>
+<blockquote>
+<p>问题：O(n) 时间复杂度内求无序数组中的第 K 大元素。</p>
+<p>利用快排，经过一次快排，得到A[0,1,…,p-1], A[p], A[p+1,…,n-1]</p>
+<p>然后根据K与p大小关系，进行递归，每次减半</p>
+<p>复杂度：n+n/2+…+1=O(n)</p>
+<p>代码：参见力扣：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">https://leetcode-cn.com/problems/kth-largest-element-in-an-array/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findKthLargest</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        <span class="comment">#  [3,2,1,5,6,4] 和 k = 3</span></span><br><span class="line">        <span class="comment"># &quot;采用快排思想&quot;</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">helper</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            q = partition(li, p,r)</span><br><span class="line">            <span class="keyword">if</span> q+<span class="number">1</span>==k:</span><br><span class="line">                <span class="keyword">return</span> li[q]</span><br><span class="line">            <span class="keyword">elif</span> q+<span class="number">1</span>&gt;k:</span><br><span class="line">                <span class="keyword">return</span> helper(li, p, q-<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> helper(li, q+<span class="number">1</span>, r)</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">partition</span>(<span class="params">li, p, r</span>):</span></span><br><span class="line">            pivot = li[p]  <span class="comment"># 选队首为比较点</span></span><br><span class="line">            <span class="keyword">while</span> p&lt;r:</span><br><span class="line">                <span class="keyword">while</span> li[r]&lt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    r -= <span class="number">1</span></span><br><span class="line">                li[p] = li[r]</span><br><span class="line">                <span class="keyword">while</span> li[p] &gt;=pivot <span class="keyword">and</span> p&lt;r:</span><br><span class="line">                    p += <span class="number">1</span></span><br><span class="line">                li[r] = li[p]</span><br><span class="line">            li[p] = pivot  <span class="comment"># p/r相遇,得到</span></span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> helper(nums, <span class="number">0</span>, <span class="built_in">len</span>(nums)-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<h3 id="复杂度O-n-排序"><a href="#复杂度O-n-排序" class="headerlink" title="复杂度O(n)排序"></a>复杂度O(n)排序</h3><p>它们均不涉及元素之间的比较操作</p>
+<ul>
+<li>计数排序</li>
+</ul>
+<p>计数排序其实是桶排序的一种特殊情况</p>
+<p>时间复杂度：O(n+K)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">counting_sort</span>(<span class="params">li</span>):</span></span><br><span class="line">    max_num = <span class="built_in">max</span>(li)</span><br><span class="line">    count_li = [<span class="number">0</span>] * (max_num + <span class="number">1</span>)  <span class="comment"># 计数列表</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> li:</span><br><span class="line">        count_li[num] += <span class="number">1</span></span><br><span class="line">    li.clear()</span><br><span class="line">    <span class="keyword">for</span> i,v <span class="keyword">in</span> <span class="built_in">enumerate</span>(count_li):</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(v):</span><br><span class="line">            li.append(i)</span><br></pre></td></tr></table></figure>
+
+<p>缺点：</p>
+<p>1）当数列最大、最小值差距过大时</p>
+<p>意味着，空间的极大浪费</p>
+<p>2）小数</p>
+<ul>
+<li>桶排序</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv089dd00cj60o209k0tf02.jpg" alt="image-20211001232844068"></p>
+<ul>
+<li>基数排序</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gv08qbo2ndg60s40fywic02.gif" alt="img"></p>
+<ul>
+<li>比较</li>
+</ul>
+<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
+<p><strong>基数排序：</strong>根据键值的每位数字来分配桶；</p>
+<p><strong>计数排序：</strong>每个桶只存储单一键值；</p>
+<p><strong>桶排序：</strong>每个桶存储一定范围的数值；</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1guxyd2a1mmj60xg0c4dgf02.jpg" alt="image-20210930001510344"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">li, val</span>):</span></span><br><span class="line">    left = <span class="number">0</span></span><br><span class="line">    right = <span class="built_in">len</span>(li)-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:  <span class="comment"># 候选区有值</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">        mid = (left+right)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> li[mid]==val:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> li[mid]&gt;val:  <span class="comment"># 待查找的值在 mid 左侧</span></span><br><span class="line">            right = mid-<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># 待查找的值在 mid 右侧</span></span><br><span class="line">            left = mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">----------</span><br><span class="line">li = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(binary_search(li, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(lgn)</p>
+<p>递归和非递归代码参见：<a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.ipynb"><strong>二分查找.ipynb</strong> </a></p>
+<ul>
+<li>适用场景</li>
+</ul>
+<p>二分查找只能用<strong>在插入、删除操作不频繁，一次排序多次查找的场景中</strong>。针对动态变化的数据集合，二分查找将不再适用。那针对动态数据集合，如何在其中快速查找某个数据呢?别急，等到二叉树 那一节我会详细讲。</p>
+<ul>
+<li>二分查找变形</li>
+</ul>
+<ol>
+<li>变体一:查找第一个值等于给定值的元素</li>
+<li>变体二:查找最后一个值等于给定值的元素</li>
+<li>变体三:查找第一个 ≥ 给定值的元素</li>
+<li>变体四:查找最后一个 ≤ 给定值的元素</li>
+</ol>
+<p>参见：<a target="_blank" rel="noopener" href="https://github.com/flitdu/consult/blob/main/jupyter/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.ipynb"><strong>二分查找.ipynb</strong> </a></p>
+<h2 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h2><h3 id="BF算法"><a href="#BF算法" class="headerlink" title="BF算法"></a>BF算法</h3><p>Brute Force, 也即暴力匹配算法，复杂度为O（mn），其中m为模式串长度，n 为主串长度，n&gt;m</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpwd1fyt1sj30vk0eqwzb.jpg" alt="image-20210425222923858"></p>
+<h3 id="RK-算法"><a href="#RK-算法" class="headerlink" title="RK 算法"></a>RK 算法</h3><p>RK 算法的全称叫 Rabin-Karp 算法，是由它的两位发明者 Rabin 和 Karp 的名字来命名的。</p>
+<p>是BF算法的升级版</p>
+<p>RK 算法的思路是这样的：我们通过哈希算法对主串中的 n-m+1 个子串分别求哈希值，然后逐个与模式串的哈希值比较大小。如果某个子串的哈希值与模式串相等，那就说明对应的子串和模式串匹配了(这 里先不考虑哈希冲突的问题，后面我们会讲到)。因为哈希值是一个数字，数字之间比较是否相等是非 常快速的，所以模式串和子串比较的效率就提高了。</p>
+<p>整体复杂度：O(n)</p>
+<h3 id="BM-算法"><a href="#BM-算法" class="headerlink" title="BM 算法"></a>BM 算法</h3><h2 id="四种算法思想"><a href="#四种算法思想" class="headerlink" title="四种算法思想"></a>四种算法思想</h2><p>贪心 算法、分治算法、回溯算法、动态规划，更加确切地说，它们应该是算法思想，并不是具体的算法，常用来指导我们设计具体的算法和编码等。</p>
 <h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><p>应用领域：</p>
 <ul>
 <li><p>深度优先搜索</p>
