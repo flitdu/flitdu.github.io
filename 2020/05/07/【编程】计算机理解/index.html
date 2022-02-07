@@ -29,7 +29,7 @@
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw6c48ahytj319y0u0tgc.jpg" alt="image-20211107093542059"></p>
 <p>参考：哔站<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411X7S5?p=3&amp;spm_id_from=pageDriver">https://www.bilibili.com/video/BV1kE411X7S5?p=3&amp;spm_id_from=pageDriver</a></p>
-<h2 id="代码如何控制硬件"><a href="#代码如何控制硬件" class="headerlink" title="代码如何控制硬件"></a>代码如何控制硬件</h2><h3 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydqp6f3wj30qk0ne0ue.jpg" alt="img"></p>
+<h2 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydqp6f3wj30qk0ne0ue.jpg" alt="img"></p>
 <p>晶体管的导通：</p>
 <p><img src="https://i.loli.net/2021/03/15/BS86XWHAmfGuNsO.png" alt="image-20210315000137256"></p>
 <ul>
@@ -42,10 +42,14 @@
 <li>半导体分类</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydtuc1m1j30jg06ojru.jpg" alt="img"></p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>存储设备种类：</p>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>存储设备种类：</p>
 <p><img src="https://i.loli.net/2021/03/15/H5BCF4RrqTozebl.png" alt="image-20210315005433324"></p>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxuanBlog/p/11751609.html">程序员需要了解的硬核知识之内存</a></p>
-<h3 id="控制过程理解"><a href="#控制过程理解" class="headerlink" title="控制过程理解"></a>控制过程理解</h3><p>参见知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20492284">代码是如何控制硬件的？</a></p>
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gz471h9tyij30go06ytb4.jpg" alt="img"></p>
+<p>cpu 缓存结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gz42suwcnjj30k90abgmx.jpg" alt="img"></p>
+<p>现在的CPU大都有一套多层缓存系统，将缓存分为L1、L2、L3等，有的还有L4。当L1发生缓存命中失败后，CPU会尝试去L2中读取，如果又失败，则继续向下一层缓存寻找。数字越小，缓存的速度越快，但成本也越高，因此容量一般更小。缓存并不是越大越好，虽然更大的缓存虽然能存储更多的数据和指令，但每一次寻址需要花费更多的周期，可能最终得不偿失。<strong>缓存的设计需要平衡时间、空间和制造成本，是CPU架构设计中的一个重要环节。</strong></p>
+<h2 id="代码控制硬件过程"><a href="#代码控制硬件过程" class="headerlink" title="代码控制硬件过程"></a>代码控制硬件过程</h2><p>参见知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20492284">代码是如何控制硬件的？</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gekabfah5ej30c8092glv.jpg" alt="img"></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1z2x7otj31d70u07wi.jpg" alt="image-20200917231351261"></p>
 <ul>
