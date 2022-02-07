@@ -45,10 +45,15 @@
 <h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>存储设备种类：</p>
 <p><img src="https://i.loli.net/2021/03/15/H5BCF4RrqTozebl.png" alt="image-20210315005433324"></p>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxuanBlog/p/11751609.html">程序员需要了解的硬核知识之内存</a></p>
-<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gz471h9tyij30go06ytb4.jpg" alt="img"></p>
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz57a9agimj30hr0bxt9q.jpg" alt="img"></p>
+<p><strong>处理器和内存的速度差距造就了存储层次</strong>:离处理器流水线距离越近的地方，使用存储密度小的电路结构，牺牲存储容量来换取 更快的访问速度;离处理器流水线距离越远的地方，使用存储密度大的电路结构，牺牲访问速度 来换取存储容量。目前计算机中常见的存储层次包括寄存器、高速缓存(Cache)、内存、IO 这四 个层次。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz54qhde4pj31500okjvp.jpg" alt="image-20220207183542692"></p>
+<p>当处理器发出内存访问请求时，会先查看缓存内是否有请求数据。当L1发生缓存命中失败后，CPU会尝试去L2中读取，如果又失败，则继续向下一层缓存寻找。</p>
+<p>如果存在（命中），则不经访问内存直接返回该数据；<strong>如果不存在（失效），则要先把内存中的相应数据载入缓存，再将其返回处理器。</strong></p>
+<p>数字越小，缓存的速度越快，但成本也越高，因此容量一般更小。缓存并不是越大越好，虽然更大的缓存虽然能存储更多的数据和指令，但每一次寻址需要花费更多的周期，可能最终得不偿失。<strong>缓存的设计需要平衡时间、空间和制造成本，是CPU架构设计中的一个重要环节。</strong></p>
 <p>cpu 缓存结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz57b9sentj30go06yq5c.jpg" alt="img"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gz42suwcnjj30k90abgmx.jpg" alt="img"></p>
-<p>现在的CPU大都有一套多层缓存系统，将缓存分为L1、L2、L3等，有的还有L4。当L1发生缓存命中失败后，CPU会尝试去L2中读取，如果又失败，则继续向下一层缓存寻找。数字越小，缓存的速度越快，但成本也越高，因此容量一般更小。缓存并不是越大越好，虽然更大的缓存虽然能存储更多的数据和指令，但每一次寻址需要花费更多的周期，可能最终得不偿失。<strong>缓存的设计需要平衡时间、空间和制造成本，是CPU架构设计中的一个重要环节。</strong></p>
 <h2 id="代码控制硬件过程"><a href="#代码控制硬件过程" class="headerlink" title="代码控制硬件过程"></a>代码控制硬件过程</h2><p>参见知乎：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20492284">代码是如何控制硬件的？</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gekabfah5ej30c8092glv.jpg" alt="img"></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giu1z2x7otj31d70u07wi.jpg" alt="image-20200917231351261"></p>
