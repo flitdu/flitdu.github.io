@@ -17,7 +17,7 @@
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>通过索引，可以快速检索</p>
 <p>同时要注意索引更新的时间开销，以及索引会占用磁盘空间</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gz2q7lj36vj30q80cwdhu.jpg" alt="image-20220205164214546"></p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>数据库系统要么执行某项多部分操作的所有更改，要么保持数据不变。为此”</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>数据库系统要么执行某项多部分操作的所有更改，要么保持数据不变</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION;</span><br><span class="line">UPDATE vault SET balance = balance + 50 WHERE id=2;</span><br><span class="line">UPDATE vault SET balance = balance - 50 WHERE id=1;</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
