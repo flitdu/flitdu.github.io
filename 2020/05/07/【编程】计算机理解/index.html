@@ -19,16 +19,17 @@
 <p>图灵机的示例。绿点指示处为当前状态，每条规则的4项分别是：当前位置读入的字符、当前位置写入的字符、纸带的移动方向、将要转移到的状态。【1936年】</p>
 <h2 id="冯-诺依曼结构"><a href="#冯-诺依曼结构" class="headerlink" title="冯-诺依曼结构"></a>冯-诺依曼结构</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw5wiibvkjj31220mw0zd.jpg" alt="image-20211107003552197"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5x0xk6hcj315j0u0100.jpg" alt="image-20211107005335215"></p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5wnt1fa7j30pw0lw407.jpg" alt="image-20211107004057915"></p>
-<ul>
-<li>数据流动情况</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5wr8zhafj31cw0u0jw2.jpg" alt="image-20211107004416377"></p>
-<ul>
-<li>现代计算机结构模型</li>
-</ul>
+<p>计算机内部数据流动情况：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw6c48ahytj319y0u0tgc.jpg" alt="image-20211107093542059"></p>
-<p>参考：哔站<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411X7S5?p=3&amp;spm_id_from=pageDriver">https://www.bilibili.com/video/BV1kE411X7S5?p=3&amp;spm_id_from=pageDriver</a></p>
+<p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411X7S5?p=3&spm_id_from=pageDriver">南京大学 计算机系统基础(一)主讲：袁春风老师</a></p>
+<p>寄存器解读：<a target="_blank" rel="noopener" href="https://www.i4k.xyz/article/qq_34801169/102782643">https://www.i4k.xyz/article/qq_34801169/102782643</a></p>
+<blockquote>
+<ul>
+<li>程序计数器（PC，Program counter），用于存放指令的地址。为了保证程序(在操作系统中理解为进程)能够连续地执行下去，CPU必须具有某些手段来确定下一条指令的地址。当执行一条指令时，首先需要根据PC中存放的指令地址，将指令由内存取到指令寄存器中，此过程称，为“取指令”。与此同时，PC中的地址或自动加1或由转移指针给出下一条指令的地址。此后经过分析指令，执行指令。完成第一条指令的执行，而后根据PC取出第二条指令的地址，如此循环，执行每一条指令。</li>
+<li>指令寄存器（IR，Instruction Register），用来保存当前正在执行的一条指令。是临时放置从内存里面取得的程序指令的寄存器，用于存放当前从主存储器读出的正在执行的一条指令。当执行一条指令时，先把它从内存取到数据寄存器（DR，Data Register）中，然后再传送至IR。指令划分为操作码和地址码字段，由二进制数字组成。为了执行任何给定的指令，必须对操作码进行测试，以便识别所要求的操作。指令译码器就是做这项工作的。指令寄存器中操作码字段的输出就是指令译码器的输入。操作码一经译码后，即可向操作控制器发出具体操作的特定信号。</li>
+<li>……</li>
+</ul>
+</blockquote>
 <h2 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydqp6f3wj30qk0ne0ue.jpg" alt="img"></p>
 <p>晶体管的导通：</p>
 <p><img src="https://i.loli.net/2021/03/15/BS86XWHAmfGuNsO.png" alt="image-20210315000137256"></p>
