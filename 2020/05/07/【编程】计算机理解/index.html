@@ -20,6 +20,9 @@
 <h2 id="冯-诺依曼结构"><a href="#冯-诺依曼结构" class="headerlink" title="冯-诺依曼结构"></a>冯-诺依曼结构</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw5wiibvkjj31220mw0zd.jpg" alt="image-20211107003552197"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw5x0xk6hcj315j0u0100.jpg" alt="image-20211107005335215"></p>
 <p>计算机内部数据流动情况：</p>
+<blockquote>
+<p>注意上方的地址总线（单向），以及下方的数据总线（双向）</p>
+</blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw6c48ahytj319y0u0tgc.jpg" alt="image-20211107093542059"></p>
 <p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411X7S5?p=3&spm_id_from=pageDriver">南京大学 计算机系统基础(一)主讲：袁春风老师</a></p>
 <p>寄存器解读：<a target="_blank" rel="noopener" href="https://www.i4k.xyz/article/qq_34801169/102782643">https://www.i4k.xyz/article/qq_34801169/102782643</a></p>
@@ -30,23 +33,38 @@
 <li>……</li>
 </ul>
 </blockquote>
+<p>思考一个问题，我们平时需要计算的数据一般很大，cpu 中的寄存器根本存不下，cpu又是如何计算的了的呢？</p>
+<p>其实，主要是靠数据的不断读写到内存（cpu&lt;–&gt;内存），然后每次对单个数据计算，一直到指令结束实现的。  <a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15067244/4111206"><strong>数据结构是如何装入 CPU 寄存器的？</strong></a></p>
 <h2 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydqp6f3wj30qk0ne0ue.jpg" alt="img"></p>
 <p>晶体管的导通：</p>
 <p><img src="https://i.loli.net/2021/03/15/BS86XWHAmfGuNsO.png" alt="image-20210315000137256"></p>
+<p>【扩展】半导体分类：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydtuc1m1j30jg06ojru.jpg" alt="img"></p>
 <ul>
 <li>0 1 表示</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yedongnan001/article/details/79471329">以非门为例</a>：</p>
 <p>当输入为高电平＋５Ｖ时，Q1基极与发射极间Ube&gt; 0.7V，Q1导通，输出点电压为Q1的集电极和发射极之间的压降，即0.3V，即输出为数字量0；当输入为低时，Q1集电极和发射极之间未导通，输出电压为上拉的电压，+5V，即数字量1。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gv5opd5x3rj60e809q74k02.jpg" alt="img"></p>
-<ul>
-<li>半导体分类</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydtuc1m1j30jg06ojru.jpg" alt="img"></p>
 <h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>存储设备种类：</p>
 <p><img src="https://i.loli.net/2021/03/15/H5BCF4RrqTozebl.png" alt="image-20210315005433324"></p>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cxuanBlog/p/11751609.html">程序员需要了解的硬核知识之内存</a></p>
-<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz57a9agimj30hr0bxt9q.jpg" alt="img"></p>
+<h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p><strong>指令集</strong></p>
+<p>cpu 可以执行的所有操作的集合，称为指令集</p>
+<p><a target="_blank" rel="noopener" href="https://pastraiser.com/cpu/i4040/i4040.html">下图展示了如何将操作映射 为数字</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gzalltd71hj325a0jaq7o.jpg" alt="image-20220212120726664"></p>
+<ul>
+<li>RISC vs CISC</li>
+</ul>
+<p>简单来说，CISC任务处理能力强，适合桌面电脑和服务器。RISC通过精简CISC指令种类，格式，简化寻址方式，达到省电高效的效果，适合手机、平板、数码相机等便携式电子产品。<a target="_blank" rel="noopener" href="https://www.ithome.com/0/424/726.htm">https://www.ithome.com/0/424/726.htm</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwmwnz5fjdj30go04iwes.jpg" alt="img"></p>
+<ul>
+<li>cpu 时钟</li>
+</ul>
+<p>2GHz 表示cpu 每秒可以执行20亿次基本操作，完成一条机器指令需要 5-10次基本操作，即2GHz 表示每秒可以执行数亿条机器指令</p>
+<p><strong>CPU 缓存</strong></p>
+<p>CPU 和内存的速度差异：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz57a9agimj30hr0bxt9q.jpg" alt="img"></p>
 <p><strong>处理器和内存的速度差距造就了存储层次</strong>:离处理器流水线距离越近的地方，使用存储密度小的电路结构，牺牲存储容量来换取 更快的访问速度;离处理器流水线距离越远的地方，使用存储密度大的电路结构，牺牲访问速度 来换取存储容量。目前计算机中常见的存储层次包括寄存器、高速缓存(Cache)、内存、IO 这四 个层次。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz54qhde4pj31500okjvp.jpg" alt="image-20220207183542692"></p>
 <p>当处理器发出内存访问请求时，会先查看缓存内是否有请求数据。当L1发生缓存命中失败后，CPU会尝试去L2中读取，如果又失败，则继续向下一层缓存寻找。</p>
@@ -63,21 +81,15 @@
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gelhmwhwuxj30u014c1l0.jpg" alt="image-20200509000407044"></p>
 <ul>
-<li>视频：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%99%B6%E4%BD%93%E7%AE%A1/569042?fromtitle=transistor&fromid=8858808">https://baike.baidu.com/item/%E6%99%B6%E4%BD%93%E7%AE%A1/569042?fromtitle=transistor&amp;fromid=8858808</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%99%B6%E4%BD%93%E7%AE%A1/569042?fromtitle=transistor&fromid=8858808">百度词条【晶体管】视频</a></li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1geli4gzshxj31hs0i677e.jpg" alt="image-20200509001856037"></p>
-<p>值得好好观看👆</p>
-<p>来自百度词条【晶体管】</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/348237008">CPU 是怎么认识代码的？</a></li>
 </ul>
 <p>里面的回答很经典</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gv14ph93lhj60pk0bb0tb02.jpg" alt="img"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw6h9hftm8j316c0u0ag6.jpg" alt="image-20211107123344205"></p>
-<h2 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h2><blockquote>
-<p>简单来说，CISC任务处理能力强，适合桌面电脑和服务器。RISC通过精简CISC指令种类，格式，简化寻址方式，达到省电高效的效果，适合手机、平板、数码相机等便携式电子产品。<a target="_blank" rel="noopener" href="https://www.ithome.com/0/424/726.htm">https://www.ithome.com/0/424/726.htm</a></p>
-</blockquote>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwmwnz5fjdj30go04iwes.jpg" alt="img"></p>
 <h2 id="数据表示"><a href="#数据表示" class="headerlink" title="数据表示"></a>数据表示</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw6okdchm7j317e0u0af1.jpg" alt="image-20211107164625392"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw6okwdmpsj30zu0oqq7c.jpg" alt="image-20211107164656091"></p>
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghstmfbx9kj31i80b2e5e.jpg" alt="image-20200816181855186"></p>
