@@ -20,9 +20,7 @@
 </ul>
 <h3 id="原码、反码与补码"><a href="#原码、反码与补码" class="headerlink" title="原码、反码与补码"></a>原码、反码与补码</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">原码, 反码, 补码 详解 </a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx1yf53pabj30jw08smxk.jpg" alt="image-20211204175944888"></p>
-<ul>
-<li><strong>原码</strong></li>
-</ul>
+<p><strong>原码</strong></p>
 <p>第一位是符号位，其余位表示值。比如如果是8位二进制:</p>
 <blockquote>
 <p>[+1]原 = 0000 0001</p>
@@ -36,9 +34,7 @@
 <blockquote>
 <p>[-127 , 127]</p>
 </blockquote>
-<ul>
-<li><strong>反码</strong></li>
-</ul>
+<p><strong>反码</strong></p>
 <p>正数的反码是其本身</p>
 <p>负数的反码是在其原码的基础上, 符号位不变，其余各个位取反.</p>
 <p>e.g.</p>
@@ -57,9 +53,7 @@
     00000001      1   &lt;-- 正确结果
 </code></pre>
 <p>反码的优点：正数和负数的加法都一样， 不需要单独判断符号的电路。但是，0表示还是不唯一</p>
-<ul>
-<li><strong>补码</strong></li>
-</ul>
+<p><strong>补码</strong></p>
 <p>正数的补码就是其本身</p>
 <p>负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1. (<strong>即在反码的基础上+1</strong>)</p>
 <blockquote>
@@ -67,8 +61,12 @@
 <p>[-1] = [10000001]原 = [11111110]反 = [11111111]补</p>
 </blockquote>
 <p>补码转十进制值的两种方法：</p>
-<p>1)按照定义</p>
-<p>2)对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取反即可</p>
+<ul>
+<li><p>按照定义</p>
+</li>
+<li><p>对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取反即可</p>
+</li>
+</ul>
 <blockquote>
 <p>e.g.， [1011]补 = -([0101]原)=-7</p>
 </blockquote>
@@ -79,19 +77,17 @@
 <p>计算 -3-3  </p>
 <p>   1 0 1<br> - 0 1 1<br>-———<br>    1 0 1<br> + 1 0 1   &lt;—[-B]补<br>-———<br> 1 0 1 0  &lt;— -6</p>
 </blockquote>
-<ul>
-<li><strong>乘法</strong></li>
-</ul>
+<p><strong>乘法</strong></p>
 <p>乘法亦会转化为加法计算</p>
 <p><em>参见龙芯团队书籍《计算机体系结构基础》p210:</em></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx371c2fimj3104054wf2.jpg" alt="image-20211205194326629"></p>
 <p>图8.27给出两个 4 位补码相乘的例子。<strong>注意在补码加法运算中，需要进 行 8 位的符号位扩展，并仅保留 8 位结果。</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx36xtbzg9j31060fswg3.jpg" alt="image-20211205194001174"></p>
 <p>知乎相关提问：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22420697">补码乘法位级操作过程是这样的么？</a></p>
+<p><strong>一些练习</strong></p>
 <ul>
-<li>一些练习</li>
+<li>整数比较判断（p75–习题2.44）</li>
 </ul>
-<p>1） 整数比较判断（p75–习题2.44）</p>
 <p>考虑 int x, y;  unsigned ux =x</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x&lt;<span class="number">0</span>		--&gt; ((x*<span class="number">2</span>)&lt;<span class="number">0</span>)   ❌</span><br><span class="line">ux &gt;<span class="number">-1</span>  							❌</span><br><span class="line">x&gt;y   --&gt;  -x &lt; -y    ❌</span><br><span class="line">x*x &gt;= <span class="number">0</span>  				    ❌</span><br></pre></td></tr></table></figure>
 
@@ -100,9 +96,13 @@
 <p>结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case1: x=-2147483648, x*2=0</span><br><span class="line">case2: ux&gt;-1: 0</span><br><span class="line">case3: x &gt;y: 1</span><br><span class="line">case3: -x&lt;-y: 0</span><br><span class="line">case4: x*x: -1794967296</span><br></pre></td></tr></table></figure>
 
-<p>2）Brian Kernighan（K&amp;R中的K，也是AWK的作者之一）在谈论<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K64y1Q7Ru/">编程风格</a>的时候举了一个比特操作的例子：</p>
+<ul>
+<li>Brian Kernighan（K&amp;R中的K，也是AWK的作者之一）在谈论<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K64y1Q7Ru/">编程风格</a>的时候举了一个比特操作的例子：</li>
+</ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx3eu127m6j31j40u0n0j.jpg" alt="image-20211206001313055"></p>
-<p>3). 大小端</p>
+<ul>
+<li>大小端</li>
+</ul>
 <p>可以通过反汇编查看：<code>objdump -d /bin/ls</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4iyvlo6dj313407qdim.jpg" alt="image-20211206232145903"></p>
 <p>由上图可知，<code>C5</code>在低地址，所以为 小端表示</p>
@@ -190,10 +190,7 @@
 <p> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1554y1s7LS?p=28">台湾元智大学计算机组成原理：浮点数-2</a> （中文讲解很清楚）</p>
 <p>PS. 一个很有意思的介绍浮点数的网站：<a target="_blank" rel="noopener" href="https://0.30000000000000004.com/">https://0.30000000000000004.com</a></p>
 <p>谷歌要花费力气来设计自己的BFloat16，详情请参考：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">Google BFloat16</a></p>
-<ul>
-<li>什么是有品位的程序？</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cs411y7GQ?from=search&seid=13695301827862285580">Linus Torvalds 2016年TED采访</a>，14:26开始，拿出两个单向链表操作为例， 说明了什么是有品位的程序。 </p>
+<p>什么是有品位的程序？<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cs411y7GQ?from=search&seid=13695301827862285580">Linus Torvalds 2016年TED采访</a>，14:26开始，拿出两个单向链表操作为例， 说明了什么是有品位的程序。 </p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx6p3o3clij31fg0u0jvz.jpg" alt="image-20211207234603349"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初学者版本</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_list_node</span><span class="params">(List *<span class="built_in">list</span>, Node *target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *prev = <span class="literal">NULL</span>;</span><br><span class="line">    Node *cur = <span class="built_in">list</span>-&gt;head;</span><br><span class="line">    <span class="comment">// Walk the list</span></span><br><span class="line">    <span class="keyword">while</span> (cur != target) &#123;</span><br><span class="line">        prev = cur;</span><br><span class="line">        cur = cur-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Remove the target by updating the head or the previous node.</span></span><br><span class="line">    <span class="keyword">if</span> (!prev)</span><br><span class="line">        <span class="built_in">list</span>-&gt;head = target-&gt;next;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        prev-&gt;next = target-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -201,30 +198,26 @@
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有品位的版本，消除特例，简单优雅的代码</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_list_node</span><span class="params">(List *<span class="built_in">list</span>, Node *target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// The &quot;indirect&quot; pointer points to the *address*</span></span><br><span class="line">    <span class="comment">// of the thing we&#x27;ll update.</span></span><br><span class="line">    Node **indirect = &amp;<span class="built_in">list</span>-&gt;head;</span><br><span class="line">    <span class="comment">// Walk the list, looking for the thing that </span></span><br><span class="line">    <span class="comment">// points to the node we want to remove.</span></span><br><span class="line">    <span class="keyword">while</span> (*indirect != target)</span><br><span class="line">        indirect = &amp;(*indirect)-&gt;next;</span><br><span class="line">    *indirect = target-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>位操作计算strlen</li>
-</ul>
+<p><strong>位操作计算strlen</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这可能是你的写strlen版本，看起来很精简，但是没有效率！</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">strlen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *p = s;</span><br><span class="line">    <span class="keyword">while</span> (*p != ’\<span class="number">0</span>’) p++;</span><br><span class="line">    <span class="keyword">return</span> (p - s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>真是这样？让我们来看看 <a target="_blank" rel="noopener" href="https://opensource.apple.com/source/Libc/Libc-583/arm/string/strlen.s">Apple的strlen函数实现</a>，或者看看 <a target="_blank" rel="noopener" href="https://code.woboq.org/userspace/glibc/string/strlen.c.html">glibc的strlen函数实现</a></p>
 <p>此外，请参看这个有意思的网页：<a target="_blank" rel="noopener" href="http://graphics.stanford.edu/~seander/bithacks.html">位运算的奇技淫巧：Bit Twiddling Hacks</a></p>
+<p><strong>代码检查工具</strong></p>
 <ul>
-<li>代码检查工具</li>
+<li><p>静态检查工具：静态代码分析是指无需运行被测代码，通过词法分析、语法分析、控制流、数据流分析等技术对程序代码进行扫描，找出代码隐藏的错误和缺陷，比如未初始化，越界，死循环，代码不可达等，在整个软件开发生命周期中，30% 至 70% 的代码逻辑设计和编码缺陷是可以通过静态代码分析来发现和修复的，比如 <a target="_blank" rel="noopener" href="http://cppcheck.sourceforge.net/">Cppcheck</a>（开源免费），<a target="_blank" rel="noopener" href="https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html">Coverity</a>，<a target="_blank" rel="noopener" href="https://www.perforce.com/products/klocwork">Klocwork</a>（商业收费）…</p>
+</li>
+<li><p>动态检查工具，比如 <a target="_blank" rel="noopener" href="https://valgrind.org/">Valgrind</a>，它是用于构建动态分析工具的探测框架，它包括一个工具集，每个工具执行某种类型的调试、分析或类似的任务，以帮助完善你的程序，比如memory check，Cache miss check …</p>
+</li>
 </ul>
-<p><strong>静态检查工具</strong>：静态代码分析是指无需运行被测代码，通过词法分析、语法分析、控制流、数据流分析等技术对程序代码进行扫描，找出代码隐藏的错误和缺陷，比如未初始化，越界，死循环，代码不可达等，在整个软件开发生命周期中，30% 至 70% 的代码逻辑设计和编码缺陷是可以通过静态代码分析来发现和修复的，比如 <a target="_blank" rel="noopener" href="http://cppcheck.sourceforge.net/">Cppcheck</a>（开源免费），<a target="_blank" rel="noopener" href="https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html">Coverity</a>，<a target="_blank" rel="noopener" href="https://www.perforce.com/products/klocwork">Klocwork</a>（商业收费）…</p>
-<p><strong>动态检查工具</strong>，比如 <a target="_blank" rel="noopener" href="https://valgrind.org/">Valgrind</a>，它是用于构建动态分析工具的探测框架，它包括一个工具集，每个工具执行某种类型的调试、分析或类似的任务，以帮助完善你的程序，比如memory check，Cache miss check …</p>
 <p>PS. 一般会把上述的静态/动态检查工具整合到类似 <a target="_blank" rel="noopener" href="https://www.jenkins.io/">Jenkins</a> 这样的持续集成（CI）工具之中，代码一有改动就会触发其运行，然后直接观察和分析结果。</p>
-<ul>
-<li>安全编码规范</li>
-</ul>
+<p><strong>安全编码规范</strong></p>
 <p><a target="_blank" rel="noopener" href="http://mirror.informatimago.com/next/developer.apple.com/documentation/Security/Conceptual/SecureCodingGuide/SecureCodingGuide.pdf">Apple Secure Coding Guide</a></p>
 <p><a target="_blank" rel="noopener" href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a></p>
 <p><a target="_blank" rel="noopener" href="https://ilcc.gitbooks.io/wiki/content/StyleGuide/Huawei-C/index.html">华为技术有限公司 C语言编程规范</a></p>
 <p>![img](<a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C">https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C</a> bareilly_副本.jpg?alt=media&amp;token=e4a8c6d9-60f9-4d1e-810a-1d4478fbaf73)</p>
 <p><a target="_blank" rel="noopener" href="https://www.bell-labs.com/usr/dmr/www/">https://www.bell-labs.com/usr/dmr/www/</a></p>
-<h2 id="Chap3-程序的机器级表示"><a href="#Chap3-程序的机器级表示" class="headerlink" title="Chap3: 程序的机器级表示"></a>Chap3: 程序的机器级表示</h2><ul>
-<li>汇编代码与机器代码</li>
-</ul>
+<h2 id="Chap3-程序的机器级表示"><a href="#Chap3-程序的机器级表示" class="headerlink" title="Chap3: 程序的机器级表示"></a>Chap3: 程序的机器级表示</h2><p><strong>汇编代码与机器代码</strong></p>
 <p>对于源程序 xx.c，可以通过如下命令生成<strong>汇编代码</strong> <code>xx.s</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -S xx.c</span><br></pre></td></tr></table></figure>
 
@@ -236,9 +229,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>x86-64通用目的寄存器</li>
-</ul>
+<p><strong>x86-64通用目的寄存器</strong></p>
 <p>用于存储整数数据和指针</p>
 <p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn0w0gug6j30u00yh79p.jpg" alt="image-20211222232137445"></p>
@@ -256,12 +247,15 @@
 </tr>
 </tbody></table>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn1f9t52xj31e60moq7a.jpg" alt="image-20211222234007914"></p>
+<p><strong>操作数类型</strong></p>
 <ul>
-<li>操作数类型</li>
+<li><p>寄存器：%rax</p>
+</li>
+<li><p>内存引用：(%rax)</p>
+</li>
+<li><p>立即数: $8</p>
+</li>
 </ul>
-<p>1）寄存器：%rax</p>
-<p>2）内存引用：(%rax)</p>
-<p>3）立即数: $8</p>
 <h3 id="mov指令"><a href="#mov指令" class="headerlink" title="mov指令"></a>mov指令</h3><p>将数据从源位置**<u>复制</u>**到目的位置</p>
 <p>mov 指令的后缀与寄存器的大小一定得是匹配的(e.g. ，movl 中l 表示4 bytes，而寄存器 %eax 的大小也是 4)：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfnvay8sj31960jy0vl.jpg" alt="image-20211219205032799"></p>
@@ -349,18 +343,15 @@
 <p>传统的编译器通常分为三个部分，前端(frontEnd)，优化器(Optimizer)和后端(backEnd)。在编译过程中，前端主要负责词法和语法分析，将源代码转化为抽象语法树；优化器则是在前端的基础上，对得到的中间代码进行优化，使代码更加高效；后端则是将已经优化的中间代码转化为针对各自平台的机器代码。</p>
 <h2 id="Chap6-存储器层次结构"><a href="#Chap6-存储器层次结构" class="headerlink" title="Chap6: 存储器层次结构"></a>Chap6: 存储器层次结构</h2><p>计算机访问不同层次存储器的时间开销：<a target="_blank" rel="noopener" href="https://colin-scott.github.io/personal_website/research/interactive_latency.html">https://colin-scott.github.io/personal_website/research/interactive_latency.html</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxtz52ohkkj31xp0u0aia.jpg" alt="image-20211228233954700"></p>
-<ul>
-<li>局部性原理</li>
-</ul>
-<p>时间局部性、空间局部性</p>
+<p><strong>局部性原理</strong></p>
+<p>包括时间局部性、空间局部性</p>
 <p>这也是为何缓存为何会有用</p>
-<ul>
-<li>存储器的层次结构</li>
-</ul>
+<p><strong>存储器的层次结构</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxtzey4ddvj313s0u0tf2.jpg" alt="image-20211228234920297"></p>
 <p>我们来看一个真实的Intel Core i7 CPU的缓存结构示意图</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxv2as1djvj30n10hcwhd.jpg" alt="img"></p>
-<p><strong>存储器山</strong>（Memory Mountain）（不同的CPU有不同的存储器山）</p>
+<p><strong>存储器山（Memory Mountain）</strong></p>
+<p>不同的CPU有不同的存储器山</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxv2a2u14kj30n00hbacw.jpg" alt="img"></p>
 <h2 id="Chap7-链接"><a href="#Chap7-链接" class="headerlink" title="Chap7: 链接"></a>Chap7: 链接</h2><p>进程的虚拟地址空间：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxv46lsaolj30jc0fuwg6.jpg" alt="enter image description here"></p>
@@ -396,16 +387,14 @@
 <p>参考文章（Herb Sutter）：<a target="_blank" rel="noopener" href="http://www.gotw.ca/publications/concurrency-ddj.htm">The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyjo1ksctj30nm0e0act.jpg" alt="img"></p>
 <p>多核处理器成为上述变革的主流解決方案，想要压榨出更多的处理器效能，软件必须跟上硬件的设计！</p>
-<ul>
-<li>并发与并行</li>
-</ul>
+<p><strong>并发与并行</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EN411o7FY/">【大佬讲座】谷歌大神 Rob Pike：并发 vs 并行 (傻傻分不清楚？)</a></p>
 <p>Concurrency （并发）指程序架构，将程序拆成多个可独立运行的部分，不一定要同时运行，Parallelism（并行） 指程序执行，同时执行多个程序。</p>
 <p>Concurrency 可能会用到 Parallelism，但不一定要用 Parallelism 才能实现 Concurrency。在 Concurrent 中，工作可拆分成「独立执行」的部份，于是「可以」让很多事情一起做，但「不一定」要真的同时做，参见下图。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyjyjtg7sj31600hitao.jpg" alt="image-20220101224145839"></p>
 <p>那么我们究竟应该如何创建一个并行程序呢？以下流程图示取自CMU：15-418 并行计算架构与编程。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyk3hp9ifj31490u0gq7.jpg" alt="image-20220101224710564"></p>
-<p>延伸阅读：</p>
+<p>【延伸阅读】：</p>
 <p>卡内基梅隆大学：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1aa4y1s7EH/">并行计算架构与编程 (15-418 / 15-618)</a></p>
 <p>伊利诺伊大学：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1z541137iG/">异构并行编程（胡文美教授）- 重点讲解CUDA编程</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
