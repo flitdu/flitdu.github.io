@@ -22,6 +22,8 @@
 <p>计算机内部数据流动情况：</p>
 <blockquote>
 <p>注意上方的地址总线（单向），以及下方的数据总线（双向）</p>
+<p>32位和64位CPU体系结构，指的就是数据总线和地址总线的条数，涉及寻址空间以及能够操作的二进制位数</p>
+<p>e.g. 32位地址总线可以对 2^32字节（4GB）的内存进行寻址</p>
 </blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gw6c48ahytj319y0u0tgc.jpg" alt="image-20211107093542059"></p>
 <p>来源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kE411X7S5?p=3&spm_id_from=pageDriver">南京大学 计算机系统基础(一)主讲：袁春风老师</a></p>
@@ -34,7 +36,7 @@
 </ul>
 </blockquote>
 <p>思考一个问题，我们平时需要计算的数据一般很大，cpu 中的寄存器根本存不下，cpu又是如何计算的了的呢？</p>
-<p>其实，主要是靠数据的不断读写到内存（cpu&lt;–&gt;内存），然后每次对单个数据计算，一直到指令结束实现的。  <a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15067244/4111206"><strong>数据结构是如何装入 CPU 寄存器的？</strong></a></p>
+<p>其实，主要是靠cpu与内存之间不断进行的数据传输。  <a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15067244/4111206"><strong>数据结构是如何装入 CPU 寄存器的？</strong></a></p>
 <h2 id="晶体管"><a href="#晶体管" class="headerlink" title="晶体管"></a>晶体管</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gvydqp6f3wj30qk0ne0ue.jpg" alt="img"></p>
 <p>晶体管的导通：</p>
 <p><img src="https://i.loli.net/2021/03/15/BS86XWHAmfGuNsO.png" alt="image-20210315000137256"></p>
@@ -61,9 +63,12 @@
 <ul>
 <li>cpu 时钟</li>
 </ul>
-<p>2GHz 表示cpu 每秒可以执行20亿次基本操作，完成一条机器指令需要 5-10次基本操作，即2GHz 表示每秒可以执行数亿条机器指令</p>
+<p>2GHz 表示cpu 每秒可以执行20亿次基本操作（一个周期1ns），完成一条机器指令需要 5-10次基本操作，即2GHz 表示每秒可以执行数亿条机器指令</p>
 <p><strong>CPU 缓存</strong></p>
 <p>CPU 和内存的速度差异：</p>
+<blockquote>
+<p>现代计算机需要 1微秒左右从RAM 获取数据</p>
+</blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz57a9agimj30hr0bxt9q.jpg" alt="img"></p>
 <p><strong>处理器和内存的速度差距造就了存储层次</strong>:离处理器流水线距离越近的地方，使用存储密度小的电路结构，牺牲存储容量来换取 更快的访问速度;离处理器流水线距离越远的地方，使用存储密度大的电路结构，牺牲访问速度 来换取存储容量。目前计算机中常见的存储层次包括寄存器、高速缓存(Cache)、内存、IO 这四 个层次。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz54qhde4pj31500okjvp.jpg" alt="image-20220207183542692"></p>
@@ -106,6 +111,16 @@
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1geumapu124j31ng09edig.jpg" alt="image-20200516213529954"></p>
 <h2 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h2><p><a target="_blank" rel="noopener" href="https://imweb.io/topic/5cde5770e363b77a0edeb874">再谈编程范式—程序语言背后的思想</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gevwc9f3scj30k00bsmy2.jpg" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/270068">声明式编程和命令式编程的比较（转）</a></p>
+<ul>
+<li>命令式编程：命令“机器”如何去做事情(how)，这样不管你想要的是什么(what)，它都会按照你的命令实现。//是函数式编程的意思，更强调流程及步骤。强调的操作细节，即Step by Step，而不是对象之间的关系</li>
+<li>声明式编程：告诉“机器”你想要的是什么(what)，让机器想出如何去做(how)。//OO了，更强调语义的层面，而不是细节，不强调具体流程的细节，即更强调What，描述对象之间的<strong>关系</strong>，而不是具体的操作细节。需要通用实现的归纳提取</li>
+</ul>
+<p>声明式编程让我们去描述我们想要的是什么，让底层的软件/计算机/等去解决如何去实现它们。</p>
+<p>在很多情况中，就像我们看到的一样，声明式编程能给我们的编程带来真正的提升，通过站在更高层面写代码，我们可以更多的专注于<em>what</em>，而这正是我们开发软件真正的目标。</p>
+<p>问题是，程序员习惯了去描述<em>how</em>，这让我们感觉很好很舒服——强力——能够控制事情的发生发展，不放走任何我们不能看见不能理解的处理过程。</p>
+<p>有时候这种紧盯着<em>how</em>不放的做法是没问题的。如果我需要对代码进行更高性能的优化，我需要对what进行更深一步的描述来指导how。有时候对于某个业务逻辑没有任何可以归纳提取的通用实现，我们只能写命令式编程代码。</p>
+<p>但大多数时候，我们可以、而且应该寻求声明式的写代码方式，如果没有发现现成的归纳提取好的实现，我们应该自己去创建。起初这会很难，必定的，但就像我们使用SQL和D3.js， 我们会长期从中获得巨大的回报！</p>
 <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>互联网是分布式的</p>
 <p><img src="https://i.loli.net/2021/03/15/FILTHd8rqaDlwy5.png" alt="image-20210315234832419"></p>
 <ul>
