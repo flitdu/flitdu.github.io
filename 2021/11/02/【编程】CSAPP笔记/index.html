@@ -229,6 +229,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
 
+<p>注意，汇编语言与机器语言是一一对应的</p>
 <p><strong>x86-64通用目的寄存器</strong></p>
 <p>用于存储整数数据和指针</p>
 <p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
@@ -275,7 +276,9 @@
 <h3 id="cmpq指令"><a href="#cmpq指令" class="headerlink" title="cmpq指令"></a>cmpq指令</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a==b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a in %rdi, b in %rsi</span><br><span class="line">  cmp    %rsi,%rdi   (a-b) 设置条件码寄存器</span><br><span class="line">  sete   %al</span><br><span class="line">  movzbl %al,%eax</span><br><span class="line">  retq</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxko67rt12j313i0fagnn.jpg" alt="image-20211220223031369"></p>
-<h3 id="栈帧-函数调用"><a href="#栈帧-函数调用" class="headerlink" title="栈帧-函数调用"></a>栈帧-函数调用</h3><p>综合以下文章理解之：</p>
+<h3 id="栈帧-函数调用"><a href="#栈帧-函数调用" class="headerlink" title="栈帧-函数调用"></a>栈帧-函数调用</h3><p>程序调用示意图：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gzc9w2qj2bj310i0om0vb.jpg" alt="image-20220213225311379"></p>
+<p><del>综合以下文章理解之：</del></p>
 <p>🔥<a target="_blank" rel="noopener" href="https://gitbook.coder.cat/function-call-principle/">函数调用原理</a></p>
 <blockquote>
 <p>这是一篇讲述函数调用原理的文章，通过大量的示意图从比较基础的概念开始阐述函数调用时堆栈的完整变化过程，同时还会通过具体例子来分析在X-64平台上函数调用在汇编级的表示，从而深刻理解函数调用原理。最后会提供几个例子来发现C语言函数栈帧的一些有意思的行为</p>
