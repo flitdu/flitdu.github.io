@@ -237,7 +237,7 @@
 <h3 id="x86-64通用目的寄存器"><a href="#x86-64通用目的寄存器" class="headerlink" title="x86-64通用目的寄存器"></a><strong>x86-64通用目的寄存器</strong></h3><p>用于存储整数数据和指针。<code>%rbx ,%rbp,%r12~%r15</code> 共6个为被调用者保存寄存器，其余为调用者保存寄存器</p>
 <p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn0w0gug6j30u00yh79p.jpg" alt="image-20211222232137445"></p>
-<h3 id="汇编代码"><a href="#汇编代码" class="headerlink" title="汇编代码"></a><strong>汇编代码</strong></h3><p><strong>操作数类型</strong></p>
+<h3 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a><strong>汇编指令</strong></h3><p>大多数指令有一个或多个操作数，分为如下3种类型：</p>
 <ul>
 <li><p>寄存器：%rax</p>
 </li>
@@ -246,16 +246,12 @@
 <li><p>立即数: $8</p>
 </li>
 </ul>
-<p>c 语言数据类型在 x86-64中的大小：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfsqmt0qj30vw0d4q4g.jpg" alt="image-20211219205516203"></p>
 <p><strong>mov指令</strong></p>
 <p>将数据从源位置**<u>复制</u>**到目的位置</p>
-<p>mov 指令的后缀与寄存器的大小一定得是匹配的(e.g. ，movl 中l 表示4 bytes，而寄存器 %eax 的大小也是 4)：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="number">1184</span>:	c7 <span class="number">45</span> ec <span class="number">03</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> 	movl   $<span class="number">0x3</span>,<span class="number">-0x14</span>(%rbp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfnvay8sj31960jy0vl.jpg" alt="image-20211219205032799"></p>
+<p>有 moveb, movel, movew 等，最后的汇编代码后缀对应所需要的寄存器大小</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzj7xw2wcvj21960jy41d.jpg" alt="image-20211219205032799"></p>
+<p>c 语言数据类型在 x86-64中的大小：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfsqmt0qj30vw0d4q4g.jpg" alt="image-20211219205516203"></p>
 <h3 id="push压栈指令"><a href="#push压栈指令" class="headerlink" title="push压栈指令"></a>push压栈指令</h3><p>e.g. 保存寄存器 rax 内存储的数据 0x123</p>
 <p><code>pushq %rax</code></p>
 <p>等价于如下两步：</p>
