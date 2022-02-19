@@ -217,38 +217,27 @@
 <p><a target="_blank" rel="noopener" href="https://ilcc.gitbooks.io/wiki/content/StyleGuide/Huawei-C/index.html">华为技术有限公司 C语言编程规范</a></p>
 <p>![img](<a target="_blank" rel="noopener" href="https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C">https://fengmuzi2003.gitbook.io/~/files/v0/b/gitbook-28427.appspot.com/o/assets%2F-MV9vJFv4kmvRLgEog6g%2F-MZLr4QZV6ey-NW43MqJ%2F-MZLu9NpSJs2LmyNovpv%2FProgramming-in-C</a> bareilly_副本.jpg?alt=media&amp;token=e4a8c6d9-60f9-4d1e-810a-1d4478fbaf73)</p>
 <p><a target="_blank" rel="noopener" href="https://www.bell-labs.com/usr/dmr/www/">https://www.bell-labs.com/usr/dmr/www/</a></p>
-<h2 id="Chap3-程序的机器级表示"><a href="#Chap3-程序的机器级表示" class="headerlink" title="Chap3: 程序的机器级表示"></a>Chap3: 程序的机器级表示</h2><p><strong>汇编代码与机器代码</strong></p>
-<p>对于源程序 xx.c，可以通过如下命令生成<strong>汇编代码</strong> <code>xx.s</code></p>
+<h2 id="Chap3-程序的机器级表示"><a href="#Chap3-程序的机器级表示" class="headerlink" title="Chap3: 程序的机器级表示"></a>Chap3: 程序的机器级表示</h2><h3 id="汇编代码与机器代码查看"><a href="#汇编代码与机器代码查看" class="headerlink" title="汇编代码与机器代码查看"></a><strong>汇编代码与机器代码查看</strong></h3><p>对于源程序 xx.c，可以通过如下命令生成<strong>汇编代码</strong> <code>xx.s</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -S xx.c</span><br></pre></td></tr></table></figure>
 
 <p>通过如下命令生成二进制格式的<strong>目标代码</strong><code>xx.o</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Og -c xx.c</span><br></pre></td></tr></table></figure>
 
 <p>通过反汇编命令<code>objdump</code>可以将机器代码翻译成汇编代码,查看 .o 文件内容：</p>
+<p><em>注意，汇编语言与机器语言是一一对应的</em></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -d xx.o</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000 &lt;multstore&gt;:</span><br><span class="line">   0:	f3 0f 1e fa          	endbr64 </span><br><span class="line">   4:	53                   	push   %rbx</span><br><span class="line">   5:	48 89 d3             	mov    %rdx,%rbx</span><br><span class="line">   8:	e8 00 00 00 00       	callq  d &lt;multstore+0xd&gt;</span><br><span class="line">   d:	48 89 03             	mov    %rax,(%rbx)</span><br><span class="line">  10:	5b                   	pop    %rbx</span><br><span class="line">  11:	c3                   	retq   </span><br></pre></td></tr></table></figure>
 
-<p>注意，汇编语言与机器语言是一一对应的</p>
-<p><strong>x86-64通用目的寄存器</strong></p>
-<p>用于存储整数数据和指针</p>
+<p>反汇编同时显示源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -g -o main main.c</span><br><span class="line">objdump -S -d main &gt; main.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="x86-64通用目的寄存器"><a href="#x86-64通用目的寄存器" class="headerlink" title="x86-64通用目的寄存器"></a><strong>x86-64通用目的寄存器</strong></h3><p>用于存储整数数据和指针。<code>%rbx ,%rbp,%r12~%r15</code> 共6个为被调用者保存寄存器，其余为调用者保存寄存器</p>
 <p>更多寄存器 知识参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272135463">一口气看完45个寄存器，CPU核心技术大揭秘</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn0w0gug6j30u00yh79p.jpg" alt="image-20211222232137445"></p>
-<p>其中，调用者、被调用者保存寄存器分类如下：</p>
-<table>
-<thead>
-<tr>
-<th>调用者保存寄存器</th>
-<th>其余</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>被调用者保存寄存器</td>
-<td>%rbx ,%rbp,%r12~%r15</td>
-</tr>
-</tbody></table>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxn1f9t52xj31e60moq7a.jpg" alt="image-20211222234007914"></p>
-<p><strong>操作数类型</strong></p>
+<h3 id="汇编代码"><a href="#汇编代码" class="headerlink" title="汇编代码"></a><strong>汇编代码</strong></h3><p><strong>操作数类型</strong></p>
 <ul>
 <li><p>寄存器：%rax</p>
 </li>
@@ -257,11 +246,16 @@
 <li><p>立即数: $8</p>
 </li>
 </ul>
-<h3 id="mov指令"><a href="#mov指令" class="headerlink" title="mov指令"></a>mov指令</h3><p>将数据从源位置**<u>复制</u>**到目的位置</p>
-<p>mov 指令的后缀与寄存器的大小一定得是匹配的(e.g. ，movl 中l 表示4 bytes，而寄存器 %eax 的大小也是 4)：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfnvay8sj31960jy0vl.jpg" alt="image-20211219205032799"></p>
 <p>c 语言数据类型在 x86-64中的大小：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfsqmt0qj30vw0d4q4g.jpg" alt="image-20211219205516203"></p>
+<p><strong>mov指令</strong></p>
+<p>将数据从源位置**<u>复制</u>**到目的位置</p>
+<p>mov 指令的后缀与寄存器的大小一定得是匹配的(e.g. ，movl 中l 表示4 bytes，而寄存器 %eax 的大小也是 4)：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="number">1184</span>:	c7 <span class="number">45</span> ec <span class="number">03</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> 	movl   $<span class="number">0x3</span>,<span class="number">-0x14</span>(%rbp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxjfnvay8sj31960jy0vl.jpg" alt="image-20211219205032799"></p>
 <h3 id="push压栈指令"><a href="#push压栈指令" class="headerlink" title="push压栈指令"></a>push压栈指令</h3><p>e.g. 保存寄存器 rax 内存储的数据 0x123</p>
 <p><code>pushq %rax</code></p>
 <p>等价于如下两步：</p>
@@ -379,7 +373,8 @@
 <p><strong>用户空间 vs 内核空间</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxw659bc3nj30lo0ekach.jpg" alt="img"></p>
 <p>参考：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html">阮一峰：User space 与 Kernel space</a></p>
-<h3 id="补充资料-3"><a href="#补充资料-3" class="headerlink" title="补充资料"></a>补充资料</h3><p>文章：<a target="_blank" rel="noopener" href="https://liam.page/2017/01/17/layers-and-operation-system/">程序员的自我修养（二）：操作系统、进程与线程</a></p>
+<h3 id="补充资料-3"><a href="#补充资料-3" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://liam.page/2017/01/17/layers-and-operation-system/">程序员的自我修养（二）：操作系统、进程与线程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释</a></p>
 <h2 id="Chap9-虚拟内存"><a href="#Chap9-虚拟内存" class="headerlink" title="Chap9: 虚拟内存"></a>Chap9: 虚拟内存</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XB4y1A7vm?p=5"><strong>物理内存有什么问题？</strong></a>    1. 内存空间不够  2. 产生内存碎片  3. 没有内存保护    </p>
 <p>（虚拟内存闪亮登场，本质就是增加一个中间层，计算机科学的任何问题都可以通过增加间接层解决！）</p>
 <p><strong>虚拟内存有什么优点？</strong>    1**.** 可以使用磁盘交换空间  2. 虚拟地址到物理地址映射灵活  3. 进程地址空间隔离</p>
@@ -402,6 +397,7 @@
 <p>多核处理器成为上述变革的主流解決方案，想要压榨出更多的处理器效能，软件必须跟上硬件的设计！</p>
 <p><strong>并发与并行</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EN411o7FY/">【大佬讲座】谷歌大神 Rob Pike：并发 vs 并行 (傻傻分不清楚？)</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzirry6kqpj20go0cjmxp.jpg" alt="img"></p>
 <p>Concurrency （并发）指程序架构，将程序拆成多个可独立运行的部分，不一定要同时运行，Parallelism（并行） 指程序执行，同时执行多个程序。</p>
 <p>Concurrency 可能会用到 Parallelism，但不一定要用 Parallelism 才能实现 Concurrency。在 Concurrent 中，工作可拆分成「独立执行」的部份，于是「可以」让很多事情一起做，但「不一定」要真的同时做，参见下图。</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyjyjtg7sj31600hitao.jpg" alt="image-20220101224145839"></p>
