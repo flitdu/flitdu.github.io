@@ -265,6 +265,11 @@
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxko67rt12j313i0fagnn.jpg" alt="image-20211220223031369"></p>
 <h3 id="栈帧-函数调用"><a href="#栈帧-函数调用" class="headerlink" title="栈帧-函数调用"></a>栈帧-函数调用</h3><p>程序调用示意图：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gzc9w2qj2bj310i0om0vb.jpg" alt="image-20220213225311379"></p>
+<p>更详细如下图：</p>
+<blockquote>
+<p>x86体系，参数先压入栈后执行call指令，<strong>call指令会把返回地址压入栈。</strong>进入被调用函数后局部变量在栈上，出被调用函数前局部变量出栈，ret和call对应返回被调用函数。栈指令（寄存器）是一种效率上优化。其实调用函数只要能记录下返回地址，被调函数能读取到并返回就行。脑洞完全可以这样，调用函数把返回地址存在某处或寄存器中，被调函数读到并jmp回来。</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzlk3wrqcvj20e80ga74y.jpg" alt="img"></p>
 <p><del>综合以下文章理解之：</del></p>
 <p>🔥<a target="_blank" rel="noopener" href="https://gitbook.coder.cat/function-call-principle/">函数调用原理</a></p>
 <blockquote>
