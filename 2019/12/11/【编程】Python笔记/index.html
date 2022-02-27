@@ -2,7 +2,8 @@
 <script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️Python笔记</h1><div class="post-info">2019-12-11</div><div class="post-content"><span id="more"></span>
 
-<h2 id="Python简介"><a href="#Python简介" class="headerlink" title="Python简介"></a>Python简介</h2><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html">Python简史</a></p>
+<h2 id="Python简介"><a href="#Python简介" class="headerlink" title="Python简介"></a>Python简介</h2><p><strong>历史</strong></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html">Python简史</a></p>
 <ol>
 <li>1989年圣诞节：Guido von Rossum开始写Python语言的编译器。</li>
 <li>1991年2月：第一个Python编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，Python已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。</li>
@@ -10,7 +11,8 @@
 <li>2000年10月16日：Python 2.0发布，增加了完整的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)">垃圾回收</a>，提供了对<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode">Unicode</a>的支持。与此同时，Python的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。</li>
 <li>2008年12月3日：Python 3.0发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以Python 3.x的很多新特性后来也被移植到Python 2.6/2.7版本中。</li>
 </ol>
-<h3 id="编译型-or-解释型"><a href="#编译型-or-解释型" class="headerlink" title="编译型 or 解释型"></a>编译型 or 解释型</h3><p>二者的执行过程不同：</p>
+<p><strong>编译型 or 解释型</strong></p>
+<p>二者的执行过程不同：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grvmqaa54tj31gc0o27wh.jpg" alt="image-20210626140034123"></p>
 <ul>
 <li>解释型优点：</li>
@@ -28,7 +30,7 @@
 <p>在 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/kym/archive/2012/05/14/2498728.html">说说Python程序的执行过程  </a>里面提到：</p>
 <p>在 <code>from aa import pr </code> 时候，会生产 .pyc临时文件</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grvmo43ahoj31gi07m0z9.jpg" alt="image-20210626135825923"></p>
-<p><strong>pyc的目的是重用</strong></p>
+<p><u>pyc的目的是重用</u></p>
 <blockquote>
 <p>回想本文的第二段在解释编译型语言和解释型语言的优缺点时，我说编译型语言的优点在于，我们可以在程序运行时不用解释，而直接利用已经“翻译”过的文件。也就是说，我们之所以要把py文件编译成pyc文件，最大的优点在于我们在运行程序时，不需要重新对该模块进行重新的解释。</p>
 </blockquote>
@@ -37,7 +39,8 @@
 </ul>
 <p><code>JIT</code> 就是说在解释型语言中，对于经常用到的或者说有较大性能提升的代码在解释的时候编译成机器码，其他一次性或者说没有太大性能提升的代码还是以字节码的方式执行。这样的话，就能在保证移植性的同时，又能让性能提升一大截</p>
 <p>在 <code>CPython</code> 中是没有 <code>JIT</code> 这个功能</p>
-<h3 id="python-特点"><a href="#python-特点" class="headerlink" title="python 特点"></a>python 特点</h3><ul>
+<p><strong>python 特点</strong></p>
+<ul>
 <li>要知道Python擅长什么</li>
 </ul>
 <p>Python之父说：大部分觉得Python慢的应用都是没有正确地使用Python。对于CPU密集型的任务有多种方法来提升性能–使用Numpy来做计算，调用外部C代码，以及尽量避免GIL锁。</p>
@@ -57,13 +60,13 @@
 <p>Python就好像是使用钢构建房一样，先规定好大的框架。而程序员可以在此框架下相当自由的拓展或更改。</p>
 </blockquote>
 <p>到今天，Python的框架已经确立。Python语言以对象为核心组织代码(Everything is object)，支持多种编程范式(multi-paradigm)，采用动态类型(dynamic typing)，自动进行内存回收(garbage collection)。Python支持解释运行(interpret)，并能调用C库进行拓展。Python有强大的标准库 (battery included)。由于标准库的体系已经稳定，所以Python的生态系统开始拓展到第三方包。这些包，如Django, web.py, wxpython, numpy, matplotlib,PIL，将Python升级成了物种丰富的热带雨林。</p>
-<h3 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h3><ul>
-<li>《流畅的python》，这本书都是基础知识，</li>
-<li>《<strong>Python编程快速上手 让繁琐工作自动化</strong>》</li>
-<li>《面向对象分析与设计》</li>
-<li>《python源码剖析》，这本书是python的源代码，c语言写的，精通python必读</li>
-</ul>
-<h2 id="Cpython-源码学习"><a href="#Cpython-源码学习" class="headerlink" title="Cpython 源码学习"></a>Cpython 源码学习</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gppgjcjlkcj31hh0u0e82.jpg" alt="image-20210419231132649"></p>
+<p><strong>参考书</strong></p>
+<p>《流畅的python》，这本书都是基础知识，</p>
+<p>《Python编程快速上手 让繁琐工作自动化》</p>
+<p>《面向对象分析与设计》</p>
+<p>《python源码剖析》，这本书是python的源代码，c语言写的，精通python必读</p>
+<h2 id="Cpython-源码学习"><a href="#Cpython-源码学习" class="headerlink" title="Cpython 源码学习"></a>Cpython 源码学习</h2><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1036428">怎么样才算是精通 Python？</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gppgjcjlkcj31hh0u0e82.jpg" alt="image-20210419231132649"></p>
 <p><a target="_blank" rel="noopener" href="https://realpython.com/cpython-source-code-guide/">Your Guide to the CPython Source Code</a></p>
 <p>中文翻译：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79656976">https://zhuanlan.zhihu.com/p/79656976</a></p>
 <p>Github: <a target="_blank" rel="noopener" href="https://github.com/python/cpython">https://github.com/python/cpython</a></p>
