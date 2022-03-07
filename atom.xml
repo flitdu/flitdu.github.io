@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-07T00:09:52.446Z</updated>
+  <updated>2022-03-07T04:06:27.185Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://example.com/2022/03/07/%E3%80%90ML%E3%80%91CV/"/>
     <id>http://example.com/2022/03/07/%E3%80%90ML%E3%80%91CV/</id>
     <published>2022-03-06T16:00:00.000Z</published>
-    <updated>2022-03-07T00:09:52.446Z</updated>
+    <updated>2022-03-07T04:06:27.185Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p>注意不同人相似的判断以及任务处理过程，可以从中得到启发</p><ul><li><a href="http://fancyerii.github.io/books/face-recognition/">人脸识别简介</a></li></ul><p>注意最优阈值的设定，通过画图设定：</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h00zudlrvuj20uq0k0t9s.jpg" alt="image-20220307080446777"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p>注意不同人<strong>相似的判断</strong>以及任务处理过程，可以从中得到启发</p><ul><li><a href="http://fancyerii.github.io/books/face-recognition/">人脸识别简介</a></li></ul><p>注意最优阈值的设定，通过画图设定：</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h00zudlrvuj20uq0k0t9s.jpg" alt="image-20220307080446777"></p><h2 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h2><p>RCNN–&gt;FAST RCNN–&gt;</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;人脸识别&quot;&gt;&lt;a href=&quot;#人脸识别&quot; class=&quot;headerlink&quot; title=&quot;人脸识别&quot;&gt;&lt;/a&gt;人脸识别&lt;/h2&gt;&lt;p&gt;注意不同人相似的判断以及任务处理过程，可以从中得到启发&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;人脸识别&quot;&gt;&lt;a href=&quot;#人脸识别&quot; class=&quot;headerlink&quot; title=&quot;人脸识别&quot;&gt;&lt;/a&gt;人脸识别&lt;/h2&gt;&lt;p&gt;注意不同人&lt;strong&gt;相似的判断&lt;/strong&gt;以及任务处理过程，可以从中得到启发&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://fancy</summary>
+&lt;li&gt;&lt;a h</summary>
       
     
     
@@ -252,9 +252,9 @@
     <link href="http://example.com/2021/08/23/%E3%80%90NLP%E3%80%91%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
     <id>http://example.com/2021/08/23/%E3%80%90NLP%E3%80%91%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</id>
     <published>2021-08-22T16:00:00.000Z</published>
-    <updated>2021-11-06T14:15:49.716Z</updated>
+    <updated>2022-03-07T04:16:44.138Z</updated>
     
-    <content type="html"><![CDATA[<span id="more"></span><h3 id="A-Survey-of-the-Usages-of-Deep-Learning-in-Natural-Language-Processing"><a href="#A-Survey-of-the-Usages-of-Deep-Learning-in-Natural-Language-Processing" class="headerlink" title="A Survey of the Usages of Deep Learning in Natural Language Processing"></a>A Survey of the Usages of Deep Learning in Natural Language Processing</h3><p><a href="https://arxiv.org/abs/1807.10854">https://arxiv.org/abs/1807.10854</a></p><p>关于nlp 的综述，便于建立整体框架</p><h3 id="Fine-tune之后的NLP新范式：Prompt"><a href="#Fine-tune之后的NLP新范式：Prompt" class="headerlink" title="Fine-tune之后的NLP新范式：Prompt"></a>Fine-tune之后的NLP新范式：Prompt</h3><p><em><a href="https://arxiv.org/pdf/2107.13586.pdf">https://arxiv.org/pdf/2107.13586.pdf</a></em></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu8gdf0c7aj612407u0tu02.jpg" alt="image-20210907225334299"></p><h3 id="Apollo，一种针对非凸随机优化的拟牛顿方法"><a href="#Apollo，一种针对非凸随机优化的拟牛顿方法" class="headerlink" title="Apollo，一种针对非凸随机优化的拟牛顿方法"></a>Apollo，一种针对非凸随机优化的拟牛顿方法</h3><blockquote><p>USC提出拟牛顿法深度学习优化器Apollo，效果比肩SGD和Adam</p></blockquote><p><strong>论文地址</strong></p><p><a href="https://arxiv.org/abs/2009.13586">https://arxiv.org/abs/2009.13586</a></p><p><strong>论文源码</strong></p><p><a href="https://github.com/XuezheMax/apollo">https://github.com/XuezheMax/apollo</a> 类型: PyTorch</p><h3 id="不同语言模型与大脑处理的比较"><a href="#不同语言模型与大脑处理的比较" class="headerlink" title="不同语言模型与大脑处理的比较"></a>不同语言模型与大脑处理的比较</h3><p><strong>模型预测出的下一个词越准，它和人类大脑契合度就越高</strong></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw5sa8shd3j310c0dg0v2.jpg" alt="image-20211106220929207"></p><ul><li>论文：<a href="https://www.pnas.org/content/118/45/e2105646118">https://www.pnas.org/content/118/45/e2105646118</a></li><li>论文预印版（Biorxiv）：<a href="https://www.biorxiv.org/content/biorxiv/early/2020/10/09/2020.06.26.174482.full.pdf">https://www.biorxiv.org/content/biorxiv/early/2020/10/09/2020.06.26.174482.full.pdf</a></li><li>GitHub：<a href="https://github.com/mschrimpf/neural-nlp">https://github.com/mschrimpf/neural-nlp</a></li></ul><p><a href="https://mp.weixin.qq.com/s/_JAe8vEUTlBk1w2tzbab9Q">方向对了？MIT新研究：GPT-3和人类大脑处理语言的方式惊人相似</a></p>]]></content>
+    <content type="html"><![CDATA[<span id="more"></span><h2 id="预训练"><a href="#预训练" class="headerlink" title="预训练"></a>预训练</h2><ul><li>Fine-tune之后的NLP新范式：Prompt</li></ul><p><em><a href="https://arxiv.org/pdf/2107.13586.pdf">https://arxiv.org/pdf/2107.13586.pdf</a></em></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gu8gdf0c7aj612407u0tu02.jpg" alt="image-20210907225334299"></p><ul><li>不同语言模型与大脑处理的比较</li></ul><p><strong>模型预测出的下一个词越准，它和人类大脑契合度就越高</strong></p><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gw5sa8shd3j310c0dg0v2.jpg" alt="image-20211106220929207"></p><p>论文：<a href="https://www.pnas.org/content/118/45/e2105646118">https://www.pnas.org/content/118/45/e2105646118</a></p><p>论文预印版（Biorxiv）：<a href="https://www.biorxiv.org/content/biorxiv/early/2020/10/09/2020.06.26.174482.full.pdf">https://www.biorxiv.org/content/biorxiv/early/2020/10/09/2020.06.26.174482.full.pdf</a></p><p>GitHub：<a href="https://github.com/mschrimpf/neural-nlp">https://github.com/mschrimpf/neural-nlp</a></p><p><a href="https://mp.weixin.qq.com/s/_JAe8vEUTlBk1w2tzbab9Q">方向对了？MIT新研究：GPT-3和人类大脑处理语言的方式惊人相似</a></p><h2 id="nlp"><a href="#nlp" class="headerlink" title="nlp"></a>nlp</h2><ul><li>A Survey of the Usages of Deep Learning in Natural Language Processing</li></ul><p><a href="https://arxiv.org/abs/1807.10854">https://arxiv.org/abs/1807.10854</a></p><p>关于nlp 的综述，便于建立整体框架</p><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><ul><li>Apollo，一种针对非凸随机优化的拟牛顿方法</li></ul><blockquote><p>USC提出拟牛顿法深度学习优化器Apollo，效果比肩SGD和Adam</p></blockquote><p><strong>论文地址</strong></p><p><a href="https://arxiv.org/abs/2009.13586">https://arxiv.org/abs/2009.13586</a></p><p><strong>论文源码</strong></p><p><a href="https://github.com/XuezheMax/apollo">https://github.com/XuezheMax/apollo</a> 类型: PyTorch</p>]]></content>
     
     
       
@@ -263,9 +263,9 @@
 
 
 
-
-
-&lt;h3 id=&quot;A-Survey-of-the-Usages-of-Deep-Learning-in-Natural-Language-Processing&quot;&gt;&lt;a href=&quot;#A-Survey-of-the-Usage</summary>
+&lt;h2 id=&quot;预训练&quot;&gt;&lt;a href=&quot;#预训练&quot; class=&quot;headerlink&quot; title=&quot;预训练&quot;&gt;&lt;/a&gt;预训练&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Fine-tune之后的NLP新范式：Prompt&lt;/li&gt;
+&lt;/</summary>
       
     
     
