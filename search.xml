@@ -8,7 +8,7 @@
       <link href="/2022/03/07/%E3%80%90ML%E3%80%91CV/"/>
       <url>/2022/03/07/%E3%80%90ML%E3%80%91CV/</url>
       
-        <content type="html"><![CDATA[<h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><ul><li><a href="http://fancyerii.github.io/books/face-recognition/">人脸识别简介</a></li></ul><p>注意最优阈值的设定，通过画图设定：</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h00zudlrvuj20uq0k0t9s.jpg" alt="image-20220307080446777"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h2><p>注意不同人相似的判断以及任务处理过程，可以从中得到启发</p><ul><li><a href="http://fancyerii.github.io/books/face-recognition/">人脸识别简介</a></li></ul><p>注意最优阈值的设定，通过画图设定：</p><p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h00zudlrvuj20uq0k0t9s.jpg" alt="image-20220307080446777"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="">参考1</a><a href="#toc1">🔼</a></li><li></li></ol>]]></content>
       
       
       <categories>
