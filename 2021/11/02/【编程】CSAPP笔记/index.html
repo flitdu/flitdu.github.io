@@ -8,10 +8,8 @@
 <p>联想到在NLP 发展里程中，围绕自然语言的表示（one-hot–&gt;word2vec–&gt;bert等）也经历了不断的发展，好的表示有时会带来效果上巨大的跃升</p>
 <p>历史上 <a target="_blank" rel="noopener" href="https://www.infoq.cn/article/p0kecufq5f9w_irxji3x">软件缺陷而引发的灾难</a> ：</p>
 <ul>
-<li><em>1996年6月4 日阿丽亚娜5号首次测试发射失败：</em></li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwzy1t88u6j30go0azdfw.jpg" alt="img"></p>
-<ul>
+<li><p><em>1996年6月4 日阿丽亚娜5号首次测试发射失败：</em></p>
+</li>
 <li><p><em>再举一个真实的例子， 纽约时报曾经报道，波音 787 的电力控制系统在 248 天电力不中断的状况下会自动关机（这可能发生在飞行途中），为此 FAA (美国联邦航空管理局) 告知航空公司，他们必须每隔 120 天进行一次维护重启，这显然是治标不治本的办法，我们来探究一下其中的真正原因：</em></p>
 <blockquote>
 <p>美国卡内基梅隆大学 (CMU) 的 <a target="_blank" rel="noopener" href="http://users.ece.cmu.edu/~koopman/">Phil Koopman</a> 教授指出，这其实是 integer overflow 问题，也就是所谓的整型溢出问题，原文链接在<a target="_blank" rel="noopener" href="https://betterembsw.blogspot.com/2015/05/counter-rollover-bites-boeing-787.html">这里</a>，我们简单小结一下，报告指出的248天为：248 days * 24 hours/day  * 60 minute/hour * 60 seconds/minute = 21427200秒，等效于2142720000（以1/100秒来计算），十六进制表示就是：0x7Fb75000 ，而最大的32位正整型是0x7FFFFFFF，248天看起来非常接近该限制，实际上，0x7FFFFFFF = 2147483647 /（24 * 60 * 60）= 24855/100 = 248.55天，因此，实际上崩溃会在248.55天之后发生，也就是说，使用了32位的有符号整型来记录时间（记录的单位是10ms），然后遇到溢出。</p>
