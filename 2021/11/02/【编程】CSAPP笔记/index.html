@@ -4,37 +4,22 @@
 
 
 
-<h2 id="Chap2-信息的表示和处理"><a href="#Chap2-信息的表示和处理" class="headerlink" title="Chap2: 信息的表示和处理"></a>Chap2: 信息的表示和处理</h2><p>计算机有自己的处理方式，我们若想利用好计算机，就要知道计算机是表示和处理信息的。计算机有一套自己的处理逻辑，采用二进制系统。</p>
-<p>联想到在NLP 发展里程中，围绕自然语言的表示（one-hot–&gt;word2vec–&gt;bert等）也经历了不断的发展，好的表示有时会带来效果上巨大的跃升</p>
-<p>历史上 <a target="_blank" rel="noopener" href="https://www.infoq.cn/article/p0kecufq5f9w_irxji3x">软件缺陷而引发的灾难</a> ：</p>
-<ul>
-<li><p><em>1996年6月4 日阿丽亚娜5号首次测试发射失败：</em></p>
-</li>
-<li><p><em>再举一个真实的例子， 纽约时报曾经报道，波音 787 的电力控制系统在 248 天电力不中断的状况下会自动关机（这可能发生在飞行途中），为此 FAA (美国联邦航空管理局) 告知航空公司，他们必须每隔 120 天进行一次维护重启，这显然是治标不治本的办法，我们来探究一下其中的真正原因：</em></p>
-<blockquote>
-<p>美国卡内基梅隆大学 (CMU) 的 <a target="_blank" rel="noopener" href="http://users.ece.cmu.edu/~koopman/">Phil Koopman</a> 教授指出，这其实是 integer overflow 问题，也就是所谓的整型溢出问题，原文链接在<a target="_blank" rel="noopener" href="https://betterembsw.blogspot.com/2015/05/counter-rollover-bites-boeing-787.html">这里</a>，我们简单小结一下，报告指出的248天为：248 days * 24 hours/day  * 60 minute/hour * 60 seconds/minute = 21427200秒，等效于2142720000（以1/100秒来计算），十六进制表示就是：0x7Fb75000 ，而最大的32位正整型是0x7FFFFFFF，248天看起来非常接近该限制，实际上，0x7FFFFFFF = 2147483647 /（24 * 60 * 60）= 24855/100 = 248.55天，因此，实际上崩溃会在248.55天之后发生，也就是说，使用了32位的有符号整型来记录时间（记录的单位是10ms），然后遇到溢出。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="原码、反码与补码"><a href="#原码、反码与补码" class="headerlink" title="原码、反码与补码"></a>原码、反码与补码</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html">原码, 反码, 补码 详解 </a></p>
+<h2 id="Chap2-信息的表示和处理"><a href="#Chap2-信息的表示和处理" class="headerlink" title="Chap2: 信息的表示和处理"></a>Chap2: 信息的表示和处理</h2><p>计算机内部采用二进制，对于有符号整数使用补码 表示</p>
+<p><strong>原码、反码与补码</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx1yf53pabj30jw08smxk.jpg" alt="image-20211204175944888"></p>
-<p><strong>原码</strong></p>
+<ul>
+<li>原码</li>
+</ul>
 <p>第一位是符号位，其余位表示值。比如如果是8位二进制:</p>
 <blockquote>
 <p>[+1]原 = 0000 0001</p>
 <p>[-1]原 = 1000 0001</p>
 </blockquote>
-<p>第一位是符号位. 因为第一位是符号位, 所以8位二进制数的取值范围就是:</p>
-<blockquote>
-<p>[1111 1111 , 0111 1111]</p>
-</blockquote>
-<p>即</p>
-<blockquote>
-<p>[-127 , 127]</p>
-</blockquote>
-<p><strong>反码</strong></p>
+<ul>
+<li>反码</li>
+</ul>
 <p>正数的反码是其本身</p>
-<p>负数的反码是在其原码的基础上, 符号位不变，其余各个位取反.</p>
+<p>负数的反码是在其原码的基础上, <strong>符号位不变</strong>，其余各个位取反.</p>
 <p>e.g.</p>
 <blockquote>
 <p>[+1] = [00000001]原 = [00000001]反</p>
@@ -51,7 +36,9 @@
     00000001      1   &lt;-- 正确结果
 </code></pre>
 <p>反码的优点：正数和负数的加法都一样， 不需要单独判断符号的电路。但是，0表示还是不唯一</p>
-<p><strong>补码</strong></p>
+<ul>
+<li><strong>补码</strong></li>
+</ul>
 <p>正数的补码就是其本身</p>
 <p>负数的补码是在其原码的基础上, 符号位不变, 其余各位取反, 最后+1. (<strong>即在反码的基础上+1</strong>)</p>
 <blockquote>
@@ -59,21 +46,19 @@
 <p>[-1] = [10000001]原 = [11111110]反 = [11111111]补</p>
 </blockquote>
 <p>补码转十进制值的两种方法：</p>
-<ul>
-<li><p>按照定义</p>
-</li>
-<li><p>对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取反即可</p>
-</li>
-</ul>
+<p>1）按照定义</p>
+<p>2）对于负数，从后往前，找到第一个1，然后，1左边的取反，得到原码，再取相反数即可</p>
 <blockquote>
-<p>e.g.， [1011]补 = -([0101]原)=-7</p>
+<p>e.g.， [1011]补 = -([0101]原)=-5</p>
 </blockquote>
 <p>补码表示的一个显著优点就是补码的减法可以通过补码加法来实现，即补码运算具有如下性质：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx37auybx8j30wk032mxa.jpg" alt="image-20211205195032550">而‐B补 可以通过将 B补“按位取反，末位加 1” 的法则进行计算。</p>
 <p>e.g.</p>
 <blockquote>
 <p>计算 -3-3  </p>
-<p>   1 0 1<br> - 0 1 1<br>-———<br>    1 0 1<br> + 1 0 1   &lt;—[-B]补<br>-———<br> 1 0 1 0  &lt;— -6</p>
+<pre><code> 1 1 0 1
+</code></pre>
+<p> - 0 0 1 1<br>-———<br>     1 1 0 1<br> +1 1 0 1   &lt;—[-B]补<br>-———<br> <del>1</del>1 0 1 0  &lt;— -6 ， 左边1 舍去</p>
 </blockquote>
 <p><strong>乘法</strong></p>
 <p>乘法亦会转化为加法计算</p>
@@ -356,6 +341,10 @@
 <p><strong>存储器山（Memory Mountain）</strong></p>
 <p>不同的CPU有不同的存储器山</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxv2a2u14kj30n00hbacw.jpg" alt="img"></p>
+<ul>
+<li>补充</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UZ4y1K7ZD">【软件开发】理解CPU缓存的重要性</a></p>
 <h2 id="Chap7-链接"><a href="#Chap7-链接" class="headerlink" title="Chap7: 链接"></a>Chap7: 链接</h2><p>进程的虚拟地址空间：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxv46lsaolj30jc0fuwg6.jpg" alt="enter image description here"></p>
 <p>（视频讲座）：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hv411s7ew/">Linux环境下：程序的链接, 装载和库</a>   （比较详细，探讨了很多细节）</p>
