@@ -4,7 +4,7 @@
 
 
 
-<h2 id="Chap2-信息的表示和处理"><a href="#Chap2-信息的表示和处理" class="headerlink" title="Chap2: 信息的表示和处理"></a>Chap2: 信息的表示和处理</h2><p>计算机内部采用二进制，对于有符号整数使用补码 表示</p>
+<h2 id="Chap2-信息的表示和处理"><a href="#Chap2-信息的表示和处理" class="headerlink" title="Chap2: 信息的表示和处理"></a>Chap2: 信息的表示和处理</h2><p>计算机内部采用二进制，对于整数使用补码 表示</p>
 <p><strong>原码、反码与补码</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx1yf53pabj30jw08smxk.jpg" alt="image-20211204175944888"></p>
 <ul>
@@ -53,12 +53,10 @@
 </blockquote>
 <p>补码表示的一个显著优点就是补码的减法可以通过补码加法来实现，即补码运算具有如下性质：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx37auybx8j30wk032mxa.jpg" alt="image-20211205195032550">而‐B补 可以通过将 B补“按位取反，末位加 1” 的法则进行计算。</p>
-<p>e.g.</p>
+<p>e.g. 计算 -3-3  </p>
+<p> [-3]补- [3]补 = [-3]补+ [-3]补</p>
 <blockquote>
-<p>计算 -3-3  </p>
-<pre><code> 1 1 0 1
-</code></pre>
-<p> - 0 0 1 1<br>-———<br>     1 1 0 1<br> +1 1 0 1   &lt;—[-B]补<br>-———<br> <del>1</del>1 0 1 0  &lt;— -6 ， 左边1 舍去</p>
+<p>  1 1 0 1<br>+1 1 0 1<br>   -———<br> <del>1</del>1 0 1 0  &lt;— -6 ， 左边1 舍去</p>
 </blockquote>
 <p><strong>乘法</strong></p>
 <p>乘法亦会转化为加法计算</p>
@@ -80,10 +78,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case1: x=-2147483648, x*2=0</span><br><span class="line">case2: ux&gt;-1: 0</span><br><span class="line">case3: x &gt;y: 1</span><br><span class="line">case3: -x&lt;-y: 0</span><br><span class="line">case4: x*x: -1794967296</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Brian Kernighan（K&amp;R中的K，也是AWK的作者之一）在谈论<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1K64y1Q7Ru/">编程风格</a>的时候举了一个比特操作的例子：</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx3eu127m6j31j40u0n0j.jpg" alt="image-20211206001313055"></p>
-<ul>
 <li>大小端</li>
 </ul>
 <p>可以通过反汇编查看：<code>objdump -d /bin/ls</code></p>
@@ -94,11 +88,13 @@
 
 
 
-<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>1985年：IEEE-754 标准</p>
+<p><strong>浮点数</strong></p>
+<p>1985年：IEEE-754 标准</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4k4wfr9mj31e808it9l.jpg" alt="image-20211207000208368"></p>
 <p>具体编码方式（32位浮点数为例）：</p>
 <p>其中，尾数用原码表示，阶码是用加偏置常量的移码表示</p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4kbm3wvsj31600jg0ve.jpg" alt="image-20211207000838521"></p>
+<p>举例参见：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html">浮点数的二进制表示</a></p>
 <p><strong>特别注意</strong>：浮点数加法和乘法不满足结合律 ，也不满足乘法对加法的分配律，以下举例说明：</p>
 <p>(3.14+1e10)-1e10 = 0, 3.14+(1e10-1e10) = 3.14，(1e20 *1e20) * 1e-20= inf, 1e20 * (1e20 * 1e-20)= 1e20</p>
 <p>1e20 * (1e20 - 1e20)= 0.0, 1e20 * 1e20 - 1e20 * 1e20 = NaN</p>
@@ -108,7 +104,8 @@
 <p>问题理解：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有问题的版本 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> sum = <span class="number">0.0f</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) sum += i + <span class="number">1</span>;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;Sum: %f\n&quot;</span>, sum);  <span class="comment">// Sum: 50002896.000000</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 + 2 + 3 + … + 10000 = 10000 * (10000 + 1) / 2 = 50005000 ?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修正的版本</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> sum = <span class="number">0.0f</span>, corr = <span class="number">0.0f</span>; <span class="comment">/* corrective value for rounding error */</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">float</span> y = (i + <span class="number">1</span>) - corr; <span class="comment">/* add the correction to specific item */</span></span><br><span class="line">      <span class="keyword">float</span> t = sum + y; <span class="comment">/* bits might be lost */</span></span><br><span class="line">      corr = (t - sum) - y; <span class="comment">/* recover lost bits */</span></span><br><span class="line">      sum = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Sum: %f\n&quot;</span>, sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="datalab"><a href="#datalab" class="headerlink" title="datalab"></a>datalab</h3><p><a target="_blank" rel="noopener" href="https://github.com/flitdu/c-learning">个人github答案参考：</a>，</p>
+<p><strong>datalab</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/flitdu/c-learning">个人github答案参考：</a>，</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/429163387">知乎记录的完成情况</a></p>
 <p><a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/3e/datalab.pdf">说明文件PDF：</a></p>
 <blockquote>
@@ -137,8 +134,6 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59534845">CSAPP 之 DataLab详解，没有比这更详细的了</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two&#x27;s complement number,</span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">  x max value is 01111...1111</span></span><br><span class="line"><span class="comment">  the destnitation is get all zero from x</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">int</span> i = x+<span class="number">1</span>; <span class="comment">// 10000...000</span></span><br><span class="line">  x = x+i;  <span class="comment">// 1111..111</span></span><br><span class="line">  x = ~x;  <span class="comment">// 000...000</span></span><br><span class="line">  <span class="comment">//exclude 111..111-------</span></span><br><span class="line">  <span class="comment">// attention int i=0000..000</span></span><br><span class="line">  i = !i;</span><br><span class="line">  x = x+i;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
 <ul>
 <li>isAsciiDigit()</li>
 </ul>
@@ -164,7 +159,8 @@
 
 
 
-<h3 id="补充资料"><a href="#补充资料" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a54y1k7YE?p=4">CMU教授的视频教程 - Lecture4：Floating Point</a></p>
+<p><strong>补充资料</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a54y1k7YE?p=4">CMU教授的视频教程 - Lecture4：Floating Point</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g5411K7Z7?p=17">计算机结构的伟大思想 - P17：浮点数运算</a> (40:00开始~)</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1554y1s7LS?p=27">台湾元智大学计算机组成原理：浮点数-1</a>，</p>
 <p> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1554y1s7LS?p=28">台湾元智大学计算机组成原理：浮点数-2</a> （中文讲解很清楚）</p>
@@ -295,7 +291,7 @@
 
 
 
-<h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CS01Hmjv1pQ">拉尔夫·兰纳：破解二十一世纪的网络武器–震网病毒</a></p>
+<h3 id="补充资料"><a href="#补充资料" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CS01Hmjv1pQ">拉尔夫·兰纳：破解二十一世纪的网络武器–震网病毒</a></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf">x64 Cheat Sheet</a> pdf</li>
 </ul>
@@ -310,7 +306,7 @@
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz7o6k1pblj31cz0u07g5.jpg" alt="image-20220209231951581"></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gz8u16aur2j319e0u0tgs.jpg" alt="image-20220210232754012"></p>
-<h2 id="Chap4-处理器体系结构"><a href="#Chap4-处理器体系结构" class="headerlink" title="Chap4: 处理器体系结构"></a>Chap4: 处理器体系结构</h2><h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline??"></a>pipeline??</h3><h3 id="补充资料-2"><a href="#补充资料-2" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q64y1s7MH/?spm_id_from=333.788.recommend_more_video.-1">【硬核科普】全站最硬科普：7分钟带你了解造芯全过程</a></p>
+<h2 id="Chap4-处理器体系结构"><a href="#Chap4-处理器体系结构" class="headerlink" title="Chap4: 处理器体系结构"></a>Chap4: 处理器体系结构</h2><h3 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline??"></a>pipeline??</h3><h3 id="补充资料-1"><a href="#补充资料-1" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q64y1s7MH/?spm_id_from=333.788.recommend_more_video.-1">【硬核科普】全站最硬科普：7分钟带你了解造芯全过程</a></p>
 <p>Patterson演讲：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fr4y1N7hx/">计算机体系结构的新黄金时代</a>，Hennessy演讲：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TV411y7Jo/">计算机体系结构的新黄金时代</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12A41177Qt?p=1">计算机体系结构（胡伟武 汪文祥）20年秋季学期</a></p>
 <p>关于现代处理器，强烈推荐阅读这份很好的在线文档：<a target="_blank" rel="noopener" href="http://www.lighterra.com/papers/modernmicroprocessors/">Modern Microprocessors A 90-Minute Guide!</a><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxyktrcremj324a0r2133.jpg" alt="image-20220101231226145"></p>
@@ -358,7 +354,7 @@
 <p><strong>用户空间 vs 内核空间</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gxw659bc3nj30lo0ekach.jpg" alt="img"></p>
 <p>参考：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/12/user_space_vs_kernel_space.html">阮一峰：User space 与 Kernel space</a></p>
-<h3 id="补充资料-3"><a href="#补充资料-3" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://liam.page/2017/01/17/layers-and-operation-system/">程序员的自我修养（二）：操作系统、进程与线程</a></p>
+<h3 id="补充资料-2"><a href="#补充资料-2" class="headerlink" title="补充资料"></a>补充资料</h3><p><a target="_blank" rel="noopener" href="https://liam.page/2017/01/17/layers-and-operation-system/">程序员的自我修养（二）：操作系统、进程与线程</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">进程与线程的一个简单解释</a></p>
 <h2 id="Chap9-虚拟内存"><a href="#Chap9-虚拟内存" class="headerlink" title="Chap9: 虚拟内存"></a>Chap9: 虚拟内存</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XB4y1A7vm?p=5"><strong>物理内存有什么问题？</strong></a>    1. 内存空间不够  2. 产生内存碎片  3. 没有内存保护    </p>
 <p>（虚拟内存闪亮登场，本质就是增加一个中间层，计算机科学的任何问题都可以通过增加间接层解决！）</p>
