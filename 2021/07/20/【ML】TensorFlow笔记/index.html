@@ -3,9 +3,17 @@
 </head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">⭐️TensorFlow 笔记</h1><div class="post-info">2021-07-20</div><div class="post-content"><p>TF源码：<a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensorflow">https://github.com/tensorflow/tensorflow</a></p>
 <span id="more"></span>
 
+
+
 <h2 id="TF-系统架构"><a href="#TF-系统架构" class="headerlink" title="TF 系统架构"></a>TF 系统架构</h2><p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1gzshbr4l6vj212a0j876q.jpg" alt="image-20220227231935259"></p>
-<h2 id="编程模型"><a href="#编程模型" class="headerlink" title="编程模型"></a><strong>编程模型</strong></h2><p>TF使用数据流图来表达数值计算，数据流图是有向无环图（DAG）</p>
-<p>使用节点表示抽象计算，边表示数据流</p>
+<p>详细的如下：</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0fishvhovj20u00ua44d.jpg" alt="image-20220319213814995"></p>
+<p>对于 TensorFlow，C API 是衔接前后端系统的桥梁。理解 C API 的设计，基本能够猜测前后端系统的行为</p>
+<p><strong>技术栈</strong></p>
+<p>下图按照系统的层次结构展示了 TensorFlow 的技术栈，构成了 TensorFlow 生态系统的核心。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0f7wzk586j20ui0iuad5.jpg" alt="image-20220319151911404"></p>
+<h2 id="编程模型：计算图"><a href="#编程模型：计算图" class="headerlink" title="编程模型：计算图"></a><strong>编程模型：计算图</strong></h2><p>TF使用数据流图来表达数值计算的开源软件库，数据流图是有向无环图（DAG）</p>
+<p>使用节点表示抽象计算，边表示数据流(Tensor)</p>
 <blockquote>
 <p>下图展示了 MNIST 手写识别应用的数据流图。在该模型 中，前向子图使用了 2 层全连接网络，分别为 ReLU 层和 Softmax 层。随后，使用 SGD 的 优化算法，构建了与前向子图对应的反向子图，用于计算训练参数的梯度。最后，根据参数 更新法则，构造训练参数的更新子图，完成训练参数的迭代更新。</p>
 </blockquote>
@@ -28,8 +36,6 @@
 <p><del><strong>服务器部署</strong> ：使用 TensorFlow Serving 在服务器上为训练完成的模型提供高性能、支持并发、高吞吐量的 API。</del></p>
 <p><del><strong>移动端和嵌入式设备部署</strong> ：使用 TensorFlow Lite 将模型转换为体积小、高效率的轻量化版本，并在移动端、嵌入式端等功耗和计算能力受限的设备上运行，支持使用 GPU 代理进行硬件加速，还可以配合 Edge TPU 等外接硬件加速运算。</del></p>
 <p><del><strong>网页端部署</strong> ：使用 TensorFlow.js，在网页端等支持 JavaScript 运行的环境上也可以运行模型，支持使用 WebGL 进行硬件加速。</del></p>
-<h2 id="源码解读"><a href="#源码解读" class="headerlink" title="源码解读"></a><del>源码解读</del></h2><p><del><a target="_blank" rel="noopener" href="https://github.com/yao62995/tensorflow">https://github.com/yao62995/tensorflow</a></del></p>
-<p><del>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yao62995/p/5773578.html">图解tensorflow源码] [原创] Tensorflow 图解分析 （Session, Graph, Kernels, Devices）</a></del></p>
 <h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a><del>核心概念</del></h2><p><del>Tensorflow底层最核心的概念是张量，计算图以及自动微分。</del></p>
 <p><del>程序=算法+数据结构</del></p>
 <p><del>Tensorflow程序 = 张量（数据结构）+计算图算法语言</del></p>
@@ -120,7 +126,10 @@
 
 
 
-<h2 id="TF-层次结构"><a href="#TF-层次结构" class="headerlink" title="TF 层次结构"></a><del>TF 层次结构</del></h2><p><del><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtmf3o2l32j617w0oodjc02.jpg" alt="image-20210819212650613"></del></p>
+
+
+
+
 <h2 id="一些方法"><a href="#一些方法" class="headerlink" title="一些方法"></a><del>一些方法</del></h2><h3 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a><del>dataset</del></h3><p><del>repeat,batch, shuffle</del></p>
 <p><del><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=c7G5W4Wv72Q">https://www.youtube.com/watch?v=c7G5W4Wv72Q</a></del></p>
 <p><del><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gt1htsipgij31d00okah5.jpg" alt="image-20210801190435983"></del></p>
@@ -172,4 +181,7 @@
 </ol>
 <p><a target="_blank" rel="noopener" href="https://jackiexiao.github.io/eat_tensorflow2_in_30_days/">https://jackiexiao.github.io/eat_tensorflow2_in_30_days/</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtk7a5esd0j61te0tqgsl02.jpg" alt="image-20210817232515561"></p>
+<ol start="5">
+<li>[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yao62995/p/5773578.html">图解tensorflow源码] [原创] Tensorflow 图解分析 （Session, Graph, Kernels, Devices）</a></li>
+</ol>
 </div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2021/07/26/%E3%80%90%E7%BD%91%E7%BB%9C%E3%80%91%E7%BD%91%E9%A1%B5%E5%B1%95%E7%A4%BA/" title="⭐️网页展示" class="prev">PREV</a><a href="/2021/06/29/%E3%80%90ML%E3%80%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6/" title="⭐️机器学习中的数学" class="next">NEXT</a></div><div class="copyright"><p>© 2016 - 2022 <a target="_blank">John Doe</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
