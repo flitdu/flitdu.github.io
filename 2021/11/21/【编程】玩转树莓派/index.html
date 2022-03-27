@@ -34,16 +34,22 @@
 <p>首先要获取树莓派ip</p>
 <ul>
 <li>路由管理页面</li>
+<li>Mac OS下， Bonjour查询</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dns-sd -q raspberrypi.local</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0om8t5c8sj21le07mgny.jpg" alt="image-20220327182749101"></p>
+<blockquote>
+<p>在同一局域网下， 可以用主机名.local的形式，找到对应的IP地址。由于树莓派的默认主机 名是raspberrypi，因此可以用raspberrypi.local来登录树莓派: <code>ssh pi@raspberrypi.local</code></p>
+</blockquote>
+<ul>
 <li>Mac OX 下LanScan</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0ok9klwskj21zc0ig42y.jpg" alt="image-20220327171921936"></p>
-<p>在同一局域网下， 可以用主机名.local的形式，找到对应的IP地址。由于树莓派的默认主机 名是raspberrypi，因此可以用raspberrypi.local来登录树莓派: <code>ssh pi@raspberrypi.local</code></p>
-<p>如果要在Windows系统中使用SSH，会用到另一种软件<a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty">PuTTY</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">SSH原理与运用（一）：远程登录</a></p>
 <ul>
 <li>登录桌面版</li>
 </ul>
-<p><del><a target="_blank" rel="noopener" href="http://www.modeshen.com/?p=28">http://www.modeshen.com/?p=28</a></del></p>
 <p>vnc viewer 连接</p>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0ncx72vwbj21dn0u0q8d.jpg" alt="image-20220326161940563"></p>
 <h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><ul>
