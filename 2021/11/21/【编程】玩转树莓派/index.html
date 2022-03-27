@@ -30,17 +30,18 @@
 </blockquote>
 <p>后续可以登录后，wifi 配置文件在：etc/wpa_supplicant/wpa_supplicant.conf </p>
 <p><strong>ssh 登录</strong></p>
-<p>要获取树莓派ip</p>
-<p>  <del><code>ssh pi@raspberrypi.local</code></del></p>
 <p>简单说，SSH是一种网络协议，用于计算机之间的加密登录。SSH是每一台Linux电脑的标准配置。</p>
-<p>SSH主要用于远程登录。假定你要以用户名user，登录远程主机host，只要一条简单命令就可以了。</p>
-<blockquote>
-<p>$ ssh user@host</p>
-</blockquote>
+<p>首先要获取树莓派ip</p>
+<ul>
+<li>路由管理页面</li>
+<li>Mac OX 下LanScan</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0ok9klwskj21zc0ig42y.jpg" alt="image-20220327171921936"></p>
+<p>在同一局域网下， 可以用主机名.local的形式，找到对应的IP地址。由于树莓派的默认主机 名是raspberrypi，因此可以用raspberrypi.local来登录树莓派: <code>ssh pi@raspberrypi.local</code></p>
 <p>如果要在Windows系统中使用SSH，会用到另一种软件<a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty">PuTTY</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">SSH原理与运用（一）：远程登录</a></p>
 <ul>
-<li>登录桌面</li>
+<li>登录桌面版</li>
 </ul>
 <p><del><a target="_blank" rel="noopener" href="http://www.modeshen.com/?p=28">http://www.modeshen.com/?p=28</a></del></p>
 <p>vnc viewer 连接</p>

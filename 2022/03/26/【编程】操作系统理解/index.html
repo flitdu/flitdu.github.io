@@ -5,18 +5,18 @@
 
 
 <h2 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h2><p>shell 提供了一种用户调用操作系统内核的方式</p>
-<p><strong>命令形式</strong></p>
+<p><strong>命令形式</strong> : <code>命令名+选项/参数</code></p>
+<p>命令包括：</p>
+<p>1）Shell  内建函数</p>
+<p>2）可执行文件</p>
+<p>3）别名</p>
 <ul>
-<li>选项</li>
+<li>选项/ 参数</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -a  // 选项-a 表示显示所有的相关信息</span><br><span class="line">sudo fdisk -l   // -l表示列出所有磁盘</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uname -a  // 选项-a 表示显示所有的相关信息</span><br><span class="line">sudo fdisk -l   // -l表示列出所有磁盘</span><br><span class="line">date --version   // --长选项</span><br><span class="line"></span><br><span class="line">vcgencmd measure_temp   //cpu温度</span><br></pre></td></tr></table></figure>
 
-
-
-<ul>
-<li>参数</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vcgencmd measure_temp   //cpu温度</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>其它命令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">whatis ls   // 简短的一句话介绍命令</span><br><span class="line">man ls</span><br><span class="line">info ls</span><br><span class="line">ctrl C   // 终止</span><br><span class="line">ctrl Z  // 暂停</span><br></pre></td></tr></table></figure>
 
 
 
